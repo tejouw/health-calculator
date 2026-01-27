@@ -1,0 +1,147 @@
+{
+  "common": {
+    "calculate": "Hesapla",
+    "result": "Sonuç",
+    "reset": "Sıfırla",
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu",
+    "required": "Bu alan zorunludur",
+    "search": "Ara...",
+    "searchPlaceholder": "Hesaplayıcı ara...",
+    "noResults": "Sonuç bulunamadı",
+    "popularCalculators": "Popüler Hesaplayıcılar",
+    "allCategories": "Tüm Kategoriler",
+    "readMore": "Devamını Oku",
+    "share": "Paylaş",
+    "print": "Yazdır",
+    "back": "Geri",
+    "home": "Ana Sayfa"
+  },
+  "categories": {
+    "bodyWeight": "Vücut & Kilo",
+    "fitness": "Fitness & Egzersiz",
+    "nutrition": "Beslenme & Diyet",
+    "pregnancy": "Hamilelik & Doğum",
+    "womensHealth": "Kadın Sağlığı",
+    "mensHealth": "Erkek Sağlığı",
+    "heart": "Kalp & Damar",
+    "diabetes": "Diyabet & Kan Şekeri",
+    "medical": "Tıbbi Hesaplamalar",
+    "mentalHealth": "Ruh Sağlığı",
+    "sleep": "Uyku & Dinlenme",
+    "childrensHealth": "Çocuk Sağlığı"
+  },
+  "units": {
+    "cm": "cm",
+    "meter": "m",
+    "kg": "kg",
+    "gram": "gr",
+    "lbs": "lbs",
+    "inch": "inç",
+    "feet": "fit",
+    "kcal": "kkal",
+    "years": "yıl",
+    "months": "ay",
+    "weeks": "hafta",
+    "days": "gün",
+    "hours": "saat",
+    "minutes": "dakika",
+    "bpm": "atım/dk",
+    "mgdl": "mg/dL",
+    "mmoll": "mmol/L"
+  },
+  "form": {
+    "height": "Boy",
+    "weight": "Kilo",
+    "age": "Yaş",
+    "gender": "Cinsiyet",
+    "male": "Erkek",
+    "female": "Kadın",
+    "activityLevel": "Aktivite Seviyesi",
+    "sedentary": "Hareketsiz",
+    "light": "Az Hareketli",
+    "moderate": "Orta Derecede Aktif",
+    "active": "Aktif",
+    "veryActive": "Çok Aktif",
+    "goal": "Hedef",
+    "loseWeight": "Kilo Vermek",
+    "maintainWeight": "Kilom Sabit Kalsın",
+    "gainWeight": "Kilo Almak",
+    "unitSystem": "Birim Sistemi",
+    "metric": "Metrik",
+    "imperial": "İmperial"
+  },
+  "navigation": {
+    "home": "Ana Sayfa",
+    "categories": "Kategoriler",
+    "about": "Hakkımızda",
+    "contact": "İletişim",
+    "language": "Dil",
+    "turkish": "Türkçe",
+    "english": "English"
+  },
+  "hero": {
+    "title": "350+ Sağlık Hesaplayıcısı",
+    "subtitle": "BMI'dan hamilelik takibine, beslenme planlamasından fitness hedeflerine kadar ihtiyacınız olan tüm sağlık hesaplayıcıları bir arada.",
+    "cta": "Hesaplayıcılara Göz Atın"
+  },
+  "footer": {
+    "description": "Sağlık hesaplayıcılarınız için güvenilir kaynak. Tüm hesaplamalar bilgilendirme amaçlıdır.",
+    "disclaimer": "Sorumluluk Reddi",
+    "disclaimerText": "Bu sitedeki tüm hesaplayıcılar ve bilgiler yalnızca bilgilendirme amaçlıdır ve profesyonel tıbbi tavsiye yerine geçmez.",
+    "privacy": "Gizlilik Politikası",
+    "terms": "Kullanım Koşulları",
+    "copyright": "© 2025 Sağlık Hesapla. Tüm hakları saklıdır."
+  },
+  "seo": {
+    "defaultTitle": "Sağlık Hesapla - 350+ Ücretsiz Sağlık Hesaplayıcısı",
+    "defaultDescription": "BMI, kalori, hamilelik ve daha fazlası için ücretsiz ve doğru sağlık hesaplayıcıları. Sağlık Hesapla'da anında sonuç alın!"
+  },
+  "calculator": {
+    "relatedCalculators": "İlgili Hesaplayıcılar",
+    "relatedCalculatorsDescription": "İlgili hesaplayıcılar burada gösterilecek",
+    "whatIsIt": "Nedir?",
+    "howToCalculate": "Nasıl Hesaplanır?",
+    "interpretation": "Yorumlama",
+    "tips": "İpuçları",
+    "faq": "Sık Sorulan Sorular"
+  },
+  "branding": {
+    "siteName": "Sağlık Hesapla"
+  },
+  "stats": {
+    "healthCalculators": "Sağlık Hesaplayıcısı",
+    "activeUsers": "Aktif Kullanıcı",
+    "userRating": "Kullanıcı Değerlendirmesi",
+    "privacyProtected": "Gizlilik Korumalı"
+  },
+  "features": {
+    "instantResults": {
+      "title": "Anında Sonuçlar",
+      "description": "Saniyeler içinde doğru sağlık hesaplamaları alın"
+    },
+    "privacyFirst": {
+      "title": "Gizlilik Önceliğimiz",
+      "description": "Verileriniz cihazınızda kalır, asla saklanmaz"
+    },
+    "medicalAccuracy": {
+      "title": "Tıbbi Doğruluk",
+      "description": "Bilimsel araştırma ve tıbbi standartlara dayalıdır"
+    },
+    "easyToUse": {
+      "title": "Kullanımı Kolay",
+      "description": "Basit arayüz, profesyonel sonuçlar"
+    }
+  },
+  "home": {
+    "trustedBy": "Dünya çapında 100.000+ kullanıcı tarafından güveniliyor",
+    "exploreCategories": "Kategorileri Keşfedin",
+    "mostPopular": "En Popüler",
+    "mostUsedCalculators": "Ziyaretçilerimiz tarafından en çok kullanılan hesaplayıcılar",
+    "comingSoon": "Yakında",
+    "comingSoonDescription": "Popüler hesaplayıcılar kayıt sistemine eklendikten sonra burada gösterilecektir.",
+    "ctaTitle": "Sağlık Yolculuğunuza Bugün Başlayın",
+    "ctaDescription": "Dünya çapında sağlık profesyonelleri tarafından güvenilen profesyonel sağlık hesaplayıcılarına erişin",
+    "tryCalculator": "Bir Hesaplayıcı Deneyin"
+  }
+}

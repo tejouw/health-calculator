@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+  }
+
+  * {
+    @apply border-neutral-200;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-neutral-50 text-neutral-900 antialiased;
+  }
+
+  /* Focus styles */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+  }
+
+  /* Selection styles */
+  ::selection {
+    @apply bg-primary-200 text-primary-900;
+  }
+}
+
+@layer components {
+  /* Container */
+  .container-custom {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Section spacing */
+  .section-spacing {
+    @apply py-12 sm:py-16 lg:py-20;
+  }
+
+  /* Card styles */
+  .card {
+    @apply rounded-xl border border-neutral-200 bg-white p-6 shadow-soft transition-shadow hover:shadow-medium;
+  }
+
+  /* Button base */
+  .btn-base {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  /* Form input base */
+  .input-base {
+    @apply w-full rounded-lg border border-neutral-300 bg-white px-4 py-2.5 text-sm transition-colors placeholder:text-neutral-400 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20 disabled:cursor-not-allowed disabled:bg-neutral-100;
+  }
+
+  /* Label styles */
+  .label {
+    @apply mb-2 block text-sm font-medium text-neutral-700;
+  }
+
+  /* Badge base */
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium;
+  }
+
+  /* Heading styles */
+  .heading-1 {
+    @apply text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl lg:text-6xl;
+  }
+
+  .heading-2 {
+    @apply text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl;
+  }
+
+  .heading-3 {
+    @apply text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl;
+  }
+
+  .heading-4 {
+    @apply text-xl font-semibold tracking-tight text-neutral-900 sm:text-2xl;
+  }
+
+  /* Text styles */
+  .text-body {
+    @apply text-base text-neutral-600 leading-relaxed;
+  }
+
+  .text-small {
+    @apply text-sm text-neutral-500;
+  }
+
+  /* Link styles */
+  .link {
+    @apply text-primary-600 underline-offset-4 transition-colors hover:text-primary-700 hover:underline;
+  }
+}
+
+@layer utilities {
+  /* Custom scrollbar */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.neutral.300') theme('colors.neutral.100');
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-neutral-100;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-neutral-300 hover:bg-neutral-400;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent;
+  }
+
+  /* Grid auto-fit */
+  .grid-auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  /* Aspect ratios */
+  .aspect-card {
+    aspect-ratio: 4 / 3;
+  }
+
+  /* Transitions */
+  .transition-base {
+    @apply transition-all duration-200 ease-in-out;
+  }
+}

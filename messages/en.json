@@ -1,0 +1,147 @@
+{
+  "common": {
+    "calculate": "Calculate",
+    "result": "Result",
+    "reset": "Reset",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "required": "This field is required",
+    "search": "Search...",
+    "searchPlaceholder": "Search calculators...",
+    "noResults": "No results found",
+    "popularCalculators": "Popular Calculators",
+    "allCategories": "All Categories",
+    "readMore": "Read More",
+    "share": "Share",
+    "print": "Print",
+    "back": "Back",
+    "home": "Home"
+  },
+  "categories": {
+    "bodyWeight": "Body & Weight",
+    "fitness": "Fitness & Exercise",
+    "nutrition": "Nutrition & Diet",
+    "pregnancy": "Pregnancy & Birth",
+    "womensHealth": "Women's Health",
+    "mensHealth": "Men's Health",
+    "heart": "Heart & Cardiovascular",
+    "diabetes": "Diabetes & Blood Sugar",
+    "medical": "Medical Calculations",
+    "mentalHealth": "Mental Health",
+    "sleep": "Sleep & Rest",
+    "childrensHealth": "Children's Health"
+  },
+  "units": {
+    "cm": "cm",
+    "meter": "m",
+    "kg": "kg",
+    "gram": "g",
+    "lbs": "lbs",
+    "inch": "in",
+    "feet": "ft",
+    "kcal": "kcal",
+    "years": "years",
+    "months": "months",
+    "weeks": "weeks",
+    "days": "days",
+    "hours": "hours",
+    "minutes": "minutes",
+    "bpm": "bpm",
+    "mgdl": "mg/dL",
+    "mmoll": "mmol/L"
+  },
+  "form": {
+    "height": "Height",
+    "weight": "Weight",
+    "age": "Age",
+    "gender": "Gender",
+    "male": "Male",
+    "female": "Female",
+    "activityLevel": "Activity Level",
+    "sedentary": "Sedentary",
+    "light": "Lightly Active",
+    "moderate": "Moderately Active",
+    "active": "Active",
+    "veryActive": "Very Active",
+    "goal": "Goal",
+    "loseWeight": "Lose Weight",
+    "maintainWeight": "Maintain Weight",
+    "gainWeight": "Gain Weight",
+    "unitSystem": "Unit System",
+    "metric": "Metric",
+    "imperial": "Imperial"
+  },
+  "navigation": {
+    "home": "Home",
+    "categories": "Categories",
+    "about": "About",
+    "contact": "Contact",
+    "language": "Language",
+    "turkish": "Türkçe",
+    "english": "English"
+  },
+  "hero": {
+    "title": "350+ Health Calculators",
+    "subtitle": "From BMI to pregnancy tracking, nutrition planning to fitness goals - all the health calculators you need in one place.",
+    "cta": "Browse Calculators"
+  },
+  "footer": {
+    "description": "Your trusted source for health calculators. All calculations are for informational purposes.",
+    "disclaimer": "Disclaimer",
+    "disclaimerText": "All calculators and information on this site are for informational purposes only and do not substitute professional medical advice.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "copyright": "© 2025 ProHealthCalc. All rights reserved."
+  },
+  "seo": {
+    "defaultTitle": "ProHealthCalc - 350+ Free Health Calculators",
+    "defaultDescription": "Free and accurate health calculators for BMI, calories, pregnancy, and more. Get instant results at ProHealthCalc!"
+  },
+  "calculator": {
+    "relatedCalculators": "Related Calculators",
+    "relatedCalculatorsDescription": "Related calculators will be shown here",
+    "whatIsIt": "What is it?",
+    "howToCalculate": "How to Calculate",
+    "interpretation": "Interpretation",
+    "tips": "Tips",
+    "faq": "Frequently Asked Questions"
+  },
+  "branding": {
+    "siteName": "ProHealthCalc"
+  },
+  "stats": {
+    "healthCalculators": "Health Calculators",
+    "activeUsers": "Active Users",
+    "userRating": "User Rating",
+    "privacyProtected": "Privacy Protected"
+  },
+  "features": {
+    "instantResults": {
+      "title": "Instant Results",
+      "description": "Get accurate health calculations in seconds"
+    },
+    "privacyFirst": {
+      "title": "Privacy First",
+      "description": "Your data stays on your device, never stored"
+    },
+    "medicalAccuracy": {
+      "title": "Medical Accuracy",
+      "description": "Based on scientific research and medical standards"
+    },
+    "easyToUse": {
+      "title": "Easy to Use",
+      "description": "Simple interface, professional results"
+    }
+  },
+  "home": {
+    "trustedBy": "Trusted by 100,000+ users worldwide",
+    "exploreCategories": "Explore Categories",
+    "mostPopular": "Most Popular",
+    "mostUsedCalculators": "Most used calculators by our visitors",
+    "comingSoon": "Coming Soon",
+    "comingSoonDescription": "Popular calculators will be displayed here once they are added to the registry.",
+    "ctaTitle": "Start Your Health Journey Today",
+    "ctaDescription": "Access professional health calculators trusted by healthcare professionals worldwide",
+    "tryCalculator": "Try a Calculator"
+  }
+}
