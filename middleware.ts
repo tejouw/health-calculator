@@ -1,41 +1,51 @@
+import { NextRequest, NextResponse } from 'next/server';
 import createMiddleware from 'next-intl/middleware';
 import { routing } from './routing';
-import { NextRequest } from 'next/server';
 
 export default function middleware(request: NextRequest) {
+  const { pathname, search } = request.nextUrl;
   const hostname = request.headers.get('host') || '';
 
-  // Debug: Log hostname (remove after testing)
   console.log('🌐 Hostname:', hostname);
+  console.log('📍 Original pathname:', pathname);
 
-  // Domain-based locale detection
-  let defaultLocale: 'en' | 'tr' = 'tr';
-
-  // Check for prohealthcalc.com (with or without www)
+  // Determine locale based on domain
+  let locale: 'en' | 'tr' = 'tr';
   if (hostname.includes('prohealthcalc')) {
-    defaultLocale = 'en';
+    locale = 'en';
     console.log('✅ English domain detected');
-  }
-  // Check for saglikhesapla.com (with or without www)
-  else if (hostname.includes('saglikhesapla')) {
-    defaultLocale = 'tr';
+  } else if (hostname.includes('saglikhesapla')) {
+    locale = 'tr';
     console.log('✅ Turkish domain detected');
   }
-  // Fallback to Turkish
-  else {
-    console.log('⚠️ Unknown domain, defaulting to Turkish');
+
+  console.log('🔤 Selected locale:', locale);
+
+  // Check if pathname already has a locale prefix
+  const pathnameHasLocale = routing.locales.some(
+    (loc) => pathname.startsWith(`/${loc}/`) || pathname === `/${loc}`
+  );
+
+  // If URL has locale prefix, remove it (user typed /en/something)
+  if (pathnameHasLocale) {
+    const segments = pathname.split('/');
+    segments.splice(1, 1); // Remove locale segment
+    const newPathname = segments.join('/') || '/';
+
+    // Redirect to clean URL
+    const url = request.nextUrl.clone();
+    url.pathname = newPathname;
+    console.log('🔀 Redirecting to clean URL:', newPathname);
+    return NextResponse.redirect(url);
   }
 
-  console.log('🔤 Selected locale:', defaultLocale);
+  // Rewrite URL to include locale (internal only)
+  const url = request.nextUrl.clone();
+  url.pathname = `/${locale}${pathname}`;
 
-  // Create middleware with domain-specific default locale
-  const handleI18nRouting = createMiddleware({
-    ...routing,
-    defaultLocale,
-    localePrefix: 'never', // Don't show locale in URL
-  });
+  console.log('🔄 Rewriting to:', url.pathname);
 
-  return handleI18nRouting(request);
+  return NextResponse.rewrite(url);
 }
 
 export const config = {

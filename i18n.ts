@@ -24,6 +24,9 @@ export default getRequestConfig(async ({ requestLocale }) => {
     locale = routing.defaultLocale;
   }
 
+  // Log for debugging
+  console.log('📝 i18n.ts - Locale from middleware:', locale);
+
   return {
     locale,
     messages: (await import(`./messages/${locale}.json`)).default,
