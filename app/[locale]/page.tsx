@@ -5,6 +5,7 @@ import { getAllCalculators } from '@/lib/calculatorRegistry';
 import { Card } from '@/components/ui';
 import { CategoryCard } from '@/components/home/CategoryCard';
 import { SearchBar } from '@/components/search';
+import type { Metadata } from 'next';
 import {
   TrendingUp,
   Calculator,
@@ -18,6 +19,17 @@ import {
 
 interface HomePageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: HomePageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'seo' });
+
+  // Metadata is already set in layout, this is just for page-specific overrides
+  return {
+    title: t('defaultTitle'),
+    description: t('defaultDescription'),
+  };
 }
 
 export default async function HomePage({ params }: HomePageProps) {
@@ -138,7 +150,7 @@ export default async function HomePage({ params }: HomePageProps) {
       </section>
 
       {/* Categories Section - Enhanced */}
-      <section className="section-spacing bg-gradient-to-b from-neutral-50 to-white">
+      <section id="categories" className="section-spacing bg-gradient-to-b from-neutral-50 to-white scroll-mt-20">
         <div className="container-custom">
           <div className="mb-12 text-center">
             <div className="mb-4 inline-block rounded-full bg-primary-100 px-4 py-2 text-sm font-semibold text-primary-700">

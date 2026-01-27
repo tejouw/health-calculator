@@ -8,19 +8,7 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-export const metadata: Metadata = {
-  title: 'Health Calculator - 350+ Free Health & Fitness Calculators',
-  description:
-    'Free and accurate health calculators for BMI, calories, pregnancy, fitness, and more. Get instant results with our comprehensive collection of 350+ calculators.',
-  keywords: [
-    'health calculator',
-    'bmi calculator',
-    'calorie calculator',
-    'pregnancy calculator',
-    'fitness calculator',
-  ],
-};
-
+// Root layout - metadata is handled in [locale]/layout.tsx
 export default function RootLayout({
   children,
 }: Readonly<{
