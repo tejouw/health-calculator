@@ -13,6 +13,7 @@ import {
 import CalculatorLayout from '@/components/calculators/CalculatorLayout';
 import { bmiContent } from '@/calculators/body-weight/bmi/bmiContent';
 import { calorieContent } from '@/calculators/nutrition/calorie-calculator/calorieContent';
+import { tdeeContent } from '@/calculators/nutrition/tdee-calculator/tdeeContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -75,6 +76,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
   const contentMap: Record<string, any> = {
     'bmi-calculator': bmiContent,
     'calorie-calculator': calorieContent,
+    'tdee-calculator': tdeeContent,
   };
 
   const content = contentMap[calculator.id];
@@ -184,6 +186,57 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
                   },
                 ],
                 totalTime: 'PT2M',
+              })
+            ),
+          }}
+        />
+      )}
+
+      {calculator.id === 'tdee-calculator' && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              generateHowToSchema({
+                name:
+                  locale === 'en'
+                    ? 'How to Calculate TDEE'
+                    : 'TDEE Nasıl Hesaplanır',
+                description:
+                  locale === 'en'
+                    ? 'Step-by-step guide to calculate your Total Daily Energy Expenditure (TDEE)'
+                    : 'Toplam Günlük Enerji Harcamanızı (TDEE) hesaplamak için adım adım kılavuz',
+                steps: [
+                  {
+                    name: locale === 'en' ? 'Enter personal information' : 'Kişisel bilgilerinizi girin',
+                    text:
+                      locale === 'en'
+                        ? 'Input your age, gender, height, and weight. Select your preferred unit system (metric or imperial).'
+                        : 'Yaş, cinsiyet, boy ve kilonuzu girin. Tercih ettiğiniz birim sistemini (metrik veya İngiliz) seçin.',
+                  },
+                  {
+                    name: locale === 'en' ? 'Select activity level' : 'Aktivite seviyenizi seçin',
+                    text:
+                      locale === 'en'
+                        ? 'Choose your activity level from sedentary to extremely active based on your weekly exercise routine and daily movement.'
+                        : 'Haftalık egzersiz rutininize ve günlük hareketinize göre hareketsizden aşırı aktif\'e kadar aktivite seviyenizi seçin.',
+                  },
+                  {
+                    name: locale === 'en' ? 'Calculate BMR and TDEE' : 'BMR ve TDEE hesaplayın',
+                    text:
+                      locale === 'en'
+                        ? 'Click calculate to get your Basal Metabolic Rate (BMR) and Total Daily Energy Expenditure (TDEE) using the Mifflin-St Jeor equation.'
+                        : 'Mifflin-St Jeor denklemini kullanarak Bazal Metabolizma Hızınızı (BMR) ve Toplam Günlük Enerji Harcamanızı (TDEE) almak için hesapla\'ya tıklayın.',
+                  },
+                  {
+                    name: locale === 'en' ? 'Choose your goal' : 'Hedefinizi seçin',
+                    text:
+                      locale === 'en'
+                        ? 'Select your goal (weight loss, maintenance, or muscle gain) to get personalized daily calorie recommendations and macronutrient targets.'
+                        : 'Kişiselleştirilmiş günlük kalori önerileri ve makrobesin hedefleri almak için hedefinizi (kilo verme, koruma veya kas kazanımı) seçin.',
+                  },
+                ],
+                totalTime: 'PT3M',
               })
             ),
           }}

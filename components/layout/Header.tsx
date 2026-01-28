@@ -2,12 +2,9 @@
 
 import React, { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { Link, usePathname } from '@/lib/navigation';
-import { Menu, X, Globe } from 'lucide-react';
-import { Button } from '@/components/ui';
+import { Link } from '@/lib/navigation';
+import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { translatePath } from '@/lib/pathTranslation';
-import { getAlternateDomainUrl } from '@/lib/domain';
 
 interface HeaderProps {
   locale: string;
@@ -17,20 +14,6 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
   const t = useTranslations('navigation');
   const tBrand = useTranslations('branding');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const pathname = usePathname();
-
-  const toggleLanguage = () => {
-    const currentLocale = locale as 'en' | 'tr';
-    const currentPath = pathname;
-
-    // Translate the path to the new locale (handles calculator slug translation)
-    const newLocale = currentLocale === 'tr' ? 'en' : 'tr';
-    const translatedPath = translatePath(currentPath, currentLocale, newLocale);
-
-    // Redirect to alternate domain with translated path
-    const alternateUrl = getAlternateDomainUrl(currentLocale, translatedPath);
-    window.location.href = alternateUrl;
-  };
 
   const navigation = [
     { name: t('home'), href: '/' },
@@ -67,32 +50,19 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
             ))}
           </nav>
 
-          {/* Right section */}
-          <div className="flex items-center gap-3">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={toggleLanguage}
-              className="hidden sm:inline-flex"
-            >
-              <Globe className="h-4 w-4" />
-              {locale === 'tr' ? 'EN' : 'TR'}
-            </Button>
-
-            {/* Mobile menu button */}
-            <button
-              type="button"
-              className="inline-flex items-center justify-center rounded-md p-2 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 md:hidden"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              <span className="sr-only">Open menu</span>
-              {mobileMenuOpen ? (
-                <X className="h-6 w-6" aria-hidden="true" />
-              ) : (
-                <Menu className="h-6 w-6" aria-hidden="true" />
-              )}
-            </button>
-          </div>
+          {/* Mobile menu button */}
+          <button
+            type="button"
+            className="inline-flex items-center justify-center rounded-md p-2 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 md:hidden"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            <span className="sr-only">Open menu</span>
+            {mobileMenuOpen ? (
+              <X className="h-6 w-6" aria-hidden="true" />
+            ) : (
+              <Menu className="h-6 w-6" aria-hidden="true" />
+            )}
+          </button>
         </div>
       </div>
 
@@ -115,13 +85,6 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
               {item.name}
             </Link>
           ))}
-          <button
-            onClick={toggleLanguage}
-            className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-base font-medium text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900"
-          >
-            <Globe className="h-4 w-4" />
-            {locale === 'tr' ? t('english') : t('turkish')}
-          </button>
         </div>
       </div>
     </header>

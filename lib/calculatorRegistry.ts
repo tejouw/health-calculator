@@ -4,11 +4,13 @@ import { CategoryId } from '@/types/calculator';
 // Import calculator metadata
 import { bmiMeta } from '@/calculators/body-weight/bmi/bmiMeta';
 import { calorieMeta } from '@/calculators/nutrition/calorie-calculator/calorieMeta';
+import { tdeeMeta } from '@/calculators/nutrition/tdee-calculator/tdeeMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
   bmiMeta,
   calorieMeta,
+  tdeeMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {
