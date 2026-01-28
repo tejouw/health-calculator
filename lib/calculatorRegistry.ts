@@ -6,6 +6,8 @@ import { bmiMeta } from '@/calculators/body-weight/bmi/bmiMeta';
 import { calorieMeta } from '@/calculators/nutrition/calorie-calculator/calorieMeta';
 import { tdeeMeta } from '@/calculators/nutrition/tdee-calculator/tdeeMeta';
 import { dueDateMeta } from '@/calculators/pregnancy/due-date-calculator/dueDateMeta';
+import { ovulationMeta } from '@/calculators/womens-health/ovulation-calculator/ovulationMeta';
+import { idealWeightMeta } from '@/calculators/body-weight/ideal-weight/idealWeightMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -13,6 +15,8 @@ export const calculatorRegistry: CalculatorMeta[] = [
   calorieMeta,
   tdeeMeta,
   dueDateMeta,
+  ovulationMeta,
+  idealWeightMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {

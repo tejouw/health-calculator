@@ -15,6 +15,8 @@ import { bmiContent } from '@/calculators/body-weight/bmi/bmiContent';
 import { calorieContent } from '@/calculators/nutrition/calorie-calculator/calorieContent';
 import { tdeeContent } from '@/calculators/nutrition/tdee-calculator/tdeeContent';
 import { dueDateContent } from '@/calculators/pregnancy/due-date-calculator/dueDateContent';
+import { ovulationContent } from '@/calculators/womens-health/ovulation-calculator/ovulationContent';
+import { idealWeightContent } from '@/calculators/body-weight/ideal-weight/idealWeightContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -79,6 +81,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'calorie-calculator': calorieContent,
     'tdee-calculator': tdeeContent,
     'due-date-calculator': dueDateContent,
+    'ovulation-calculator': ovulationContent,
+    'ideal-weight-calculator': idealWeightContent,
   };
 
   const content = contentMap[calculator.id];
