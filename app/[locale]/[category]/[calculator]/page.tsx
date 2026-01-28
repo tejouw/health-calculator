@@ -14,6 +14,7 @@ import CalculatorLayout from '@/components/calculators/CalculatorLayout';
 import { bmiContent } from '@/calculators/body-weight/bmi/bmiContent';
 import { calorieContent } from '@/calculators/nutrition/calorie-calculator/calorieContent';
 import { tdeeContent } from '@/calculators/nutrition/tdee-calculator/tdeeContent';
+import { dueDateContent } from '@/calculators/pregnancy/due-date-calculator/dueDateContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -77,6 +78,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'bmi-calculator': bmiContent,
     'calorie-calculator': calorieContent,
     'tdee-calculator': tdeeContent,
+    'due-date-calculator': dueDateContent,
   };
 
   const content = contentMap[calculator.id];
@@ -237,6 +239,57 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
                   },
                 ],
                 totalTime: 'PT3M',
+              })
+            ),
+          }}
+        />
+      )}
+
+      {calculator.id === 'due-date-calculator' && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              generateHowToSchema({
+                name:
+                  locale === 'en'
+                    ? 'How to Calculate Your Due Date'
+                    : 'Doğum Tarihinizi Nasıl Hesaplarsınız',
+                description:
+                  locale === 'en'
+                    ? 'Step-by-step guide to calculate your pregnancy due date'
+                    : 'Hamilelik doğum tarihinizi hesaplamak için adım adım kılavuz',
+                steps: [
+                  {
+                    name: locale === 'en' ? 'Choose calculation method' : 'Hesaplama yöntemini seçin',
+                    text:
+                      locale === 'en'
+                        ? 'Select the method you want to use: Last Menstrual Period (LMP), Conception Date, Ultrasound Results, or IVF Transfer Date.'
+                        : 'Kullanmak istediğiniz yöntemi seçin: Son Adet Tarihi (SAT), Döllendirme Tarihi, Ultrason Sonuçları veya Tüp Bebek Transfer Tarihi.',
+                  },
+                  {
+                    name: locale === 'en' ? 'Enter relevant dates' : 'İlgili tarihleri girin',
+                    text:
+                      locale === 'en'
+                        ? 'Input the required date(s) based on your selected method. For LMP, also enter your cycle length if different from 28 days.'
+                        : 'Seçtiğiniz yönteme göre gerekli tarihleri girin. SAT için, döngü uzunluğunuz 28 günden farklıysa onu da girin.',
+                  },
+                  {
+                    name: locale === 'en' ? 'Calculate due date' : 'Doğum tarihini hesaplayın',
+                    text:
+                      locale === 'en'
+                        ? 'Click calculate to get your estimated due date, current pregnancy week, conception date, and trimester information.'
+                        : 'Tahmini doğum tarihinizi, mevcut hamilelik haftanızı, döllendirme tarihinizi ve trimester bilgilerinizi almak için hesapla\'ya tıklayın.',
+                  },
+                  {
+                    name: locale === 'en' ? 'Review milestones' : 'Kilometre taşlarını inceleyin',
+                    text:
+                      locale === 'en'
+                        ? 'Check your pregnancy milestones and trimester progress. Track which developmental stages you\'ve reached and what to expect next.'
+                        : 'Hamilelik kilometre taşlarınızı ve trimester ilerlemenizi kontrol edin. Hangi gelişim aşamalarına ulaştığınızı ve bundan sonra neleri beklemeniz gerektiğini takip edin.',
+                  },
+                ],
+                totalTime: 'PT2M',
               })
             ),
           }}
