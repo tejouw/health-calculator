@@ -73,7 +73,7 @@ export function CategoryCard({ category, title, locale }: CategoryCardProps) {
     <Link key={category.id} href={`/${category.id}`}>
       <Card
         hoverable
-        className="group relative h-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+        className="group relative h-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 sm:hover:-translate-y-2"
       >
         {/* Background gradient effect */}
         <div
@@ -83,31 +83,31 @@ export function CategoryCard({ category, title, locale }: CategoryCardProps) {
 
         <div className="relative">
           <div
-            className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+            className="mb-3 sm:mb-4 md:mb-5 inline-flex h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 items-center justify-center rounded-xl sm:rounded-2xl shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
             style={{ background: gradientStyle }}
           >
-            <IconComponent className="h-7 w-7 text-white" />
+            <IconComponent className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-white" />
           </div>
 
-          <h3 className="mb-3 text-xl font-bold text-neutral-900 transition-colors group-hover:text-primary-600">
+          <h3 className="mb-2 sm:mb-3 text-sm sm:text-base md:text-lg lg:text-xl font-bold text-neutral-900 transition-colors group-hover:text-primary-600 leading-tight">
             {title}
           </h3>
 
-          <p className="mb-4 text-sm leading-relaxed text-neutral-600">
+          <p className="mb-3 sm:mb-4 text-xs sm:text-sm leading-relaxed text-neutral-600 line-clamp-2 sm:line-clamp-3">
             {description}
           </p>
 
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-2">
             {(category.calculatorCount ?? 0) > 0 && (
-              <div className="flex items-center gap-1.5 text-xs font-medium text-neutral-500">
-                <Calculator className="h-3.5 w-3.5" />
-                <span>{category.calculatorCount} {t.tools}</span>
+              <div className="flex items-center gap-1 sm:gap-1.5 text-xs font-medium text-neutral-500">
+                <Calculator className="h-3 w-3 sm:h-3.5 sm:w-3.5 flex-shrink-0" />
+                <span className="leading-none">{category.calculatorCount} {t.tools}</span>
               </div>
             )}
 
-            <div className="ml-auto flex items-center gap-1 text-sm font-semibold text-primary-600 opacity-0 transition-opacity group-hover:opacity-100">
-              <span>{t.explore}</span>
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <div className="ml-auto flex items-center gap-0.5 sm:gap-1 text-xs sm:text-sm font-semibold text-primary-600 opacity-0 sm:opacity-0 group-hover:opacity-100 transition-opacity">
+              <span className="hidden sm:inline">{t.explore}</span>
+              <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
             </div>
           </div>
         </div>

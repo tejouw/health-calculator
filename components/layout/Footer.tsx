@@ -102,7 +102,7 @@ const Footer: React.FC<FooterProps> = ({ locale }) => {
               <ul className="space-y-2">
                 <li>
                   <Link
-                    href="/privacy"
+                    href="/privacy-policy"
                     className="text-sm text-neutral-600 transition-colors hover:text-primary-600"
                   >
                     {t('privacy')}
@@ -110,7 +110,7 @@ const Footer: React.FC<FooterProps> = ({ locale }) => {
                 </li>
                 <li>
                   <Link
-                    href="/terms"
+                    href="/terms-of-service"
                     className="text-sm text-neutral-600 transition-colors hover:text-primary-600"
                   >
                     {t('terms')}
