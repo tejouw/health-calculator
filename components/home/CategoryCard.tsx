@@ -3,38 +3,12 @@
 import { Link } from '@/lib/navigation';
 import { Card } from '@/components/ui';
 import { Category } from '@/types/category';
+import { getIcon } from '@/lib/iconUtils';
 import {
-  Scale,
-  Dumbbell,
-  Apple,
-  Baby,
-  Heart,
   Activity,
-  HeartPulse,
-  Droplet,
-  Stethoscope,
-  Brain,
-  Moon,
-  Sparkles,
   Calculator,
   ArrowRight,
-  LucideIcon,
 } from 'lucide-react';
-
-const iconMap: Record<string, LucideIcon> = {
-  Scale,
-  Dumbbell,
-  Apple,
-  Baby,
-  Heart,
-  ActivitySquare: Activity,
-  HeartPulse,
-  Droplet,
-  Stethoscope,
-  Brain,
-  Moon,
-  Sparkles,
-};
 
 // Gradient color mapping to avoid Tailwind purge issues
 const gradientMap: Record<string, string> = {
@@ -59,7 +33,7 @@ interface CategoryCardProps {
 }
 
 export function CategoryCard({ category, title, locale }: CategoryCardProps) {
-  const IconComponent = iconMap[category.icon] || Activity;
+  const IconComponent = getIcon(category.icon, Activity);
   const gradientStyle = gradientMap[category.gradient] || gradientMap['from-blue-500 to-cyan-500'];
   const description = category.description[locale] || category.description.en;
 

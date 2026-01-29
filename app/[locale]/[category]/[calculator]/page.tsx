@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import { getCalculatorBySlug, getAllCalculators } from '@/lib/calculatorRegistry';
+import type { CalculatorContent } from '@/types/calculator';
 import {
   generateSEO,
   generateCalculatorSchema,
@@ -80,7 +81,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
   }
 
   // Get content based on calculator ID
-  const contentMap: Record<string, typeof bmiContent> = {
+  const contentMap: Record<string, CalculatorContent> = {
     'bmi-calculator': bmiContent,
     'calorie-calculator': calorieContent,
     'tdee-calculator': tdeeContent,
