@@ -80,7 +80,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
   }
 
   // Get content based on calculator ID
-  const contentMap: Record<string, any> = {
+  const contentMap: Record<string, typeof bmiContent> = {
     'bmi-calculator': bmiContent,
     'calorie-calculator': calorieContent,
     'tdee-calculator': tdeeContent,

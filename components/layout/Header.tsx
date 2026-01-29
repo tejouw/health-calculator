@@ -10,7 +10,7 @@ interface HeaderProps {
   locale: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ locale }) => {
+const Header: React.FC<HeaderProps> = ({ locale: _locale }) => {
   const t = useTranslations('navigation');
   const tBrand = useTranslations('branding');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

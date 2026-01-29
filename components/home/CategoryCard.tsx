@@ -18,9 +18,10 @@ import {
   Sparkles,
   Calculator,
   ArrowRight,
+  LucideIcon,
 } from 'lucide-react';
 
-const iconMap: Record<string, any> = {
+const iconMap: Record<string, LucideIcon> = {
   Scale,
   Dumbbell,
   Apple,

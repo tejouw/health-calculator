@@ -3,7 +3,7 @@
  * Translates URL paths between locales by converting slugs
  */
 
-import { getCalculatorBySlug, getAllCalculators } from './calculatorRegistry';
+import { getCalculatorBySlug } from './calculatorRegistry';
 import { isValidCategorySlug } from './categoryMapping';
 
 /**

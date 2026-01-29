@@ -25,11 +25,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'seo' });
-  const tBrand = await getTranslations({ locale, namespace: 'branding' });
 
   const siteName = locale === 'en' ? 'ProHealthCalc' : 'Sağlık Hesapla';
   const domain = locale === 'en' ? 'https://prohealthcalc.com' : 'https://saglikhesapla.com';
-  const alternateDomain = locale === 'en' ? 'https://saglikhesapla.com' : 'https://prohealthcalc.com';
 
   const title = t('defaultTitle');
   const description = t('defaultDescription');

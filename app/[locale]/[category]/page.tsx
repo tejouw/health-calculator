@@ -1,12 +1,12 @@
 import { notFound } from 'next/navigation';
-import { setRequestLocale } from 'next-intl/server';
-import { useTranslations } from 'next-intl';
+import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { getCategoryById } from '@/config/categories.config';
 import { getCalculatorsByCategory } from '@/lib/calculatorRegistry';
 import { Card, Badge } from '@/components/ui';
 import { Breadcrumbs } from '@/components/layout';
 import { Link } from '@/lib/navigation';
 import * as Icons from 'lucide-react';
+import { LucideIcon } from 'lucide-react';
 
 interface CategoryPageProps {
   params: Promise<{
@@ -19,7 +19,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const { locale, category: categoryId } = await params;
   setRequestLocale(locale);
 
-  const t = useTranslations('common');
+  const t = await getTranslations('common');
   const category = getCategoryById(categoryId);
 
   if (!category) {
@@ -27,7 +27,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   }
 
   const calculators = getCalculatorsByCategory(category.id);
-  const CategoryIcon = (Icons as any)[category.icon] || Icons.Activity;
+  const CategoryIcon = (Icons as Record<string, LucideIcon>)[category.icon] || Icons.Activity;
 
   return (
     <div className="min-h-screen bg-neutral-50">
@@ -62,7 +62,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           {calculators.length > 0 ? (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {calculators.map((calc) => {
-                const CalcIcon = (Icons as any)[calc.icon] || Icons.Calculator;
+                const CalcIcon = (Icons as Record<string, LucideIcon>)[calc.icon] || Icons.Calculator;
 
                 return (
                   <Link

@@ -227,7 +227,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
             </div>
           ) : hasResults ? (
             <div className="py-2">
-              {Object.entries(groupedResults).map(([categoryName, categoryResults], categoryIndex) => (
+              {Object.entries(groupedResults).map(([categoryName, categoryResults]) => (
                 <div key={categoryName}>
                   {/* Category Header */}
                   <div className="px-4 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-500">
@@ -235,7 +235,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
                   </div>
 
                   {/* Results */}
-                  {categoryResults.map((result, resultIndex) => {
+                  {categoryResults.map((result) => {
                     const globalIndex = results.findIndex(r => r.id === result.id);
                     const isSelected = globalIndex === selectedIndex;
                     const category = categories.find(c => c.id === result.category);

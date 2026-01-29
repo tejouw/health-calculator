@@ -13,8 +13,6 @@ const Footer: React.FC<FooterProps> = ({ locale }) => {
   const tNav = useTranslations('navigation');
   const tCat = useTranslations('categories');
 
-  const currentYear = new Date().getFullYear();
-
   const categories = [
     'bodyWeight',
     'fitness',
