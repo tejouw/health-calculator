@@ -54,3 +54,11 @@ export function searchCalculators(query: string, locale: 'en' | 'tr'): Calculato
       calc.keywords.some((keyword) => keyword.toLowerCase().includes(lowerQuery))
   );
 }
+
+/**
+ * Gets the count of calculators for a specific category
+ * This is used to dynamically populate category cards with calculator counts
+ */
+export function getCategoryCalculatorCount(categoryId: CategoryId): number {
+  return calculatorRegistry.filter((calc) => calc.category === categoryId).length;
+}

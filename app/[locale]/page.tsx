@@ -1,7 +1,7 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/lib/navigation';
 import { categories } from '@/config/categories.config';
-import { getAllCalculators } from '@/lib/calculatorRegistry';
+import { getAllCalculators, getCategoryCalculatorCount } from '@/lib/calculatorRegistry';
 import { Card } from '@/components/ui';
 import { CategoryCard } from '@/components/home/CategoryCard';
 import { SearchBar } from '@/components/search';
@@ -46,6 +46,12 @@ export default async function HomePage({ params }: HomePageProps) {
 
   // Get all calculators for search
   const allCalculators = getAllCalculators();
+
+  // Dynamically populate calculator counts for each category
+  const categoriesWithCounts = categories.map((category) => ({
+    ...category,
+    calculatorCount: getCategoryCalculatorCount(category.id),
+  }));
 
   const stats = [
     { icon: Calculator, value: '350+', label: tStats('healthCalculators') },
@@ -163,7 +169,7 @@ export default async function HomePage({ params }: HomePageProps) {
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {categories.map((category) => {
+            {categoriesWithCounts.map((category) => {
               const catKey = category.id.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
               const title = tCat(catKey);
 

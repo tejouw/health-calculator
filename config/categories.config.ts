@@ -1,5 +1,7 @@
 import { Category } from '@/types/category';
 
+// Note: calculatorCount is now computed dynamically from calculatorRegistry
+// Do not hardcode it here - it will be populated automatically
 export const categories: Category[] = [
   {
     id: 'body-weight',
@@ -14,7 +16,6 @@ export const categories: Category[] = [
     icon: 'Scale',
     color: 'blue',
     gradient: 'from-blue-500 to-cyan-500',
-    calculatorCount: 0,
   },
   {
     id: 'fitness',
@@ -29,7 +30,6 @@ export const categories: Category[] = [
     icon: 'Dumbbell',
     color: 'green',
     gradient: 'from-green-500 to-emerald-500',
-    calculatorCount: 0,
   },
   {
     id: 'nutrition',
@@ -44,7 +44,6 @@ export const categories: Category[] = [
     icon: 'Apple',
     color: 'orange',
     gradient: 'from-orange-500 to-amber-500',
-    calculatorCount: 0,
   },
   {
     id: 'pregnancy',
@@ -59,7 +58,6 @@ export const categories: Category[] = [
     icon: 'Baby',
     color: 'pink',
     gradient: 'from-pink-500 to-rose-500',
-    calculatorCount: 0,
   },
   {
     id: 'womens-health',
@@ -74,7 +72,6 @@ export const categories: Category[] = [
     icon: 'Heart',
     color: 'purple',
     gradient: 'from-purple-500 to-fuchsia-500',
-    calculatorCount: 0,
   },
   {
     id: 'mens-health',
@@ -89,7 +86,6 @@ export const categories: Category[] = [
     icon: 'ActivitySquare',
     color: 'indigo',
     gradient: 'from-indigo-500 to-blue-500',
-    calculatorCount: 0,
   },
   {
     id: 'heart',
@@ -104,7 +100,6 @@ export const categories: Category[] = [
     icon: 'HeartPulse',
     color: 'red',
     gradient: 'from-red-500 to-pink-500',
-    calculatorCount: 0,
   },
   {
     id: 'diabetes',
@@ -119,7 +114,6 @@ export const categories: Category[] = [
     icon: 'Droplet',
     color: 'cyan',
     gradient: 'from-cyan-500 to-teal-500',
-    calculatorCount: 0,
   },
   {
     id: 'medical',
@@ -134,7 +128,6 @@ export const categories: Category[] = [
     icon: 'Stethoscope',
     color: 'teal',
     gradient: 'from-teal-500 to-green-500',
-    calculatorCount: 0,
   },
   {
     id: 'mental-health',
@@ -149,7 +142,6 @@ export const categories: Category[] = [
     icon: 'Brain',
     color: 'violet',
     gradient: 'from-violet-500 to-purple-500',
-    calculatorCount: 0,
   },
   {
     id: 'sleep',
@@ -164,7 +156,6 @@ export const categories: Category[] = [
     icon: 'Moon',
     color: 'slate',
     gradient: 'from-slate-500 to-gray-500',
-    calculatorCount: 0,
   },
   {
     id: 'childrens-health',
@@ -179,7 +170,6 @@ export const categories: Category[] = [
     icon: 'Sparkles',
     color: 'yellow',
     gradient: 'from-yellow-500 to-orange-500',
-    calculatorCount: 0,
   },
 ];
 

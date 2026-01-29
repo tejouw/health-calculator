@@ -7,7 +7,7 @@ export interface Category {
   icon: string;
   color: string;
   gradient: string;
-  calculatorCount: number;
+  calculatorCount?: number; // Optional - populated dynamically from calculatorRegistry
 }
 
 export interface CategoryPageProps {

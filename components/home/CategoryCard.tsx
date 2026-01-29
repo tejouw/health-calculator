@@ -98,7 +98,7 @@ export function CategoryCard({ category, title, locale }: CategoryCardProps) {
           </p>
 
           <div className="flex items-center justify-between">
-            {category.calculatorCount > 0 && (
+            {(category.calculatorCount ?? 0) > 0 && (
               <div className="flex items-center gap-1.5 text-xs font-medium text-neutral-500">
                 <Calculator className="h-3.5 w-3.5" />
                 <span>{category.calculatorCount} {t.tools}</span>
