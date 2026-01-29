@@ -302,7 +302,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
                 {t('noResults')}
               </div>
               <div className="mt-1 text-sm text-neutral-500">
-                Try different keywords or browse categories
+                {t('tryDifferentKeywords')}
               </div>
             </div>
           ) : (
@@ -312,7 +312,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
                 <div className="mb-4">
                   <div className="px-4 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-500">
                     <Clock className="mr-1 inline h-3 w-3" />
-                    Recent Searches
+                    {t('recentSearches')}
                   </div>
                   <div className="space-y-1">
                     {recentSearches.map((recent, index) => (
@@ -343,7 +343,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
                 <div>
                   <div className="px-4 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-500">
                     <Sparkles className="mr-1 inline h-3 w-3" />
-                    Popular Calculators
+                    {t('popularCalculators')}
                   </div>
                   <div className="space-y-1">
                     {popularCalculators.map((calc) => {
@@ -391,7 +391,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
                 <div className="p-8 text-center">
                   <div className="mb-2 text-4xl">💡</div>
                   <div className="text-sm text-neutral-500">
-                    Type at least 2 characters to search
+                    {t('typeToSearch')}
                   </div>
                 </div>
               )}

@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
+import { useTranslations } from 'next-intl';
 import { getCategoryById } from '@/config/categories.config';
 import { getCalculatorsByCategory } from '@/lib/calculatorRegistry';
 import { Card, Badge } from '@/components/ui';
@@ -18,6 +19,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const { locale, category: categoryId } = await params;
   setRequestLocale(locale);
 
+  const t = useTranslations('common');
   const category = getCategoryById(categoryId);
 
   if (!category) {
@@ -75,8 +77,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                           <CalcIcon className="h-6 w-6 text-white" />
                         </div>
                         <div className="flex gap-2">
-                          {calc.popular && <Badge variant="primary">Popular</Badge>}
-                          {calc.featured && <Badge variant="secondary">Featured</Badge>}
+                          {calc.popular && <Badge variant="primary">{t('popular')}</Badge>}
+                          {calc.featured && <Badge variant="secondary">{t('featured')}</Badge>}
                         </div>
                       </div>
                       <h3 className="mb-2 text-lg font-semibold text-neutral-900 group-hover:text-primary-600">

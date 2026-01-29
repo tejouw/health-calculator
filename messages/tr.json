@@ -15,7 +15,12 @@
     "share": "Paylaş",
     "print": "Yazdır",
     "back": "Geri",
-    "home": "Ana Sayfa"
+    "home": "Ana Sayfa",
+    "popular": "Popüler",
+    "featured": "Öne Çıkan",
+    "tryDifferentKeywords": "Farklı anahtar kelimeler deneyin veya kategorilere göz atın",
+    "recentSearches": "Son Aramalar",
+    "typeToSearch": "Aramak için en az 2 karakter yazın"
   },
   "categories": {
     "bodyWeight": "Vücut & Kilo",

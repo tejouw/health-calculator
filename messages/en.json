@@ -15,7 +15,12 @@
     "share": "Share",
     "print": "Print",
     "back": "Back",
-    "home": "Home"
+    "home": "Home",
+    "popular": "Popular",
+    "featured": "Featured",
+    "tryDifferentKeywords": "Try different keywords or browse categories",
+    "recentSearches": "Recent Searches",
+    "typeToSearch": "Type at least 2 characters to search"
   },
   "categories": {
     "bodyWeight": "Body & Weight",
