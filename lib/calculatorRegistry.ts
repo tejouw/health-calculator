@@ -8,6 +8,10 @@ import { tdeeMeta } from '@/calculators/nutrition/tdee-calculator/tdeeMeta';
 import { dueDateMeta } from '@/calculators/pregnancy/due-date-calculator/dueDateMeta';
 import { ovulationMeta } from '@/calculators/womens-health/ovulation-calculator/ovulationMeta';
 import { idealWeightMeta } from '@/calculators/body-weight/ideal-weight/idealWeightMeta';
+import { bodyFatMeta } from '@/calculators/body-weight/body-fat/bodyFatMeta';
+import { macroMeta } from '@/calculators/nutrition/macro-calculator/macroMeta';
+import { bmrMeta } from '@/calculators/nutrition/bmr-calculator/bmrMeta';
+import { pregnancyWeekMeta } from '@/calculators/pregnancy/pregnancy-week-calculator/pregnancyWeekMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -17,6 +21,10 @@ export const calculatorRegistry: CalculatorMeta[] = [
   dueDateMeta,
   ovulationMeta,
   idealWeightMeta,
+  bodyFatMeta,
+  macroMeta,
+  bmrMeta,
+  pregnancyWeekMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {

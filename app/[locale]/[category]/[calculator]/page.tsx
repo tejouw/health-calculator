@@ -17,6 +17,10 @@ import { tdeeContent } from '@/calculators/nutrition/tdee-calculator/tdeeContent
 import { dueDateContent } from '@/calculators/pregnancy/due-date-calculator/dueDateContent';
 import { ovulationContent } from '@/calculators/womens-health/ovulation-calculator/ovulationContent';
 import { idealWeightContent } from '@/calculators/body-weight/ideal-weight/idealWeightContent';
+import { bodyFatContent } from '@/calculators/body-weight/body-fat/bodyFatContent';
+import { macroContent } from '@/calculators/nutrition/macro-calculator/macroContent';
+import { bmrContent } from '@/calculators/nutrition/bmr-calculator/bmrContent';
+import { pregnancyWeekContent } from '@/calculators/pregnancy/pregnancy-week-calculator/pregnancyWeekContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -83,6 +87,10 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'due-date-calculator': dueDateContent,
     'ovulation-calculator': ovulationContent,
     'ideal-weight-calculator': idealWeightContent,
+    'body-fat-calculator': bodyFatContent,
+    'macro-calculator': macroContent,
+    'bmr-calculator': bmrContent,
+    'pregnancy-week-calculator': pregnancyWeekContent,
   };
 
   const content = contentMap[calculator.id];
