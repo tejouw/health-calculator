@@ -1,9 +1,9 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/lib/navigation';
 import { categories } from '@/config/categories.config';
-import { getAllCalculators, getCategoryCalculatorCount } from '@/lib/calculatorRegistry';
-import { Card } from '@/components/ui';
+import { getAllCalculators, getCategoryCalculatorCount, getPopularCalculators } from '@/lib/calculatorRegistry';
 import { CategoryCard } from '@/components/home/CategoryCard';
+import { PopularCalculators } from '@/components/home/PopularCalculators';
 import { SearchBar } from '@/components/search';
 import type { Metadata } from 'next';
 import {
@@ -46,6 +46,9 @@ export default async function HomePage({ params }: HomePageProps) {
 
   // Get all calculators for search
   const allCalculators = getAllCalculators();
+
+  // Get popular calculators
+  const popularCalculators = getPopularCalculators(8); // Show top 8 popular calculators
 
   // Dynamically populate calculator counts for each category
   const categoriesWithCounts = categories.map((category) => ({
@@ -200,19 +203,11 @@ export default async function HomePage({ params }: HomePageProps) {
             </p>
           </div>
 
-          <div className="flex items-center justify-center px-2">
-            <Card className="w-full max-w-2xl border-2 border-dashed border-primary-200 bg-white/50 text-center backdrop-blur-sm">
-              <div className="mb-3 sm:mb-4 inline-flex h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 items-center justify-center rounded-full bg-primary-100">
-                <Calculator className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-primary-600" />
-              </div>
-              <h3 className="mb-1.5 sm:mb-2 text-base sm:text-lg font-semibold text-neutral-900">
-                {tHome('comingSoon')}
-              </h3>
-              <p className="text-sm sm:text-base text-neutral-600">
-                {tHome('comingSoonDescription')}
-              </p>
-            </Card>
-          </div>
+          <PopularCalculators
+            locale={locale as 'en' | 'tr'}
+            fallbackCalculators={popularCalculators}
+            limit={8}
+          />
         </div>
       </section>
 

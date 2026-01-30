@@ -6,6 +6,7 @@ import { CalculatorMeta, CalculatorContent } from '@/types/calculator';
 import { Breadcrumbs } from '@/components/layout';
 import { Card } from '@/components/ui';
 import { getCategoryById } from '@/config/categories.config';
+import { usePageViewTracking } from '@/hooks/usePageViewTracking';
 
 // Import BMI-specific components (will be conditionally rendered)
 import BMICategoriesTable from '@/calculators/body-weight/bmi/components/BMICategoriesTable';
@@ -28,6 +29,9 @@ const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
 }) => {
   const t = useTranslations('calculator');
   const category = getCategoryById(calculator.category);
+
+  // Track page views for analytics
+  usePageViewTracking(calculator.id);
 
   const breadcrumbItems = [
     {

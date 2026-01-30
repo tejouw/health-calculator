@@ -22,6 +22,7 @@ import { bodyFatContent } from '@/calculators/body-weight/body-fat/bodyFatConten
 import { macroContent } from '@/calculators/nutrition/macro-calculator/macroContent';
 import { bmrContent } from '@/calculators/nutrition/bmr-calculator/bmrContent';
 import { pregnancyWeekContent } from '@/calculators/pregnancy/pregnancy-week-calculator/pregnancyWeekContent';
+import { heartRateZoneContent } from '@/calculators/heart/heart-rate-zone/heartRateZoneContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -92,6 +93,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'macro-calculator': macroContent,
     'bmr-calculator': bmrContent,
     'pregnancy-week-calculator': pregnancyWeekContent,
+    'heart-rate-zone-calculator': heartRateZoneContent,
   };
 
   const content = contentMap[calculator.id];

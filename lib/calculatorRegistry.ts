@@ -12,6 +12,7 @@ import { bodyFatMeta } from '@/calculators/body-weight/body-fat/bodyFatMeta';
 import { macroMeta } from '@/calculators/nutrition/macro-calculator/macroMeta';
 import { bmrMeta } from '@/calculators/nutrition/bmr-calculator/bmrMeta';
 import { pregnancyWeekMeta } from '@/calculators/pregnancy/pregnancy-week-calculator/pregnancyWeekMeta';
+import { heartRateZoneMeta } from '@/calculators/heart/heart-rate-zone/heartRateZoneMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -25,6 +26,7 @@ export const calculatorRegistry: CalculatorMeta[] = [
   macroMeta,
   bmrMeta,
   pregnancyWeekMeta,
+  heartRateZoneMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {
@@ -42,6 +44,30 @@ export function getCalculatorsByCategory(category: CategoryId): CalculatorMeta[]
 export function getPopularCalculators(limit?: number): CalculatorMeta[] {
   const popular = calculatorRegistry.filter((calc) => calc.popular);
   return limit ? popular.slice(0, limit) : popular;
+}
+
+/**
+ * Get calculators by IDs in the specified order
+ * Useful for getting calculators sorted by analytics data
+ */
+export function getCalculatorsByIds(ids: string[]): CalculatorMeta[] {
+  const calculatorsMap = new Map(calculatorRegistry.map(calc => [calc.id, calc]));
+  return ids
+    .map(id => calculatorsMap.get(id))
+    .filter((calc): calc is CalculatorMeta => calc !== undefined);
+}
+
+/**
+ * Get most viewed calculators based on analytics data
+ * Falls back to popular calculators if no analytics data available
+ */
+export function getMostViewedCalculators(viewedIds: string[], limit?: number): CalculatorMeta[] {
+  if (viewedIds.length === 0) {
+    return getPopularCalculators(limit);
+  }
+
+  const calculators = getCalculatorsByIds(viewedIds);
+  return limit ? calculators.slice(0, limit) : calculators;
 }
 
 export function getFeaturedCalculators(limit?: number): CalculatorMeta[] {
