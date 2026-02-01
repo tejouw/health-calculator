@@ -4,7 +4,7 @@
  */
 
 import { getCalculatorBySlug } from './calculatorRegistry';
-import { isValidCategorySlug } from './categoryMapping';
+import { isValidCategorySlug, translateCategorySlug, getCategoryIdFromSlug } from './categoryMapping';
 
 /**
  * Translate a path from one locale to another
@@ -12,16 +12,21 @@ import { isValidCategorySlug } from './categoryMapping';
  *
  * @example
  * translatePath('/body-weight/bmi-calculator', 'en', 'tr')
- * // Returns: '/body-weight/vucut-kitle-indeksi-hesaplama'
+ * // Returns: '/vucut-kilo/bmi-hesaplama'
  *
- * translatePath('/body-weight', 'en', 'tr')
- * // Returns: '/body-weight'
+ * translatePath('/mens-health', 'en', 'tr')
+ * // Returns: '/erkek-sagligi'
  */
 export function translatePath(
   path: string,
   fromLocale: 'en' | 'tr',
   toLocale: 'en' | 'tr'
 ): string {
+  // If locales are the same, no translation needed
+  if (fromLocale === toLocale) {
+    return path;
+  }
+
   // Remove leading slash if present
   const cleanPath = path.startsWith('/') ? path.slice(1) : path;
 
@@ -32,25 +37,35 @@ export function translatePath(
     return '/';
   }
 
-  // If it's just a category, return as-is (categories don't change)
+  // If it's just a category: /category-slug
   if (segments.length === 1 && isValidCategorySlug(segments[0])) {
-    return `/${segments[0]}`;
+    const translatedCategorySlug = translateCategorySlug(segments[0], fromLocale, toLocale);
+    return translatedCategorySlug ? `/${translatedCategorySlug}` : `/${segments[0]}`;
   }
 
-  // If it's a calculator page: /category/calculator-slug
+  // If it's a calculator page: /category-slug/calculator-slug
   if (segments.length === 2) {
     const [categorySlug, calculatorSlug] = segments;
+
+    // Translate category slug
+    const translatedCategorySlug = translateCategorySlug(categorySlug, fromLocale, toLocale);
 
     // Find calculator by slug in the source locale
     const calculator = getCalculatorBySlug(calculatorSlug, fromLocale);
 
-    if (calculator) {
-      // Return path with translated calculator slug
+    if (translatedCategorySlug && calculator) {
+      // Return path with both translated slugs
+      return `/${translatedCategorySlug}/${calculator.slug[toLocale]}`;
+    } else if (translatedCategorySlug) {
+      // Category translated but calculator not found
+      return `/${translatedCategorySlug}/${calculatorSlug}`;
+    } else if (calculator) {
+      // Calculator found but category not translated
       return `/${categorySlug}/${calculator.slug[toLocale]}`;
     }
   }
 
-  // If path has more segments or calculator not found, return original
+  // If path has more segments or translation failed, return original
   return `/${cleanPath}`;
 }
 

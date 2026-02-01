@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
-import { getCategoryById } from '@/config/categories.config';
+import { getCategoryById, getCategoryBySlug, categories } from '@/config/categories.config';
 import { getCalculatorsByCategory } from '@/lib/calculatorRegistry';
 import { Card, Badge } from '@/components/ui';
 import { Breadcrumbs } from '@/components/layout';
@@ -15,12 +15,33 @@ interface CategoryPageProps {
   }>;
 }
 
+// Generate static paths for all categories
+export async function generateStaticParams() {
+  const paths: Array<{ locale: string; category: string }> = [];
+
+  for (const cat of categories) {
+    // English version with English category slug
+    paths.push({
+      locale: 'en',
+      category: cat.slug.en,
+    });
+    // Turkish version with Turkish category slug
+    paths.push({
+      locale: 'tr',
+      category: cat.slug.tr,
+    });
+  }
+
+  return paths;
+}
+
 export default async function CategoryPage({ params }: CategoryPageProps) {
-  const { locale, category: categoryId } = await params;
+  const { locale, category: categorySlug } = await params;
   setRequestLocale(locale);
 
   const t = await getTranslations('common');
-  const category = getCategoryById(categoryId);
+  // Get category by localized slug
+  const category = getCategoryBySlug(categorySlug, locale as 'en' | 'tr');
 
   if (!category) {
     notFound();
@@ -67,7 +88,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                 return (
                   <Link
                     key={calc.id}
-                    href={`/${category.id}/${calc.slug[locale as 'en' | 'tr']}`}
+                    href={`/${category.slug[locale as 'en' | 'tr']}/${calc.slug[locale as 'en' | 'tr']}`}
                   >
                     <Card hoverable className="group h-full transition-all hover:shadow-hard">
                       <div className="mb-4 flex items-start justify-between">

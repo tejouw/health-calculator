@@ -4,6 +4,7 @@ import { Link } from '@/lib/navigation';
 import { Card } from '@/components/ui';
 import { CalculatorMeta } from '@/types/calculator';
 import { getIcon } from '@/lib/iconUtils';
+import { getCategorySlugByLocale } from '@/lib/categoryMapping';
 import { Calculator, ArrowRight, TrendingUp } from 'lucide-react';
 
 interface CalculatorCardProps {
@@ -17,8 +18,9 @@ export function CalculatorCard({ calculator, locale, showPopularBadge = false }:
   const title = calculator.title[locale];
   const description = calculator.description[locale];
 
-  // Build the href based on category and slug
-  const href = `/${calculator.category}/${calculator.slug[locale]}`;
+  // Build the href based on category and calculator slug (both localized)
+  const categorySlug = getCategorySlugByLocale(calculator.category, locale);
+  const href = `/${categorySlug}/${calculator.slug[locale]}`;
 
   // Localized text
   const texts = {

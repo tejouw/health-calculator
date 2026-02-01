@@ -36,7 +36,7 @@ const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
   const breadcrumbItems = [
     {
       label: category?.name[locale] || calculator.category,
-      href: `/${calculator.category}`,
+      href: `/${category?.slug[locale] || calculator.category}`,
     },
     {
       label: calculator.title[locale],

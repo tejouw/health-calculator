@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import { getCalculatorBySlug, getAllCalculators } from '@/lib/calculatorRegistry';
+import { getCategorySlugByLocale } from '@/lib/categoryMapping';
 import type { CalculatorContent } from '@/types/calculator';
 import {
   generateSEO,
@@ -52,14 +53,16 @@ export async function generateStaticParams() {
   const paths: Array<{ locale: string; category: string; calculator: string }> = [];
 
   for (const calc of calculators) {
+    // English version with English category slug
     paths.push({
       locale: 'en',
-      category: calc.category,
+      category: getCategorySlugByLocale(calc.category, 'en'),
       calculator: calc.slug.en,
     });
+    // Turkish version with Turkish category slug
     paths.push({
       locale: 'tr',
-      category: calc.category,
+      category: getCategorySlugByLocale(calc.category, 'tr'),
       calculator: calc.slug.tr,
     });
   }

@@ -45,7 +45,7 @@ export function CategoryCard({ category, title, locale }: CategoryCardProps) {
   const t = texts[locale];
 
   return (
-    <Link key={category.id} href={`/${category.id}`}>
+    <Link key={category.id} href={`/${category.slug[locale]}`}>
       <Card
         hoverable
         className="group relative h-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 sm:hover:-translate-y-2"

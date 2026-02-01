@@ -6,6 +6,7 @@ import { Search, X, Loader2, TrendingUp, Clock, Sparkles } from 'lucide-react';
 import { useRouter } from '@/lib/navigation';
 import { CalculatorMeta } from '@/types/calculator';
 import { categories } from '@/config/categories.config';
+import { getCategorySlugByLocale } from '@/lib/categoryMapping';
 import { useSearch } from '@/hooks/useSearch';
 import { cn } from '@/lib/utils';
 import {
@@ -130,7 +131,8 @@ export const SearchBar: React.FC<SearchBarProps> = ({
       }
 
       // Don't add locale - next-intl router adds it automatically
-      const path = `/${calculator.category}/${calculator.slug[locale]}`;
+      const categorySlug = getCategorySlugByLocale(calculator.category, locale);
+      const path = `/${categorySlug}/${calculator.slug[locale]}`;
       router.push(path);
       clearSearch();
       setIsOpen(false);

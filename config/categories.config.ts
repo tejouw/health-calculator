@@ -5,6 +5,10 @@ import { Category } from '@/types/category';
 export const categories: Category[] = [
   {
     id: 'body-weight',
+    slug: {
+      en: 'body-weight',
+      tr: 'vucut-kilo',
+    },
     name: {
       en: 'Body & Weight',
       tr: 'Vücut & Kilo',
@@ -19,6 +23,10 @@ export const categories: Category[] = [
   },
   {
     id: 'fitness',
+    slug: {
+      en: 'fitness',
+      tr: 'fitness',
+    },
     name: {
       en: 'Fitness & Exercise',
       tr: 'Fitness & Egzersiz',
@@ -33,6 +41,10 @@ export const categories: Category[] = [
   },
   {
     id: 'nutrition',
+    slug: {
+      en: 'nutrition',
+      tr: 'beslenme',
+    },
     name: {
       en: 'Nutrition & Diet',
       tr: 'Beslenme & Diyet',
@@ -47,6 +59,10 @@ export const categories: Category[] = [
   },
   {
     id: 'pregnancy',
+    slug: {
+      en: 'pregnancy',
+      tr: 'hamilelik',
+    },
     name: {
       en: 'Pregnancy & Birth',
       tr: 'Hamilelik & Doğum',
@@ -61,6 +77,10 @@ export const categories: Category[] = [
   },
   {
     id: 'womens-health',
+    slug: {
+      en: 'womens-health',
+      tr: 'kadin-sagligi',
+    },
     name: {
       en: "Women's Health",
       tr: 'Kadın Sağlığı',
@@ -75,6 +95,10 @@ export const categories: Category[] = [
   },
   {
     id: 'mens-health',
+    slug: {
+      en: 'mens-health',
+      tr: 'erkek-sagligi',
+    },
     name: {
       en: "Men's Health",
       tr: 'Erkek Sağlığı',
@@ -89,6 +113,10 @@ export const categories: Category[] = [
   },
   {
     id: 'heart',
+    slug: {
+      en: 'heart',
+      tr: 'kalp',
+    },
     name: {
       en: 'Heart & Cardiovascular',
       tr: 'Kalp & Damar',
@@ -103,6 +131,10 @@ export const categories: Category[] = [
   },
   {
     id: 'diabetes',
+    slug: {
+      en: 'diabetes',
+      tr: 'diyabet',
+    },
     name: {
       en: 'Diabetes & Blood Sugar',
       tr: 'Diyabet & Kan Şekeri',
@@ -117,6 +149,10 @@ export const categories: Category[] = [
   },
   {
     id: 'medical',
+    slug: {
+      en: 'medical',
+      tr: 'tibbi-hesaplamalar',
+    },
     name: {
       en: 'Medical Calculations',
       tr: 'Tıbbi Hesaplamalar',
@@ -131,6 +167,10 @@ export const categories: Category[] = [
   },
   {
     id: 'mental-health',
+    slug: {
+      en: 'mental-health',
+      tr: 'ruh-sagligi',
+    },
     name: {
       en: 'Mental Health',
       tr: 'Ruh Sağlığı',
@@ -145,6 +185,10 @@ export const categories: Category[] = [
   },
   {
     id: 'sleep',
+    slug: {
+      en: 'sleep',
+      tr: 'uyku',
+    },
     name: {
       en: 'Sleep & Rest',
       tr: 'Uyku & Dinlenme',
@@ -159,6 +203,10 @@ export const categories: Category[] = [
   },
   {
     id: 'childrens-health',
+    slug: {
+      en: 'childrens-health',
+      tr: 'cocuk-sagligi',
+    },
     name: {
       en: "Children's Health",
       tr: 'Çocuk Sağlığı',
@@ -178,6 +226,5 @@ export function getCategoryById(id: string): Category | undefined {
 }
 
 export function getCategoryBySlug(slug: string, locale: 'en' | 'tr'): Category | undefined {
-  // For now, slug matches category id
-  return categories.find((cat) => cat.id === slug);
+  return categories.find((cat) => cat.slug[locale] === slug);
 }

@@ -2,6 +2,7 @@ import { CategoryId, LocalizedString } from './calculator';
 
 export interface Category {
   id: CategoryId;
+  slug: LocalizedString; // URL slug for each locale (e.g., { en: 'mens-health', tr: 'erkek-sagligi' })
   name: LocalizedString;
   description: LocalizedString;
   icon: string;
