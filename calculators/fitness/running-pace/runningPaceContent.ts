@@ -1,0 +1,122 @@
+import { CalculatorContent } from '@/types/calculator';
+
+export const runningPaceContent: CalculatorContent = {
+  en: {
+    whatIs:
+      'Running pace is the time it takes to cover a specific distance, typically measured in minutes per mile or minutes per kilometer. It is a fundamental metric for runners of all levels, from beginners to elite athletes, providing a standardized way to measure running speed and performance. Unlike speed, which is measured in distance per unit time (like mph or km/h), pace measures time per unit distance, making it more intuitive for tracking progress during training runs and races. Understanding your running pace helps you set realistic goals, structure training programs, maintain consistent effort levels, and avoid overtraining or undertraining. The concept of pace is central to effective run training because it directly relates to effort level and physiological stress on the body.',
+
+    howToCalculate:
+      'To calculate running pace, divide your total running time by the distance covered. For example, if you run 5 kilometers in 30 minutes, your pace is 30 ÷ 5 = 6 minutes per kilometer. In the imperial system, if you run 3 miles in 27 minutes, your pace is 27 ÷ 3 = 9 minutes per mile. Most runners track pace in the format MM:SS (minutes:seconds) per mile or kilometer. To convert between units, use the conversion factor: 1 kilometer = 0.621371 miles. A 6:00 min/km pace equals approximately 9:39 min/mile. Modern GPS running watches and smartphone apps automatically calculate pace in real-time, but understanding the manual calculation helps you plan training runs and interpret race results more effectively.',
+
+    formulaDetails:
+      'The basic pace formula is: Pace = Total Time ÷ Distance. Time should be expressed in minutes (with seconds converted to decimal), and distance in your preferred unit (km or miles). For split times during longer runs, the same formula applies to each segment. Speed can be calculated as the inverse of pace: Speed = Distance ÷ Time, typically expressed in km/h or mph. The relationship between pace and speed is reciprocal. Converting pace to speed: Speed (km/h) = 60 ÷ Pace (min/km). Converting speed to pace: Pace (min/km) = 60 ÷ Speed (km/h). For race time prediction, multiply your target pace by race distance. For example, to run a half marathon (21.1 km) at 6:00 min/km pace: 21.1 × 6 = 126.6 minutes = 2 hours 6 minutes 36 seconds. Understanding these calculations allows you to plan race strategies, set interval training targets, and adjust pace for different terrain and conditions.',
+
+    medicalDisclaimer:
+      'This running pace calculator is for informational and training purposes only. Always consult with healthcare professionals before starting or intensifying any running program, especially if you have pre-existing health conditions, cardiovascular issues, joint problems, or are over 40 years old. Running at inappropriate paces can lead to injuries including stress fractures, tendonitis, muscle strains, and cardiovascular stress. Listen to your body and adjust pace based on how you feel, not just calculated numbers. If you experience chest pain, severe shortness of breath, dizziness, or unusual fatigue, stop exercising immediately and seek medical attention.',
+
+    references: [
+      'Daniels\' Running Formula by Jack Daniels, PhD - Scientific basis for pace-based training',
+      'American College of Sports Medicine - Guidelines for Exercise Testing and Prescription',
+      'Running Science by Owen Anderson - Physiological principles of pace and performance',
+      'Pfitzinger P, Douglas S. Advanced Marathoning. 2nd ed. Human Kinetics. 2009.',
+      'Runner\'s World magazine - Pace charts and training guides',
+      'Journal of Applied Physiology - Studies on running economy and pace',
+    ],
+
+    tips: [
+      'Use a GPS watch or smartphone app for accurate real-time pace tracking during runs',
+      'Practice running at different paces to develop better pace awareness and control',
+      'Slower paces (conversational) should make up 80% of your training volume',
+      'Account for terrain - hills, trails, and wind significantly affect pace',
+      'Negative splits (running the second half faster) often lead to better race results',
+      'Pace varies by temperature - expect to slow down in hot/humid conditions',
+      'Don\'t compare your pace to others - focus on your own progress and goals',
+      'Recovery runs should be significantly slower than your easy pace (1-2 min/km slower)',
+    ],
+
+    faqs: [
+      {
+        question: 'What is a good running pace for beginners?',
+        answer:
+          'For beginner runners, a comfortable easy pace is typically 7-9 minutes per kilometer (11-14 minutes per mile) or slower. The key is to run at a conversational pace where you can speak in complete sentences without gasping for breath. This typically corresponds to 60-70% of maximum heart rate. Don\'t worry about speed initially - focus on building endurance and consistency. As fitness improves over weeks and months, your comfortable pace will naturally get faster.',
+      },
+      {
+        question: 'How do I calculate my target race pace?',
+        answer:
+          'To determine race pace, use recent race results or time trials. A common approach is the "VDOT" method: run a 5K at maximum effort, then use pace calculators to predict performances at other distances. For marathons, many coaches recommend running at a pace 15-30 seconds per mile slower than your half marathon race pace. Conservative pacing (starting slower than goal pace) typically produces better results than aggressive starts. Use training runs to practice goal pace and adjust based on how the effort feels.',
+      },
+      {
+        question: 'Why does my pace vary so much between runs?',
+        answer:
+          'Pace variability is normal and affected by many factors: terrain (hills slow pace), weather (heat/humidity reduces pace by 20-30 seconds per mile), fatigue (previous hard workouts), hydration status, sleep quality, stress levels, altitude, wind resistance, and shoe choice. GPS accuracy can also vary, especially in areas with poor satellite coverage or dense tree canopy. Focus on effort level (perceived exertion and heart rate) rather than obsessing over exact pace on every run. Consistency in effort, not pace, is key for training adaptation.',
+      },
+      {
+        question: 'What\'s the difference between pace and speed?',
+        answer:
+          'Pace measures time per unit distance (min/km or min/mile), while speed measures distance per unit time (km/h or mph). Pace is more intuitive for runners because it directly relates to race finish times and training intervals. For example, a 5:00 min/km pace means each kilometer takes 5 minutes. Speed would express this as 12 km/h. Cyclists and swimmers typically use speed, while runners use pace. Both measure the same thing from different perspectives - they\'re mathematical inverses of each other.',
+      },
+      {
+        question: 'How much does temperature affect running pace?',
+        answer:
+          'Heat significantly impacts running pace. Research shows that for every 5°F (2.8°C) above 60°F (15.5°C), runners slow by approximately 20-30 seconds per mile due to increased cardiovascular stress and thermoregulation demands. At temperatures above 80°F (27°C) with high humidity, pace can slow by 1-2 minutes per mile compared to optimal conditions (50-60°F). Acclimatization helps but takes 10-14 days. In hot weather, adjust expectations, slow your pace, increase hydration, and prioritize effort/heart rate over pace targets.',
+      },
+    ],
+  },
+  tr: {
+    whatIs:
+      'Koşu temposu, belirli bir mesafeyi kat etmek için geçen süreyi ifade eder ve genellikle mil başına dakika veya kilometre başına dakika olarak ölçülür. Başlangıçtan elit sporculara kadar her seviyedeki koşucu için temel bir metriktir ve koşu hızını ve performansını ölçmek için standartlaştırılmış bir yol sağlar. Birim zaman başına mesafe (mph veya km/s gibi) ile ölçülen hızın aksine, tempo birim mesafe başına zamanı ölçer ve bu da antrenman koşuları ve yarışlar sırasında ilerlemeyi takip etmek için daha sezgisel hale getirir. Koşu temponuzu anlamak, gerçekçi hedefler belirlemenize, antrenman programlarını yapılandırmanıza, tutarlı çaba seviyelerini korumanıza ve aşırı veya yetersiz antrenman yapmaktan kaçınmanıza yardımcı olur.',
+
+    howToCalculate:
+      'Koşu temposunu hesaplamak için toplam koşu süresini kat edilen mesafeye bölün. Örneğin, 5 kilometreyi 30 dakikada koşarsanız, temponuz 30 ÷ 5 = kilometre başına 6 dakikadır. İngiliz sisteminde, 3 mili 27 dakikada koşarsanız, temponuz 27 ÷ 3 = mil başına 9 dakikadır. Çoğu koşucu tempoyu mil veya kilometre başına MM:SS (dakika:saniye) formatında takip eder. Birimler arasında dönüşüm yapmak için dönüşüm faktörünü kullanın: 1 kilometre = 0.621371 mil. 6:00 dk/km tempo yaklaşık olarak 9:39 dk/mil\'e eşittir.',
+
+    formulaDetails:
+      'Temel tempo formülü: Tempo = Toplam Süre ÷ Mesafe. Süre dakika cinsinden (saniyeler ondalığa dönüştürülmüş) ve mesafe tercih ettiğiniz birimde (km veya mil) ifade edilmelidir. Daha uzun koşularda bölme süreleri için aynı formül her segment için geçerlidir. Hız, temponun tersi olarak hesaplanabilir: Hız = Mesafe ÷ Süre, genellikle km/s veya mph ile ifade edilir. Tempo ve hız arasındaki ilişki karşılıklıdır. Tempodan hıza dönüştürme: Hız (km/s) = 60 ÷ Tempo (dk/km). Hızdan tempoya dönüştürme: Tempo (dk/km) = 60 ÷ Hız (km/s).',
+
+    medicalDisclaimer:
+      'Bu koşu temposu hesaplayıcısı yalnızca bilgilendirme ve antrenman amaçlıdır. Özellikle önceden var olan sağlık sorunlarınız, kardiyovasküler sorunlarınız, eklem problemleriniz varsa veya 40 yaşın üzerindeyseniz, herhangi bir koşu programına başlamadan veya yoğunlaştırmadan önce her zaman sağlık profesyonellerine danışın. Uygunsuz temploda koşmak stres kırıkları, tendinit, kas gerilmeleri ve kardiyovasküler stres dahil yaralanmalara yol açabilir.',
+
+    references: [
+      'Jack Daniels tarafından Daniels\' Running Formula - Tempoya dayalı antrenman için bilimsel temel',
+      'Amerikan Spor Hekimliği Koleji - Egzersiz Testi ve Reçetesi için Kılavuzlar',
+      'Owen Anderson tarafından Running Science - Tempo ve performansın fizyolojik prensipleri',
+    ],
+
+    tips: [
+      'Koşular sırasında doğru gerçek zamanlı tempo takibi için GPS saat veya akıllı telefon uygulaması kullanın',
+      'Daha iyi tempo farkındalığı ve kontrolü geliştirmek için farklı templarda koşma pratik yapın',
+      'Yavaş tempolar (konuşarak) antrenman hacminizin %80\'ini oluşturmalıdır',
+      'Araziye dikkat edin - tepeler, patikalar ve rüzgar tempoyu önemli ölçüde etkiler',
+      'Negatif bölmeler (ikinci yarıyı daha hızlı koşmak) genellikle daha iyi yarış sonuçlarına yol açar',
+      'Tempo sıcaklığa göre değişir - sıcak/nemli koşullarda yavaşlamayı bekleyin',
+      'Temponuzu başkalarınınkiyle karşılaştırmayın - kendi ilerlemenize ve hedeflerinize odaklanın',
+    ],
+
+    faqs: [
+      {
+        question: 'Yeni başlayanlar için iyi bir koşu temposu nedir?',
+        answer:
+          'Yeni başlayan koşucular için rahat bir kolay tempo genellikle kilometre başına 7-9 dakika (mil başına 11-14 dakika) veya daha yavaştır. Anahtar, nefes nefese kalmadan tam cümlelerle konuşabileceğiniz konuşarak bir tempoda koşmaktır. Bu genellikle maksimum kalp hızının %60-70\'ine karşılık gelir. Başlangıçta hız konusunda endişelenmeyin - dayanıklılık ve tutarlılık oluşturmaya odaklanın.',
+      },
+      {
+        question: 'Hedef yarış tempom nasıl hesaplamalıyım?',
+        answer:
+          'Yarış temposunu belirlemek için yakın zamandaki yarış sonuçlarını veya zaman denemelerini kullanın. Yaygın bir yaklaşım "VDOT" yöntemidir: maksimum çaba ile bir 5K koşun, ardından diğer mesafelerdeki performansları tahmin etmek için tempo hesaplayıcılarını kullanın. Maratonlar için, birçok koç yarı maraton yarış temponuzdan mil başına 15-30 saniye daha yavaş bir tempoda koşmayı önerir.',
+      },
+      {
+        question: 'Tempom koşular arasında neden bu kadar değişiyor?',
+        answer:
+          'Tempo değişkenliği normaldir ve birçok faktörden etkilenir: arazi (tepeler tempoyu yavaşlatır), hava durumu (sıcaklık/nem tempoyu mil başına 20-30 saniye azaltır), yorgunluk (önceki sert antrenmanlar), hidrasyon durumu, uyku kalitesi, stres seviyeleri, irtifa, rüzgar direnci ve ayakkabı seçimi. GPS doğruluğu da özellikle zayıf uydu kapsama alanı veya yoğun ağaç örtüsü olan alanlarda değişebilir. Her koşuda tam tempo üzerinde takıntı yapmak yerine çaba seviyesine (algılanan efor ve kalp hızı) odaklanın.',
+      },
+      {
+        question: 'Tempo ve hız arasındaki fark nedir?',
+        answer:
+          'Tempo birim mesafe başına zamanı (dk/km veya dk/mil) ölçerken, hız birim zaman başına mesafeyi (km/s veya mph) ölçer. Tempo koşucular için daha sezgiseldir çünkü doğrudan yarış bitiş süreleri ve antrenman aralıklarıyla ilgilidir. Örneğin, 5:00 dk/km tempo her kilometrenin 5 dakika sürdüğü anlamına gelir. Hız bunu 12 km/s olarak ifade eder.',
+      },
+      {
+        question: 'Sıcaklık koşu temposunu ne kadar etkiler?',
+        answer:
+          'Sıcaklık koşu temposunu önemli ölçüde etkiler. Araştırmalar, 60°F\'nin (15.5°C) üzerindeki her 5°F (2.8°C) için koşucuların artan kardiyovasküler stres ve termoregülasyon talepleri nedeniyle mil başına yaklaşık 20-30 saniye yavaşladığını göstermektedir. 80°F\'nin (27°C) üzerindeki sıcaklıklarda yüksek nemle, tempo optimal koşullara (50-60°F) kıyasla mil başına 1-2 dakika yavaşlayabilir.',
+      },
+    ],
+  },
+};

@@ -23,6 +23,15 @@ import { macroContent } from '@/calculators/nutrition/macro-calculator/macroCont
 import { bmrContent } from '@/calculators/nutrition/bmr-calculator/bmrContent';
 import { pregnancyWeekContent } from '@/calculators/pregnancy/pregnancy-week-calculator/pregnancyWeekContent';
 import { heartRateZoneContent } from '@/calculators/heart/heart-rate-zone/heartRateZoneContent';
+// New calculator content
+import { oneRepMaxContent } from '@/calculators/fitness/one-rep-max/oneRepMaxContent';
+import { runningPaceContent } from '@/calculators/fitness/running-pace/runningPaceContent';
+import { sleepContent } from '@/calculators/sleep/sleep-calculator/sleepContent';
+import { a1cContent } from '@/calculators/diabetes/a1c-calculator/a1cContent';
+import { bloodSugarContent } from '@/calculators/diabetes/blood-sugar-converter/bloodSugarContent';
+import { gfrContent } from '@/calculators/medical/gfr-calculator/gfrContent';
+import { creatinineContent } from '@/calculators/medical/creatinine-clearance/creatinineContent';
+import { phq9Content } from '@/calculators/mental-health/phq9-calculator/phq9Content';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -94,6 +103,19 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'bmr-calculator': bmrContent,
     'pregnancy-week-calculator': pregnancyWeekContent,
     'heart-rate-zone-calculator': heartRateZoneContent,
+    // Fitness
+    'one-rep-max-calculator': oneRepMaxContent,
+    'running-pace-calculator': runningPaceContent,
+    // Sleep
+    'sleep-calculator': sleepContent,
+    // Diabetes
+    'a1c-calculator': a1cContent,
+    'blood-sugar-converter': bloodSugarContent,
+    // Medical
+    'gfr-calculator': gfrContent,
+    'creatinine-clearance-calculator': creatinineContent,
+    // Mental Health
+    'phq9-calculator': phq9Content,
   };
 
   const content = contentMap[calculator.id];

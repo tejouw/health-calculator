@@ -1,119 +1,131 @@
-export const oneRepMaxContent = {
+import { CalculatorContent } from '@/types/calculator';
+
+export const oneRepMaxContent: CalculatorContent = {
   en: {
-    title: 'One Rep Max (1RM) Calculator',
-    description:
-      'Calculate your one rep max (1RM) using proven strength training formulas to optimize your workout program.',
-    sections: [
-      {
-        title: 'What is One Rep Max (1RM)?',
-        content:
-          'One Rep Max (1RM) is the maximum amount of weight you can lift for a single repetition of a given exercise. It is a crucial metric in strength training and powerlifting for measuring maximum strength and programming training loads.',
-      },
-      {
-        title: 'Why Calculate Your 1RM?',
-        content:
-          'Knowing your 1RM helps you: (1) Program effective training percentages, (2) Track strength progress over time, (3) Compare performance across different exercises, (4) Set realistic strength goals, (5) Avoid injury by training at appropriate intensities.',
-      },
-      {
-        title: 'Formulas Used',
-        content:
-          'This calculator uses five proven formulas: Brzycki (most popular, accurate for 1-10 reps), Epley (works well for 4-6 reps), Lander (good for moderate ranges), Lombardi (conservative estimate), and O\'Conner (good for higher reps). The average of all five provides the most reliable estimate.',
-      },
-      {
-        title: 'How to Use Training Percentages',
-        content:
-          'Training percentages are based on your 1RM. For example: 90-95% for strength (2-4 reps), 85-90% for power (4-6 reps), 70-85% for hypertrophy (6-12 reps), and 60-70% for muscular endurance (12-20 reps). These ranges help structure your training program effectively.',
-      },
-      {
-        title: 'Important Safety Notes',
-        content:
-          'Never attempt a true 1RM without proper preparation, spotters, and experience. This calculator provides estimates based on submaximal lifts. For beginners, it\'s safer to estimate 1RM using 3-5 rep ranges rather than attempting a true max. Always warm up properly before heavy lifting.',
-      },
+    whatIs:
+      'One Rep Max (1RM) is the maximum amount of weight that can be lifted for a single repetition of a given exercise with proper form. It represents the absolute peak strength capacity for that specific movement and is a fundamental metric in strength training, powerlifting, Olympic weightlifting, and athletic performance assessment. The concept of 1RM is rooted in exercise physiology and biomechanics, reflecting the maximal force production capability of the neuromuscular system under optimal conditions. Originally used primarily by competitive powerlifters and weightlifters, 1RM testing and estimation has become standard practice across fitness training, sports performance, rehabilitation, and exercise science research. Knowing your 1RM serves multiple purposes: it provides an objective measure of strength that can be tracked over time to assess training progress, it forms the basis for percentage-based training programs where workout loads are prescribed as percentages of 1RM (such as 70% 1RM for hypertrophy or 90% 1RM for strength), it allows comparison of strength levels across different individuals or against normative data for your age and weight class, and it helps ensure training is performed at appropriate intensities to achieve specific goals (strength, power, hypertrophy, or endurance). The 1RM can be determined through direct testing, where an individual actually attempts to lift the maximum weight possible for one repetition, or through estimation using mathematical formulas based on submaximal lifts (lifting a lighter weight for multiple repetitions). Direct 1RM testing carries some risk of injury and requires significant experience, proper technique, adequate warm-up, and spotters for safety. Therefore, 1RM estimation formulas have been developed and validated to predict 1RM from submaximal performances, typically using lifts in the 3-10 repetition range. These formulas provide reasonably accurate estimates while avoiding the risks associated with maximal lifting attempts, making them suitable for beginners, general fitness enthusiasts, and situations where safety is a priority.',
+
+    howToCalculate:
+      'The 1RM can be calculated using various estimation formulas, each developed through research examining the relationship between submaximal lifts and maximal strength. The most widely used formulas include the Brzycki formula, Epley formula, Lander formula, Lombardi formula, and O\'Conner formula. To use these formulas, you need two pieces of information: the weight lifted and the number of repetitions completed to failure (where you cannot perform another repetition with proper form). The Brzycki formula is: 1RM = weight / (1.0278 - 0.0278 × reps). For example, if you bench press 200 lbs for 6 reps, Brzycki estimates: 1RM = 200 / (1.0278 - 0.0278 × 6) = 200 / 0.8610 = 232 lbs. The Epley formula is: 1RM = weight × (1 + reps/30). Using the same example: 1RM = 200 × (1 + 6/30) = 200 × 1.2 = 240 lbs. The Lander formula is: 1RM = (100 × weight) / (101.3 - 2.67123 × reps). For our example: 1RM = (100 × 200) / (101.3 - 2.67123 × 6) = 20000 / 85.27 = 234 lbs. The Lombardi formula is: 1RM = weight × reps^0.10. For the example: 1RM = 200 × 6^0.10 = 200 × 1.196 = 239 lbs. The O\'Conner formula is: 1RM = weight × (1 + reps/40). For the example: 1RM = 200 × (1 + 6/40) = 200 × 1.15 = 230 lbs. As you can see, different formulas yield slightly different results. Most 1RM calculators provide an average of multiple formulas to increase accuracy. The accuracy of these formulas decreases as the number of repetitions increases beyond 10, as the relationship between muscular endurance and maximal strength becomes less predictable. For best accuracy, use weights that you can lift for 3-8 repetitions. Important considerations when using 1RM formulas: the lift must be taken to true muscular failure (inability to complete another repetition), form must remain strict throughout all repetitions (poor form invalidates the results), adequate rest between sets is necessary (testing should be done fresh, not fatigued), and the formulas work best for compound movements (squats, bench press, deadlift) rather than isolation exercises.',
+
+    interpretation:
+      'Once you\'ve calculated your 1RM, this value becomes the foundation for programming your training. In percentage-based training, workout intensities are prescribed as percentages of your 1RM, with different percentage ranges targeting different training adaptations. Training at 90-100% of 1RM with 1-3 repetitions develops maximal strength through neural adaptations and improved motor unit recruitment. This intensity is used by powerlifters and strength athletes but requires long rest periods (3-5 minutes between sets) and carries higher injury risk. Training at 80-90% of 1RM with 3-6 repetitions builds strength with some hypertrophy and is commonly used in strength-focused programs. Training at 70-80% of 1RM with 6-12 repetitions is optimal for muscle hypertrophy (muscle growth) and is the foundation of bodybuilding-style training. Training at 60-70% of 1RM with 12-20 repetitions develops muscular endurance and is useful for general fitness, injury rehabilitation, and sport-specific conditioning. Your 1RM can also be used to assess strength standards. For example, strength standards for the bench press relative to body weight are often categorized as: untrained (less than 0.5× bodyweight), novice (0.75× bodyweight), intermediate (1.0× bodyweight), advanced (1.5× bodyweight), and elite (2× bodyweight or more). These standards vary by exercise, sex, age, and training experience. It\'s important to retest or recalculate your 1RM every 4-8 weeks during active training, as your strength will change. Progressive overload - gradually increasing training loads over time - is essential for continued strength gains, and updating your 1RM allows you to adjust training weights appropriately. When interpreting your 1RM, consider that strength is specific to the movement tested - your bench press 1RM doesn\'t predict your squat 1RM, and strength gains in one exercise don\'t automatically transfer to others, though compound movements share some overlap.',
+
+    medicalDisclaimer:
+      'This 1RM calculator is provided for educational and informational purposes only and should not replace professional guidance from certified strength and conditioning specialists, physical therapists, or qualified fitness professionals. The 1RM estimation formulas provide approximations based on submaximal performances and population averages, and individual results may vary based on training experience, muscle fiber composition, technique efficiency, and neurological factors. Never attempt a true 1RM test or maximal lift without proper preparation, including adequate training experience (at least 6-12 months of consistent resistance training), mastery of proper lifting technique, comprehensive warm-up, appropriate equipment (power rack, safety bars, lifting belt if needed), and experienced spotters. Maximal strength testing carries inherent risks including muscle strains, joint injuries, cardiovascular stress, and in rare cases, more serious injuries. Beginners, individuals with pre-existing injuries, people with cardiovascular conditions, pregnant women, elderly individuals, and those with musculoskeletal disorders should not attempt maximal lifts without medical clearance and professional supervision. If you experience pain, dizziness, chest discomfort, unusual shortness of breath, or any concerning symptoms during strength training, stop immediately and seek medical attention. The training percentages and recommendations provided are general guidelines and may not be appropriate for all individuals. Always progress gradually, prioritize proper form over heavy weights, allow adequate recovery between sessions, and listen to your body. If you are new to strength training or returning after a layoff, work with qualified professionals to develop a safe and effective training program. This calculator does not replace personalized coaching, exercise prescription, or medical advice from healthcare providers. For optimal safety and results, consult with certified strength and conditioning specialists (CSCS), certified personal trainers (CPT), physical therapists, sports medicine physicians, or other qualified professionals.',
+
+    references: [
+      'Brzycki M. Strength testing: Predicting a one-rep max from reps-to-fatigue. Journal of Physical Education, Recreation & Dance. 1993;64(1):88-90.',
+      'Epley B. Poundage Chart. Boyd Epley Workout. Lincoln, NE: University of Nebraska Press; 1985.',
+      'Lander J. Maximum based on reps. NSCA Journal. 1985;6(6):60-61.',
+      'Lombardi VP. Beginning Weight Training: The Safe and Effective Way. Dubuque, IA: William C. Brown; 1989.',
+      'Baechle TR, Earle RW, eds. Essentials of Strength Training and Conditioning. 3rd ed. Champaign, IL: Human Kinetics; 2008.',
+      'Reynolds JM, et al. Prediction of one repetition maximum strength from multiple repetition maximum testing and anthropometry. J Strength Cond Res. 2006;20(3):584-592.',
     ],
+
+    tips: [
+      'For most accurate 1RM estimates, use weights that you can lift for 3-8 repetitions - accuracy decreases significantly above 10 reps',
+      'Always lift to true muscular failure when testing - stopping with reps left in reserve will underestimate your 1RM',
+      'Maintain strict form throughout all repetitions - if form breaks down, stop the set as those reps don\'t count for accurate estimation',
+      'Test when you are fresh and well-rested - fatigue from previous workouts will compromise results and increase injury risk',
+      'Warm up thoroughly before testing: start with 5-10 minutes of light cardio, then perform progressively heavier warm-up sets with decreasing reps',
+      'Rest adequately between testing sets - at least 3-5 minutes for compound movements to allow full recovery',
+      'Retest your 1RM every 4-8 weeks to track progress and adjust training loads appropriately',
+      'Focus on compound exercises (squat, bench press, deadlift, overhead press) for 1RM testing - these are most reliable and useful for programming',
+      'Use multiple formulas and average the results for more reliable 1RM estimates',
+      'Remember that 1RM is movement-specific - strength in one exercise doesn\'t necessarily predict strength in others',
+      'If you\'re new to training, spend at least 3-6 months mastering proper technique before attempting 1RM testing or estimation',
+    ],
+
     faqs: [
       {
-        question: 'How accurate is the 1RM calculator?',
+        question: 'Should I test my actual 1RM or use estimation formulas?',
         answer:
-          'The calculator provides estimates within 5-10% accuracy for most lifters when reps are kept between 1-10. Accuracy decreases with higher rep ranges. Using the average of multiple formulas provides the most reliable estimate.',
+          'For most people, using estimation formulas based on submaximal lifts (3-8 reps) is safer and nearly as accurate as testing true 1RM. Direct 1RM testing is only recommended for experienced lifters (at least 1-2 years of consistent training), competitive athletes (powerlifters, weightlifters), or when exact maximal strength measurement is required for competition or research purposes. Direct testing requires perfect technique, proper equipment, experienced spotters, comprehensive warm-up, and understanding of how to safely attempt maximal lifts. The risk of injury increases significantly with maximal attempts, especially for beginners or those with improper technique. Additionally, maximal testing is very demanding on the nervous system and requires 5-7 days of recovery afterward. For programming purposes, estimated 1RM from 5-rep or 6-rep tests provides sufficient accuracy while being much safer and less taxing.',
       },
       {
-        question: 'Should I test my actual 1RM?',
+        question: 'How often should I test or recalculate my 1RM?',
         answer:
-          'Testing true 1RM is recommended only for experienced lifters with proper technique, spotters, and equipment. For most people, estimating 1RM from 3-5 rep maxes is safer and nearly as accurate.',
+          'The optimal frequency for 1RM testing depends on your training experience and goals. For beginners (less than 1 year of training), testing every 8-12 weeks is appropriate, as strength gains occur rapidly and more frequent testing might interfere with consistent training. For intermediate lifters (1-3 years of training), testing every 6-8 weeks allows tracking of progress while maintaining focus on training. For advanced lifters and athletes, testing every 4-6 weeks may be appropriate, especially when following periodized programs with specific strength peaks. If you\'re using estimation formulas rather than true 1RM testing, you can reassess more frequently (every 3-4 weeks) as it\'s less disruptive to training. Avoid testing too frequently (more than once every 3-4 weeks) as this can interfere with progressive training, increase injury risk, and doesn\'t allow sufficient time for meaningful strength adaptations to occur. Always plan 1RM testing during a deload week or after adequate rest to ensure you\'re testing in a recovered state.',
       },
       {
-        question: 'Which formula is most accurate?',
+        question: 'Why do different formulas give me different 1RM estimates?',
         answer:
-          'Brzycki and Epley formulas are most popular and accurate for lower rep ranges (1-10 reps). The average of all formulas tends to be most reliable across different rep ranges and lifting styles.',
+          'Different 1RM estimation formulas were developed from different populations, research methodologies, and mathematical modeling approaches, which is why they produce slightly different results. The Brzycki formula tends to be most accurate for moderate rep ranges (4-10 reps) and is widely used in research. The Epley formula often gives slightly higher estimates and works well for lower rep ranges (2-6 reps). The Lander and Lombardi formulas were developed from different datasets and may be more or less accurate depending on individual factors. The O\'Conner formula is generally more conservative. Individual factors affecting which formula is most accurate for you include muscle fiber type composition (people with more fast-twitch fibers may perform better on maximal attempts than predictions suggest), training experience (experienced lifters often perform closer to predicted 1RM), exercise technique efficiency, and neural factors. This is why many calculators provide an average of multiple formulas - the average tends to be more reliable than any single formula. If you consistently find that you can lift more or less than predicted, you may want to apply a personal correction factor based on experience.',
       },
       {
-        question: 'How often should I test my 1RM?',
+        question: 'Can I use 1RM estimates for all exercises?',
         answer:
-          'Test or recalculate your 1RM every 4-8 weeks if you\'re following a structured strength program. More frequent testing can interfere with training and increase injury risk.',
+          'While 1RM estimation formulas work well for major compound exercises (squat, bench press, deadlift, overhead press, barbell rows), they are less reliable for isolation exercises, machines, and bodyweight exercises. Compound movements have been extensively studied and the formulas are well-validated for these lifts. For isolation exercises (bicep curls, tricep extensions, lateral raises), the relationship between submaximal reps and 1RM is less predictable, and these exercises are rarely trained for maximal singles anyway. Machine exercises introduce variables like machine-specific friction and lever arms that reduce formula accuracy. For bodyweight exercises (pull-ups, dips), you can estimate 1RM using your bodyweight plus added resistance, but the calculations become more complex. Additionally, exercises requiring high technical skill (Olympic lifts like snatch and clean & jerk) are not suitable for 1RM estimation formulas because technique efficiency changes dramatically at different intensities, and these lifts are rarely taken to muscular failure. Stick to using 1RM estimation for the big compound barbell lifts where it\'s most accurate and useful.',
       },
       {
-        question: 'Can I use this for all exercises?',
+        question: 'What is a good 1RM relative to my body weight?',
         answer:
-          'These formulas work best for compound lifts (squat, bench press, deadlift). They may be less accurate for isolation exercises or movements with technical complexity.',
+          'Strength standards vary significantly by sex, age, body weight, training experience, and specific exercise. For adult males, general strength standards for the squat are approximately: untrained (1.0× bodyweight), novice (1.25× bodyweight), intermediate (1.5× bodyweight), advanced (2.0× bodyweight), and elite (2.5× bodyweight or more). For bench press: untrained (0.5-0.75× bodyweight), novice (1.0× bodyweight), intermediate (1.25× bodyweight), advanced (1.75× bodyweight), elite (2.0× bodyweight or more). For deadlift: untrained (1.25× bodyweight), novice (1.5× bodyweight), intermediate (1.75× bodyweight), advanced (2.5× bodyweight), elite (3.0× bodyweight or more). Women\'s standards are typically 60-70% of male standards due to differences in muscle mass distribution and hormonal profiles. Age also matters - strength peaks in the late 20s to mid-30s, and standards should be adjusted downward for younger (under 20) and older (over 40) individuals. Lighter body weight individuals often achieve higher strength-to-weight ratios than heavier individuals. Remember that these are general population standards - what matters most is your individual progress over time, not comparison to arbitrary standards. Focus on consistent improvement and training sustainability rather than chasing specific numbers.',
       },
     ],
   },
   tr: {
-    title: 'Maksimum Tek Tekrar (1RM) Hesaplayıcı',
-    description:
-      'Antrenman programınızı optimize etmek için kanıtlanmış kuvvet antrenmanı formülleriyle maksimum tek tekrarınızı (1RM) hesaplayın.',
-    sections: [
-      {
-        title: 'Maksimum Tek Tekrar (1RM) Nedir?',
-        content:
-          'Maksimum Tek Tekrar (1RM), belirli bir egzersizde tek tekrar için kaldırabileceğiniz maksimum ağırlık miktarıdır. Maksimum kuvveti ölçmek ve antrenman yüklerini programlamak için kuvvet antrenmanı ve güç kaldırmada kritik bir metriktir.',
-      },
-      {
-        title: '1RM Neden Hesaplanmalı?',
-        content:
-          '1RM\'nizi bilmek size yardımcı olur: (1) Etkili antrenman yüzdeleri programlama, (2) Zaman içinde kuvvet ilerlemesini takip etme, (3) Farklı egzersizlerde performans karşılaştırma, (4) Gerçekçi kuvvet hedefleri belirleme, (5) Uygun yoğunluklarda antrenman yaparak yaralanmadan kaçınma.',
-      },
-      {
-        title: 'Kullanılan Formüller',
-        content:
-          'Bu hesaplayıcı beş kanıtlanmış formül kullanır: Brzycki (en popüler, 1-10 tekrar için doğru), Epley (4-6 tekrar için iyi çalışır), Lander (orta aralıklar için iyi), Lombardi (muhafazakar tahmin), ve O\'Conner (yüksek tekrarlar için iyi). Beş formülün ortalaması en güvenilir tahmini sağlar.',
-      },
-      {
-        title: 'Antrenman Yüzdeleri Nasıl Kullanılır',
-        content:
-          'Antrenman yüzdeleri 1RM\'nize dayanır. Örneğin: Kuvvet için %90-95 (2-4 tekrar), güç için %85-90 (4-6 tekrar), hipertrofi için %70-85 (6-12 tekrar), ve kas dayanıklılığı için %60-70 (12-20 tekrar). Bu aralıklar antrenman programınızı etkili şekilde yapılandırmanıza yardımcı olur.',
-      },
-      {
-        title: 'Önemli Güvenlik Notları',
-        content:
-          'Uygun hazırlık, spotterlar ve deneyim olmadan asla gerçek bir 1RM denemesi yapmayın. Bu hesaplayıcı submaksimal kaldırmalara dayalı tahminler sağlar. Yeni başlayanlar için, gerçek bir maksimum denemek yerine 3-5 tekrarlı aralıkları kullanarak 1RM tahmin etmek daha güvenlidir. Ağır kaldırmadan önce her zaman düzgün ısınma yapın.',
-      },
+    whatIs:
+      'Maksimum Tek Tekrar (1RM), belirli bir egzersiz için doğru formla tek tekrarda kaldırılabilecek maksimum ağırlık miktarıdır. Belirli bir hareket için mutlak zirve kuvvet kapasitesini temsil eder ve kuvvet antrenmanı, güç kaldırma, olimpik ağırlık kaldırma ve atletik performans değerlendirmesinde temel bir metriktir. 1RM kavramı, egzersiz fizyolojisi ve biyomekaniğe dayanır ve optimal koşullar altında nöromüsküler sistemin maksimal kuvvet üretim yeteneğini yansıtır. Başlangıçta öncelikle rekabetçi güç kaldırıcılar ve ağırlık kaldırıcılar tarafından kullanılan 1RM testi ve tahmini, fitness antrenmanı, spor performansı, rehabilitasyon ve egzersiz bilimi araştırmaları genelinde standart uygulama haline gelmiştir. 1RM\'nizi bilmek birden fazla amaca hizmet eder: antrenman ilerlemesini değerlendirmek için zaman içinde takip edilebilecek objektif bir kuvvet ölçüsü sağlar, antrenman yüklerinin 1RM\'nin yüzdeleri olarak belirlendiği yüzdeye dayalı antrenman programlarının temelini oluşturur (hipertrofi için %70 1RM veya kuvvet için %90 1RM gibi), farklı bireyler arasında kuvvet seviyelerinin karşılaştırılmasına veya yaşınız ve kilo sınıfınız için normatif verilere göre karşılaştırılmasına olanak tanır ve antrenmanın belirli hedeflere ulaşmak için uygun yoğunluklarda gerçekleştirilmesini sağlar (kuvvet, güç, hipertrofi veya dayanıklılık). 1RM, bireyin gerçekten bir tekrar için mümkün olan maksimum ağırlığı kaldırmaya çalıştığı doğrudan test veya submaksimal kaldırmalara dayalı matematiksel formüller kullanarak tahmin yoluyla (daha hafif bir ağırlığı birden fazla tekrar için kaldırma) belirlenebilir. Doğrudan 1RM testi bir miktar yaralanma riski taşır ve güvenlik için önemli deneyim, uygun teknik, yeterli ısınma ve spotterlar gerektirir. Bu nedenle, 1RM tahmin formülleri, submaksimal performanslardan 1RM\'yi tahmin etmek için geliştirilmiş ve doğrulanmıştır, tipik olarak 3-10 tekrar aralığında kaldırmalar kullanılır. Bu formüller, maksimal kaldırma denemelerine bağlı risklerden kaçınırken makul derecede doğru tahminler sağlar, bu da onları yeni başlayanlar, genel fitness meraklıları ve güvenliğin öncelik olduğu durumlar için uygun hale getirir.',
+
+    howToCalculate:
+      '1RM, her biri submaksimal kaldırmalar ile maksimal kuvvet arasındaki ilişkiyi inceleyen araştırmalar yoluyla geliştirilmiş çeşitli tahmin formülleri kullanılarak hesaplanabilir. En yaygın kullanılan formüller Brzycki formülü, Epley formülü, Lander formülü, Lombardi formülü ve O\'Conner formülünü içerir. Bu formülleri kullanmak için iki bilgiye ihtiyacınız vardır: kaldırılan ağırlık ve başarısızlığa kadar tamamlanan tekrar sayısı (doğru formla başka bir tekrar yapamayacağınız yer). Brzycki formülü şudur: 1RM = ağırlık / (1.0278 - 0.0278 × tekrar). Örneğin, 6 tekrar için 200 lbs bench press yaparsanız, Brzycki tahmin eder: 1RM = 200 / (1.0278 - 0.0278 × 6) = 200 / 0.8610 = 232 lbs. Epley formülü şudur: 1RM = ağırlık × (1 + tekrar/30). Aynı örneği kullanarak: 1RM = 200 × (1 + 6/30) = 200 × 1.2 = 240 lbs. Lander formülü şudur: 1RM = (100 × ağırlık) / (101.3 - 2.67123 × tekrar). Örneğimiz için: 1RM = (100 × 200) / (101.3 - 2.67123 × 6) = 20000 / 85.27 = 234 lbs. Lombardi formülü şudur: 1RM = ağırlık × tekrar^0.10. Örnek için: 1RM = 200 × 6^0.10 = 200 × 1.196 = 239 lbs. O\'Conner formülü şudur: 1RM = ağırlık × (1 + tekrar/40). Örnek için: 1RM = 200 × (1 + 6/40) = 200 × 1.15 = 230 lbs. Gördüğünüz gibi, farklı formüller biraz farklı sonuçlar verir. Çoğu 1RM hesaplayıcı doğruluğu artırmak için birden fazla formülün ortalamasını sağlar. Bu formüllerin doğruluğu, tekrar sayısı 10\'un ötesine geçtikçe azalır, çünkü kas dayanıklılığı ile maksimal kuvvet arasındaki ilişki daha az tahmin edilebilir hale gelir. En iyi doğruluk için, 3-8 tekrar için kaldırabileceğiniz ağırlıkları kullanın. 1RM formüllerini kullanırken önemli hususlar: kaldırma gerçek kas başarısızlığına götürülmelidir (başka bir tekrarı tamamlayamama), form tüm tekrarlar boyunca sıkı kalmalıdır (kötü form sonuçları geçersiz kılar), setler arasında yeterli dinlenme gereklidir (test taze yapılmalı, yorgun değil) ve formüller izolasyon egzersizlerinden ziyade bileşik hareketler (squatlar, bench press, deadlift) için en iyi şekilde çalışır.',
+
+    interpretation:
+      '1RM\'nizi hesapladıktan sonra, bu değer antrenmanınızı programlamanın temeli haline gelir. Yüzdeye dayalı antrenman, antrenman yoğunluklarını 1RM\'nizin yüzdeleri olarak belirler ve farklı yüzde aralıkları farklı antrenman adaptasyonlarını hedefler. 1-3 tekrarla 1RM\'nin %90-100\'ünde antrenman yapmak, nöral adaptasyonlar ve geliştirilmiş motor ünite alımı yoluyla maksimal kuvvet geliştirir. Bu yoğunluk güç kaldırıcılar ve kuvvet sporcuları tarafından kullanılır ancak uzun dinlenme süreleri (setler arasında 3-5 dakika) gerektirir ve daha yüksek yaralanma riski taşır. 3-6 tekrarla 1RM\'nin %80-90\'ında antrenman yapmak, bir miktar hipertrofi ile kuvvet oluşturur ve kuvvet odaklı programlarda yaygın olarak kullanılır. 6-12 tekrarla 1RM\'nin %70-80\'inde antrenman yapmak, kas hipertrofisi (kas büyümesi) için optimaldir ve vücut geliştirme tarzı antrenmanın temelidir. 12-20 tekrarla 1RM\'nin %60-70\'inde antrenman yapmak, kas dayanıklılığını geliştirir ve genel fitness, yaralanma rehabilitasyonu ve spora özgü kondisyon için yararlıdır. 1RM\'niz ayrıca kuvvet standartlarını değerlendirmek için de kullanılabilir. Örneğin, vücut ağırlığına göre bench press için kuvvet standartları genellikle şu şekilde kategorize edilir: eğitimsiz (%0.5× vücut ağırlığından az), acemi (%0.75× vücut ağırlığı), orta seviye (%1.0× vücut ağırlığı), ileri seviye (%1.5× vücut ağırlığı) ve elit (%2× vücut ağırlığı veya daha fazla). Bu standartlar egzersiz, cinsiyet, yaş ve antrenman deneyimine göre değişir. Aktif antrenman sırasında 1RM\'nizi her 4-8 haftada bir yeniden test etmek veya yeniden hesaplamak önemlidir, çünkü kuvvetiniz değişecektir. Aşamalı aşırı yükleme - zaman içinde antrenman yüklerini kademeli olarak artırma - sürekli kuvvet kazanımları için gereklidir ve 1RM\'nizi güncellemek antrenman ağırlıklarını uygun şekilde ayarlamanıza olanak tanır. 1RM\'nizi yorumlarken, kuvvetin test edilen harekete özgü olduğunu düşünün - bench press 1RM\'niz squat 1RM\'nizi tahmin etmez ve bir egzersizde kuvvet kazanımları bileşik hareketler biraz örtüşme paylaşsa da otomatik olarak diğerlerine aktarılmaz.',
+
+    medicalDisclaimer:
+      'Bu 1RM hesaplayıcı yalnızca eğitim ve bilgilendirme amaçlıdır ve sertifikalı kuvvet ve kondisyon uzmanları, fizyoterapistler veya kalifiye fitness profesyonellerinden profesyonel rehberliğin yerini almamalıdır. 1RM tahmin formülleri, submaksimal performanslara ve popülasyon ortalamalarına dayalı yaklaşımlar sağlar ve bireysel sonuçlar antrenman deneyimi, kas lifi kompozisyonu, teknik verimliliği ve nörolojik faktörlere göre değişebilir. Uygun hazırlık olmadan asla gerçek bir 1RM testi veya maksimal kaldırma girişiminde bulunmayın; bu yeterli antrenman deneyimini (en az 6-12 ay tutarlı direnç antrenmanı), uygun kaldırma tekniğinde ustalık, kapsamlı ısınma, uygun ekipman (güç rafı, güvenlik çubukları, gerekirse kaldırma kemeri) ve deneyimli spotterları içerir. Maksimal kuvvet testi kas gerginlikleri, eklem yaralanmaları, kardiyovasküler stres ve nadir durumlarda daha ciddi yaralanmalar dahil olmak üzere doğal riskler taşır. Yeni başlayanlar, önceden var olan yaralanmaları olan bireyler, kardiyovasküler durumları olan kişiler, hamile kadınlar, yaşlı bireyler ve kas-iskelet bozuklukları olanlar, tıbbi izin ve profesyonel gözetim olmadan maksimal kaldırmalar yapmamalıdır. Kuvvet antrenmanı sırasında ağrı, baş dönmesi, göğüs rahatsızlığı, olağandışı nefes darlığı veya endişe verici semptomlar yaşarsanız, derhal durun ve tıbbi yardım isteyin. Sağlanan antrenman yüzdeleri ve öneriler genel kılavuzlardır ve tüm bireyler için uygun olmayabilir. Her zaman kademeli ilerleyin, ağır ağırlıklardan önce doğru forma öncelik verin, seanslar arasında yeterli toparlanmaya izin verin ve vücudunuzu dinleyin. Kuvvet antrenmanına yeniyseniz veya bir aradan sonra dönüyorsanız, güvenli ve etkili bir antrenman programı geliştirmek için kalifiye profesyonellerle çalışın. Bu hesaplayıcı, kişiselleştirilmiş koçluk, egzersiz reçetesi veya sağlık hizmeti sağlayıcılarından tıbbi tavsiyenin yerini almaz. Optimal güvenlik ve sonuçlar için sertifikalı kuvvet ve kondisyon uzmanları (CSCS), sertifikalı kişisel antrenörler (CPT), fizyoterapistler, spor hekimleri veya diğer kalifiye profesyonellerle görüşün.',
+
+    references: [
+      'Brzycki M. Kuvvet testi: Yorgunluk-tekrardan bir tek tekrar maksimumu tahmin etme. Journal of Physical Education, Recreation & Dance. 1993;64(1):88-90.',
+      'Epley B. Ağırlık Çizelgesi. Boyd Epley Workout. Lincoln, NE: University of Nebraska Press; 1985.',
+      'Lander J. Tekrarlara dayalı maksimum. NSCA Journal. 1985;6(6):60-61.',
+      'Lombardi VP. Ağırlık Antrenmanına Başlama: Güvenli ve Etkili Yol. Dubuque, IA: William C. Brown; 1989.',
+      'Baechle TR, Earle RW, eds. Kuvvet Antrenmanı ve Kondisyon Temelleri. 3. baskı. Champaign, IL: Human Kinetics; 2008.',
+      'Reynolds JM, ve ark. Çoklu tekrar maksimum testi ve antropometri ile tek tekrar maksimum kuvvet tahmini. J Strength Cond Res. 2006;20(3):584-592.',
     ],
+
+    tips: [
+      'En doğru 1RM tahminleri için, 3-8 tekrar için kaldırabileceğiniz ağırlıkları kullanın - 10 tekrarın üzerinde doğruluk önemli ölçüde azalır',
+      'Test ederken her zaman gerçek kas başarısızlığına kadar kaldırın - rezervde tekrarlarla durmak 1RM\'nizi küçümseyecektir',
+      'Tüm tekrarlar boyunca sıkı formu koruyun - form bozulursa, seti durdurun çünkü bu tekrarlar doğru tahmin için sayılmaz',
+      'Taze ve iyi dinlenmiş olduğunuzda test edin - önceki antrenmanlardan yorgunluk sonuçları tehlikeye atar ve yaralanma riskini artırır',
+      'Test etmeden önce iyice ısının: hafif kardiyoyla 5-10 dakika başlayın, sonra azalan tekrarlarla kademeli olarak daha ağır ısınma setleri yapın',
+      'Test setleri arasında yeterince dinlenin - bileşik hareketler için tam toparlanmaya izin vermek için en az 3-5 dakika',
+      'İlerlemeyi takip etmek ve antrenman yüklerini uygun şekilde ayarlamak için 1RM\'nizi her 4-8 haftada bir yeniden test edin',
+      '1RM testi için bileşik egzersizlere (squat, bench press, deadlift, overhead press) odaklanın - bunlar programlama için en güvenilir ve yararlıdır',
+      'Daha güvenilir 1RM tahminleri için birden fazla formül kullanın ve sonuçların ortalamasını alın',
+      '1RM\'nin harekete özgü olduğunu unutmayın - bir egzersizde kuvvet mutlaka diğerlerinde kuvveti tahmin etmez',
+      'Antrenman yeniyseniz, 1RM testi veya tahmini yapmaya çalışmadan önce uygun teknikte ustalaşmak için en az 3-6 ay harcayın',
+    ],
+
     faqs: [
       {
-        question: '1RM hesaplayıcı ne kadar doğru?',
+        question: 'Gerçek 1RM\'mi test etmeli miyim yoksa tahmin formüllerini mi kullanmalıyım?',
         answer:
-          'Hesaplayıcı, tekrarlar 1-10 arasında tutulduğunda çoğu sporcu için %5-10 doğruluk içinde tahminler sağlar. Yüksek tekrar aralıklarında doğruluk azalır. Çoklu formüllerin ortalamasını kullanmak en güvenilir tahmini sağlar.',
+          'Çoğu insan için, submaksimal kaldırmalara (3-8 tekrar) dayalı tahmin formüllerini kullanmak daha güvenlidir ve gerçek 1RM testinden neredeyse aynı derecede doğrudur. Doğrudan 1RM testi yalnızca deneyimli kaldırıcılar (en az 1-2 yıl tutarlı antrenman), rekabetçi sporcular (güç kaldırıcılar, ağırlık kaldırıcılar) veya yarışma veya araştırma amaçları için tam maksimal kuvvet ölçümü gerektiğinde önerilir. Doğrudan test mükemmel teknik, uygun ekipman, deneyimli spotterlar, kapsamlı ısınma ve maksimal kaldırmaları güvenli bir şekilde nasıl deneyeceğinizi anlamayı gerektirir. Özellikle yeni başlayanlar veya uygunsuz tekniği olanlar için yaralanma riski maksimal denemelerle önemli ölçüde artar. Ek olarak, maksimal test sinir sistemi üzerinde çok zorludur ve ardından 5-7 gün toparlanma gerektirir. Programlama amaçları için, 5 tekrarlı veya 6 tekrarlı testlerden tahmin edilen 1RM, çok daha güvenli ve daha az zorlayıcı olurken yeterli doğruluk sağlar.',
       },
       {
-        question: 'Gerçek 1RM\'mi test etmeli miyim?',
+        question: '1RM\'mi ne sıklıkla test etmeli veya yeniden hesaplamalıyım?',
         answer:
-          'Gerçek 1RM testi sadece uygun teknik, spotterlar ve ekipmana sahip deneyimli sporcular için önerilir. Çoğu insan için 3-5 tekrarlı maksimumlardan 1RM tahmin etmek daha güvenli ve neredeyse aynı derecede doğrudur.',
+          '1RM testi için optimal sıklık, antrenman deneyiminize ve hedeflerinize bağlıdır. Yeni başlayanlar için (1 yıldan az antrenman), kuvvet kazanımları hızla gerçekleştiği ve daha sık test tutarlı antrenmanı bozabileceğinden her 8-12 haftada bir test yapmak uygundur. Orta seviye kaldırıcılar için (1-3 yıl antrenman), her 6-8 haftada bir test yapmak antrenman odağını korurken ilerlemenin takibine olanak tanır. İleri seviye kaldırıcılar ve sporcular için, özellikle belirli kuvvet zirveleri olan periyotlaştırılmış programları takip ederken her 4-6 haftada bir test yapmak uygun olabilir. Gerçek 1RM testi yerine tahmin formüllerini kullanıyorsanız, antrenmana daha az müdahale edici olduğu için daha sık (her 3-4 haftada bir) yeniden değerlendirebilirsiniz. Çok sık test yapmaktan kaçının (her 3-4 haftada bir\'den fazla) çünkü bu ilerleyici antrenmanı bozabilir, yaralanma riskini artırabilir ve anlamlı kuvvet adaptasyonlarının gerçekleşmesi için yeterli zaman sağlamaz. Toparlanmış bir durumda test yaptığınızdan emin olmak için her zaman bir yükten indirme haftası sırasında veya yeterli dinlenmeden sonra 1RM testini planlayın.',
       },
       {
-        question: 'Hangi formül en doğru?',
+        question: 'Farklı formüller neden bana farklı 1RM tahminleri veriyor?',
         answer:
-          'Brzycki ve Epley formülleri düşük tekrar aralıkları (1-10 tekrar) için en popüler ve doğrudur. Tüm formüllerin ortalaması farklı tekrar aralıkları ve kaldırma stilleri için en güvenilir olma eğilimindedir.',
+          'Farklı 1RM tahmin formülleri farklı popülasyonlardan, araştırma metodolojilerinden ve matematiksel modelleme yaklaşımlarından geliştirildi, bu nedenle biraz farklı sonuçlar üretirler. Brzycki formülü orta tekrar aralıkları (4-10 tekrar) için en doğru olma eğilimindedir ve araştırmada yaygın olarak kullanılır. Epley formülü genellikle biraz daha yüksek tahminler verir ve düşük tekrar aralıkları (2-6 tekrar) için iyi çalışır. Lander ve Lombardi formülleri farklı veri kümelerinden geliştirildi ve bireysel faktörlere bağlı olarak daha fazla veya daha az doğru olabilir. O\'Conner formülü genellikle daha muhafazakardır. Sizin için hangi formülün en doğru olduğunu etkileyen bireysel faktörler kas lifi tipi kompozisyonunu (daha fazla hızlı kasılma lifine sahip insanlar tahminlerin önerdiğinden maksimal denemelerde daha iyi performans gösterebilir), antrenman deneyimini (deneyimli kaldırıcılar genellikle tahmin edilen 1RM\'ye daha yakın performans gösterir), egzersiz teknik verimliliğini ve nöral faktörleri içerir. Bu nedenle birçok hesaplayıcı birden fazla formülün ortalamasını sağlar - ortalama herhangi bir tek formülden daha güvenilir olma eğilimindedir. Tutarlı bir şekilde tahmin edilenden daha fazla veya daha az kaldırabildiğinizi bulursanız, deneyime dayalı kişisel bir düzeltme faktörü uygulamak isteyebilirsiniz.',
       },
       {
-        question: '1RM\'mi ne sıklıkla test etmeliyim?',
+        question: 'Tüm egzersizler için 1RM tahminlerini kullanabilir miyim?',
         answer:
-          'Yapılandırılmış bir kuvvet programı takip ediyorsanız 1RM\'nizi her 4-8 haftada bir test edin veya yeniden hesaplayın. Daha sık test yapmak antrenmanı bozabilir ve yaralanma riskini artırabilir.',
+          '1RM tahmin formülleri ana bileşik egzersizler (squat, bench press, deadlift, overhead press, barbell row) için iyi çalışırken, izolasyon egzersizleri, makineler ve vücut ağırlığı egzersizleri için daha az güvenilirdir. Bileşik hareketler kapsamlı bir şekilde çalışılmıştır ve formüller bu kaldırmalar için iyi doğrulanmıştır. İzolasyon egzersizleri için (bicep curl, tricep extension, lateral raise), submaksimal tekrarlar ile 1RM arasındaki ilişki daha az tahmin edilebilirdir ve bu egzersizler zaten nadiren maksimal tekler için antrenman edilir. Makine egzersizleri, formül doğruluğunu azaltan makineye özgü sürtünme ve kol kolları gibi değişkenler getirir. Vücut ağırlığı egzersizleri için (barfiks, dip), vücut ağırlığınızı artı eklenen direnci kullanarak 1RM\'yi tahmin edebilirsiniz, ancak hesaplamalar daha karmaşık hale gelir. Ek olarak, yüksek teknik beceri gerektiren egzersizler (koparma ve silkme gibi olimpik kaldırmalar) 1RM tahmin formülleri için uygun değildir çünkü teknik verimlilik farklı yoğunluklarda dramatik olarak değişir ve bu kaldırmalar nadiren kas başarısızlığına götürülür. En doğru ve yararlı olduğu büyük bileşik barbell kaldırışları için 1RM tahmini kullanmaya devam edin.',
       },
       {
-        question: 'Bunu tüm egzersizler için kullanabilir miyim?',
+        question: 'Vücut ağırlığıma göre iyi bir 1RM nedir?',
         answer:
-          'Bu formüller bileşik kaldırışlar (squat, bench press, deadlift) için en iyi şekilde çalışır. İzolasyon egzersizleri veya teknik karmaşıklığı olan hareketler için daha az doğru olabilir.',
+          'Kuvvet standartları cinsiyet, yaş, vücut ağırlığı, antrenman deneyimi ve belirli egzersiz tarafından önemli ölçüde değişir. Yetişkin erkekler için, squat için genel kuvvet standartları yaklaşık olarak şöyledir: eğitimsiz (%1.0× vücut ağırlığı), acemi (%1.25× vücut ağırlığı), orta seviye (%1.5× vücut ağırlığı), ileri seviye (%2.0× vücut ağırlığı) ve elit (%2.5× vücut ağırlığı veya daha fazla). Bench press için: eğitimsiz (%0.5-0.75× vücut ağırlığı), acemi (%1.0× vücut ağırlığı), orta seviye (%1.25× vücut ağırlığı), ileri seviye (%1.75× vücut ağırlığı), elit (%2.0× vücut ağırlığı veya daha fazla). Deadlift için: eğitimsiz (%1.25× vücut ağırlığı), acemi (%1.5× vücut ağırlığı), orta seviye (%1.75× vücut ağırlığı), ileri seviye (%2.5× vücut ağırlığı), elit (%3.0× vücut ağırlığı veya daha fazla). Kadınların standartları, kas kütlesi dağılımı ve hormonal profillerdeki farklılıklar nedeniyle tipik olarak erkek standartlarının %60-70\'idir. Yaş da önemlidir - kuvvet 20\'lerin sonunda ila 30\'ların ortasında zirveye ulaşır ve standartlar daha genç (20\'den az) ve daha yaşlı (40\'tan fazla) bireyler için aşağı doğru ayarlanmalıdır. Daha hafif vücut ağırlığına sahip bireyler genellikle daha ağır bireylerden daha yüksek kuvvet-ağırlık oranları elde eder. Bunların genel popülasyon standartları olduğunu unutmayın - en önemli olan rastgele standartlarla karşılaştırma değil, zaman içinde bireysel ilerlemenizdir. Belirli sayıları kovalamak yerine tutarlı iyileştirme ve antrenman sürdürülebilirliğine odaklanın.',
       },
     ],
   },
