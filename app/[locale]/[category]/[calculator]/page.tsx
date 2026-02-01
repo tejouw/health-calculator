@@ -38,6 +38,8 @@ import { phq9Content } from '@/calculators/mental-health/phq9-calculator/phq9Con
 import { psaContent } from '@/calculators/mens-health/psa-calculator/psaContent';
 // Children's Health
 import { growthContent } from '@/calculators/childrens-health/growth-percentile/growthContent';
+// Nutrition - Water Intake
+import { waterIntakeContent } from '@/calculators/nutrition/water-intake-calculator/waterIntakeContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -110,6 +112,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'macro-calculator': macroContent,
     'bmr-calculator': bmrContent,
     'food-calorie-calculator': foodCalorieContent,
+    'water-intake-calculator': waterIntakeContent,
     'pregnancy-week-calculator': pregnancyWeekContent,
     'heart-rate-zone-calculator': heartRateZoneContent,
     // Fitness
