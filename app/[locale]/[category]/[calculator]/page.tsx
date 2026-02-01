@@ -21,6 +21,7 @@ import { idealWeightContent } from '@/calculators/body-weight/ideal-weight/ideal
 import { bodyFatContent } from '@/calculators/body-weight/body-fat/bodyFatContent';
 import { macroContent } from '@/calculators/nutrition/macro-calculator/macroContent';
 import { bmrContent } from '@/calculators/nutrition/bmr-calculator/bmrContent';
+import { foodCalorieContent } from '@/calculators/nutrition/food-calorie-calculator/foodCalorieContent';
 import { pregnancyWeekContent } from '@/calculators/pregnancy/pregnancy-week-calculator/pregnancyWeekContent';
 import { heartRateZoneContent } from '@/calculators/heart/heart-rate-zone/heartRateZoneContent';
 // New calculator content
@@ -105,6 +106,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'body-fat-calculator': bodyFatContent,
     'macro-calculator': macroContent,
     'bmr-calculator': bmrContent,
+    'food-calorie-calculator': foodCalorieContent,
     'pregnancy-week-calculator': pregnancyWeekContent,
     'heart-rate-zone-calculator': heartRateZoneContent,
     // Fitness

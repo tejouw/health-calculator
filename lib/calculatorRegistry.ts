@@ -11,6 +11,7 @@ import { idealWeightMeta } from '@/calculators/body-weight/ideal-weight/idealWei
 import { bodyFatMeta } from '@/calculators/body-weight/body-fat/bodyFatMeta';
 import { macroMeta } from '@/calculators/nutrition/macro-calculator/macroMeta';
 import { bmrMeta } from '@/calculators/nutrition/bmr-calculator/bmrMeta';
+import { foodCalorieMeta } from '@/calculators/nutrition/food-calorie-calculator/foodCalorieMeta';
 import { pregnancyWeekMeta } from '@/calculators/pregnancy/pregnancy-week-calculator/pregnancyWeekMeta';
 import { heartRateZoneMeta } from '@/calculators/heart/heart-rate-zone/heartRateZoneMeta';
 // New calculators - Fitness
@@ -42,6 +43,7 @@ export const calculatorRegistry: CalculatorMeta[] = [
   bodyFatMeta,
   macroMeta,
   bmrMeta,
+  foodCalorieMeta,
   pregnancyWeekMeta,
   heartRateZoneMeta,
   // Fitness
