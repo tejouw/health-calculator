@@ -31,6 +31,8 @@ import { phq9Meta } from '@/calculators/mental-health/phq9-calculator/phq9Meta';
 import { psaMeta } from '@/calculators/mens-health/psa-calculator/psaMeta';
 // New calculators - Children's Health
 import { growthMeta } from '@/calculators/childrens-health/growth-percentile/growthMeta';
+// New calculators - Nutrition (Water Intake)
+import { waterIntakeMeta } from '@/calculators/nutrition/water-intake-calculator/waterIntakeMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -44,6 +46,7 @@ export const calculatorRegistry: CalculatorMeta[] = [
   macroMeta,
   bmrMeta,
   foodCalorieMeta,
+  waterIntakeMeta,
   pregnancyWeekMeta,
   heartRateZoneMeta,
   // Fitness
