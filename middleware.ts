@@ -1,6 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import createMiddleware from 'next-intl/middleware';
 import { routing } from './routing';
+import { pageRoutes } from './config/pages.config';
+
+// Create reverse mapping: slug -> page ID
+const pageSlugToId: Record<string, string> = {};
+pageRoutes.forEach((page) => {
+  pageSlugToId[page.slug.en] = page.id;
+  pageSlugToId[page.slug.tr] = page.id;
+});
 
 export default function middleware(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
@@ -39,9 +47,30 @@ export default function middleware(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
+  // Map localized page slugs to internal page IDs
+  let internalPathname = pathname;
+  const pathSegments = pathname.split('/').filter(Boolean);
+
+  if (pathSegments.length > 0) {
+    const firstSegment = pathSegments[0];
+    const pageId = pageSlugToId[firstSegment];
+
+    if (pageId) {
+      // This is a static page with locale-aware slug
+      // Map TR slug -> EN page ID for internal routing
+      const page = pageRoutes.find((p) => p.id === pageId);
+      if (page) {
+        const internalSlug = page.id; // Use page ID as internal route
+        pathSegments[0] = internalSlug;
+        internalPathname = '/' + pathSegments.join('/');
+        console.log('📄 Page slug mapped:', firstSegment, '→', internalSlug);
+      }
+    }
+  }
+
   // Rewrite URL to include locale (internal only)
   const url = request.nextUrl.clone();
-  url.pathname = `/${locale}${pathname}`;
+  url.pathname = `/${locale}${internalPathname}`;
 
   console.log('🔄 Rewriting to:', url.pathname);
 

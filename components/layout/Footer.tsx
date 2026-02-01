@@ -3,6 +3,7 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/lib/navigation';
 import { Heart } from 'lucide-react';
 import { categories } from '@/config/categories.config';
+import { getPageSlug } from '@/config/pages.config';
 
 interface FooterProps {
   locale: string;
@@ -69,7 +70,7 @@ const Footer: React.FC<FooterProps> = ({ locale }) => {
                 </li>
                 <li>
                   <Link
-                    href="/about"
+                    href={`/${getPageSlug('about', locale as 'en' | 'tr')}`}
                     className="text-sm text-neutral-600 transition-colors hover:text-primary-600"
                   >
                     {tNav('about')}
@@ -77,7 +78,7 @@ const Footer: React.FC<FooterProps> = ({ locale }) => {
                 </li>
                 <li>
                   <Link
-                    href="/contact"
+                    href={`/${getPageSlug('contact', locale as 'en' | 'tr')}`}
                     className="text-sm text-neutral-600 transition-colors hover:text-primary-600"
                   >
                     {tNav('contact')}
@@ -94,7 +95,7 @@ const Footer: React.FC<FooterProps> = ({ locale }) => {
               <ul className="space-y-2">
                 <li>
                   <Link
-                    href="/privacy-policy"
+                    href={`/${getPageSlug('privacy-policy', locale as 'en' | 'tr')}`}
                     className="text-sm text-neutral-600 transition-colors hover:text-primary-600"
                   >
                     {t('privacy')}
@@ -102,7 +103,7 @@ const Footer: React.FC<FooterProps> = ({ locale }) => {
                 </li>
                 <li>
                   <Link
-                    href="/terms-of-service"
+                    href={`/${getPageSlug('terms-of-service', locale as 'en' | 'tr')}`}
                     className="text-sm text-neutral-600 transition-colors hover:text-primary-600"
                   >
                     {t('terms')}
@@ -110,7 +111,7 @@ const Footer: React.FC<FooterProps> = ({ locale }) => {
                 </li>
                 <li>
                   <Link
-                    href="/disclaimer"
+                    href={`/${getPageSlug('disclaimer', locale as 'en' | 'tr')}`}
                     className="text-sm text-neutral-600 transition-colors hover:text-primary-600"
                   >
                     {t('disclaimer')}
