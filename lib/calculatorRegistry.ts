@@ -13,6 +13,19 @@ import { macroMeta } from '@/calculators/nutrition/macro-calculator/macroMeta';
 import { bmrMeta } from '@/calculators/nutrition/bmr-calculator/bmrMeta';
 import { pregnancyWeekMeta } from '@/calculators/pregnancy/pregnancy-week-calculator/pregnancyWeekMeta';
 import { heartRateZoneMeta } from '@/calculators/heart/heart-rate-zone/heartRateZoneMeta';
+// New calculators - Fitness
+import { oneRepMaxMeta } from '@/calculators/fitness/one-rep-max/oneRepMaxMeta';
+import { runningPaceMeta } from '@/calculators/fitness/running-pace/runningPaceMeta';
+// New calculators - Sleep
+import { sleepMeta } from '@/calculators/sleep/sleep-calculator/sleepMeta';
+// New calculators - Diabetes
+import { a1cMeta } from '@/calculators/diabetes/a1c-calculator/a1cMeta';
+import { bloodSugarMeta } from '@/calculators/diabetes/blood-sugar-converter/bloodSugarMeta';
+// New calculators - Medical
+import { gfrMeta } from '@/calculators/medical/gfr-calculator/gfrMeta';
+import { creatinineMeta } from '@/calculators/medical/creatinine-clearance/creatinineMeta';
+// New calculators - Mental Health
+import { phq9Meta } from '@/calculators/mental-health/phq9-calculator/phq9Meta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -27,6 +40,19 @@ export const calculatorRegistry: CalculatorMeta[] = [
   bmrMeta,
   pregnancyWeekMeta,
   heartRateZoneMeta,
+  // Fitness
+  oneRepMaxMeta,
+  runningPaceMeta,
+  // Sleep
+  sleepMeta,
+  // Diabetes
+  a1cMeta,
+  bloodSugarMeta,
+  // Medical
+  gfrMeta,
+  creatinineMeta,
+  // Mental Health
+  phq9Meta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {
