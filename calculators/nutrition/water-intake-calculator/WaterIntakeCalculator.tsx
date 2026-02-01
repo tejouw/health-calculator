@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Button, Input, RadioGroup, Card, Badge } from '@/components/ui';
-import { Select } from '@/components/ui/Select';
 import { calculateWaterIntake, getHydrationStatus } from './waterIntakeLogic';
 import { WaterIntakeInput, ActivityLevel, ClimateType, SpecialCondition } from './waterIntakeTypes';
 import { Droplet, Activity, Sun, Heart, Clock } from 'lucide-react';
