@@ -223,7 +223,7 @@ export default async function HomePage({ params }: HomePageProps) {
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
-                href="/body-weight"
+                href={`/${categories[0].slug[locale as 'en' | 'tr']}`}
                 className="inline-flex items-center gap-2 rounded-full bg-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-primary-600 shadow-xl transition-all hover:scale-105 hover:shadow-2xl"
               >
                 <Calculator className="h-4 w-4 sm:h-5 sm:w-5" />

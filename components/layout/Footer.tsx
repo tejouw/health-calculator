@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/lib/navigation';
 import { Heart } from 'lucide-react';
-import { getCategorySlug } from '@/lib/categoryMapping';
+import { categories } from '@/config/categories.config';
 
 interface FooterProps {
   locale: string;
@@ -12,15 +12,6 @@ const Footer: React.FC<FooterProps> = ({ locale }) => {
   const t = useTranslations('footer');
   const tNav = useTranslations('navigation');
   const tCat = useTranslations('categories');
-
-  const categories = [
-    'bodyWeight',
-    'fitness',
-    'nutrition',
-    'pregnancy',
-    'womensHealth',
-    'mensHealth',
-  ];
 
   return (
     <footer className="border-t border-neutral-200 bg-neutral-50">
@@ -46,16 +37,19 @@ const Footer: React.FC<FooterProps> = ({ locale }) => {
                 {tNav('categories')}
               </h3>
               <ul className="space-y-2">
-                {categories.map((cat) => (
-                  <li key={cat}>
-                    <Link
-                      href={`/${getCategorySlug(cat)}`}
-                      className="text-sm text-neutral-600 transition-colors hover:text-primary-600"
-                    >
-                      {tCat(cat)}
-                    </Link>
-                  </li>
-                ))}
+                {categories.map((category) => {
+                  const catKey = category.id.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+                  return (
+                    <li key={category.id}>
+                      <Link
+                        href={`/${category.slug[locale as 'en' | 'tr']}`}
+                        className="text-sm text-neutral-600 transition-colors hover:text-primary-600"
+                      >
+                        {tCat(catKey)}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
 
