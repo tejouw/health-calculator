@@ -26,6 +26,10 @@ import { gfrMeta } from '@/calculators/medical/gfr-calculator/gfrMeta';
 import { creatinineMeta } from '@/calculators/medical/creatinine-clearance/creatinineMeta';
 // New calculators - Mental Health
 import { phq9Meta } from '@/calculators/mental-health/phq9-calculator/phq9Meta';
+// New calculators - Men's Health
+import { psaMeta } from '@/calculators/mens-health/psa-calculator/psaMeta';
+// New calculators - Children's Health
+import { growthMeta } from '@/calculators/childrens-health/growth-percentile/growthMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -53,6 +57,10 @@ export const calculatorRegistry: CalculatorMeta[] = [
   creatinineMeta,
   // Mental Health
   phq9Meta,
+  // Men's Health
+  psaMeta,
+  // Children's Health
+  growthMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {

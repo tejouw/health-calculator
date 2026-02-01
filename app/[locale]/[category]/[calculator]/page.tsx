@@ -32,6 +32,10 @@ import { bloodSugarContent } from '@/calculators/diabetes/blood-sugar-converter/
 import { gfrContent } from '@/calculators/medical/gfr-calculator/gfrContent';
 import { creatinineContent } from '@/calculators/medical/creatinine-clearance/creatinineContent';
 import { phq9Content } from '@/calculators/mental-health/phq9-calculator/phq9Content';
+// Men's Health
+import { psaContent } from '@/calculators/mens-health/psa-calculator/psaContent';
+// Children's Health
+import { growthContent } from '@/calculators/childrens-health/growth-percentile/growthContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -116,6 +120,10 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'creatinine-clearance-calculator': creatinineContent,
     // Mental Health
     'phq9-calculator': phq9Content,
+    // Men's Health
+    'psa-calculator': psaContent,
+    // Children's Health
+    'growth-percentile-calculator': growthContent,
   };
 
   const content = contentMap[calculator.id];
