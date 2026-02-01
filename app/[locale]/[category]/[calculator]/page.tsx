@@ -42,6 +42,8 @@ import { growthContent } from '@/calculators/childrens-health/growth-percentile/
 import { waterIntakeContent } from '@/calculators/nutrition/water-intake-calculator/waterIntakeContent';
 // Nutrition - Calorie Deficit
 import { calorieDeficitContent } from '@/calculators/nutrition/calorie-deficit-calculator/calorieDeficitContent';
+// Women's Health - Period
+import { periodContent } from '@/calculators/womens-health/period-calculator/periodContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -109,6 +111,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'tdee-calculator': tdeeContent,
     'due-date-calculator': dueDateContent,
     'ovulation-calculator': ovulationContent,
+    'period-calculator': periodContent,
     'ideal-weight-calculator': idealWeightContent,
     'body-fat-calculator': bodyFatContent,
     'macro-calculator': macroContent,
