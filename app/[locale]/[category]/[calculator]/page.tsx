@@ -40,6 +40,8 @@ import { psaContent } from '@/calculators/mens-health/psa-calculator/psaContent'
 import { growthContent } from '@/calculators/childrens-health/growth-percentile/growthContent';
 // Nutrition - Water Intake
 import { waterIntakeContent } from '@/calculators/nutrition/water-intake-calculator/waterIntakeContent';
+// Nutrition - Calorie Deficit
+import { calorieDeficitContent } from '@/calculators/nutrition/calorie-deficit-calculator/calorieDeficitContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -113,6 +115,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'bmr-calculator': bmrContent,
     'food-calorie-calculator': foodCalorieContent,
     'water-intake-calculator': waterIntakeContent,
+    'calorie-deficit-calculator': calorieDeficitContent,
     'pregnancy-week-calculator': pregnancyWeekContent,
     'heart-rate-zone-calculator': heartRateZoneContent,
     // Fitness
