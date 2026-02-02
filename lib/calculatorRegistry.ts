@@ -37,6 +37,8 @@ import { waterIntakeMeta } from '@/calculators/nutrition/water-intake-calculator
 import { calorieDeficitMeta } from '@/calculators/nutrition/calorie-deficit-calculator/calorieDeficitMeta';
 // New calculators - Women's Health (Period)
 import { periodMeta } from '@/calculators/womens-health/period-calculator/periodMeta';
+// New calculators - Daily Life
+import { ageMeta } from '@/calculators/daily-life/age-calculator/ageMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -72,6 +74,8 @@ export const calculatorRegistry: CalculatorMeta[] = [
   psaMeta,
   // Children's Health
   growthMeta,
+  // Daily Life
+  ageMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {

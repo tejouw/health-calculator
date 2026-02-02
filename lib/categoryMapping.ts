@@ -23,6 +23,7 @@ export const CATEGORY_SLUG_MAP: Record<string, CategoryId> = {
   mentalHealth: 'mental-health',
   sleep: 'sleep',
   childrensHealth: 'childrens-health',
+  dailyLife: 'daily-life',
 };
 
 /**
@@ -41,6 +42,7 @@ export const CATEGORY_NAME_MAP: Record<CategoryId, string> = {
   'mental-health': 'mentalHealth',
   sleep: 'sleep',
   'childrens-health': 'childrensHealth',
+  'daily-life': 'dailyLife',
 };
 
 /**

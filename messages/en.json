@@ -34,7 +34,8 @@
     "medical": "Medical Calculations",
     "mentalHealth": "Mental Health",
     "sleep": "Sleep & Rest",
-    "childrensHealth": "Children's Health"
+    "childrensHealth": "Children's Health",
+    "dailyLife": "Daily Life"
   },
   "units": {
     "cm": "cm",

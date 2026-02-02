@@ -13,7 +13,8 @@ export type CategoryId =
   | 'medical'
   | 'mental-health'
   | 'sleep'
-  | 'childrens-health';
+  | 'childrens-health'
+  | 'daily-life';
 
 export interface LocalizedString {
   en: string;

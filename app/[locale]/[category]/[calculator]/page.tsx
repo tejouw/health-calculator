@@ -44,6 +44,8 @@ import { waterIntakeContent } from '@/calculators/nutrition/water-intake-calcula
 import { calorieDeficitContent } from '@/calculators/nutrition/calorie-deficit-calculator/calorieDeficitContent';
 // Women's Health - Period
 import { periodContent } from '@/calculators/womens-health/period-calculator/periodContent';
+// Daily Life
+import { ageContent } from '@/calculators/daily-life/age-calculator/ageContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -138,6 +140,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'psa-calculator': psaContent,
     // Children's Health
     'growth-percentile-calculator': growthContent,
+    // Daily Life
+    'age-calculator': ageContent,
   };
 
   const content = contentMap[calculator.id];
@@ -349,6 +353,57 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
                   },
                 ],
                 totalTime: 'PT2M',
+              })
+            ),
+          }}
+        />
+      )}
+
+      {calculator.id === 'age-calculator' && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              generateHowToSchema({
+                name:
+                  locale === 'en'
+                    ? 'How to Calculate Your Exact Age'
+                    : 'Tam Yaşınızı Nasıl Hesaplarsınız',
+                description:
+                  locale === 'en'
+                    ? 'Step-by-step guide to calculate your exact age in years, months, and days'
+                    : 'Tam yaşınızı yıl, ay ve gün olarak hesaplamak için adım adım kılavuz',
+                steps: [
+                  {
+                    name: locale === 'en' ? 'Enter your birth day' : 'Doğum gününüzü girin',
+                    text:
+                      locale === 'en'
+                        ? 'Enter the day of the month you were born (1-31).'
+                        : 'Doğduğunuz ayın gününü girin (1-31).',
+                  },
+                  {
+                    name: locale === 'en' ? 'Enter your birth month' : 'Doğum ayınızı girin',
+                    text:
+                      locale === 'en'
+                        ? 'Enter the month you were born (1-12).'
+                        : 'Doğduğunuz ayı girin (1-12).',
+                  },
+                  {
+                    name: locale === 'en' ? 'Enter your birth year' : 'Doğum yılınızı girin',
+                    text:
+                      locale === 'en'
+                        ? 'Enter the year you were born (e.g., 1990).'
+                        : 'Doğduğunuz yılı girin (örn. 1990).',
+                  },
+                  {
+                    name: locale === 'en' ? 'Calculate and view results' : 'Hesaplayın ve sonuçları görüntüleyin',
+                    text:
+                      locale === 'en'
+                        ? 'Click calculate to see your exact age in years, months, and days, plus fun facts like your zodiac sign, Chinese zodiac, birthstone, and days until your next birthday.'
+                        : 'Tam yaşınızı yıl, ay ve gün olarak görmek için hesapla\'ya tıklayın, ayrıca burcunuz, Çin burcunuz, doğum taşınız ve bir sonraki doğum gününüze kalan günler gibi eğlenceli bilgileri görün.',
+                  },
+                ],
+                totalTime: 'PT1M',
               })
             ),
           }}

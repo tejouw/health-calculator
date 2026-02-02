@@ -34,7 +34,8 @@
     "medical": "Tıbbi Hesaplamalar",
     "mentalHealth": "Ruh Sağlığı",
     "sleep": "Uyku & Dinlenme",
-    "childrensHealth": "Çocuk Sağlığı"
+    "childrensHealth": "Çocuk Sağlığı",
+    "dailyLife": "Günlük Yaşam"
   },
   "units": {
     "cm": "cm",

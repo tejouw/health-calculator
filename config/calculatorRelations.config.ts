@@ -145,6 +145,12 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
     primary: [],
     secondary: ['bmi-calculator'],
   },
+
+  // Daily Life calculators
+  'age-calculator': {
+    primary: [],
+    secondary: ['bmi-calculator', 'sleep-calculator'],
+  },
 };
 
 /**

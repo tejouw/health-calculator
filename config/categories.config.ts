@@ -219,6 +219,24 @@ export const categories: Category[] = [
     color: 'yellow',
     gradient: 'from-yellow-500 to-orange-500',
   },
+  {
+    id: 'daily-life',
+    slug: {
+      en: 'daily-life',
+      tr: 'gunluk-yasam',
+    },
+    name: {
+      en: 'Daily Life',
+      tr: 'Günlük Yaşam',
+    },
+    description: {
+      en: 'Age calculator, date calculations, everyday tools',
+      tr: 'Yaş hesaplama, tarih hesaplamaları, günlük araçlar',
+    },
+    icon: 'Calendar',
+    color: 'emerald',
+    gradient: 'from-emerald-500 to-teal-500',
+  },
 ];
 
 export function getCategoryById(id: string): Category | undefined {
