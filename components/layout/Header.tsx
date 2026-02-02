@@ -5,12 +5,13 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/lib/navigation';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { getPageSlug } from '@/config/pages.config';
 
 interface HeaderProps {
   locale: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ locale: _locale }) => {
+const Header: React.FC<HeaderProps> = ({ locale }) => {
   const t = useTranslations('navigation');
   const tBrand = useTranslations('branding');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -18,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({ locale: _locale }) => {
   const navigation = [
     { name: t('home'), href: '/' },
     { name: t('categories'), href: '#categories' },
-    { name: t('about'), href: '/about' },
+    { name: t('about'), href: `/${getPageSlug('about', locale as 'en' | 'tr')}` },
   ];
 
   return (

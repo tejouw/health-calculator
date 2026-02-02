@@ -2,7 +2,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Card } from '@/components/ui';
 import { Breadcrumbs } from '@/components/layout';
 import type { Metadata } from 'next';
-import { Shield, Database, Cookie, ExternalLink, RefreshCw, Mail } from 'lucide-react';
+import { Shield, Database, Cookie, ExternalLink, RefreshCw, Mail, Megaphone, Target } from 'lucide-react';
 
 interface PrivacyPageProps {
   params: Promise<{ locale: string }>;
@@ -54,6 +54,20 @@ export default async function PrivacyPolicyPage({ params }: PrivacyPageProps) {
       bg: 'bg-purple-100',
     },
     {
+      icon: Megaphone,
+      title: t('advertising'),
+      content: t('advertisingText'),
+      color: 'text-amber-600',
+      bg: 'bg-amber-100',
+    },
+    {
+      icon: Target,
+      title: t('advertisingCookies'),
+      content: t('advertisingCookiesText'),
+      color: 'text-rose-600',
+      bg: 'bg-rose-100',
+    },
+    {
       icon: RefreshCw,
       title: t('changes'),
       content: t('changesText'),
@@ -84,7 +98,7 @@ export default async function PrivacyPolicyPage({ params }: PrivacyPageProps) {
           />
           <h1 className="heading-1 mb-2">{t('title')}</h1>
           <p className="text-body text-neutral-600">
-            {t('lastUpdated')}: January 29, 2025
+            {t('lastUpdated')}: February 2, 2025
           </p>
         </div>
       </section>

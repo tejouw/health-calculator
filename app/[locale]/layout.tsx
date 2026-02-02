@@ -6,6 +6,7 @@ import { locales } from '@/i18n';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { siteConfig } from '@/config/site.config';
+import { GoogleAnalytics } from '@/components/analytics';
 import type { Metadata } from 'next';
 
 const inter = Inter({
@@ -108,6 +109,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={inter.variable}>
       <body className="min-h-screen bg-neutral-50 font-sans antialiased">
+        <GoogleAnalytics />
         <NextIntlClientProvider messages={messages}>
           <div className="flex min-h-screen flex-col">
             <Header locale={locale} />

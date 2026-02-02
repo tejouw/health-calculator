@@ -80,6 +80,9 @@ export function generateCalculatorSchema(calculator: {
   name: string;
   description: string;
   url: string;
+  datePublished?: string;
+  dateModified?: string;
+  category?: string;
 }) {
   return {
     '@context': 'https://schema.org',
@@ -88,11 +91,24 @@ export function generateCalculatorSchema(calculator: {
     description: calculator.description,
     url: calculator.url,
     applicationCategory: 'HealthApplication',
+    applicationSubCategory: calculator.category || 'Health Calculator',
     operatingSystem: 'Any',
+    browserRequirements: 'Requires JavaScript',
+    softwareVersion: '1.0',
+    datePublished: calculator.datePublished || '2025-01-01',
+    dateModified: calculator.dateModified || new Date().toISOString().split('T')[0],
+    inLanguage: ['en', 'tr'],
+    isAccessibleForFree: true,
     offers: {
       '@type': 'Offer',
       price: '0',
       priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+    },
+    provider: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+      url: siteConfig.url,
     },
   };
 }
@@ -138,6 +154,8 @@ export function generateMedicalWebPageSchema(data: {
   description: string;
   url: string;
   lastReviewed?: string;
+  datePublished?: string;
+  dateModified?: string;
   specialty?: string;
 }) {
   return {
@@ -146,23 +164,69 @@ export function generateMedicalWebPageSchema(data: {
     name: data.name,
     description: data.description,
     url: data.url,
+    datePublished: data.datePublished || '2025-01-01',
+    dateModified: data.dateModified || new Date().toISOString().split('T')[0],
     lastReviewed: data.lastReviewed || new Date().toISOString().split('T')[0],
     reviewedBy: {
       '@type': 'Organization',
       name: siteConfig.name,
+      url: siteConfig.url,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${siteConfig.url}/logo.png`,
+      },
+    },
+    mainContentOfPage: {
+      '@type': 'WebPageElement',
+      cssSelector: '.calculator-content',
+    },
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', '.calculator-result', '.medical-disclaimer'],
     },
     medicalAudience: [
       {
         '@type': 'MedicalAudience',
-        name: 'Patient',
+        audienceType: 'Patient',
+        healthCondition: {
+          '@type': 'MedicalCondition',
+          name: data.specialty || 'General Health',
+        },
       },
     ],
     about: {
       '@type': 'MedicalCondition',
       name: data.specialty || 'Body Weight Management',
     },
+    specialty: {
+      '@type': 'MedicalSpecialty',
+      name: data.specialty || 'General Practice',
+    },
+    isPartOf: {
+      '@type': 'WebSite',
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
   };
 }
+
+/**
+ * Category to Medical Specialty mapping
+ */
+export const categoryToSpecialty: Record<string, string> = {
+  'body-weight': 'Nutrition and Dietetics',
+  'fitness': 'Sports Medicine',
+  'nutrition': 'Nutrition and Dietetics',
+  'pregnancy': 'Obstetrics and Gynecology',
+  'womens-health': 'Obstetrics and Gynecology',
+  'mens-health': 'Urology',
+  'heart': 'Cardiology',
+  'diabetes': 'Endocrinology',
+  'medical': 'Internal Medicine',
+  'mental-health': 'Psychiatry',
+  'sleep': 'Sleep Medicine',
+  'childrens-health': 'Pediatrics',
+};
 
 export function generateArticleSchema(data: {
   headline: string;

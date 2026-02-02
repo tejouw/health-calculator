@@ -14,6 +14,11 @@ import MedicalDisclaimer from '@/calculators/body-weight/bmi/components/MedicalD
 import ReferencesSection from '@/calculators/body-weight/bmi/components/ReferencesSection';
 import ContentNavigation from '@/calculators/body-weight/bmi/components/ContentNavigation';
 
+// Import related calculators and ad components
+import RelatedCalculators from '@/components/calculators/RelatedCalculators';
+import { SidebarAd } from '@/components/ads';
+import { ShareButtons } from '@/components/social';
+
 interface CalculatorLayoutProps {
   calculator: CalculatorMeta;
   content?: CalculatorContent;
@@ -67,8 +72,19 @@ const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
       <section className="border-b border-neutral-200 bg-white">
         <div className="container-custom py-8">
           <Breadcrumbs items={breadcrumbItems} className="mb-4" />
-          <h1 className="heading-2 mb-3">{calculator.title[locale]}</h1>
-          <p className="text-body max-w-3xl">{calculator.description[locale]}</p>
+          <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+            <div>
+              <h1 className="heading-2 mb-3">{calculator.title[locale]}</h1>
+              <p className="text-body max-w-3xl">{calculator.description[locale]}</p>
+            </div>
+            <ShareButtons
+              title={calculator.title[locale]}
+              description={calculator.description[locale]}
+              calculatorId={calculator.id}
+              size="sm"
+              className="flex-shrink-0"
+            />
+          </div>
         </div>
       </section>
 
@@ -86,21 +102,16 @@ const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
                 <ContentNavigation sections={contentSections} locale={locale} />
               )}
 
-              {/* Ad Space */}
-              <Card className="bg-neutral-100 text-center">
-                <p className="text-sm text-neutral-500">Ad Space</p>
-                <p className="text-xs text-neutral-400">300x250</p>
-              </Card>
+              {/* Ad Space - CLS Protected */}
+              <SidebarAd />
 
               {/* Related Calculators */}
-              <Card>
-                <h3 className="mb-4 text-lg font-semibold text-neutral-900">
-                  {t('relatedCalculators')}
-                </h3>
-                <p className="text-sm text-neutral-600">
-                  {t('relatedCalculatorsDescription')}
-                </p>
-              </Card>
+              <RelatedCalculators
+                calculatorId={calculator.id}
+                currentCategory={calculator.category}
+                locale={locale}
+                maxItems={5}
+              />
             </div>
           </div>
         </div>
