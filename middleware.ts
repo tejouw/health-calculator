@@ -29,24 +29,6 @@ export default function middleware(request: NextRequest) {
 
   console.log('🔤 Selected locale:', locale);
 
-  // Check if pathname already has a locale prefix
-  const pathnameHasLocale = routing.locales.some(
-    (loc) => pathname.startsWith(`/${loc}/`) || pathname === `/${loc}`
-  );
-
-  // If URL has locale prefix, remove it (user typed /en/something)
-  if (pathnameHasLocale) {
-    const segments = pathname.split('/');
-    segments.splice(1, 1); // Remove locale segment
-    const newPathname = segments.join('/') || '/';
-
-    // Redirect to clean URL
-    const url = request.nextUrl.clone();
-    url.pathname = newPathname;
-    console.log('🔀 Redirecting to clean URL:', newPathname);
-    return NextResponse.redirect(url);
-  }
-
   // Map localized page slugs to internal page IDs
   let internalPathname = pathname;
   const pathSegments = pathname.split('/').filter(Boolean);
