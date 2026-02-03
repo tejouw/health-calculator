@@ -210,7 +210,7 @@ const BMICalculator: React.FC<BMICalculatorProps> = ({ locale }) => {
           />
 
           {/* Category Detailed Explanation */}
-          <BMICategoryExplainer bmi={result} category={category} locale={locale} />
+          {category && <BMICategoryExplainer bmi={result} category={category} locale={locale} />}
 
           {/* BMI Limitations */}
           <BMILimitations locale={locale} />

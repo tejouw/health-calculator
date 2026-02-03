@@ -1,5 +1,5 @@
 import { CalculatorMeta } from '@/types/calculator';
-import BMICalculator from './BMICalculator';
+import BMICalculator from './BmiCalculator';
 
 export const bmiMeta: CalculatorMeta = {
   id: 'bmi-calculator',

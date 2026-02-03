@@ -219,8 +219,9 @@ const HeartRateZoneCalculator: React.FC<CalculatorProps> = ({ locale }) => {
 
       {/* Results */}
       {result && (
-        <Card>
-          <div className="mb-6">
+        <>
+          <Card>
+            <div className="mb-6">
             <h3 className="mb-2 text-xl font-bold text-neutral-900">{text.yourZones}</h3>
             <div className="flex items-center gap-2 text-sm text-neutral-600">
               <HeartPulse className="h-4 w-4" />
@@ -301,10 +302,11 @@ const HeartRateZoneCalculator: React.FC<CalculatorProps> = ({ locale }) => {
               </div>
             </div>
           </div>
-        </Card>
+          </Card>
 
-        {/* Heart Rate Guide */}
-        <HeartRateGuide locale={locale} />
+          {/* Heart Rate Guide */}
+          <HeartRateGuide locale={locale} />
+        </>
       )}
     </div>
   );

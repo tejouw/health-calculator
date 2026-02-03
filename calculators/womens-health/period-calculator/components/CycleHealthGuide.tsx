@@ -70,7 +70,7 @@ const CycleHealthGuide: React.FC<CycleHealthGuideProps> = ({ locale }) => {
 
   const abnormalSigns = [
     { en: 'Extremely heavy bleeding (soaking a pad in less than an hour)', tr: 'Aşırı ağır kanama (bir saat içinde bir pedi ıslatmak)' },
-    { en: 'Periods lasting longer than 7 days consistently', tr: 'Tutarlı olarak 7 gün'den uzun süren adet' },
+    { en: 'Periods lasting longer than 7 days consistently', tr: 'Tutarlı olarak 7 günden uzun süren adet' },
     { en: 'Severe pain that disrupts daily activities', tr: 'Günlük aktiviteleri etkileyen ciddi ağrı' },
     { en: 'Irregular periods for more than 3 months', tr: '3 aydan fazla düzensiz adet' },
     { en: 'Spotting between periods', tr: 'Adet arası kanama' },
