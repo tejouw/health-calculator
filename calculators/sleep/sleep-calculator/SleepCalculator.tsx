@@ -6,6 +6,7 @@ import { Button, Input, RadioGroup, Card, Badge } from '@/components/ui';
 import { calculateSleepTimes, sleepRecommendations } from './sleepLogic';
 import { SleepCalculatorInput } from './sleepTypes';
 import { Moon, Sun, Info } from 'lucide-react';
+import SleepHygieneGuide from './components/SleepHygieneGuide';
 
 interface SleepCalculatorProps {
   locale: 'en' | 'tr';
@@ -246,6 +247,9 @@ const SleepCalculator: React.FC<SleepCalculatorProps> = ({ locale }) => {
               ))}
             </ul>
           </Card>
+
+          {/* Sleep Hygiene Guide */}
+          <SleepHygieneGuide locale={locale} />
         </>
       )}
     </div>

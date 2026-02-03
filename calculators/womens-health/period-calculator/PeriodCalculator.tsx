@@ -6,6 +6,7 @@ import { Button, Input, Card, Badge } from '@/components/ui';
 import { calculatePeriod, getCyclePhases, getPhaseRecommendations } from './periodLogic';
 import { PeriodInput } from './periodTypes';
 import { Calendar, Heart, Droplets, TrendingUp, Lightbulb, AlertCircle } from 'lucide-react';
+import CycleHealthGuide from './components/CycleHealthGuide';
 
 interface PeriodCalculatorProps {
   locale: 'en' | 'tr';
@@ -458,6 +459,9 @@ const PeriodCalculator: React.FC<PeriodCalculatorProps> = ({ locale }) => {
               </div>
             </div>
           </Card>
+
+          {/* Cycle Health Guide */}
+          <CycleHealthGuide locale={locale} />
         </div>
       )}
     </div>

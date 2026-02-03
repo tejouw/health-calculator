@@ -7,6 +7,10 @@ import { calculateBMI, getBMICategory, getHealthyWeightRange, bmiCategories } fr
 import { BMIInput } from './bmiTypes';
 import { Scale, TrendingUp, TrendingDown } from 'lucide-react';
 import BMIProgressIndicator from './components/BMIProgressIndicator';
+import BMICategoryExplainer from './components/BMICategoryExplainer';
+import HealthyWeightRange from './components/HealthyWeightRange';
+import BMILimitations from './components/BMILimitations';
+import BMIHowItWorks from './components/BMIHowItWorks';
 
 interface BMICalculatorProps {
   locale: 'en' | 'tr';
@@ -190,6 +194,30 @@ const BMICalculator: React.FC<BMICalculatorProps> = ({ locale }) => {
             )}
           </div>
         </Card>
+      )}
+
+      {/* Enhanced Content Sections */}
+      {result && categoryData && healthyRange && (
+        <>
+          {/* Healthy Weight Range Visualization */}
+          <HealthyWeightRange
+            currentWeight={parseFloat(weight)}
+            currentBMI={result}
+            healthyMin={healthyRange.min}
+            healthyMax={healthyRange.max}
+            unit={unit}
+            locale={locale}
+          />
+
+          {/* Category Detailed Explanation */}
+          <BMICategoryExplainer bmi={result} category={category} locale={locale} />
+
+          {/* BMI Limitations */}
+          <BMILimitations locale={locale} />
+
+          {/* How It Works */}
+          <BMIHowItWorks locale={locale} />
+        </>
       )}
     </div>
   );

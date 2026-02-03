@@ -12,6 +12,7 @@ import {
 } from './idealWeightLogic';
 import { IdealWeightInput } from './idealWeightTypes';
 import { Scale, Target, TrendingDown, TrendingUp, AlertCircle, Info } from 'lucide-react';
+import IdealWeightGuide from './components/IdealWeightGuide';
 
 interface IdealWeightCalculatorProps {
   locale: 'en' | 'tr';
@@ -365,6 +366,9 @@ const IdealWeightCalculator: React.FC<IdealWeightCalculatorProps> = ({ locale })
               </div>
             </Card>
           )}
+
+          {/* Comprehensive Guide */}
+          <IdealWeightGuide locale={locale} />
 
           {/* Important Note */}
           <Card className="border-l-4 border-l-amber-500 bg-amber-50">

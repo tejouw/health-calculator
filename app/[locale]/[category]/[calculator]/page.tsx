@@ -42,6 +42,8 @@ import { growthContent } from '@/calculators/childrens-health/growth-percentile/
 import { waterIntakeContent } from '@/calculators/nutrition/water-intake-calculator/waterIntakeContent';
 // Nutrition - Calorie Deficit
 import { calorieDeficitContent } from '@/calculators/nutrition/calorie-deficit-calculator/calorieDeficitContent';
+// Nutrition - Protein
+import { proteinContent } from '@/calculators/nutrition/protein-calculator/proteinContent';
 // Women's Health - Period
 import { periodContent } from '@/calculators/womens-health/period-calculator/periodContent';
 // Daily Life
@@ -122,6 +124,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'food-calorie-calculator': foodCalorieContent,
     'water-intake-calculator': waterIntakeContent,
     'calorie-deficit-calculator': calorieDeficitContent,
+    'protein-calculator': proteinContent,
     'pregnancy-week-calculator': pregnancyWeekContent,
     'heart-rate-zone-calculator': heartRateZoneContent,
     // Fitness

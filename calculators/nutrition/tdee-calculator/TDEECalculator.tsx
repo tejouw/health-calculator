@@ -12,6 +12,7 @@ import {
 } from './tdeeLogic';
 import { TDEEInput, ActivityLevel, Goal } from './tdeeTypes';
 import { Flame, TrendingDown, TrendingUp, Target, Activity } from 'lucide-react';
+import ActivityCalorieBurn from './components/ActivityCalorieBurn';
 
 interface TDEECalculatorProps {
   locale: 'en' | 'tr';
@@ -372,6 +373,14 @@ const TDEECalculator: React.FC<TDEECalculatorProps> = ({ locale }) => {
               </p>
             </div>
           </Card>
+
+          {/* Activity Calorie Burn Table */}
+          <ActivityCalorieBurn
+            tdee={result.tdee}
+            weight={parseFloat(weight)}
+            unit={unit}
+            locale={locale}
+          />
         </>
       )}
     </div>

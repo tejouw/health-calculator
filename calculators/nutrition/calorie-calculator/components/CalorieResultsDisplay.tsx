@@ -4,12 +4,19 @@ import React from 'react';
 import { Card, Badge } from '@/components/ui';
 import { CalorieResult, Goal } from '../calorieTypes';
 import { Flame, Activity, Target, TrendingUp, TrendingDown, ChevronRight } from 'lucide-react';
+import WeightProgressTimeline from './WeightProgressTimeline';
+import NutritionTips from './NutritionTips';
+import MealPlanSuggestions from './MealPlanSuggestions';
+import HowItWorks from './HowItWorks';
 
 interface CalorieResultsDisplayProps {
   result: CalorieResult;
   goal: Goal;
   recommendedCalories: number;
   locale: 'en' | 'tr';
+  currentWeight: number;
+  goalWeight?: number;
+  unit: 'metric' | 'imperial';
 }
 
 const CalorieResultsDisplay: React.FC<CalorieResultsDisplayProps> = ({
@@ -17,6 +24,9 @@ const CalorieResultsDisplay: React.FC<CalorieResultsDisplayProps> = ({
   goal,
   recommendedCalories,
   locale,
+  currentWeight,
+  goalWeight,
+  unit,
 }) => {
   const calorieOptions = [
     {
@@ -262,6 +272,27 @@ const CalorieResultsDisplay: React.FC<CalorieResultsDisplayProps> = ({
           </div>
         </Card>
       )}
+
+      {/* Weight Progress Timeline */}
+      {goalWeight && goalWeight !== currentWeight && (
+        <WeightProgressTimeline
+          currentWeight={currentWeight}
+          goalWeight={goalWeight}
+          dailyCalories={recommendedCalories}
+          maintenanceCalories={result.maintenance}
+          unit={unit}
+          locale={locale}
+        />
+      )}
+
+      {/* Meal Plan Suggestions */}
+      <MealPlanSuggestions dailyCalories={recommendedCalories} locale={locale} />
+
+      {/* Nutrition Tips */}
+      <NutritionTips goal={goal} locale={locale} />
+
+      {/* How It Works */}
+      <HowItWorks locale={locale} />
 
       {/* Important Notes */}
       <Card className="border-2 border-yellow-200 bg-yellow-50">

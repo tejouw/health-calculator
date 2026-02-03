@@ -6,6 +6,7 @@ import { Button, Input, RadioGroup, Card, Badge } from '@/components/ui';
 import { calculateOneRepMax, formulaDescriptions } from './oneRepMaxLogic';
 import { OneRepMaxInput } from './oneRepMaxTypes';
 import { Dumbbell, TrendingUp } from 'lucide-react';
+import TrainingGuide from './components/TrainingGuide';
 
 interface OneRepMaxCalculatorProps {
   locale: 'en' | 'tr';
@@ -237,6 +238,9 @@ const OneRepMaxCalculator: React.FC<OneRepMaxCalculatorProps> = ({ locale }) => 
               </table>
             </div>
           </Card>
+
+          {/* Training Guide */}
+          <TrainingGuide oneRepMax={result.average} unit={unit as 'kg' | 'lbs'} locale={locale} />
         </>
       )}
     </div>

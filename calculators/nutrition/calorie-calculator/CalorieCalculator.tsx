@@ -27,6 +27,7 @@ const CalorieCalculator: React.FC<CalorieCalculatorProps> = ({ locale }) => {
   const [gender, setGender] = useState<Gender>('male');
   const [height, setHeight] = useState<string>('');
   const [weight, setWeight] = useState<string>('');
+  const [goalWeight, setGoalWeight] = useState<string>('');
   const [activityLevel, setActivityLevel] = useState<ActivityLevel>('moderately_active');
   const [goal, setGoal] = useState<Goal>('maintain');
   const [result, setResult] = useState<any>(null);
@@ -78,6 +79,7 @@ const CalorieCalculator: React.FC<CalorieCalculatorProps> = ({ locale }) => {
     setAge('');
     setHeight('');
     setWeight('');
+    setGoalWeight('');
     setGender('male');
     setActivityLevel('moderately_active');
     setGoal('maintain');
@@ -199,6 +201,17 @@ const CalorieCalculator: React.FC<CalorieCalculatorProps> = ({ locale }) => {
               }
               required
             />
+
+            <Input
+              label={locale === 'tr' ? 'Hedef Kilo (İsteğe Bağlı)' : 'Goal Weight (Optional)'}
+              type="number"
+              value={goalWeight}
+              onChange={(e) => setGoalWeight(e.target.value)}
+              placeholder={unit === 'metric' ? '65' : '143'}
+              rightIcon={
+                <span className="text-sm">{unit === 'metric' ? tUnits('kg') : tUnits('lbs')}</span>
+              }
+            />
           </div>
         </div>
 
@@ -303,6 +316,9 @@ const CalorieCalculator: React.FC<CalorieCalculatorProps> = ({ locale }) => {
           goal={goal}
           recommendedCalories={recommendedCalories}
           locale={locale}
+          currentWeight={parseFloat(weight)}
+          goalWeight={goalWeight ? parseFloat(goalWeight) : undefined}
+          unit={unit}
         />
       )}
     </div>

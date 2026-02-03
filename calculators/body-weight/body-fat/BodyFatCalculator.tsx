@@ -12,6 +12,8 @@ import {
 } from './bodyFatLogic';
 import { BodyFatInput } from './bodyFatTypes';
 import { Activity, TrendingUp, TrendingDown } from 'lucide-react';
+import BodyFatCategoryChart from './components/BodyFatCategoryChart';
+import BodyFatRecommendations from './components/BodyFatRecommendations';
 
 interface BodyFatCalculatorProps {
   locale: 'en' | 'tr';
@@ -336,6 +338,14 @@ const BodyFatCalculator: React.FC<BodyFatCalculatorProps> = ({ locale }) => {
             )}
           </div>
         </Card>
+      )}
+
+      {/* Enhanced Content */}
+      {result && (
+        <>
+          <BodyFatCategoryChart currentBodyFat={result} gender={gender} locale={locale} />
+          <BodyFatRecommendations currentBodyFat={result} gender={gender} locale={locale} />
+        </>
       )}
     </div>
   );

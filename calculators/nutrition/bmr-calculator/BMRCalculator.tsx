@@ -6,6 +6,7 @@ import { Button, Input, RadioGroup, Card, Badge } from '@/components/ui';
 import { calculateBMR, getActivityDescription, getTDEE, getWeightLossTarget, getMuscleGainTarget } from './bmrLogic';
 import { BMRInput, ActivityLevel } from './bmrTypes';
 import { Zap, Activity, Target, TrendingUp, TrendingDown, Flame } from 'lucide-react';
+import MetabolismTips from './components/MetabolismTips';
 
 interface BMRCalculatorProps {
   locale: 'en' | 'tr';
@@ -468,6 +469,9 @@ const BMRCalculator: React.FC<BMRCalculatorProps> = ({ locale }) => {
               </div>
             </div>
           </Card>
+
+          {/* Metabolism Tips */}
+          <MetabolismTips bmr={result.bmr} locale={locale} />
         </div>
       )}
     </div>

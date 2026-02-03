@@ -16,6 +16,7 @@ import {
   Zap,
   AlertCircle,
 } from 'lucide-react';
+import PrenatalCareGuide from './components/PrenatalCareGuide';
 
 interface PregnancyWeekCalculatorProps {
   locale: 'en' | 'tr';
@@ -520,6 +521,9 @@ const PregnancyWeekCalculator: React.FC<PregnancyWeekCalculatorProps> = ({
               </ul>
             </div>
           </Card>
+
+          {/* Prenatal Care Guide */}
+          <PrenatalCareGuide trimester={result.trimester as 1 | 2 | 3} locale={locale} />
         </div>
       )}
     </div>

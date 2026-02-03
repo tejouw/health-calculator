@@ -6,6 +6,7 @@ import { Button, Input, RadioGroup, Select, Card, Badge } from '@/components/ui'
 import { calculateMacronutrients, getDietTypeDescription } from './macroLogic';
 import { MacroInput, DietType } from './macroTypes';
 import { Apple, Activity, Target, Flame } from 'lucide-react';
+import MacroFoodSources from './components/MacroFoodSources';
 
 interface MacroCalculatorProps {
   locale: 'en' | 'tr';
@@ -494,6 +495,14 @@ const MacroCalculator: React.FC<MacroCalculatorProps> = ({ locale }) => {
               </div>
             </Card>
           )}
+
+          {/* Food Sources Guide */}
+          <MacroFoodSources
+            protein={result.protein.grams}
+            carbs={result.carbs.grams}
+            fat={result.fat.grams}
+            locale={locale}
+          />
         </div>
       )}
     </div>

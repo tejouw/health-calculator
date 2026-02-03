@@ -39,7 +39,7 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
   // Nutrition calculators
   'calorie-calculator': {
     primary: ['tdee-calculator', 'bmr-calculator', 'calorie-deficit-calculator'],
-    secondary: ['macro-calculator', 'bmi-calculator', 'ideal-weight-calculator'],
+    secondary: ['macro-calculator', 'protein-calculator', 'bmi-calculator', 'ideal-weight-calculator'],
   },
   'tdee-calculator': {
     primary: ['calorie-calculator', 'bmr-calculator', 'macro-calculator'],
@@ -50,7 +50,7 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
     secondary: ['macro-calculator', 'bmi-calculator', 'body-fat-calculator'],
   },
   'macro-calculator': {
-    primary: ['calorie-calculator', 'tdee-calculator'],
+    primary: ['calorie-calculator', 'tdee-calculator', 'protein-calculator'],
     secondary: ['bmr-calculator', 'food-calorie-calculator', 'calorie-deficit-calculator'],
   },
   'food-calorie-calculator': {
@@ -64,6 +64,10 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
   'calorie-deficit-calculator': {
     primary: ['calorie-calculator', 'tdee-calculator'],
     secondary: ['bmr-calculator', 'macro-calculator', 'ideal-weight-calculator'],
+  },
+  'protein-calculator': {
+    primary: ['macro-calculator', 'calorie-calculator'],
+    secondary: ['tdee-calculator', 'bmr-calculator', 'body-fat-calculator'],
   },
 
   // Pregnancy calculators

@@ -35,6 +35,8 @@ import { growthMeta } from '@/calculators/childrens-health/growth-percentile/gro
 import { waterIntakeMeta } from '@/calculators/nutrition/water-intake-calculator/waterIntakeMeta';
 // New calculators - Nutrition (Calorie Deficit)
 import { calorieDeficitMeta } from '@/calculators/nutrition/calorie-deficit-calculator/calorieDeficitMeta';
+// New calculators - Nutrition (Protein)
+import { proteinMeta } from '@/calculators/nutrition/protein-calculator/proteinMeta';
 // New calculators - Women's Health (Period)
 import { periodMeta } from '@/calculators/womens-health/period-calculator/periodMeta';
 // New calculators - Daily Life
@@ -56,6 +58,7 @@ export const calculatorRegistry: CalculatorMeta[] = [
   foodCalorieMeta,
   waterIntakeMeta,
   calorieDeficitMeta,
+  proteinMeta,
   pregnancyWeekMeta,
   heartRateZoneMeta,
   // Fitness

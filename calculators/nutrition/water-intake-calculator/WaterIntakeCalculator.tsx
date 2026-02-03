@@ -6,6 +6,7 @@ import { Button, Input, RadioGroup, Card, Badge } from '@/components/ui';
 import { calculateWaterIntake, getHydrationStatus } from './waterIntakeLogic';
 import { WaterIntakeInput, ActivityLevel, ClimateType, SpecialCondition } from './waterIntakeTypes';
 import { Droplet, Activity, Sun, Heart, Clock } from 'lucide-react';
+import HydrationGuide from './components/HydrationGuide';
 
 interface WaterIntakeCalculatorProps {
   locale: 'en' | 'tr';
@@ -592,6 +593,9 @@ const WaterIntakeCalculator: React.FC<WaterIntakeCalculatorProps> = ({ locale })
               </div>
             </div>
           </Card>
+
+          {/* Hydration Guide */}
+          <HydrationGuide dailyWater={result.dailyIntakeLiters} locale={locale} />
         </div>
       )}
     </div>

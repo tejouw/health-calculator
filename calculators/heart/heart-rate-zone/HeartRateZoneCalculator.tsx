@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Card } from '@/components/ui';
 import { Activity, HeartPulse, Info } from 'lucide-react';
+import HeartRateGuide from './components/HeartRateGuide';
 import { calculateHeartRateZones } from './heartRateZoneLogic';
 import { HeartRateZoneResult, CalculationMethod } from './heartRateZoneTypes';
 import { CalculatorProps } from '@/types/calculator';
@@ -301,6 +302,9 @@ const HeartRateZoneCalculator: React.FC<CalculatorProps> = ({ locale }) => {
             </div>
           </div>
         </Card>
+
+        {/* Heart Rate Guide */}
+        <HeartRateGuide locale={locale} />
       )}
     </div>
   );
