@@ -46,6 +46,7 @@ import { calorieDeficitContent } from '@/calculators/nutrition/calorie-deficit-c
 import { periodContent } from '@/calculators/womens-health/period-calculator/periodContent';
 // Daily Life
 import { ageContent } from '@/calculators/daily-life/age-calculator/ageContent';
+import { loveContent } from '@/calculators/daily-life/love-calculator/loveContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -142,6 +143,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'growth-percentile-calculator': growthContent,
     // Daily Life
     'age-calculator': ageContent,
+    'love-calculator': loveContent,
   };
 
   const content = contentMap[calculator.id];
@@ -401,6 +403,57 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
                       locale === 'en'
                         ? 'Click calculate to see your exact age in years, months, and days, plus fun facts like your zodiac sign, Chinese zodiac, birthstone, and days until your next birthday.'
                         : 'Tam yaşınızı yıl, ay ve gün olarak görmek için hesapla\'ya tıklayın, ayrıca burcunuz, Çin burcunuz, doğum taşınız ve bir sonraki doğum gününüze kalan günler gibi eğlenceli bilgileri görün.',
+                  },
+                ],
+                totalTime: 'PT1M',
+              })
+            ),
+          }}
+        />
+      )}
+
+      {calculator.id === 'love-calculator' && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              generateHowToSchema({
+                name:
+                  locale === 'en'
+                    ? 'How to Use the Love Calculator'
+                    : 'Aşk Hesaplayıcısı Nasıl Kullanılır',
+                description:
+                  locale === 'en'
+                    ? 'Step-by-step guide to calculate love compatibility between two names'
+                    : 'İki isim arasındaki aşk uyumunu hesaplamak için adım adım kılavuz',
+                steps: [
+                  {
+                    name: locale === 'en' ? 'Enter the first name' : 'İlk ismi girin',
+                    text:
+                      locale === 'en'
+                        ? 'Type the first person\'s name in the first input field. This can be your name or anyone you\'re curious about.'
+                        : 'İlk kişinin adını ilk giriş alanına yazın. Bu sizin adınız veya merak ettiğiniz herhangi birinin adı olabilir.',
+                  },
+                  {
+                    name: locale === 'en' ? 'Enter the second name' : 'İkinci ismi girin',
+                    text:
+                      locale === 'en'
+                        ? 'Type the second person\'s name. This could be your crush, partner, friend, or even a celebrity!'
+                        : 'İkinci kişinin adını yazın. Bu hoşlandığınız biri, partneriniz, arkadaşınız veya hatta bir ünlü olabilir!',
+                  },
+                  {
+                    name: locale === 'en' ? 'Calculate compatibility' : 'Uyumu hesaplayın',
+                    text:
+                      locale === 'en'
+                        ? 'Click the Calculate button and watch the magic happen! The calculator will process both names and generate your love compatibility percentage.'
+                        : 'Hesapla düğmesine tıklayın ve sihrin gerçekleşmesini izleyin! Hesaplayıcı her iki ismi işleyecek ve aşk uyumu yüzdenizi üretecektir.',
+                  },
+                  {
+                    name: locale === 'en' ? 'View and share results' : 'Sonuçları görüntüleyin ve paylaşın',
+                    text:
+                      locale === 'en'
+                        ? 'See your compatibility percentage with a personalized message. Share your results with friends on social media using the share button!'
+                        : 'Kişiselleştirilmiş bir mesajla uyum yüzdenizi görün. Paylaş düğmesini kullanarak sonuçlarınızı sosyal medyada arkadaşlarınızla paylaşın!',
                   },
                 ],
                 totalTime: 'PT1M',

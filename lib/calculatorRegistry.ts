@@ -39,6 +39,7 @@ import { calorieDeficitMeta } from '@/calculators/nutrition/calorie-deficit-calc
 import { periodMeta } from '@/calculators/womens-health/period-calculator/periodMeta';
 // New calculators - Daily Life
 import { ageMeta } from '@/calculators/daily-life/age-calculator/ageMeta';
+import { loveMeta } from '@/calculators/daily-life/love-calculator/loveMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -76,6 +77,7 @@ export const calculatorRegistry: CalculatorMeta[] = [
   growthMeta,
   // Daily Life
   ageMeta,
+  loveMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {

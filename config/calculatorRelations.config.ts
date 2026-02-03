@@ -148,8 +148,12 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
 
   // Daily Life calculators
   'age-calculator': {
-    primary: [],
+    primary: ['love-calculator'],
     secondary: ['bmi-calculator', 'sleep-calculator'],
+  },
+  'love-calculator': {
+    primary: ['age-calculator'],
+    secondary: ['sleep-calculator'],
   },
 };
 
