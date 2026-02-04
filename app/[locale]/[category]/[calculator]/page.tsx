@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import { getCalculatorBySlug, getAllCalculators } from '@/lib/calculatorRegistry';
 import { getCategorySlugByLocale } from '@/lib/categoryMapping';
+import { getDomainForLocale } from '@/lib/domain';
 import type { CalculatorContent } from '@/types/calculator';
 import {
   generateSEO,
@@ -49,6 +50,8 @@ import { periodContent } from '@/calculators/womens-health/period-calculator/per
 // Daily Life
 import { ageContent } from '@/calculators/daily-life/age-calculator/ageContent';
 import { loveContent } from '@/calculators/daily-life/love-calculator/loveContent';
+// Body Weight - Waist-Hip Ratio
+import { waistHipRatioContent } from '@/calculators/body-weight/waist-hip-ratio/waistHipRatioContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -147,17 +150,19 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     // Daily Life
     'age-calculator': ageContent,
     'love-calculator': loveContent,
+    // Body Weight - Waist-Hip Ratio
+    'waist-hip-ratio-calculator': waistHipRatioContent,
   };
 
   const content = contentMap[calculator.id];
 
   const CalculatorComponent = calculator.component;
 
-  const pageUrl = `https://healthcalculator.com/${locale}/${category}/${calcSlug}`;
+  const pageUrl = `${getDomainForLocale(locale as 'en' | 'tr')}/${category}/${calcSlug}`;
 
   return (
     <>
-      <CalculatorLayout calculator={calculator} content={content} locale={locale as 'en' | 'tr'}>
+      <CalculatorLayout calculator={calculator} content={content} locale={locale as 'en' | 'tr'} shareUrl={pageUrl}>
         <CalculatorComponent locale={locale as 'en' | 'tr'} />
       </CalculatorLayout>
 
@@ -484,14 +489,14 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
             generateBreadcrumbSchema([
               {
                 name: 'Home',
-                url: `https://healthcalculator.com/${locale}`,
+                url: getDomainForLocale(locale as 'en' | 'tr'),
               },
               {
                 name: category
                   .split('-')
                   .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
                   .join(' '),
-                url: `https://healthcalculator.com/${locale}/${category}`,
+                url: `${getDomainForLocale(locale as 'en' | 'tr')}/${category}`,
               },
               {
                 name: calculator.title[locale as 'en' | 'tr'],

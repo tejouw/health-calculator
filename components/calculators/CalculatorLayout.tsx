@@ -23,6 +23,7 @@ interface CalculatorLayoutProps {
   calculator: CalculatorMeta;
   content?: CalculatorContent;
   locale: 'en' | 'tr';
+  shareUrl: string;
   children: React.ReactNode;
 }
 
@@ -30,6 +31,7 @@ const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
   calculator,
   content,
   locale,
+  shareUrl,
   children,
 }) => {
   const t = useTranslations('calculator');
@@ -54,7 +56,7 @@ const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
         { id: 'what-is', title: t('whatIsIt') },
         content[locale].formulaDetails && { id: 'formula-details', title: locale === 'en' ? 'Formula Details' : 'Formül Detayları' },
         { id: 'how-to-calculate', title: t('howToCalculate') },
-        content[locale].categories && { id: 'categories', title: locale === 'en' ? 'BMI Categories' : 'VKİ Kategorileri' },
+        content[locale].categories && { id: 'categories', title: locale === 'en' ? 'Categories' : 'Kategoriler' },
         content[locale].interpretation && { id: 'interpretation', title: t('interpretation') },
         content[locale].limitations && { id: 'limitations', title: locale === 'en' ? 'Limitations' : 'Sınırlamalar' },
         content[locale].healthRisks && { id: 'health-risks', title: locale === 'en' ? 'Health Risks' : 'Sağlık Riskleri' },
@@ -78,6 +80,7 @@ const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
               <p className="text-body max-w-3xl">{calculator.description[locale]}</p>
             </div>
             <ShareButtons
+              url={shareUrl}
               title={calculator.title[locale]}
               description={calculator.description[locale]}
               calculatorId={calculator.id}
@@ -157,7 +160,7 @@ const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
               {content[locale].categories && (
                 <div id="categories" className="mb-12 scroll-mt-20">
                   <h2 className="heading-3 mb-6">
-                    {locale === 'en' ? 'BMI Categories' : 'VKİ Kategorileri'}
+                    {locale === 'en' ? 'Categories' : 'Kategoriler'}
                   </h2>
                   <BMICategoriesTable categories={content[locale].categories!} locale={locale} />
                 </div>
@@ -175,7 +178,7 @@ const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
               {content[locale].limitations && (
                 <div id="limitations" className="mb-12 scroll-mt-20">
                   <h2 className="heading-3 mb-4">
-                    {locale === 'en' ? 'Limitations of BMI' : 'VKİ\'nin Sınırlamaları'}
+                    {locale === 'en' ? 'Limitations' : 'Sınırlamalar'}
                   </h2>
                   <p className="text-body">{content[locale].limitations}</p>
                 </div>
@@ -185,7 +188,7 @@ const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
               {content[locale].healthRisks && (
                 <div id="health-risks" className="mb-12 scroll-mt-20">
                   <h2 className="heading-3 mb-4">
-                    {locale === 'en' ? 'Health Risks by BMI' : 'VKİ\'ye Göre Sağlık Riskleri'}
+                    {locale === 'en' ? 'Health Risks' : 'Sağlık Riskleri'}
                   </h2>
                   <p className="text-body">{content[locale].healthRisks}</p>
                 </div>
@@ -208,8 +211,8 @@ const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
                 <div id="demographic-differences" className="mb-12 scroll-mt-20">
                   <h2 className="heading-3 mb-4">
                     {locale === 'en'
-                      ? 'BMI Across Different Populations'
-                      : 'Farklı Popülasyonlarda VKİ'}
+                      ? 'Demographic Differences'
+                      : 'Demografik Farklılıklar'}
                   </h2>
                   <p className="text-body">{content[locale].demographicDifferences}</p>
                 </div>

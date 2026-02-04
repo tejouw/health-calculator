@@ -17,6 +17,48 @@ export const periodContent: CalculatorContent = {
     limitations:
       'Period calculators provide **estimates**, not guarantees. Actual ovulation can vary by ±2 days even in regular cycles. Stress, illness, travel, and lifestyle changes can affect timing. Results are based on average cycle data, not individual variations. **Not Suitable For**: Birth control (calendar method alone is not reliable contraception with 18-24% typical-use failure rate); diagnosing conditions (cannot diagnose PCOS, endometriosis, or other disorders); irregular cycles (predictions become less accurate); hormonal birth control users (pills create artificial cycles, not natural ovulation). **Factors Affecting Cycle Regularity**: stress and anxiety, significant weight loss or gain, intense exercise or training, illness or infection, medications (especially hormonal), breastfeeding, perimenopause, PCOS/thyroid disorders, travel and time zone changes, sleep pattern disruptions. **When Calculator May Be Inaccurate**: first period after childbirth, recently stopped hormonal birth control, during perimenopause transition, teens whose cycles haven\'t regulated yet (first 2-3 years after menarche), women with diagnosed hormonal disorders, during or after major illness or surgery. **Better Tracking Methods**: Basal Body Temperature (BBT) - temperature rises slightly after ovulation; Cervical Mucus Monitoring - changes consistency throughout cycle; Ovulation Predictor Kits (OPKs) - detect LH surge before ovulation; Fertility Tracking Apps - combine multiple data points; Ultrasound Monitoring - most accurate but requires medical visits.',
 
+    categories: [
+      {
+        range: '< 21 days',
+        label: 'Short Cycle',
+        description: 'Shorter than the typical range. May indicate hormonal imbalance or other factors worth discussing with a healthcare provider. Occasional short cycles can occur due to stress or lifestyle changes, but persistent short cycles warrant professional evaluation.',
+        color: '#EF4444',
+      },
+      {
+        range: '21 – 25 days',
+        label: 'Normal (Short)',
+        description: 'Within the healthy range on the shorter side. Perfectly normal variation for many women, as cycle length is influenced by individual hormonal balance. No action is needed unless accompanied by unusual symptoms.',
+        color: '#10B981',
+      },
+      {
+        range: '26 – 30 days',
+        label: 'Typical Cycle',
+        description: 'The most common cycle length. Often referenced as the "textbook" 28-day cycle falls in this range. This window represents the average hormonal rhythm observed across the majority of women worldwide.',
+        color: '#10B981',
+      },
+      {
+        range: '31 – 35 days',
+        label: 'Normal (Long)',
+        description: 'Within the healthy range on the longer side. Normal variation — no cause for concern unless accompanied by other symptoms such as extreme pain or unusual bleeding patterns. Many women naturally cycle in this range throughout their reproductive lives.',
+        color: '#10B981',
+      },
+      {
+        range: '> 35 days',
+        label: 'Long Cycle',
+        description: 'Longer than the typical range. May reflect hormonal factors, stress, or lifestyle changes such as significant weight shifts or intense exercise. Worth discussing with your doctor if consistent, as persistent long cycles can affect fertility planning.',
+        color: '#F97316',
+      },
+    ],
+
+    healthRisks:
+      'Ignoring abnormal menstrual patterns can delay diagnosis of important conditions that affect long-term reproductive and overall health. Endometriosis—tissue similar to the uterine lining growing outside the uterus—is a common cause of painful and irregular periods that affects up to 10% of women and can cause infertility if left untreated. Polycystic ovary syndrome (PCOS) causes irregular cycles, hormonal imbalance, and is a leading cause of infertility, yet often goes undiagnosed for years because symptoms are attributed to normal variation. Uterine fibroids can cause heavy bleeding (menorrhagia), which leads to iron deficiency anemia in up to 30% of affected women, resulting in fatigue, weakness, and reduced quality of life. Irregular or absent periods can also signal thyroid disorders, excessive exercise, eating disorders, or significant hormonal shifts that require medical attention. Regular period tracking provides valuable early-warning data for these conditions and should be shared with healthcare providers during routine check-ups.',
+
+    alternativeMeasures:
+      'Beyond period tracking apps and calculators, several methods help monitor and understand menstrual health more comprehensively. Gynecological examinations provide direct assessment of reproductive health, and hormonal blood tests (FSH, LH, estrogen, progesterone, AMH) reveal the hormonal balance driving your cycle with far greater precision than calendar-based tools. Pelvic ultrasound can identify structural causes of irregular periods like fibroids or ovarian cysts, offering definitive answers when something feels wrong. Basal Body Temperature (BBT) charting—measuring temperature first thing each morning—reveals ovulation timing and cycle phases with surprising accuracy even in irregular cycles. Cervical mucus observation is a free, natural method for tracking cycle stages that requires no equipment or apps. For fertility planning specifically, ovulation predictor kits (OPKs) detect the hormonal surge before ovulation with high accuracy, making them a valuable complement to any tracking method.',
+
+    demographicDifferences:
+      'Menstrual cycle characteristics vary significantly across a woman\'s lifespan and across populations. Adolescents in the first 2–3 years after menarche (first period) frequently have irregular cycles as the hormonal system matures—this is normal and usually self-corrects without intervention. Perimenopause (typically beginning in the mid-40s) brings increasing irregularity, heavier or lighter periods, and eventual cessation at menopause, a transition that can last several years and differs widely between individuals. Breastfeeding suppresses ovulation and can delay the return of periods for months, and lifestyle factors profoundly affect cycles: stress, significant weight changes, intense athletic training, and sleep disruption can all alter cycle length and regularity. Genetics play a meaningful role—cycle characteristics tend to run in families, meaning your mother\'s cycle pattern may closely predict your own. Geographic factors like altitude and even seasonal light changes can subtly influence cycle timing, and cultural and dietary patterns, particularly iron intake and nutritional quality, affect menstrual health across populations.',
+
     medicalDisclaimer:
       'This period calculator provides estimates based on average cycle data and should not be used as a sole method for birth control or medical diagnosis. Menstrual cycles naturally vary, and predictions may not account for individual differences, hormonal conditions, stress, or lifestyle factors. This tool is for educational and planning purposes only. For fertility planning, pregnancy prevention, or concerns about irregular cycles, consult with a qualified healthcare provider or gynecologist. If you experience severe pain, very heavy bleeding, or significant cycle irregularities, seek medical attention. This calculator cannot diagnose conditions like PCOS, endometriosis, or other reproductive health issues.',
 
@@ -85,6 +127,48 @@ export const periodContent: CalculatorContent = {
 
     limitations:
       'Adet takvimleri **tahminler** sağlar, garanti değil. Gerçek yumurtlama düzenli döngülerde bile ±2 gün değişebilir. Stres, hastalık, seyahat ve yaşam tarzı değişiklikleri zamanlamayı etkileyebilir. Sonuçlar ortalama döngü verilerine dayanır, bireysel varyasyonlara değil. **Uygun Olmadığı Durumlar**: Doğum kontrolü (yalnızca takvim yöntemi %18-24 tipik kullanım başarısızlık oranı ile güvenilir doğum kontrol değildir); hastalık teşhisi (PKOS, endometrioz veya diğer bozuklukları teşhis edemez); düzensiz döngüler (tahminler daha az doğru olur); hormonal doğum kontrol kullanıcıları (haplar doğal yumurtlama değil yapay döngüler oluşturur). **Döngü Düzenliğini Etkileyen Faktörler**: stres ve kaygı, önemli kilo kaybı veya alımı, yoğun egzersiz veya antrenman, hastalık veya enfeksiyon, ilaçlar (özellikle hormonal), emzirme, perimenopoz, PKOS/tiroid bozuklukları, seyahat ve saat dilimi değişiklikleri, uyku düzeni bozulmaları. **Hesaplayıcının Yanlış Olabileceği Durumlar**: doğumdan sonraki ilk adet, yakın zamanda hormonal doğum kontrolü bırakma, perimenopoz geçişi sırasında, döngüleri henüz düzenlenmemiş gençler (menarştan sonraki ilk 2-3 yıl), teşhis edilmiş hormonal bozuklukları olan kadınlar, büyük hastalık veya ameliyat sırasında veya sonrasında. **Daha İyi Takip Yöntemleri**: Bazal Vücut Sıcaklığı (BVS) - yumurtlamadan sonra sıcaklık hafifçe yükselir; Serviks Mukusu Takibi - döngü boyunca kıvam değiştirir; Yumurtlama Tahmin Kitleri (OPK) - yumurtlamadan önce LH dalgalanmasını tespit eder; Doğurganlık Takip Uygulamaları - birden fazla veri noktasını birleştirir; Ultrason İzleme - en doğru ancak tıbbi ziyaretler gerektirir.',
+
+    categories: [
+      {
+        range: '< 21 gün',
+        label: 'Kısa Döngü',
+        description: 'Tipik aralığın altında bir döngü süresi. Hormonal dengesizlik veya sağlık profesyoneli ile görüşülmesi gereken diğer faktörleri işaret edebilir. Ara sıra kısa döngüler stres veya yaşam tarzı değişiklikleri nedeniyle ortaya çıkabilir ancak sürekli kısa döngüler profesyonel değerlendirme gerektirir.',
+        color: '#EF4444',
+      },
+      {
+        range: '21 – 25 gün',
+        label: 'Normal (Kısa)',
+        description: 'Sağlıklı aralığın kısa tarafında yer alan bir döngü uzunluğu. Bireysel hormonal dengede etkilenen pek çok kadın için tamamen normal bir varyasyondur. Olağandışı semptomlar eşlik etmedikçe herhangi bir kaygı söz konusu olmaz.',
+        color: '#10B981',
+      },
+      {
+        range: '26 – 30 gün',
+        label: 'Tipik Döngü',
+        description: 'En yaygın döngü uzunluğu. Genellikle referans alınan "ders kitabı" 28 günlük döngü bu aralığa düşer. Bu pencere, dünya genelinde kadınların çoğunluğunda gözlemlenen ortalama hormonal ritmi yansıtır.',
+        color: '#10B981',
+      },
+      {
+        range: '31 – 35 gün',
+        label: 'Normal (Uzun)',
+        description: 'Sağlıklı aralığın uzun tarafında yer alan bir döngü. Normal bir varyasyon olup, aşırı ağrı veya olağandışı kanama kalıpları gibi başka semptomlarla birleşmedikçe endişe kaynağı değildir. Pek çok kadın üreme yaşları boyunca doğal olarak bu aralıkta döngü yaşar.',
+        color: '#10B981',
+      },
+      {
+        range: '> 35 gün',
+        label: 'Uzun Döngü',
+        description: 'Tipik aralığın üstünde bir döngü süresi. Hormonal faktörler, stres veya önemli kilo değişiklikleri gibi yaşam tarzı değişiklikleri yansıtabilir. Sürekli devam ederse doktora danışmak önemlidir çünkü kalıcı uzun döngüler doğurganlık planlamasını etkileyebilir.',
+        color: '#F97316',
+      },
+    ],
+
+    healthRisks:
+      'Anormal adet kalıplarını göz ardı etmek, uzun vadeli üreme ve genel sağlığı etkileyen önemli durumların teşhisini geciktirebilir. Endometrioz—rahm duvarı doğasında dokuların rahmin dışında büymesi—ağrılı ve düzensiz adetlerin yaygın bir nedenidir ve kadınların %10\'una kadar etkileyebilir; tedavi edilmezse kısırlığa yol açabilir. Polikistik yumurtalık sendromu (PKOS), düzensiz döngülere, hormonal dengesizliğe neden olur ve kısırlığın başlıca nedenlerinden birini oluşturur; ancak semptomlar genellikle normal bir varyasyon olarak atıldığından yıllarca teşhis edilemeyebilir. Rah fibroidleri ağır kanama (menoraji) yaratabilir ve bu durum, etkilenen kadınların %30\'una kadar demirin eksikliğine yol açarak yorgunluk, zayıflık ve düşük yaşam kalitesine neden olabilir. Düzensiz veya eksik adetler ayrıca tiroid bozuklukları, aşırı egzersiz, yeme bozuklukları veya tıbbi ilgi gerektiren önemli hormonal değişiklikleri de işaret edebilir. Düzenli adet takibi, bu durumlar için değerli erken uyarı verileri sağlar ve rutin kontrollerde sağlık profesyonelleriyle paylaşılmalıdır.',
+
+    alternativeMeasures:
+      'Adet takip uygulamaları ve hesaplayıcıların yanı sıra, adet sağlığını daha kapsamlı bir şekilde izlemek ve anlamak için birçok yöntem mevcuttur. Jinekolojik muayeneler üreme sağlığının doğrudan değerlendirmesini sağlar; FSH, LH, östrojen, progesteron ve AMH gibi hormonal kan testleri ise döngünüzü yöneten hormonal dengeni, takvim tabanlı araçlara kıyasla çok daha hassas bir şekilde ortaya koyar. Pelvik ultrason, düzensiz adetlerin yapısal nedenlerini—fibroidleri veya yumurtalık kistlerini—tespit edebilir ve bir şeylerin yanlış gidiyor hissinde somut cevaplar sunar. Bazal Vücut Sıcaklığı (BVS) takibi—her sabah ilk iş olarak ölçüm yapmak—düzensiz döngülerde bile yumurtlama zamanlamasını ve döngü fazlarını şaşırtıcı bir doğrulukla ortaya koyar. Serviks mukusu gözlemleyici, ekipman veya uygulama gerektirmeyen ücretsiz ve doğal bir döngü takip yöntemidir. Özellikle doğurganlık planlaması söz konusu olduğunda, yumurtlama tahmin kitleri (OPK) yumurtlamadan önceki hormonal dalgalanmayı yüksek doğrulukla tespit eder ve herhangi bir takip yönteminin tamamlayıcısı olarak değerli bir araç sunur.',
+
+    demographicDifferences:
+      'Adet döngüsü özellikleri, bir kadının yaşam süresince ve nüfuslar arası önemli farklılıklar gösterir. Menarşa (ilk adete) sonraki ilk 2–3 yıldaki ergenler, hormonal sistem olgunlaştıkça sıklıkla düzensiz döngüler yaşar—bu normaldir ve genellikle müdahalesiz kendiliğinden düzeleşir. Perimenopoz (genellikle 40\'lı yaşların ortasında başlayarak), artan düzensizlik, daha ağır veya daha hafif adetler ve sonunda menopozla birlikte adetlerin durmasını beraberinde getirir; bu geçiş yıllarca sürebilir ve bireyler arasında büyük farklılıklar gösterir. Emzirme yumurtlamayı baskılar ve adetlerin geri dönüşünü aylarca geciktirebilir; stres, önemli kilo değişiklikleri, yoğun atletik antrenman ve uyku düzeni bozulması gibi yaşam tarzı faktörları ise döngü uzunluğunu ve düzenliğini derinden etkiler. Genetik, anlamlı bir rol oynar—döngü özellikleri aile içinde kalıtılır; annenizin döngü kalıbı genellikle sizinkileri yakın bir şekilde öngörebilir. Yükseklik ve hatta mevsimsel ışık değişiklikleri gibi coğrafi faktörler, döngü zamanlamasını daha ince biçimde etkileyebilir; kültürel ve beslenme kalıpları, özellikle demir alımı ve beslenme kalitesi ise nüfuslar genelinde adet sağlığını farklı biçimlerde etkiler.',
 
     medicalDisclaimer:
       'Bu adet takvimi ortalama döngü verilerine dayalı tahminler sağlar ve doğum kontrolü veya tıbbi teşhis için tek yöntem olarak kullanılmamalıdır. Adet döngüleri doğal olarak değişir ve tahminler bireysel farklılıkları, hormonal durumları, stresi veya yaşam tarzı faktörlerini hesaba katmayabilir. Bu araç yalnızca eğitim ve planlama amaçlıdır. Doğurganlık planlaması, hamilelik önleme veya düzensiz döngülerle ilgili endişeler için nitelikli bir sağlık sağlayıcısı veya jinekologa danışın. Şiddetli ağrı, çok ağır kanama veya önemli döngü düzensizlikleri yaşarsanız tıbbi yardım alın. Bu hesaplayıcı PKOS, endometrioz veya diğer üreme sağlığı sorunları gibi durumları teşhis edemez.',

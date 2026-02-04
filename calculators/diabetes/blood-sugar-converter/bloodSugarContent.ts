@@ -8,8 +8,68 @@ export const bloodSugarContent: CalculatorContent = {
     howToCalculate:
       'Converting blood sugar levels between mg/dL and mmol/L involves a simple mathematical calculation using a standard conversion factor. The molecular weight of glucose is approximately 180.16 g/mol, which leads to the conversion factor of 18.018 (commonly rounded to 18 for practical purposes). To convert from mg/dL to mmol/L, divide the mg/dL value by 18.018 (or 18). For example, if your blood glucose reading is 126 mg/dL, the calculation would be: 126 ÷ 18 = 7.0 mmol/L. To convert from mmol/L to mg/dL, multiply the mmol/L value by 18.018 (or 18). For instance, if your reading is 10.0 mmol/L, the calculation would be: 10.0 × 18 = 180 mg/dL. The formula is based on the relationship between mass concentration (mg/dL) and molar concentration (mmol/L). One deciliter equals 0.1 liters or 100 milliliters. One mmol of glucose weighs 180.16 mg. Therefore, 1 mmol/L = 180.16 mg/L = 18.016 mg/dL (rounded to 18). Understanding this conversion is particularly important for several scenarios: when traveling internationally and using a glucose meter calibrated to a different unit system, when reading medical research papers that use different units, when consulting with healthcare providers in different countries, or when switching between glucose meters that display results in different units. Most modern glucose meters allow you to switch between units, but knowing how to manually convert ensures you can always interpret your readings correctly.',
 
+    formulaDetails:
+      'The conversion between blood sugar units is based on glucose\'s molecular weight of 180.16 g/mol. One millimole (mmol) of glucose equals 180.16 milligrams (mg). Dividing by the volume unit (1 liter = 1,000 mL, expressed as dL for deciliter = 100 mL), the conversion factor becomes: 1 mmol/L = 18.018 mg/dL. To convert mg/dL to mmol/L, divide by 18.018. To convert mmol/L to mg/dL, multiply by 18.018. The United States, Canada, and some other countries use mg/dL; most of Europe, Asia, and the rest of the world use mmol/L. Both units measure the exact same thing—concentration of glucose in blood—just expressed differently.',
+
     interpretation:
       'Blood glucose levels are interpreted differently depending on the timing of measurement and individual health status. For fasting blood glucose (measured after at least 8 hours without food), normal levels are below 100 mg/dL (5.6 mmol/L). Levels between 100-125 mg/dL (5.6-6.9 mmol/L) indicate prediabetes, while levels of 126 mg/dL (7.0 mmol/L) or higher on two separate tests indicate diabetes. For random blood glucose tests (taken at any time), levels below 140 mg/dL (7.8 mmol/L) are generally considered normal, while levels of 200 mg/dL (11.1 mmol/L) or higher may indicate diabetes, especially if accompanied by symptoms. For the oral glucose tolerance test (OGTT), blood glucose is measured 2 hours after drinking a glucose solution. Normal results are below 140 mg/dL (7.8 mmol/L), prediabetes is indicated by levels between 140-199 mg/dL (7.8-11.0 mmol/L), and diabetes is indicated by levels of 200 mg/dL (11.1 mmol/L) or higher. For people with diabetes, target ranges vary based on individual circumstances and should be determined with a healthcare provider. The American Diabetes Association generally recommends target ranges of 80-130 mg/dL (4.4-7.2 mmol/L) before meals and less than 180 mg/dL (10.0 mmol/L) 1-2 hours after starting a meal for most adults with diabetes. However, these targets may be adjusted based on age, duration of diabetes, presence of complications, and other individual factors.',
+
+    categories: [
+      {
+        range: 'Fasting < 100 mg/dL (< 5.6 mmol/L)',
+        label: 'Normal Fasting',
+        description:
+          'Healthy fasting blood sugar level. No concerns at this level. Maintain healthy diet and lifestyle.',
+        color: '#10B981',
+      },
+      {
+        range: 'Fasting 100–125 mg/dL (5.6–6.9 mmol/L)',
+        label: 'Pre-diabetes (Fasting)',
+        description:
+          'Elevated fasting blood sugar indicating insulin resistance. Lifestyle changes can often reverse this.',
+        color: '#F59E0B',
+      },
+      {
+        range: 'Fasting ≥ 126 mg/dL (≥ 7.0 mmol/L)',
+        label: 'Diabetes (Fasting)',
+        description:
+          'Meets the fasting glucose diagnostic threshold for diabetes. Medical evaluation and treatment planning required.',
+        color: '#EF4444',
+      },
+      {
+        range: '2-Hour Post-meal < 140 mg/dL (< 7.8 mmol/L)',
+        label: 'Normal Post-meal',
+        description:
+          'Blood sugar returned to a healthy level within 2 hours after eating. Good glucose regulation.',
+        color: '#10B981',
+      },
+      {
+        range: '2-Hour Post-meal 140–199 mg/dL (7.8–11.0 mmol/L)',
+        label: 'Pre-diabetes (Post-meal)',
+        description:
+          'Blood sugar remains elevated 2 hours after eating, indicating impaired glucose tolerance.',
+        color: '#F59E0B',
+      },
+      {
+        range: '2-Hour Post-meal ≥ 200 mg/dL (≥ 11.1 mmol/L)',
+        label: 'Diabetes (Post-meal)',
+        description:
+          'Blood sugar remains dangerously high after eating, meeting post-meal diagnostic criteria for diabetes.',
+        color: '#EF4444',
+      },
+    ],
+
+    limitations:
+      'Blood sugar readings are highly contextual—the same number means different things depending on when it was measured relative to meals, exercise, stress, sleep, and medications. A single reading provides only a snapshot and is not sufficient for diagnosis; multiple readings or confirmatory tests are needed. Stress hormones (cortisol, adrenaline) can temporarily raise blood sugar significantly, even in healthy individuals. Exercise, illness, alcohol, and certain medications all affect readings. Blood sugar meters have an accuracy range of ±15-20%—readings at the margins of diagnostic thresholds should be confirmed in a laboratory. Hydration status and the specific finger used for capillary testing can introduce small variations. For the most accurate assessment of blood sugar management, HbA1c testing and continuous glucose monitoring provide longer-term perspectives.',
+
+    healthRisks:
+      'Chronically elevated blood sugar damages blood vessels and nerves over time, leading to the same complications as uncontrolled diabetes: cardiovascular disease (the leading cause of death in diabetics), kidney damage (nephropathy), eye damage (retinopathy) that can cause blindness, and peripheral nerve damage (neuropathy). On the other end, dangerously low blood sugar (hypoglycemia—below 70 mg/dL / 3.9 mmol/L) causes immediate symptoms including shakiness, confusion, sweating, and in severe cases, loss of consciousness. Hypoglycemia is most common in people taking insulin or certain diabetes medications. Both extremes—and the variability between them—are harmful, which is why both fasting and post-meal monitoring, combined with long-term markers like HbA1c, provide the most complete picture of blood sugar health.',
+
+    alternativeMeasures:
+      'HbA1c testing provides a 2-3 month average of blood glucose and is the most important long-term diabetes management marker. Continuous Glucose Monitoring (CGM) systems track blood sugar every few minutes using an interstitial sensor, revealing patterns, variability, and time spent in target ranges that single readings cannot show. The Oral Glucose Tolerance Test (OGTT) is the gold standard for diabetes diagnosis, measuring glucose response over 2 hours after a standardized glucose load. Fasting insulin levels and the HOMA-IR calculation assess insulin resistance, which often precedes elevated blood sugar. For routine monitoring, both fingerstick glucometers and flash glucose monitors (like FreeStyle Libre) are widely available consumer options.',
+
+    demographicDifferences:
+      'Blood sugar levels and diabetes risk are influenced by many demographic factors. Age is the strongest predictor—diabetes risk increases significantly after 45, and older adults are more likely to have elevated fasting blood sugar. Pregnancy requires tighter blood sugar targets: gestational diabetes affects 6-9% of pregnancies, and elevated blood sugar during pregnancy increases risks for both mother and baby. Ethnicity influences diabetes prevalence: Hispanic, African American, Asian American, and Native populations have higher rates than non-Hispanic whites. Body mass index (BMI) is the most important modifiable risk factor. Physical activity level directly affects how quickly blood sugar returns to normal after meals. Genetic predisposition accounts for roughly 30-40% of type 2 diabetes risk, while lifestyle factors account for the remainder.',
 
     medicalDisclaimer:
       'This blood sugar converter is provided for educational and informational purposes only and should not be used as a substitute for professional medical advice, diagnosis, or treatment. The conversion between mg/dL and mmol/L is mathematically accurate, but the interpretation of blood glucose levels requires professional medical evaluation. Individual target ranges for blood glucose vary based on age, diabetes type, medications, presence of complications, pregnancy status, and other health conditions. Never make changes to your diabetes management plan, medication doses, or insulin regimen based solely on converted numbers without consulting your healthcare provider. If you experience symptoms of high blood sugar (hyperglycemia) such as increased thirst, frequent urination, blurred vision, or fatigue, or symptoms of low blood sugar (hypoglycemia) such as shakiness, sweating, confusion, or rapid heartbeat, seek immediate medical attention. This tool does not replace blood glucose monitoring devices, laboratory tests, or professional medical assessment. Always verify glucose meter readings with your healthcare provider and ensure your monitoring device is properly calibrated. For diagnosis and management of diabetes or any blood sugar-related condition, consult with qualified healthcare professionals including physicians, endocrinologists, certified diabetes educators, or registered dietitians.',
@@ -68,8 +128,68 @@ export const bloodSugarContent: CalculatorContent = {
     howToCalculate:
       'Kan şekeri seviyelerini mg/dL ve mmol/L arasında dönüştürmek, standart bir dönüşüm faktörü kullanarak basit bir matematiksel hesaplama içerir. Glukozun moleküler ağırlığı yaklaşık 180.16 g/mol\'dür, bu da 18.018 dönüşüm faktörüne yol açar (pratik amaçlar için genellikle 18\'e yuvarlanır). mg/dL\'den mmol/L\'ye dönüştürmek için, mg/dL değerini 18.018\'e (veya 18\'e) bölün. Örneğin, kan şekeri okumanız 126 mg/dL ise, hesaplama şöyle olacaktır: 126 ÷ 18 = 7.0 mmol/L. mmol/L\'den mg/dL\'ye dönüştürmek için, mmol/L değerini 18.018 ile (veya 18 ile) çarpın. Örneğin, okumanız 10.0 mmol/L ise, hesaplama şöyle olacaktır: 10.0 × 18 = 180 mg/dL. Formül, kütle konsantrasyonu (mg/dL) ile molar konsantrasyon (mmol/L) arasındaki ilişkiye dayanır. Bir desilitre 0.1 litre veya 100 mililitreye eşittir. Bir mmol glukoz 180.16 mg ağırlığındadır. Bu nedenle, 1 mmol/L = 180.16 mg/L = 18.016 mg/dL (18\'e yuvarlanır). Bu dönüşümü anlamak, birkaç senaryo için özellikle önemlidir: uluslararası seyahat ederken ve farklı bir birim sistemine kalibre edilmiş bir glukoz metre kullanırken, farklı birimler kullanan tıbbi araştırma makalelerini okurken, farklı ülkelerdeki sağlık hizmeti sağlayıcılarına danışırken veya sonuçları farklı birimlerde gösteren glukoz metreleri arasında geçiş yaparken. Çoğu modern glukoz metre birimler arasında geçiş yapmanıza izin verir, ancak manuel olarak nasıl dönüştüreceğinizi bilmek, okumalarınızı her zaman doğru yorumlayabilmenizi sağlar.',
 
+    formulaDetails:
+      'Kan şekeri birimlerinin dönüşümü, glukozun 180.16 g/mol olan moleküler ağırlığına dayanır. Bir milimol (mmol) glukoz, 180.16 miligramma (mg) karşılık gelir. Hacim birim olan desilitreyle (dL = 100 mL) bölme işlemi yapıldığında dönüşüm faktörü şu şekilde ortaya çıkar: 1 mmol/L = 18.018 mg/dL. mg/dL\'den mmol/L\'ye dönüştürmek için 18.018\'e bölün; mmol/L\'den mg/dL\'ye dönüştürmek için 18.018 ile çarpın. Amerika Birleşik Devletleri, Kanada ve bazı diğer ülkeler mg/dL kullanırken, Avrupa, Asya ve dünya nüfusunun geri kalanı ağırlıklı olarak mmol/L kullanır. Her iki birim de aynı şeyi ölçer—kandaki glukoz konsantrasyonu—yalnızca farklı biçimlerde ifade edilir.',
+
     interpretation:
       'Kan şekeri seviyeleri, ölçüm zamanlamasına ve bireysel sağlık durumuna bağlı olarak farklı şekilde yorumlanır. Açlık kan şekeri için (en az 8 saat yemek yemeden sonra ölçülür), normal seviyeler 100 mg/dL (5.6 mmol/L) altındadır. 100-125 mg/dL (5.6-6.9 mmol/L) arasındaki seviyeler prediyabeti gösterirken, iki ayrı testte 126 mg/dL (7.0 mmol/L) veya daha yüksek seviyeler diyabeti gösterir. Rastgele kan şekeri testleri için (herhangi bir zamanda alınır), 140 mg/dL (7.8 mmol/L) altındaki seviyeler genellikle normal kabul edilirken, 200 mg/dL (11.1 mmol/L) veya daha yüksek seviyeler, özellikle semptomlarla birlikte olduğunda diyabeti gösterebilir. Oral glukoz tolerans testi (OGTT) için, kan şekeri bir glukoz solüsyonu içtikten 2 saat sonra ölçülür. Normal sonuçlar 140 mg/dL (7.8 mmol/L) altındadır, prediyabet 140-199 mg/dL (7.8-11.0 mmol/L) arasındaki seviyelerle gösterilir ve diyabet 200 mg/dL (11.1 mmol/L) veya daha yüksek seviyelerle gösterilir. Diyabeti olan kişiler için hedef aralıklar bireysel koşullara göre değişir ve bir sağlık hizmeti sağlayıcısıyla belirlenmeli. Amerikan Diyabet Derneği genellikle diyabeti olan çoğu yetişkin için öğünlerden önce 80-130 mg/dL (4.4-7.2 mmol/L) ve bir öğüne başladıktan 1-2 saat sonra 180 mg/dL (10.0 mmol/L) altında hedef aralıkları önerir. Ancak, bu hedefler yaş, diyabet süresi, komplikasyonların varlığı ve diğer bireysel faktörlere göre ayarlanabilir.',
+
+    categories: [
+      {
+        range: 'Açlık < 100 mg/dL (< 5.6 mmol/L)',
+        label: 'Normal Açlık',
+        description:
+          'Sağlıklı açlık kan şekeri seviyesi. Bu düzeyde endişe olmaz. Sağlıklı beslenme ve yaşam tarzını sürdürün.',
+        color: '#10B981',
+      },
+      {
+        range: 'Açlık 100–125 mg/dL (5.6–6.9 mmol/L)',
+        label: 'Prediyabet (Açlık)',
+        description:
+          'İnsülin direncini gösteren yüksek açlık kan şekeri seviyesi. Bu durumu tersine çevirmek için genellikle yaşam tarzı değişiklikleri yeterli olabilir.',
+        color: '#F59E0B',
+      },
+      {
+        range: 'Açlık ≥ 126 mg/dL (≥ 7.0 mmol/L)',
+        label: 'Diyabet (Açlık)',
+        description:
+          'Diyabet için açlık glukoz tanısal eşiğini karşılayan bir seviye. Tıbbi değerlendirme ve tedavi planlaması gereklidir.',
+        color: '#EF4444',
+      },
+      {
+        range: 'Öğün Sonrası 2. Saat < 140 mg/dL (< 7.8 mmol/L)',
+        label: 'Normal Öğün Sonrası',
+        description:
+          'Yemek yedikten sonra 2 saat içinde kan şekeri sağlıklı bir düzeye döndü. Glukoz düzenlemesi iyi seyrediyor.',
+        color: '#10B981',
+      },
+      {
+        range: 'Öğün Sonrası 2. Saat 140–199 mg/dL (7.8–11.0 mmol/L)',
+        label: 'Prediyabet (Öğün Sonrası)',
+        description:
+          'Yemek yedikten sonra 2 saat geçmesine rağmen kan şekeri yüksek kalmaya devam ediyor; bu durum bozulan glukoz toleransını gösterir.',
+        color: '#F59E0B',
+      },
+      {
+        range: 'Öğün Sonrası 2. Saat ≥ 200 mg/dL (≥ 11.1 mmol/L)',
+        label: 'Diyabet (Öğün Sonrası)',
+        description:
+          'Yemek yedikten sonra kan şekeri tehlikeli derecede yüksek kalmaya devam ediyor; bu öğün sonrası diyabet tanısal kriterleri karşılanmaktadır.',
+        color: '#EF4444',
+      },
+    ],
+
+    limitations:
+      'Kan şekeri okumaları son derece bağlamsal bir nitelik taşır—aynı sayı, yemekle, egzersizle, streskle, uykuyla ve ilaçlarla ilgili ölçüm zamanlamasına göre farklı anlamlar ifade edebilir. Tek bir okuma yalnızca anlık bir tablo sunur ve teşhis için yeterli değildir; birden fazla okuma veya doğrulayıcı testler gereklidir. Stres hormonları (kortizon, adrenalin), sağlıklı bireylerde bile kan şekerini geçici olarak önemli ölçüde yükseltebilir. Egzersiz, hastalık, alkol ve belirli ilaçlar da okumaları etkiler. Kan şekeri metreleri ±%15-20 doğruluk aralığına sahiptir; tanısal eşiğin sınırında kalan okumalar laboratuvarda doğrulanmalıdır. Hidrasyon durumu ve kapillar ölçüm için kullanılan parmak da küçük farklılıklara yol açabilir. Kan şekeri yönetiminin en doğru değerlendirmesi için HbA1c testi ve sürekli glukoz izleme daha uzun süreli bir perspektif sunar.',
+
+    healthRisks:
+      'Kronik olarak yüksek kan şekeri zaman içinde kan damarlarına ve sinirlerine zarar verir; bu durum kontrolsüz diyabetteki komplikasyonlarla aynıdır: kardiyovasküler hastalık (diyabetlilerde ölümün başlıca nedeni), böcek hasarı (nefropati), körlüğe neden olabilen göz hasarı (retinopati) ve çevre sinir hasarı (nöropati). Öte yandan, tehlikeli derecede düşük kan şekeri (hipoglisemi—70 mg/dL / 3.9 mmol/L altı) titreme, kafa karışıklığı, terleme gibi anlık semptomlar yaratır; ağır vakalarda bilinç kaybı da söz konusu olabilir. Hipoglisemi, en çok insülin veya belirli diyabet ilaçları kullanan kişilerde görülür. Her iki uç—ve aralarındaki dalgalanma—zararlıdır; bu nedenle açlık ve öğün sonrası izleme, HbA1c gibi uzun vadeli göstergelerle birleştirildiğinde kan şekeri sağlığının en eksiksiz tablo ortaya koyar.',
+
+    alternativeMeasures:
+      'HbA1c testi, kan şekerinin 2-3 aylık ortalama değerini ölçer ve diyabet yönetiminin en önemli uzun vadeli göstergesidir. Sürekli Glukoz İzleme (CGM) sistemleri, interstitiyel bir sensör aracılığıyla kan şekerini her birkaç dakikada bir takip eder; bu sayede tek okumaların gösteremediği kalıplar, değişkenlik ve hedef aralıkta geçirilen süre ortaya çıkar. Oral Glukoz Tolerans Testi (OGTT), standardize edilen bir glukoz yükünün ardından 2 saat boyunca glukoz tepkisini ölçen diyabet teşhisinin altın standartıdır. Açlık insülin seviyeleri ve HOMA-IR hesabı, çoğu zaman yükselen kan şekerinin öncesine ait olan insülin direncini değerlendirer. Rutin izleme için parmak ucu glukozmetreleri ile flash glukoz izleyicileri (FreeStyle Libre gibi) geniş çapta tüketicilere sunulan seçenekler arasında yer alır.',
+
+    demographicDifferences:
+      'Kan şekeri seviyeleri ve diyabet riski birçok demografik faktörden etkilenir. Yaş en güçlü tahmin göstergesidir; diyabet riski 45 yaş sonrasında önemli ölçüde artar ve yaşlı yetişkinlerde yüksek açlık kan şekeri daha yaygın bir durumdur. Hamilelik daha sıkı kan şekeri hedefleri gerektirir: gestasyonel diyabet hamilelik vakalarının %6-9\'unda görülür ve hamilelik sırasında yüksek kan şekeri hem anne hem bebek için riskleri artırır. Etnik köken diyabet yaygınlığını etkiler: Hispanic, Afro-Amerikan, Asya-Amerikan ve Yerli nüfuslar, Hispanic olmayan beyazlara kıyasla daha yüksek oranlar sergilemektedir. Vücut kütle endeksi (BMI), en önemli değiştirilebilir risk faktörüdür. Fiziksel aktivite düzeyi, yemek sonrasında kan şekerinin ne kadar hızlı normala döndüğünü doğrudan etkiler. Genetik yatkınlık, Tip 2 diyabet riskinin yaklaşık %30-40\'ını oluşturmakta olup geri kalanını yaşam tarzı faktörleri oluşturur.',
 
     medicalDisclaimer:
       'Bu kan şekeri dönüştürücü yalnızca eğitim ve bilgilendirme amaçlıdır ve profesyonel tıbbi tavsiye, teşhis veya tedavinin yerine kullanılmamalıdır. mg/dL ve mmol/L arasındaki dönüşüm matematiksel olarak doğrudur, ancak kan şekeri seviyelerinin yorumlanması profesyonel tıbbi değerlendirme gerektirir. Kan şekeri için bireysel hedef aralıklar yaş, diyabet tipi, ilaçlar, komplikasyonların varlığı, hamilelik durumu ve diğer sağlık durumlarına göre değişir. Yalnızca dönüştürülmüş sayılara dayanarak sağlık hizmeti sağlayıcınıza danışmadan diyabet yönetim planınızda, ilaç dozlarında veya insülin rejiminizde asla değişiklik yapmayın. Yüksek kan şekeri (hiperglisemi) semptomları yaşarsanız (artan susama, sık idrara çıkma, bulanık görme veya yorgunluk gibi) veya düşük kan şekeri (hipoglisemi) semptomları (titreme, terleme, kafa karışıklığı veya hızlı kalp atışı gibi), derhal tıbbi yardım alın. Bu araç, kan şekeri izleme cihazlarının, laboratuvar testlerinin veya profesyonel tıbbi değerlendirmenin yerini almaz. Glukoz metre okumalarını her zaman sağlık hizmeti sağlayıcınızla doğrulayın ve izleme cihazınızın düzgün şekilde kalibre edildiğinden emin olun. Diyabet veya herhangi bir kan şekeri ile ilgili durumun teşhisi ve yönetimi için doktorlar, endokrinologlar, sertifikalı diyabet eğiticileri veya kayıtlı diyetisyenler dahil kalifiye sağlık profesyonellerine danışın.',

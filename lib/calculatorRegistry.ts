@@ -42,6 +42,8 @@ import { periodMeta } from '@/calculators/womens-health/period-calculator/period
 // New calculators - Daily Life
 import { ageMeta } from '@/calculators/daily-life/age-calculator/ageMeta';
 import { loveMeta } from '@/calculators/daily-life/love-calculator/loveMeta';
+// Body Weight - Waist-Hip Ratio
+import { waistHipRatioMeta } from '@/calculators/body-weight/waist-hip-ratio/waistHipRatioMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -81,6 +83,8 @@ export const calculatorRegistry: CalculatorMeta[] = [
   // Daily Life
   ageMeta,
   loveMeta,
+  // Body Weight - Waist-Hip Ratio
+  waistHipRatioMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {

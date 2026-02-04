@@ -11,6 +11,45 @@ export const loveContent: CalculatorContent = {
     formulaDetails:
       'Love calculator algorithms vary between implementations, but most follow similar principles rooted in basic numerology and string manipulation. The common approach works as follows: First, both names are normalized by converting to lowercase and removing special characters or spaces. Then, letters are converted to numerical values—often using their position in the alphabet (A=1, B=2, etc.) or ASCII values. These numbers are combined through various operations: addition, multiplication, or more complex transformations. Many calculators use the word "LOVES" as part of the algorithm—counting how many times each letter in "LOVES" appears in both names combined, then manipulating those counts. For example: count L\'s, O\'s, V\'s, E\'s, and S\'s in "JOHN LOVES MARY," sum the counts, and derive a percentage. More sophisticated algorithms might use hash functions to ensure consistent results while appearing random. The formula is typically designed to: (1) produce results between 1-99% (never 0% or 100% for psychological reasons), (2) weight results toward the middle-to-high range for more satisfying user experience, and (3) be symmetric—"John + Mary" equals "Mary + John." While the math is real, the premise that name compatibility indicates romantic compatibility is purely fictional entertainment.',
 
+    categories: [
+      {
+        range: '0 – 25%',
+        label: 'Low Match',
+        description: 'Your names suggest a challenging path — but remember, love is about hearts, not letters! Chemistry is built through shared experiences and genuine connection, not alphabetical destiny.',
+        color: '#EF4444',
+      },
+      {
+        range: '26 – 50%',
+        label: 'Moderate Match',
+        description: 'Some sparks between your names! Real compatibility blossoms through communication and getting to know each other over time. Don\'t let a number hold you back from exploring a connection.',
+        color: '#F97316',
+      },
+      {
+        range: '51 – 75%',
+        label: 'Good Match',
+        description: 'Your names show promising vibes! A great foundation for building something special together. The best relationships grow from curiosity, laughter, and shared adventures.',
+        color: '#3B82F6',
+      },
+      {
+        range: '76 – 100%',
+        label: 'Perfect Match',
+        description: 'The stars align with your names! While this is just for fun, take it as an encouraging sign to keep exploring this connection. After all, every great love story needs a little magic.',
+        color: '#10B981',
+      },
+    ],
+
+    limitations:
+      'This calculator is purely for entertainment and has absolutely no scientific basis. Name-based compatibility algorithms apply mathematical patterns to letters in names—they cannot predict relationship success or chemistry between two people. Real relationship compatibility is determined by shared values, communication skills, emotional intelligence, mutual respect, trust, life goals alignment, and countless other psychological and social factors that no name algorithm can assess. Famous couples throughout history have proven that names predict nothing about love. Use this calculator for fun and laughter, not as a guide for relationship decisions.',
+
+    healthRisks:
+      'While no direct health risks come from this calculator, placing excessive belief in algorithmic compatibility scores can actually be harmful to your emotional wellbeing. Rejecting potential partners solely based on low scores from an entertainment tool means missing genuine connections that could have flourished. Conversely, pursuing someone solely because of a high score ignores the real work that healthy relationships require. Healthy relationships are built on authentic interaction, shared values, and mutual growth—not on letter-based predictions. Trust your instincts, invest in communication, and judge compatibility through real experiences together.',
+
+    alternativeMeasures:
+      'If you are genuinely interested in relationship compatibility, several evidence-based approaches exist beyond playful name calculators. Personality compatibility assessments based on validated psychological models (such as the Big Five personality traits) provide meaningful—though imperfect—insights into how individuals interact and complement each other. Attachment style assessments help understand how each person relates in romantic relationships, which is foundational for long-term partnership health. Values alignment conversations explore what matters most to each person, and couples counseling—even before marriage—helps assess and build compatibility. Ultimately, the most reliable measure of compatibility is time spent together: observing how you communicate, handle conflict, support each other, and grow.',
+
+    demographicDifferences:
+      'Name-based compatibility calculators do not meaningfully account for cultural, linguistic, or demographic differences in their results. Names carry different meanings, cultural weight, and social connotations across cultures—a name that sounds harmonious in one language may have entirely different associations in another. Different cultures have their own traditions for assessing romantic compatibility: Chinese zodiac matching, Indian kundli (birth chart) matching, and many others reflect cultural values around marriage and partnership rather than scientific prediction. Relationship expectations and norms vary across cultures and generations, making any single algorithmic approach culturally narrow. Ultimately, compatibility is an individual journey that no algorithm—name-based or otherwise—can fully predict or quantify.',
+
     medicalDisclaimer:
       'This love calculator is designed purely for entertainment purposes and has no scientific, psychological, or predictive validity whatsoever. The results generated by this tool should never be used to make decisions about real relationships, dating choices, or personal matters. Healthy relationships are built on mutual respect, communication, shared values, trust, and genuine emotional connection—none of which can be measured or predicted by name-based algorithms. If you\'re experiencing relationship difficulties or seeking guidance about romantic matters, please consult qualified professionals such as licensed therapists, relationship counselors, or mental health providers. The percentage and messages displayed are randomly generated based on name inputs and do not reflect any real compatibility factors. Have fun, but remember: love is complex, beautiful, and cannot be reduced to a percentage.',
 
@@ -96,6 +135,45 @@ export const loveContent: CalculatorContent = {
 
     formulaDetails:
       'Aşk hesaplayıcı algoritmaları uygulamalar arasında farklılık gösterir, ancak çoğu temel numeroloji ve string manipülasyonuna dayanan benzer ilkeleri takip eder. Yaygın yaklaşım şu şekilde çalışır: İlk olarak, her iki isim küçük harfe dönüştürülerek ve özel karakterler veya boşluklar kaldırılarak normalleştirilir. Ardından, harfler sayısal değerlere dönüştürülür—genellikle alfabedeki konumlarını (A=1, B=2, vb.) veya ASCII değerlerini kullanarak. Bu sayılar çeşitli işlemlerle birleştirilir: toplama, çarpma veya daha karmaşık dönüşümler. Birçok hesaplayıcı algoritmanın bir parçası olarak "LOVES" kelimesini kullanır—her iki isimdeki "LOVES" harflerinin kaç kez göründüğünü sayar, sonra bu sayıları manipüle eder. Matematik gerçek olsa da, isim uyumluluğunun romantik uyumluluğu gösterdiği önermesi tamamen kurgusal eğlencedir.',
+
+    categories: [
+      {
+        range: '0 – 25%',
+        label: 'Düşük Eşleşme',
+        description: 'İsimleriniz zorlu bir yol öneriyor — ama unutmayın, aşk harflerle değil, kalpleriyle ilgilidir! Kimya, ortak deneyimler ve gerçek bağlantı üzerinden zamanla oluşur.',
+        color: '#EF4444',
+      },
+      {
+        range: '26 – 50%',
+        label: 'Orta Eşleşme',
+        description: 'İsimleriniz arasında bazı kıvılcımlar var! Gerçek uyumluluk, birbirini tanıma ve iletişim yoluyla zamanla çiçek açar. Bir sayı, bir bağlantıyı keşfetmenin önüne geçmemeli.',
+        color: '#F97316',
+      },
+      {
+        range: '51 – 75%',
+        label: 'İyi Eşleşme',
+        description: 'İsimleriniz umut verici titreşimler gösteriyor! Birlikte özel bir şey oluşturmanın harika bir temelini sunuyor. En iyi ilişkiler merak, kahkaha ve ortak maceralardan doğar.',
+        color: '#3B82F6',
+      },
+      {
+        range: '76 – 100%',
+        label: 'Mükemmel Eşleşme',
+        description: 'Yıldızlar isimlerinizle hizalandı! Bu sadece eğlence olsa da, bu bağlantıyı keşfetmeye devam etmeniz için teşvik edici bir işaret olarak alın. Sonuçta, her harika aşk hikayesinin biraz büyü ihtiyacı vardır.',
+        color: '#10B981',
+      },
+    ],
+
+    limitations:
+      'Bu hesaplayıcı tamamen eğlence amaçlıdır ve hiçbir bilimsel dayanağı yoktur. İsim tabanlı uyumluluk algoritmaları, isimlerdeki harflere matematiksel kalıplar uygular—ancak ilişki başarısını veya iki kişi arasındaki kimyayı tahmin edemezler. Gerçek ilişki uyumluluğu, ortak değerler, iletişim becerileri, duygusal zeka, karşılıklı saygı, güven, yaşam hedefleri uyumu ve hiçbir isim algoritmasının değerlendiremeyeceği sayısız psikolojik ve sosyal faktör tarafından belirlenir. Tarih boyunca pek çok ünlü çift, isimlerin aşk hakkında hiçbir şey tahmin edemediğini kanıtlamıştır. Bu hesaplayıcıyı eğlence ve eğlence için kullanın, ilişki kararları için rehber olarak değil.',
+
+    healthRisks:
+      'Bu hesaplayıcıdan doğrudan sağlık riskleri olmasa da, algoritma tabanlı uyumluluk puanlarına aşırı inanmak duygusal refahınıza zarar verebilir. Eğlence aracının düşük puanları nedeniyle olası ortakları reddetmek, gerçekten gelişebilecek özgün bağlantıları kaçırmanıza yol açabilir. Öte yandan, birini yalnızca yüksek bir puan nedeniyle takip etmek, sağlıklı ilişkilerin gerektirdiği gerçek çalışmayı göz ardı eder. Sağlıklı ilişkiler, özgün etkileşim, ortak değerler ve karşılıklı büyüme üzerine kuruludur—harf tabanlı tahminlere değil. İçgüdülerinize güvenin, iletişime yatırım yapın ve uyumluluğu birlikte geçirilen gerçek deneyimler aracılığıyla değerlendirin.',
+
+    alternativeMeasures:
+      'İlişki uyumluluğuyla gerçekten ilgileniyorsanız, eğlenceli isim hesaplayıcılarının ötesinde birçok kanıta dayalı yaklaşım mevcuttur. Big Five kişilik özellikleri gibi doğrulanmış psikolojik modellere dayanan kişilik uyumluluk değerlendirmeleri, bireylerin nasıl etkileşim kurduğuna dair anlamlı—ancak kusurlu—içgörüler sağlar. Bağlanma tarzı değerlendirmeleri, her kişinin romantik ilişkilerde nasıl ilişkilendiğini anlamaya yardımcı olur ve uzun vadeli ortaklık sağlığı için temel bir unsurdur. Değerler uyum konuşmaları, her kişi için neyin en önemli olduğunu keşfeder ve evlilik öncesi bile çift danışmanlığı, uyumluluğu değerlendirmeye ve inşa etmeye yardımcı olur. Sonuç olarak, en güvenilir uyumluluk ölçüsü birlikte geçirilen zamandır: nasıl iletişim kurduğunuzu, anlaşmazlıkları nasıl ele aldığınızı, birbirinizi nasıl desteklediğinizi ve nasıl büyüdüğünüzü gözlemleyen bu süreç en değerli sonuçları verir.',
+
+    demographicDifferences:
+      'İsim tabanlı uyumluluk hesaplayıcıları, sonuçlarında kültürel, dilsel veya demografik farklılıkları anlamlı bir şekilde hesaba katmaz. İsimler, kültürler arasında farklı anlamlar, kültürel ağırlık ve sosyal çağrışımlar taşır—bir dilde uyumlu gelen bir isim, başka bir dilde tamamen farklı yorumlara yol açabilir. Farklı kültürler, romantik uyumluluğu değerlendirmek için kendine özgü geleneklere sahiptir: Çin zodyak eşleştirmesi, Hint kundli (doğum haritası) eşleştirmesi ve diğerleri, bilimsel tahmin yerine evlilik ve ortaklık etrafındaki kültürel değerleri yansıtır. İlişki beklentileri ve normlar kültürler ve kuşaklar arasında önemli ölçüde farklılık gösterir, bu da herhangi bir algoritmik yaklaşımı kültürel açıdan dar yapar. Sonuç olarak, uyumluluk hiçbir algoritmanın tam olarak öngöremeyeceği veya sayısal olarak ifade edemeyeceği bireysel bir yolculuktur.',
 
     medicalDisclaimer:
       'Bu aşk hesaplayıcısı tamamen eğlence amaçlı tasarlanmıştır ve hiçbir bilimsel, psikolojik veya tahmin geçerliliği yoktur. Bu araç tarafından üretilen sonuçlar asla gerçek ilişkiler, flört seçimleri veya kişisel meseleler hakkında karar vermek için kullanılmamalıdır. Sağlıklı ilişkiler karşılıklı saygı, iletişim, ortak değerler, güven ve gerçek duygusal bağ üzerine kuruludur—bunların hiçbiri isim tabanlı algoritmalarla ölçülemez veya tahmin edilemez. İlişki zorlukları yaşıyorsanız veya romantik konularda rehberlik arıyorsanız, lütfen lisanslı terapistler, ilişki danışmanları veya ruh sağlığı sağlayıcıları gibi nitelikli profesyonellere danışın.',

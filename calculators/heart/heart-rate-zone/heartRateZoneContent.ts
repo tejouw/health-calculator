@@ -14,6 +14,48 @@ export const heartRateZoneContent: CalculatorContent = {
 
     healthRisks: `**Safety considerations when training by heart rate zones:**\n\n**Risks of training too hard (Zone 4-5):**\n- Overtraining syndrome\n- Increased injury risk\n- Immune system suppression\n- Poor recovery and adaptation\n- Cardiovascular stress in untrained individuals\n\n**Warning signs to stop exercise:**\n- Chest pain or pressure\n- Severe shortness of breath\n- Dizziness or lightheadedness\n- Nausea or vomiting\n- Irregular heartbeat or palpitations\n- Excessive fatigue\n\n**Who should consult a doctor first:**\n- People with heart conditions or family history of heart disease\n- Those with high blood pressure or diabetes\n- Anyone over 40 starting a new exercise program\n- People taking heart medications\n- Anyone experiencing chest pain or irregular heartbeat during exercise\n\n**Safe training principles:**\n- Spend 80% of training time in Zones 1-3\n- Only 20% in Zones 4-5\n- Allow adequate recovery between hard sessions\n- Build intensity gradually over weeks and months`,
 
+    categories: [
+      {
+        range: '50 – 60% Max HR',
+        label: 'Zone 1 – Very Light',
+        description: 'Warm-up and active recovery zone. Very comfortable effort where you can easily hold a full conversation without any strain. Ideal for beginning or ending any workout session and for low-intensity recovery days between harder training.',
+        color: '#10B981',
+      },
+      {
+        range: '60 – 70% Max HR',
+        label: 'Zone 2 – Light',
+        description: 'The foundational aerobic and fat-burning zone. Light conversation is comfortable and breathing is steady and manageable. This is where the majority of endurance training should take place, building the aerobic base that supports all higher-intensity efforts.',
+        color: '#22C55E',
+      },
+      {
+        range: '70 – 80% Max HR',
+        label: 'Zone 3 – Moderate',
+        description: 'Aerobic fitness zone where cardiovascular capacity actively improves. Conversation becomes more difficult — you can speak in short sentences but breathing is noticeably heavier. Tempo runs and steady-state cardio commonly target this zone.',
+        color: '#F59E0B',
+      },
+      {
+        range: '80 – 90% Max HR',
+        label: 'Zone 4 – Hard',
+        description: 'Lactate threshold and anaerobic threshold zone. Difficult to speak and breathing is heavy and labored. This is a key zone for building speed and endurance, but it should be used sparingly—typically one to two sessions per week for most athletes.',
+        color: '#F97316',
+      },
+      {
+        range: '90 – 100% Max HR',
+        label: 'Zone 5 – Maximum',
+        description: 'Maximum effort — reserved for sprint intervals only. Speaking is essentially impossible at this intensity. Sustainable for only 10–60 seconds before the body demands recovery, making this zone strictly for peak performance intervals.',
+        color: '#EF4444',
+      },
+    ],
+
+    alternativeMeasures:
+      'Chest strap heart rate monitors (such as Polar H10) are the most accurate real-time HR measurement method during exercise, significantly outperforming wrist-based optical sensors that can drift during high-intensity or sweat-heavy activity. Perceived Exertion (RPE) on a 1–10 scale—based on how hard the effort feels—is a practical alternative that requires no equipment and correlates well with actual HR zones, making it accessible to anyone. Lactate threshold testing, done in a laboratory setting, determines your actual physiological zone boundaries rather than relying on age-based formulas, which is invaluable for serious and competitive athletes. VO2 max testing provides both peak fitness assessment and zone-specific thresholds calibrated to your individual physiology. Heart Rate Variability (HRV) monitoring, increasingly available on consumer wearables, assesses recovery status and daily readiness for training, helping you decide whether to push hard or back off. Smartwatches from Garmin, Apple, Polar, and others combine HR monitoring with GPS and provide zone-based training feedback in real time, making structured workouts accessible without a lab.',
+
+    demographicDifferences:
+      'The 220-age formula for maximum heart rate is a population average with significant individual variation—the standard deviation is approximately 10–12 bpm, meaning a 40-year-old\'s actual max HR could realistically range from about 165 to 195 bpm. Genetics is the primary determinant of max HR, which is why individual testing (rather than formula-based estimation) provides more accurate zones for serious athletes pursuing performance gains. Trained athletes typically have lower resting heart rates (bradycardia) due to cardiac adaptation, which meaningfully affects zone calculations based on resting HR when using the Karvonen method. Women and men have similar max HR at the same age, but women tend to have slightly lower resting heart rates on average. Altitude increases heart rate for the same exercise intensity, and medications—especially beta-blockers—significantly alter heart rate response, making standard zone calculations unreliable for anyone on such treatments. As fitness improves over weeks and months, the same exercise intensity produces a lower heart rate, demonstrating the body\'s cardiovascular adaptation and signaling progress.',
+
+    medicalDisclaimer:
+      'Heart rate zone calculations are estimates based on age-based formulas and should not replace personalized medical advice from qualified healthcare professionals. The 220-age formula for maximum heart rate is a population average—your actual maximum heart rate may differ by 10–15 bpm or more, and relying on it without testing can lead to training at inappropriate intensities. Individuals with known heart conditions, those taking heart-rate-affecting medications (especially beta-blockers), and anyone with cardiovascular concerns must consult their physician before beginning heart rate-based training. If you experience chest pain, dizziness, shortness of breath, or unusual symptoms during exercise at any heart rate, stop immediately and seek medical attention. Pregnant women should consult their healthcare provider for appropriate exercise intensity guidelines specific to their stage of pregnancy. These training zones are general guidelines for healthy adults and should be refined through proper fitness testing when possible.',
+
     tips: [
       'Invest in a quality heart rate monitor or fitness watch for accurate real-time tracking',
       'Take your resting heart rate first thing in the morning for the most accurate Karvonen calculations',
@@ -75,6 +117,48 @@ export const heartRateZoneContent: CalculatorContent = {
     limitations: `**Kalp atış hızı bölgesi hesaplamalarının sınırlamaları:**\n\n1. **Bireysel Farklılık**: 220-yaş formülü bir ortalamadır ve herkes için doğru olmayabilir. Gerçek maksimum kalp atışınız ±10-15 atım/dk değişebilir.\n\n2. **Fitness Seviyesi**: Daha fit bireyler daha düşük dinlenme kalp atışlarına sahip olabilir ve daha az fit bireylere göre farklı bölge tepkileri gösterebilir.\n\n3. **Yaş Doğruluğu**: Formül 40 yaş üzeri insanlar ve tahmin edilenden farklı maksimum kalp atışlarına sahip olabilecek atletler için daha az doğru hale gelir.\n\n4. **Çevresel Faktörler**: Sıcaklık, nem, yükseklik, dehidrasyon ve stres kalp atışını etkileyebilir, bu da bölgeleri belirli koşullarda daha az güvenilir hale getirir.\n\n5. **İlaç Etkileri**: Beta blokerler ve diğer ilaçlar kalp atışını önemli ölçüde etkileyebilir, bu da standart hesaplamaları hatalı hale getirir.\n\n6. **Spora Özgü Farklılıklar**: Maksimum kalp atışı aktiviteye göre değişebilir (koşu vs. bisiklet vs. yüzme).\n\nEn doğru bölgeler için laboratuvar VO2 max testi yaptırmayı veya kontrollü koşullarda gerçek maksimum kalp atışınızı saha testi ile belirlemeyi düşünün.`,
 
     healthRisks: `**Kalp atış hızı bölgelerine göre antrenman yaparken güvenlik hususları:**\n\n**Çok sıkı antrenman yapmanın riskleri (Bölge 4-5):**\n- Aşırı antrenman sendromu\n- Artan yaralanma riski\n- Bağışıklık sistemi baskılanması\n- Zayıf toparlanma ve adaptasyon\n- Antrenmansız bireylerde kardiyovasküler stres\n\n**Egzersizi durdurma uyarı işaretleri:**\n- Göğüs ağrısı veya baskısı\n- Şiddetli nefes darlığı\n- Baş dönmesi veya sersemlik\n- Bulantı veya kusma\n- Düzensiz kalp atışı veya çarpıntı\n- Aşırı yorgunluk\n\n**Önce doktora danışması gerekenler:**\n- Kalp rahatsızlığı olan veya ailede kalp hastalığı öyküsü olanlar\n- Yüksek tansiyonu veya diyabeti olanlar\n- Yeni bir egzersiz programına başlayan 40 yaş üzeri herkes\n- Kalp ilaçları kullananlar\n- Egzersiz sırasında göğüs ağrısı veya düzensiz kalp atışı yaşayan herkes\n\n**Güvenli antrenman prensipleri:**\n- Antrenman süresinin %80'ini Bölge 1-3'te geçirin\n- Sadece %20'si Bölge 4-5'te\n- Sıkı seanslar arasında yeterli toparlanmaya izin verin\n- Yoğunluğu haftalar ve aylar boyunca kademeli olarak artırın`,
+
+    categories: [
+      {
+        range: '50 – 60% MKA',
+        label: 'Bölge 1 – Çok Hafif',
+        description: 'Isınma ve aktif toparlanma bölgesi. Herhangi bir zorluk olmadan tam bir konuşma yapabilecek kadar rahat bir efor düzeyi. Herhangi bir antrenman seansının başında veya sonunda ve yoğun antrenman günleri arasında düşük yoğunluklu toparlanma günleri için idealdir.',
+        color: '#10B981',
+      },
+      {
+        range: '60 – 70% MKA',
+        label: 'Bölge 2 – Hafif',
+        description: 'Temel aerobik ve yağ yakma bölgesi. Hafif konuşma rahat ve nefeslenme istikrarlı ve yönetilebilirdir. Dayanıklılık antrenmanının büyük çoğunluğu burada yapılmalıdır; tüm yüksek yoğunluklu eforu destekleyen aerobik temel burada oluşur.',
+        color: '#22C55E',
+      },
+      {
+        range: '70 – 80% MKA',
+        label: 'Bölge 3 – Orta',
+        description: 'Kardiyovasküler kapasiteyi aktif olarak geliştirenin aerobik fitness bölgesi. Konuşma daha zor hale gelir; kısa cümlelerle konuşabilirsiniz ancak nefeslenme belirgin biçimde ağırlaşır. Tempo koşuları ve sabit tempolu kardio genellikle bu bölgeyi hedef alır.',
+        color: '#F59E0B',
+      },
+      {
+        range: '80 – 90% MKA',
+        label: 'Bölge 4 – Zor',
+        description: 'Laktat eşiği ve anaerobik eşik bölgesi. Konuşmak zor ve nefeslenme ağır ve yorlayıcıdır. Hız ve dayanıklılık geliştirmek için kritik bir bölge olmakla birlikte, çoğu sporcu için haftada yalnızca bir iki seans ile sınırlı tutulmalıdır.',
+        color: '#F97316',
+      },
+      {
+        range: '90 – 100% MKA',
+        label: 'Bölge 5 – Maksimum',
+        description: 'Maksimum efor yalnızca sprint intervalları için ayrılmıştır. Bu yoğunlukta konuşmak neredeyse imkânsızdır. Vücut toparlanma talep etmeden önce yalnızca 10–60 saniye sürdürülebilir, bu da bölgeyi yalnızca zirve performans intervalları için kesinlikle kısıtlar.',
+        color: '#EF4444',
+      },
+    ],
+
+    alternativeMeasures:
+      'Göğüs kemeriyle kalp atış hızı monitörleri (Polar H10 gibi), egzersiz sırasında en doğru gerçek zamanlı kalp atış ölçüm yöntemidir; yoğun veya terlenme yoğun aktivitelerde sürüklenebilir biçimde performans düşen bilek tabanlı optik sensörü önemli ölçüde geride bırakır. Algılanan Efor Derecesi (RPE) 1–10 ölçeğinde—eforan ne kadar zor hissettiğine dayanan—herhangi bir ekipman gerektirmeyen ve gerçek kalp atış bölgeleriyle iyi korelasyon gösteren pratik bir alternatiftir. Laboratuvar ortamında yapılan laktat eşiği testi, yaş tabanlı formüllere dayanmak yerine gerçek fizyolojik bölge sınırlarını belirleme konusunda ciddi ve rekabetçi sporculara çok değerli veriler sunar. VO2 max testi, bireysel fizyolojinize göre kalibre edilmiş hem zirve fitness değerlendirmesi hem de bölgeye özgü eşikler sağlar. Tüketici giyilebilirlerinde giderek artan biçimde yer alan Kalp Atış Değişkenliği (HRV) izleme, toparlanma durumunu ve günlük antrenman hazırlığını değerlendirir; sert mi yoksa geri mi çekilmeniz gerektiğine karar vermenize yardımcı olur. Garmin, Apple, Polar ve diğer şirketlerin akıllı saatleri, kalp atış izlemeyi GPS ile birleştirerek gerçek zamanlı bölge tabanlı antrenman geri bildirim sağlar ve yapılandırılmış egzersizleri laboratuvar olmadan erişilebilir kılar.',
+
+    demographicDifferences:
+      'Maksimum kalp atışı için 220-yaş formülü, önemli bireysel varyasyona sahip bir popülasyon ortalamasıdır; standart sapma yaklaşık 10–12 atım/dk\'dır; bu da 40 yaşındaki birinin gerçek maksimum kalp atışının yaklaşık 165 ile 195 atım/dk arasında realistik bir şekilde değişebileceği anlamına gelir. Genetik, maksimum kalp atışının birincil belirleyicisidir; bu nedenle performans kazanımı peşinde koşan ciddi sporculara bireysel test, formül tabanlı tahminle karşılaştırıldığında daha doğru bölgeler sağlar. Antrenman yapan sporcularda, kardiyak adaptasyon sonucu düşük dinlenme kalp atışı (bradikardi) yaygın olup, Karvonen yöntemini kullananın dinlenme kalp atışına dayalı bölge hesaplamalarını anlamlı biçimde etkiler. Kadınlar ve erkekler aynı yaşta benzer maksimum kalp atışına sahip olsa da, kadınlar ortalama olarak biraz daha düşük dinlenme kalp atışı yaşar. Yükseklik, aynı egzersiz yoğunluğunda kalp atışını artırır; ilaçlar—özellikle beta blokerler—kalp atış tepkisini önemli ölçüde alters, bu durum söz konusu tedavilerde olan herkes için standart bölge hesaplamalarını güvenilir olmaktan çıkarır. Fitness haftalar ve aylar içinde iyileştikçe, aynı egzersiz yoğunluğu daha düşük bir kalp atışı üretir; bu da kardiyovasküler adaptasyonu ve ilerlemeyi gösterir.',
+
+    medicalDisclaimer:
+      'Kalp atış hızı bölgesi hesaplamalar, yaş tabanlı formüllere dayanan tahminlerdir ve nitelikli sağlık profesyonellerinden kişiselleştirilmiş tıbbi tavsiyenin yerine geçmemelidir. Maksimum kalp atışı için 220-yaş formülü bir popülasyon ortalamasıdır; gerçek maksimum kalp atışınız 10–15 atım/dk veya daha fazla farklılık gösterebilir ve test yapılmadan buna güvenmek uygun olmayan yoğunluklarda antrenman yapılmasına yol açabilir. Bilinen kalp rahatsızlıkları olan kişiler, kalp atışını etkileyen ilaçlar kullananlar (özellikle beta blokerler) ve kardiyovasküler kaygıları olanlar, kalp atışına dayalı antrenmana başlamadan önce doklarına danışmalıdır. Egzersiz sırasında herhangi bir kalp atışında göğüs ağrısı, baş dönmesi, nefes darlığı veya olağandışı semptomlar yaşarsanız derhal durun ve tıbbi yardım alın. Hamile kadınlar, hamileliğinin aşamasına özgü uygun egzersiz yoğunluğu yönergesi için sağlık sağlayıcılarına danışmalıdır. Bu antrenman bölgeleri, sağlıklı yetişkinler için genel yönergelerdir ve mümkün olduğunda uygun fitness testleri ile yeniden düzenlenmemelidir.',
 
     tips: [
       'Doğru gerçek zamanlı takip için kaliteli bir kalp atış hızı monitörü veya fitness saatine yatırım yapın',

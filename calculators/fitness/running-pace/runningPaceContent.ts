@@ -11,6 +11,52 @@ export const runningPaceContent: CalculatorContent = {
     formulaDetails:
       'The basic pace formula is: Pace = Total Time ÷ Distance. Time should be expressed in minutes (with seconds converted to decimal), and distance in your preferred unit (km or miles). For split times during longer runs, the same formula applies to each segment. Speed can be calculated as the inverse of pace: Speed = Distance ÷ Time, typically expressed in km/h or mph. The relationship between pace and speed is reciprocal. Converting pace to speed: Speed (km/h) = 60 ÷ Pace (min/km). Converting speed to pace: Pace (min/km) = 60 ÷ Speed (km/h). For race time prediction, multiply your target pace by race distance. For example, to run a half marathon (21.1 km) at 6:00 min/km pace: 21.1 × 6 = 126.6 minutes = 2 hours 6 minutes 36 seconds. Understanding these calculations allows you to plan race strategies, set interval training targets, and adjust pace for different terrain and conditions.',
 
+    categories: [
+      {
+        range: '8:00–12:00 min/km',
+        label: 'Beginner',
+        description:
+          'Starting your running journey. Focus on building consistency and injury prevention rather than speed.',
+        color: '#10B981',
+      },
+      {
+        range: '5:30–8:00 min/km',
+        label: 'Intermediate',
+        description:
+          'Developing runner building aerobic base. Balance endurance runs with occasional faster efforts.',
+        color: '#3B82F6',
+      },
+      {
+        range: '4:00–5:30 min/km',
+        label: 'Advanced',
+        description:
+          'Experienced runner with a strong fitness base. Can sustain challenging paces and target race performance.',
+        color: '#8B5CF6',
+      },
+      {
+        range: '< 4:00 min/km',
+        label: 'Elite',
+        description:
+          'Competitive-level performance requiring advanced training, high mileage, and peak physiological fitness.',
+        color: '#EF4444',
+      },
+    ],
+
+    interpretation:
+      'Running pace varies naturally by distance—your 5K pace is faster than your marathon pace because effort distribution differs. Easy runs should be at conversational pace (able to speak full sentences) which is typically 60-70% of max heart rate. Pace alone does not tell the full story; heart rate combined with pace reveals true fitness and effort. As fitness improves, the same heart rate yields a faster pace. Track pace trends over weeks and months rather than fixating on individual run times.',
+
+    limitations:
+      'Pace does not account for terrain—running uphill or on trails is significantly harder than flat road running at the same pace. Weather affects performance: heat, humidity, headwinds, and altitude all slow runners down. GPS accuracy for distance measurement varies, especially in urban canyons or under tree cover, which directly affects calculated pace. Treadmill pace does not account for wind resistance and forward momentum, making outdoor pace harder by comparison. Pace is relative to the individual—a 6:00 min/km run for a beginner is a very different physiological effort than the same pace for an elite runner.',
+
+    healthRisks:
+      'Running at paces too fast for your current fitness level increases injury risk: shin splints, stress fractures, plantar fasciitis, IT band syndrome, and joint inflammation are common. Overtraining syndrome—caused by insufficient recovery between hard efforts—manifests as persistent fatigue, declining performance, hormonal disruption, and increased illness susceptibility. Ignoring early warning signs like persistent soreness or sharp pain leads to chronic injuries that can sideline runners for months. Always incorporate recovery days and easy runs between hard sessions.',
+
+    alternativeMeasures:
+      'Heart rate monitoring provides effort level regardless of pace, speed, or terrain and is considered a more reliable training metric. GPS running watches (Garmin, Apple Watch, Polar) measure pace, distance, cadence, and heart rate simultaneously. VO2 max testing gives a precise measure of cardiovascular fitness and can predict running performance. Lactate threshold testing determines the exact pace at which your body shifts from aerobic to anaerobic metabolism—the key boundary for endurance training. Running power meters (like Stryd) measure actual effort output, similar to power in cycling, making them highly useful for training consistency.',
+
+    demographicDifferences:
+      'Age significantly affects running pace—cardiovascular fitness (VO2 max) declines approximately 1% per year after age 25, and most pace-based records include age-adjusted categories. Men average 10-15% faster than women at equivalent fitness levels due to greater oxygen-carrying capacity and muscle mass. Body weight directly impacts pace: lighter runners have a natural speed advantage. Height and leg length influence stride efficiency and cadence. Altitude reduces available oxygen, slowing pace by 2-3% for every 1,000 meters of elevation. Training experience is perhaps the most important factor—even genetically gifted runners need years of consistent training to reach their pace potential.',
+
     medicalDisclaimer:
       'This running pace calculator is for informational and training purposes only. Always consult with healthcare professionals before starting or intensifying any running program, especially if you have pre-existing health conditions, cardiovascular issues, joint problems, or are over 40 years old. Running at inappropriate paces can lead to injuries including stress fractures, tendonitis, muscle strains, and cardiovascular stress. Listen to your body and adjust pace based on how you feel, not just calculated numbers. If you experience chest pain, severe shortness of breath, dizziness, or unusual fatigue, stop exercising immediately and seek medical attention.',
 
@@ -71,6 +117,52 @@ export const runningPaceContent: CalculatorContent = {
 
     formulaDetails:
       'Temel tempo formülü: Tempo = Toplam Süre ÷ Mesafe. Süre dakika cinsinden (saniyeler ondalığa dönüştürülmüş) ve mesafe tercih ettiğiniz birimde (km veya mil) ifade edilmelidir. Daha uzun koşularda bölme süreleri için aynı formül her segment için geçerlidir. Hız, temponun tersi olarak hesaplanabilir: Hız = Mesafe ÷ Süre, genellikle km/s veya mph ile ifade edilir. Tempo ve hız arasındaki ilişki karşılıklıdır. Tempodan hıza dönüştürme: Hız (km/s) = 60 ÷ Tempo (dk/km). Hızdan tempoya dönüştürme: Tempo (dk/km) = 60 ÷ Hız (km/s).',
+
+    categories: [
+      {
+        range: '8:00–12:00 dk/km',
+        label: 'Yeni Başlayan',
+        description:
+          'Koşu yolculuğunuza yeni başlıyorsunuz. Hız yerine tutarlılık oluşturma ve yaralanma önlemeye odaklanın.',
+        color: '#10B981',
+      },
+      {
+        range: '5:30–8:00 dk/km',
+        label: 'Orta Seviye',
+        description:
+          'Aerobik temel oluşturan gelişen bir koşucu. Dayanıklılık koşularını ara sıra daha hızlı çaba ile dengeleyin.',
+        color: '#3B82F6',
+      },
+      {
+        range: '4:00–5:30 dk/km',
+        label: 'İleri Seviye',
+        description:
+          'Güçlü bir fitness temeline sahip deneyimli bir koşucu. Zorlu tempolarda sürdürülebilirlik ve yarış performansı hedefleme.',
+        color: '#8B5CF6',
+      },
+      {
+        range: '< 4:00 dk/km',
+        label: 'Elit',
+        description:
+          'İleri antrenman, yüksek mesafe ve zirve fizyolojik fitness gerektiren rekabetçi düzeyde bir performans.',
+        color: '#EF4444',
+      },
+    ],
+
+    interpretation:
+      'Koşu temposu mesafeye göre doğal olarak değişir; 5K temponuz maraton temponuzdan daha hızlıdır çünkü çaba dağılımı farklıdır. Kolay koşular, tam cümleler kurabildiğiniz konuşma temposunda yapılmalıdır ki bu genellikle maksimum kalp hızının yüzde 60-70\'ine karşılık gelir. Tempo tek başına tam resmi ortaya koymaz; kalp hızı ile tempo birlikte gerçek fitness ve çabayı ortaya çıkarır. Fitness geliştikçe aynı kalp hızı daha hızlı bir tempo verir. Bireysel koşu sürelerine takılmak yerine hafta ve aylar boyunca tempo eğilimlerini takip edin.',
+
+    limitations:
+      'Tempo, arazi koşullarını hesaba katmaz; aynı tempoda tepelerin üstünden veya antrenman yollarında koşmak düz yolda koşmaktan çok daha zordur. Hava durumu performansı etkiler: sıcaklık, yüksek nem, rüzgar ve irtifa koşucuları yavaşlatır. Mesafe ölçümünde GPS doğruluğu, özellikle kentsel vadilar veya ağaç örtüsü altında değişkenlik gösterir ki bu, hesaplanan tempoyu doğrudan etkiler. Koşu bandında tempo rüzgar direnci ve ilerleme yönündeki ivmeyi hesaba katmaz, dolayısıyla açık havada koşmak karşılaştırmaya göre daha zordur. Tempo bireye özgüdür; bir yeni başlayan için 6:00 dk/km bir koşu, elit bir koşucu için aynı tempo ile fizyolojik olarak çok farklı bir çabadır.',
+
+    healthRisks:
+      'Mevcut fitness seviyenizin üzerinde hızlı tempolarda koşmak yaralanma riskini artırır: shin splint, stres kırıkları, plantar fasiyit, IT band sendromu ve eklem iltihaplanma yaygın görülenlerdir. Aşırı antrenman sendromu; sert çabalar arasında yetersiz toparlanmadan kaynaklanır ve kalıcı yorgunluk, düşen performans, hormonal bozulma ve hastalığa artan yatkınlık olarak kendini gösterir. Kalıcı ağrı veya keskin acı gibi erken uyarı işaretlerinin göz ardı edilmesi, koşucuları aylarca koşudan uzaklaştıracak kronik yaralanmalara yol açar. Sert seanslar arasında her zaman toparlanma günleri ve kolay koşuları dahil ettin.',
+
+    alternativeMeasures:
+      'Kalp hızı izleme, tempo, hız veya araziden bağımsız olarak çaba seviyesini sağlar ve daha güvenilir bir antrenman metriği olarak kabul edilir. GPS koşu saatleri (Garmin, Apple Watch, Polar), tempo, mesafe, kadans ve kalp hızını eş zamanlı olarak ölçür. VO2 max testi, kardiyovasküler fitness\'in hassas bir ölçümünü sağlar ve koşu performansını tahmin edebilir. Laktik eşik testi, vücudun aerobik metabolizmadan anaerobik metabolizmaya geçtiği tam tempoyu belirler; bu, dayanıklılık antrenmanı için kritik sınırdır. Koşu güç ölçerler (Stryd gibi), bisiklette güç ile karşılaştırılabilir şekilde gerçek çaba çıktısını ölçür ve antrenman tutarlılığı için oldukça faydalıdır.',
+
+    demographicDifferences:
+      'Yaş, koşu temposunu önemli ölçüde etkiler; kardiyovasküler fitness (VO2 max), 25 yaşın üstünde yılda yaklaşık yüzde 1 düşer ve tempo bazlı rekor kategorilerinin çoğu yaşa göre düzeltilmiş kategoriler içerir. Erkekler, daha fazla oksijeni taşıma kapasitesi ve kas kütlesi nedeniyle eşdeğer fitness düzeyinde kadınlara kıyasla yüzde 10-15 daha hızlıdır. Vücut ağırlığı tempoyu doğrudan etkiler: daha hafif koşucular doğal bir hız avantajına sahiptir. Boy ve bacak uzunluğu, adım verimliliğini ve kadansı etkiler. Irtifa, mevcut oksijeni azaltır ve her 1.000 metre yükseklik için tempoyu yüzde 2-3 yavaşlatır. Antrenman deneyimi belki de en önemli faktördür; genetik olarak üstün koşucular bile tempo potansiyellerine ulaşmak için yıllarca tutarlı antrenman yapmalıdır.',
 
     medicalDisclaimer:
       'Bu koşu temposu hesaplayıcısı yalnızca bilgilendirme ve antrenman amaçlıdır. Özellikle önceden var olan sağlık sorunlarınız, kardiyovasküler sorunlarınız, eklem problemleriniz varsa veya 40 yaşın üzerindeyseniz, herhangi bir koşu programına başlamadan veya yoğunlaştırmadan önce her zaman sağlık profesyonellerine danışın. Uygunsuz temploda koşmak stres kırıkları, tendinit, kas gerilmeleri ve kardiyovasküler stres dahil yaralanmalara yol açabilir.',

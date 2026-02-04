@@ -25,15 +25,19 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
   // Body & Weight calculators
   'bmi-calculator': {
     primary: ['body-fat-calculator', 'ideal-weight-calculator'],
-    secondary: ['bmr-calculator', 'tdee-calculator', 'calorie-calculator'],
+    secondary: ['waist-hip-ratio-calculator', 'bmr-calculator', 'tdee-calculator', 'calorie-calculator'],
   },
   'body-fat-calculator': {
     primary: ['bmi-calculator', 'ideal-weight-calculator'],
-    secondary: ['bmr-calculator', 'macro-calculator'],
+    secondary: ['waist-hip-ratio-calculator', 'bmr-calculator', 'macro-calculator'],
   },
   'ideal-weight-calculator': {
     primary: ['bmi-calculator', 'body-fat-calculator'],
-    secondary: ['calorie-calculator', 'tdee-calculator'],
+    secondary: ['waist-hip-ratio-calculator', 'calorie-calculator', 'tdee-calculator'],
+  },
+  'waist-hip-ratio-calculator': {
+    primary: ['bmi-calculator', 'body-fat-calculator'],
+    secondary: ['ideal-weight-calculator', 'calorie-calculator'],
   },
 
   // Nutrition calculators
