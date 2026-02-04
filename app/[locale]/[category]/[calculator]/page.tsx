@@ -12,6 +12,7 @@ import {
   generateMedicalWebPageSchema,
   generateArticleSchema,
   generateBreadcrumbSchema,
+  categoryToSpecialty,
 } from '@/lib/seo';
 import CalculatorLayout from '@/components/calculators/CalculatorLayout';
 import { bmiContent } from '@/calculators/body-weight/bmi/bmiContent';
@@ -189,7 +190,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
               name: calculator.title[locale as 'en' | 'tr'],
               description: calculator.description[locale as 'en' | 'tr'],
               url: pageUrl,
-              specialty: 'Body Weight Management',
+              specialty: categoryToSpecialty[calculator.category] || 'General Health',
             })
           ),
         }}
@@ -488,7 +489,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
           __html: JSON.stringify(
             generateBreadcrumbSchema([
               {
-                name: 'Home',
+                name: locale === 'en' ? 'Home' : 'Ana Sayfa',
                 url: getDomainForLocale(locale as 'en' | 'tr'),
               },
               {

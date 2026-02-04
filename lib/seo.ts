@@ -22,12 +22,13 @@ export function generateSEO({
   // Get domain-specific URL
   const domain = getDomainForLocale(locale);
   const url = `${domain}${path}`;
-  const fullTitle = `${title} | ${siteConfig.name}`;
+  const siteName = siteConfig.siteName[locale];
+  const fullTitle = `${title} | ${siteName}`;
 
   return {
     title: fullTitle,
     description,
-    keywords: [...siteConfig.keywords, ...keywords].join(', '),
+    keywords: [...siteConfig.keywords[locale], ...keywords].join(', '),
     authors: [{ name: siteConfig.author }],
     creator: siteConfig.author,
     publisher: siteConfig.author,
@@ -45,7 +46,7 @@ export function generateSEO({
       url,
       title: fullTitle,
       description,
-      siteName: siteConfig.name,
+      siteName,
       images: [
         {
           url: image,

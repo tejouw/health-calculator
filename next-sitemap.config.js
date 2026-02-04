@@ -14,6 +14,7 @@ const CATEGORY_SLUGS = {
   'mental-health': { en: 'mental-health', tr: 'ruh-sagligi' },
   'sleep': { en: 'sleep', tr: 'uyku' },
   'childrens-health': { en: 'childrens-health', tr: 'cocuk-sagligi' },
+  'daily-life': { en: 'daily-life', tr: 'gunluk-yasam' },
 };
 
 // Calculator slug mappings for path translation
@@ -40,6 +41,13 @@ const CALCULATOR_SLUGS = {
   'pregnancy-week-calculator': { en: 'pregnancy-week-calculator', tr: 'hamilelik-hafta-hesaplama' },
   'sleep-calculator': { en: 'sleep-calculator', tr: 'uyku-hesaplayici' },
   'ovulation-calculator': { en: 'ovulation-calculator', tr: 'yumurtlama-hesaplayici' },
+  'calorie-deficit-calculator': { en: 'calorie-deficit-calculator', tr: 'kalori-acigi-hesaplama' },
+  'water-intake-calculator': { en: 'water-intake-calculator', tr: 'su-ihtiyaci-hesaplama' },
+  'protein-calculator': { en: 'protein-calculator', tr: 'protein-hesaplama' },
+  'period-calculator': { en: 'period-calculator', tr: 'adet-takvimi' },
+  'age-calculator': { en: 'age-calculator', tr: 'yas-hesaplayici' },
+  'love-calculator': { en: 'love-calculator', tr: 'ask-hesaplayici' },
+  'waist-hip-ratio-calculator': { en: 'waist-hip-ratio-calculator', tr: 'bel-kalca-orani-hesaplama' },
 };
 
 // Reverse mappings for quick lookup
@@ -112,7 +120,7 @@ function translatePath(path, fromLocale, toLocale) {
 
 module.exports = {
   siteUrl: process.env.SITE_URL || 'https://prohealthcalc.com',
-  generateRobotsTxt: true,
+  generateRobotsTxt: false,
   generateIndexSitemap: false,
   exclude: ['/server-sitemap.xml'], // Only exclude server-generated sitemaps
   changefreq: 'daily',

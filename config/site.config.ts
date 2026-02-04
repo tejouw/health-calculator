@@ -13,16 +13,22 @@ export const siteConfig = {
     en: '350+ free health calculators for BMI, calories, pregnancy, and more. Get instant, accurate results.',
     tr: 'BMI, kalori, hamilelik ve daha fazlası için 350+ ücretsiz sağlık hesaplayıcısı. Anında doğru sonuçlar.',
   },
-  keywords: [
-    'health calculator',
-    'bmi calculator',
-    'calorie calculator',
-    'pregnancy calculator',
-    'fitness calculator',
-    'sağlık hesaplayıcı',
-    'vki hesaplama',
-    'kalori hesaplama',
-  ],
+  keywords: {
+    en: [
+      'health calculator',
+      'bmi calculator',
+      'calorie calculator',
+      'pregnancy calculator',
+      'fitness calculator',
+    ],
+    tr: [
+      'sağlık hesaplayıcı',
+      'vki hesaplama',
+      'kalori hesaplama',
+      'hamilelik hesaplama',
+      'fitness hesaplama',
+    ],
+  },
   author: 'Health Calculator Team',
   social: {
     twitter: '@healthcalc',

@@ -7,12 +7,30 @@ import { Breadcrumbs } from '@/components/layout';
 import { Link } from '@/lib/navigation';
 import { getIcon } from '@/lib/iconUtils';
 import { Activity, Calculator } from 'lucide-react';
+import { generateSEO } from '@/lib/seo';
+import type { Metadata } from 'next';
 
 interface CategoryPageProps {
   params: Promise<{
     locale: string;
     category: string;
   }>;
+}
+
+export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
+  const { locale, category: categorySlug } = await params;
+  const category = getCategoryBySlug(categorySlug, locale as 'en' | 'tr');
+
+  if (!category) {
+    return {};
+  }
+
+  return generateSEO({
+    title: category.name[locale as 'en' | 'tr'],
+    description: category.description[locale as 'en' | 'tr'],
+    locale: locale as 'en' | 'tr',
+    path: `/${categorySlug}`,
+  });
 }
 
 // Generate static paths for all categories

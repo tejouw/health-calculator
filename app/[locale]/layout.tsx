@@ -39,7 +39,7 @@ export async function generateMetadata({
       template: `%s | ${siteName}`,
     },
     description,
-    keywords: siteConfig.keywords,
+    keywords: siteConfig.keywords[locale as 'en' | 'tr'],
     authors: [{ name: siteConfig.author }],
     creator: siteConfig.author,
     metadataBase: new URL(domain),
