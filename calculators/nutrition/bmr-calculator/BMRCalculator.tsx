@@ -573,15 +573,15 @@ const BMRCalculator: React.FC<BMRCalculatorProps> = ({ locale }) => {
                   <div className="space-y-2">
                     <div className="flex items-center justify-between text-sm">
                       <span className="text-neutral-700">{locale === 'tr' ? 'Kahvaltı:' : 'Breakfast:'}</span>
-                      <span className="font-bold text-blue-900">{result.mealPlans.threeMeals.breakfast} kal</span>
+                      <span className="font-bold text-blue-900">{result.mealPlans.threemeals.breakfast} kal</span>
                     </div>
                     <div className="flex items-center justify-between text-sm">
                       <span className="text-neutral-700">{locale === 'tr' ? 'Öğle:' : 'Lunch:'}</span>
-                      <span className="font-bold text-blue-900">{result.mealPlans.threeMeals.lunch} kal</span>
+                      <span className="font-bold text-blue-900">{result.mealPlans.threemeals.lunch} kal</span>
                     </div>
                     <div className="flex items-center justify-between text-sm">
                       <span className="text-neutral-700">{locale === 'tr' ? 'Akşam:' : 'Dinner:'}</span>
-                      <span className="font-bold text-blue-900">{result.mealPlans.threeMeals.dinner} kal</span>
+                      <span className="font-bold text-blue-900">{result.mealPlans.threemeals.dinner} kal</span>
                     </div>
                   </div>
                 </div>

@@ -241,7 +241,7 @@ function calculateMacroSuggestions(tdee: number, weightKg: number) {
  */
 function calculateMealPlans(tdee: number) {
   return {
-    threeMeals: {
+    threemeals: {
       breakfast: Math.round(tdee * 0.30),
       lunch: Math.round(tdee * 0.40),
       dinner: Math.round(tdee * 0.30),
