@@ -3,6 +3,8 @@ import { Card } from '@/components/ui';
 import { Breadcrumbs } from '@/components/layout';
 import type { Metadata } from 'next';
 import { Target, Heart, Shield, Zap } from 'lucide-react';
+import { generateSEO } from '@/lib/seo';
+import { getPageSlug } from '@/config/pages.config';
 
 interface AboutPageProps {
   params: Promise<{ locale: string }>;
@@ -11,11 +13,15 @@ interface AboutPageProps {
 export async function generateMetadata({ params }: AboutPageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'about' });
+  const alternateLocale = locale === 'en' ? 'tr' : 'en';
 
-  return {
+  return generateSEO({
     title: t('title'),
     description: t('missionText'),
-  };
+    locale: locale as 'en' | 'tr',
+    path: `/${getPageSlug('about', locale as 'en' | 'tr')}`,
+    alternatePath: `/${getPageSlug('about', alternateLocale as 'en' | 'tr')}`,
+  });
 }
 
 export default async function AboutPage({ params }: AboutPageProps) {

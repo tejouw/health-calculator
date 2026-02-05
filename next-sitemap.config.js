@@ -50,6 +50,15 @@ const CALCULATOR_SLUGS = {
   'waist-hip-ratio-calculator': { en: 'waist-hip-ratio-calculator', tr: 'bel-kalca-orani-hesaplama' },
 };
 
+// Static page slug mappings
+const STATIC_PAGE_SLUGS = {
+  'about': { en: 'about', tr: 'hakkimizda' },
+  'contact': { en: 'contact', tr: 'iletisim' },
+  'privacy-policy': { en: 'privacy-policy', tr: 'gizlilik-politikasi' },
+  'terms-of-service': { en: 'terms-of-service', tr: 'kullanim-kosullari' },
+  'disclaimer': { en: 'disclaimer', tr: 'sorumluluk-reddi' },
+};
+
 // Reverse mappings for quick lookup
 const CATEGORY_EN_TO_ID = {};
 const CATEGORY_TR_TO_ID = {};
@@ -71,7 +80,7 @@ Object.entries(CALCULATOR_SLUGS).forEach(([id, slugs]) => {
 function translateCategorySlug(slug, fromLocale, toLocale) {
   if (fromLocale === toLocale) return slug;
 
-  // Find category ID
+  // Find category ID from the source locale
   const categoryId = fromLocale === 'en' ? CATEGORY_EN_TO_ID[slug] : CATEGORY_TR_TO_ID[slug];
   if (!categoryId) return slug;
 
@@ -85,7 +94,7 @@ function translateCategorySlug(slug, fromLocale, toLocale) {
 function translateCalculatorSlug(slug, fromLocale, toLocale) {
   if (fromLocale === toLocale) return slug;
 
-  // Find calculator ID
+  // Find calculator ID from the source locale
   const calculatorId = fromLocale === 'en' ? CALCULATOR_EN_TO_ID[slug] : CALCULATOR_TR_TO_ID[slug];
   if (!calculatorId) return slug;
 
@@ -94,9 +103,50 @@ function translateCalculatorSlug(slug, fromLocale, toLocale) {
 }
 
 /**
+ * Detect the locale of a path based on its slugs
+ * Returns 'en' if path contains English slugs, 'tr' if Turkish slugs
+ */
+function detectPathLocale(path) {
+  const segments = path.split('/').filter(Boolean);
+  if (segments.length === 0) return 'en';
+
+  // Check first segment (category or static page)
+  const firstSegment = segments[0];
+
+  // Check if it's a Turkish category
+  if (CATEGORY_TR_TO_ID[firstSegment]) return 'tr';
+  // Check if it's an English category
+  if (CATEGORY_EN_TO_ID[firstSegment]) return 'en';
+
+  // Check static pages
+  for (const [id, slugs] of Object.entries(STATIC_PAGE_SLUGS)) {
+    if (slugs.tr === firstSegment) return 'tr';
+    if (slugs.en === firstSegment) return 'en';
+  }
+
+  // Default to English
+  return 'en';
+}
+
+/**
+ * Translate static page slug between locales
+ */
+function translateStaticPageSlug(slug, fromLocale, toLocale) {
+  if (fromLocale === toLocale) return slug;
+
+  // Find by source locale slug
+  for (const [id, slugs] of Object.entries(STATIC_PAGE_SLUGS)) {
+    if (slugs[fromLocale] === slug) {
+      return slugs[toLocale];
+    }
+  }
+  return slug;
+}
+
+/**
  * Professional path translation for sitemap
- * Translates both category and calculator slugs in paths
- * Supports: /category, /category/calculator
+ * Translates static pages, categories, and calculator slugs in paths
+ * Supports: /static-page, /category, /category/calculator
  */
 function translatePath(path, fromLocale, toLocale) {
   if (fromLocale === toLocale || !path || path === '/') return path;
@@ -105,15 +155,18 @@ function translatePath(path, fromLocale, toLocale) {
 
   if (segments.length === 0) return '/';
 
-  // Translate first segment (category)
-  if (segments.length >= 1) {
-    segments[0] = translateCategorySlug(segments[0], fromLocale, toLocale);
+  if (segments.length === 1) {
+    // Try static page first, then category
+    const staticTranslated = translateStaticPageSlug(segments[0], fromLocale, toLocale);
+    if (staticTranslated !== segments[0]) {
+      return '/' + staticTranslated;
+    }
+    return '/' + translateCategorySlug(segments[0], fromLocale, toLocale);
   }
 
-  // Translate second segment (calculator) if exists
-  if (segments.length >= 2) {
-    segments[1] = translateCalculatorSlug(segments[1], fromLocale, toLocale);
-  }
+  // Category + Calculator
+  segments[0] = translateCategorySlug(segments[0], fromLocale, toLocale);
+  segments[1] = translateCalculatorSlug(segments[1], fromLocale, toLocale);
 
   return '/' + segments.join('/');
 }
@@ -137,57 +190,74 @@ module.exports = {
     ],
   },
   transform: async (config, path) => {
-    // Extract locale from path
-    const locale = path.startsWith('/tr') ? 'tr' : 'en';
-    const domain = locale === 'en' ? 'https://prohealthcalc.com' : 'https://saglikhesapla.com';
-    const alternateDomain = locale === 'en' ? 'https://saglikhesapla.com' : 'https://prohealthcalc.com';
-    const alternateLocale = locale === 'en' ? 'tr' : 'en';
+    // Extract locale from path prefix
+    const localePrefix = path.startsWith('/tr') ? 'tr' : 'en';
 
     // Remove locale prefix from URL for domain-based routing
-    // /en/something -> /something
+    // /en/something -> /something or /tr/something -> /something
     const cleanPath = path.replace(/^\/(en|tr)/, '') || '/';
 
-    // Translate path to alternate locale
-    let alternatePath = cleanPath;
-    try {
-      alternatePath = translatePath(cleanPath, locale, alternateLocale);
-    } catch (error) {
-      // If translation fails, use the same path
-      console.warn(`Failed to translate path ${cleanPath} from ${locale} to ${alternateLocale}`);
+    // Detect the actual locale of the path content (not just the prefix)
+    // This handles cases where paths might be in different locales
+    const pathLocale = cleanPath === '/' ? localePrefix : detectPathLocale(cleanPath);
+
+    // Determine the domain based on locale prefix (this determines which site the URL is for)
+    const domain = localePrefix === 'en' ? 'https://prohealthcalc.com' : 'https://saglikhesapla.com';
+    const alternateDomain = localePrefix === 'en' ? 'https://saglikhesapla.com' : 'https://prohealthcalc.com';
+    const alternateLocale = localePrefix === 'en' ? 'tr' : 'en';
+
+    // Translate paths correctly based on detected locale
+    let localizedPath, alternatePath;
+
+    if (cleanPath === '/') {
+      localizedPath = '/';
+      alternatePath = '/';
+    } else {
+      // If path is in English format, translate to Turkish for alternate
+      // If path is in Turkish format, translate to English for alternate
+      if (pathLocale === 'en') {
+        localizedPath = cleanPath;
+        alternatePath = translatePath(cleanPath, 'en', 'tr');
+      } else {
+        localizedPath = cleanPath;
+        alternatePath = translatePath(cleanPath, 'tr', 'en');
+      }
     }
 
-    // Set priority based on page type
+    // Determine page type from the path for priority
+    const segments = cleanPath.split('/').filter(Boolean);
+
+    // Check for static/legal pages in both languages
+    const staticPageSlugs = Object.values(STATIC_PAGE_SLUGS).flatMap(s => [s.en, s.tr]);
+    const isStaticPage = segments.length === 1 && staticPageSlugs.includes(segments[0]);
+    const legalPageSlugs = ['privacy-policy', 'gizlilik-politikasi', 'terms-of-service', 'kullanim-kosullari', 'disclaimer', 'sorumluluk-reddi'];
+    const isLegalPage = segments.length === 1 && legalPageSlugs.includes(segments[0]);
+
     let priority = 0.7;
     let changefreq = 'daily';
 
     if (cleanPath === '/') {
-      // Home page - highest priority
       priority = 1.0;
       changefreq = 'daily';
-    } else if (cleanPath.split('/').filter(Boolean).length === 1) {
-      // Category pages - high priority
-      priority = 0.8;
-      changefreq = 'weekly';
-    } else if (cleanPath.split('/').filter(Boolean).length === 2) {
-      // Calculator pages - highest priority (main content)
-      priority = 0.9;
-      changefreq = 'weekly';
-    } else if (cleanPath.includes('/about') || cleanPath.includes('/contact')) {
-      // Static pages - lower priority
-      priority = 0.5;
-      changefreq = 'monthly';
-    } else if (cleanPath.includes('/privacy') || cleanPath.includes('/terms') || cleanPath.includes('/disclaimer')) {
-      // Legal pages - lowest priority
+    } else if (isLegalPage) {
       priority = 0.3;
       changefreq = 'yearly';
+    } else if (isStaticPage) {
+      priority = 0.5;
+      changefreq = 'monthly';
+    } else if (segments.length === 2) {
+      priority = 0.9;
+      changefreq = 'weekly';
+    } else if (segments.length === 1) {
+      priority = 0.8;
+      changefreq = 'weekly';
     }
 
     return {
-      loc: `${domain}${cleanPath}`,
+      loc: `${domain}${localizedPath}`,
       changefreq,
       priority,
       lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
-      // Add alternate language links for better international SEO
       alternateRefs: [{
         href: `${alternateDomain}${alternatePath}`,
         hreflang: alternateLocale,

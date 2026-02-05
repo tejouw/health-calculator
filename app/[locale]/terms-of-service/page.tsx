@@ -3,6 +3,8 @@ import { Card } from '@/components/ui';
 import { Breadcrumbs } from '@/components/layout';
 import type { Metadata } from 'next';
 import { FileCheck, AlertTriangle, Scale, Copyright, Ban, RefreshCw } from 'lucide-react';
+import { generateSEO } from '@/lib/seo';
+import { getPageSlug } from '@/config/pages.config';
 
 interface TermsPageProps {
   params: Promise<{ locale: string }>;
@@ -11,11 +13,15 @@ interface TermsPageProps {
 export async function generateMetadata({ params }: TermsPageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'terms' });
+  const alternateLocale = locale === 'en' ? 'tr' : 'en';
 
-  return {
+  return generateSEO({
     title: t('title'),
     description: t('acceptanceText'),
-  };
+    locale: locale as 'en' | 'tr',
+    path: `/${getPageSlug('terms-of-service', locale as 'en' | 'tr')}`,
+    alternatePath: `/${getPageSlug('terms-of-service', alternateLocale as 'en' | 'tr')}`,
+  });
 }
 
 export default async function TermsOfServicePage({ params }: TermsPageProps) {

@@ -3,6 +3,8 @@ import { Card } from '@/components/ui';
 import { Breadcrumbs } from '@/components/layout';
 import type { Metadata } from 'next';
 import { AlertTriangle, Stethoscope, Phone, Shield, Scale, Users } from 'lucide-react';
+import { generateSEO } from '@/lib/seo';
+import { getPageSlug } from '@/config/pages.config';
 
 interface DisclaimerPageProps {
   params: Promise<{ locale: string }>;
@@ -11,11 +13,15 @@ interface DisclaimerPageProps {
 export async function generateMetadata({ params }: DisclaimerPageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'disclaimer' });
+  const alternateLocale = locale === 'en' ? 'tr' : 'en';
 
-  return {
+  return generateSEO({
     title: t('title'),
     description: t('intro'),
-  };
+    locale: locale as 'en' | 'tr',
+    path: `/${getPageSlug('disclaimer', locale as 'en' | 'tr')}`,
+    alternatePath: `/${getPageSlug('disclaimer', alternateLocale as 'en' | 'tr')}`,
+  });
 }
 
 export default async function DisclaimerPage({ params }: DisclaimerPageProps) {

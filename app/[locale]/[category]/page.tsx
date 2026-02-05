@@ -25,11 +25,14 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
     return {};
   }
 
+  const alternateLocale = locale === 'en' ? 'tr' : 'en';
+
   return generateSEO({
     title: category.name[locale as 'en' | 'tr'],
     description: category.description[locale as 'en' | 'tr'],
     locale: locale as 'en' | 'tr',
     path: `/${categorySlug}`,
+    alternatePath: `/${category.slug[alternateLocale as 'en' | 'tr']}`,
   });
 }
 

@@ -8,6 +8,7 @@ interface SEOProps {
   keywords?: string[];
   locale: 'en' | 'tr';
   path?: string;
+  alternatePath?: string;
   image?: string;
 }
 
@@ -17,6 +18,7 @@ export function generateSEO({
   keywords = [],
   locale,
   path = '',
+  alternatePath,
   image = '/og-image.jpg',
 }: SEOProps): Metadata {
   // Get domain-specific URL
@@ -24,6 +26,12 @@ export function generateSEO({
   const url = `${domain}${path}`;
   const siteName = siteConfig.siteName[locale];
   const fullTitle = `${title} | ${siteName}`;
+
+  const alternateLocale = locale === 'en' ? 'tr' : 'en';
+  const altPath = alternatePath !== undefined ? alternatePath : path;
+  const languages: Record<string, string> = {};
+  languages[locale] = url;
+  languages[alternateLocale] = `${getDomainForLocale(alternateLocale)}${altPath}`;
 
   return {
     title: fullTitle,
@@ -35,10 +43,7 @@ export function generateSEO({
     metadataBase: new URL(domain),
     alternates: {
       canonical: url,
-      languages: {
-        en: `${getDomainForLocale('en')}${path}`,
-        tr: `${getDomainForLocale('tr')}${path}`,
-      },
+      languages,
     },
     openGraph: {
       type: 'website',

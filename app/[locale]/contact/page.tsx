@@ -3,6 +3,8 @@ import { Card } from '@/components/ui';
 import { Breadcrumbs } from '@/components/layout';
 import type { Metadata } from 'next';
 import { Mail, MessageSquare, Clock } from 'lucide-react';
+import { generateSEO } from '@/lib/seo';
+import { getPageSlug } from '@/config/pages.config';
 
 interface ContactPageProps {
   params: Promise<{ locale: string }>;
@@ -11,11 +13,15 @@ interface ContactPageProps {
 export async function generateMetadata({ params }: ContactPageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'contact' });
+  const alternateLocale = locale === 'en' ? 'tr' : 'en';
 
-  return {
+  return generateSEO({
     title: t('title'),
     description: t('subtitle'),
-  };
+    locale: locale as 'en' | 'tr',
+    path: `/${getPageSlug('contact', locale as 'en' | 'tr')}`,
+    alternatePath: `/${getPageSlug('contact', alternateLocale as 'en' | 'tr')}`,
+  });
 }
 
 export default async function ContactPage({ params }: ContactPageProps) {

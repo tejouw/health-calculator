@@ -94,12 +94,17 @@ export async function generateMetadata({ params }: CalculatorPageProps) {
     return {};
   }
 
+  const alternateLocale = locale === 'en' ? 'tr' : 'en';
+  const altCategory = getCategorySlugByLocale(calculator.category, alternateLocale as 'en' | 'tr');
+  const altCalcSlug = calculator.slug[alternateLocale as 'en' | 'tr'];
+
   return generateSEO({
     title: calculator.title[locale as 'en' | 'tr'],
     description: calculator.description[locale as 'en' | 'tr'],
     keywords: calculator.keywords,
     locale: locale as 'en' | 'tr',
     path: `/${category}/${calcSlug}`,
+    alternatePath: `/${altCategory}/${altCalcSlug}`,
   });
 }
 

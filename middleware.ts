@@ -11,23 +11,16 @@ pageRoutes.forEach((page) => {
 });
 
 export default function middleware(request: NextRequest) {
-  const { pathname, search } = request.nextUrl;
+  const { pathname } = request.nextUrl;
   const hostname = request.headers.get('host') || '';
-
-  console.log('🌐 Hostname:', hostname);
-  console.log('📍 Original pathname:', pathname);
 
   // Determine locale based on domain
   let locale: 'en' | 'tr' = 'tr';
   if (hostname.includes('prohealthcalc')) {
     locale = 'en';
-    console.log('✅ English domain detected');
   } else if (hostname.includes('saglikhesapla')) {
     locale = 'tr';
-    console.log('✅ Turkish domain detected');
   }
-
-  console.log('🔤 Selected locale:', locale);
 
   // Map localized page slugs to internal page IDs
   let internalPathname = pathname;
@@ -42,10 +35,8 @@ export default function middleware(request: NextRequest) {
       // Map TR slug -> EN page ID for internal routing
       const page = pageRoutes.find((p) => p.id === pageId);
       if (page) {
-        const internalSlug = page.id; // Use page ID as internal route
-        pathSegments[0] = internalSlug;
+        pathSegments[0] = page.id;
         internalPathname = '/' + pathSegments.join('/');
-        console.log('📄 Page slug mapped:', firstSegment, '→', internalSlug);
       }
     }
   }
@@ -53,8 +44,6 @@ export default function middleware(request: NextRequest) {
   // Rewrite URL to include locale (internal only)
   const url = request.nextUrl.clone();
   url.pathname = `/${locale}${internalPathname}`;
-
-  console.log('🔄 Rewriting to:', url.pathname);
 
   return NextResponse.rewrite(url);
 }

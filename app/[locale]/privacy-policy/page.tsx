@@ -3,6 +3,8 @@ import { Card } from '@/components/ui';
 import { Breadcrumbs } from '@/components/layout';
 import type { Metadata } from 'next';
 import { Shield, Database, Cookie, ExternalLink, RefreshCw, Mail, Megaphone, Target } from 'lucide-react';
+import { generateSEO } from '@/lib/seo';
+import { getPageSlug } from '@/config/pages.config';
 
 interface PrivacyPageProps {
   params: Promise<{ locale: string }>;
@@ -11,11 +13,15 @@ interface PrivacyPageProps {
 export async function generateMetadata({ params }: PrivacyPageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'privacy' });
+  const alternateLocale = locale === 'en' ? 'tr' : 'en';
 
-  return {
+  return generateSEO({
     title: t('title'),
     description: t('intro'),
-  };
+    locale: locale as 'en' | 'tr',
+    path: `/${getPageSlug('privacy-policy', locale as 'en' | 'tr')}`,
+    alternatePath: `/${getPageSlug('privacy-policy', alternateLocale as 'en' | 'tr')}`,
+  });
 }
 
 export default async function PrivacyPolicyPage({ params }: PrivacyPageProps) {
