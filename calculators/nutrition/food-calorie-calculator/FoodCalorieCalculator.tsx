@@ -8,9 +8,10 @@ import {
   categories,
   calculateFoodNutrition,
   calculateTotalNutrition,
+  calculateEnhancedNutrition,
   getCategoryInfo,
 } from './foodCalorieLogic';
-import { FoodItem, SelectedFood, FoodCategory } from './foodCalorieTypes';
+import { FoodItem, SelectedFood, FoodCategory, MealType } from './foodCalorieTypes';
 import {
   Apple,
   Leaf,
@@ -29,6 +30,11 @@ import {
   Search,
   Calculator,
   TrendingUp,
+  PieChart,
+  Award,
+  Target,
+  Utensils,
+  Flame,
 } from 'lucide-react';
 
 interface FoodCalorieCalculatorProps {
@@ -58,6 +64,8 @@ const FoodCalorieCalculator: React.FC<FoodCalorieCalculatorProps> = ({ locale })
   const [selectedFoods, setSelectedFoods] = useState<SelectedFood[]>([]);
   const [currentFood, setCurrentFood] = useState<FoodItem | null>(null);
   const [currentGrams, setCurrentGrams] = useState<string>('100');
+  const [currentMealType, setCurrentMealType] = useState<MealType>('breakfast');
+  const [dailyGoalCalories, setDailyGoalCalories] = useState<string>('');
 
   const filteredFoods = selectedCategory
     ? foodDatabase.filter((f) => f.category === selectedCategory)
@@ -72,7 +80,7 @@ const FoodCalorieCalculator: React.FC<FoodCalorieCalculatorProps> = ({ locale })
     const grams = parseFloat(currentGrams);
     if (grams <= 0 || grams > 10000) return;
 
-    setSelectedFoods([...selectedFoods, { food: currentFood, grams }]);
+    setSelectedFoods([...selectedFoods, { food: currentFood, grams, mealType: currentMealType }]);
     setCurrentFood(null);
     setCurrentGrams('100');
   };
@@ -87,9 +95,11 @@ const FoodCalorieCalculator: React.FC<FoodCalorieCalculatorProps> = ({ locale })
     setCurrentGrams('100');
     setSearchQuery('');
     setSelectedCategory(null);
+    setCurrentMealType('breakfast');
   };
 
-  const nutritionSummary = calculateTotalNutrition(selectedFoods);
+  const goalCal = dailyGoalCalories ? parseFloat(dailyGoalCalories) : undefined;
+  const nutritionSummary = calculateEnhancedNutrition(selectedFoods, goalCal);
 
   return (
     <div className="space-y-6">
@@ -109,6 +119,19 @@ const FoodCalorieCalculator: React.FC<FoodCalorieCalculatorProps> = ({ locale })
                 : 'Calculate calories and nutrition of foods you eat'}
             </p>
           </div>
+        </div>
+
+        {/* Daily Goal (Optional) */}
+        <div className="mb-6">
+          <Input
+            label={locale === 'tr' ? 'Günlük Kalori Hedefi (Opsiyonel)' : 'Daily Calorie Goal (Optional)'}
+            type="number"
+            value={dailyGoalCalories}
+            onChange={(e) => setDailyGoalCalories(e.target.value)}
+            placeholder="2000"
+            helperText={locale === 'tr' ? 'İlerlemenizi takip etmek için' : 'To track your progress'}
+            rightIcon={<span className="text-sm">kal</span>}
+          />
         </div>
 
         {/* Category Selection */}
@@ -230,6 +253,60 @@ const FoodCalorieCalculator: React.FC<FoodCalorieCalculatorProps> = ({ locale })
                 <X className="h-5 w-5" />
               </button>
             </div>
+
+            {/* Meal Type Selector */}
+            <div className="mb-4">
+              <label className="mb-2 block text-sm font-medium text-neutral-700">
+                {locale === 'tr' ? 'Öğün' : 'Meal'}
+              </label>
+              <div className="grid grid-cols-4 gap-2">
+                <button
+                  type="button"
+                  onClick={() => setCurrentMealType('breakfast')}
+                  className={`rounded-lg border-2 px-3 py-2 text-xs font-medium transition-all ${
+                    currentMealType === 'breakfast'
+                      ? 'border-orange-500 bg-orange-50 text-orange-700'
+                      : 'border-neutral-200 bg-white text-neutral-600 hover:border-neutral-300'
+                  }`}
+                >
+                  🌅 {locale === 'tr' ? 'Kahvaltı' : 'Breakfast'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCurrentMealType('lunch')}
+                  className={`rounded-lg border-2 px-3 py-2 text-xs font-medium transition-all ${
+                    currentMealType === 'lunch'
+                      ? 'border-yellow-500 bg-yellow-50 text-yellow-700'
+                      : 'border-neutral-200 bg-white text-neutral-600 hover:border-neutral-300'
+                  }`}
+                >
+                  🌞 {locale === 'tr' ? 'Öğle' : 'Lunch'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCurrentMealType('dinner')}
+                  className={`rounded-lg border-2 px-3 py-2 text-xs font-medium transition-all ${
+                    currentMealType === 'dinner'
+                      ? 'border-purple-500 bg-purple-50 text-purple-700'
+                      : 'border-neutral-200 bg-white text-neutral-600 hover:border-neutral-300'
+                  }`}
+                >
+                  🌙 {locale === 'tr' ? 'Akşam' : 'Dinner'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCurrentMealType('snack')}
+                  className={`rounded-lg border-2 px-3 py-2 text-xs font-medium transition-all ${
+                    currentMealType === 'snack'
+                      ? 'border-green-500 bg-green-50 text-green-700'
+                      : 'border-neutral-200 bg-white text-neutral-600 hover:border-neutral-300'
+                  }`}
+                >
+                  🍎 {locale === 'tr' ? 'Atıştırmalık' : 'Snack'}
+                </button>
+              </div>
+            </div>
+
             <div className="mb-4">
               <Input
                 label={locale === 'tr' ? 'Miktar (gram)' : 'Amount (grams)'}
@@ -414,7 +491,7 @@ const FoodCalorieCalculator: React.FC<FoodCalorieCalculatorProps> = ({ locale })
             <h4 className="mb-3 text-sm font-semibold text-neutral-700">
               {locale === 'tr' ? 'Makro Besin Dağılımı' : 'Macronutrient Distribution'}
             </h4>
-            {nutritionSummary.totalCalories > 0 && (
+            {nutritionSummary.totalCalories > 0 && nutritionSummary.macroDistribution && (
               <div className="space-y-2">
                 <div>
                   <div className="mb-1 flex justify-between text-sm">
@@ -422,17 +499,20 @@ const FoodCalorieCalculator: React.FC<FoodCalorieCalculatorProps> = ({ locale })
                       {locale === 'tr' ? 'Protein' : 'Protein'}
                     </span>
                     <span className="font-medium text-neutral-900">
-                      {Math.round((nutritionSummary.totalProtein * 4 * 100) / nutritionSummary.totalCalories)}%
+                      {nutritionSummary.macroDistribution.proteinPercentage.toFixed(0)}% ({nutritionSummary.totalProtein}g)
                     </span>
                   </div>
                   <div className="h-2 overflow-hidden rounded-full bg-neutral-200">
                     <div
                       className="h-full rounded-full bg-blue-500"
                       style={{
-                        width: `${(nutritionSummary.totalProtein * 4 * 100) / nutritionSummary.totalCalories}%`,
+                        width: `${nutritionSummary.macroDistribution.proteinPercentage}%`,
                       }}
                     />
                   </div>
+                  <p className="mt-1 text-xs text-neutral-500">
+                    {nutritionSummary.macroDistribution.proteinCalories.toFixed(0)} {locale === 'tr' ? 'kal' : 'cal'}
+                  </p>
                 </div>
 
                 <div>
@@ -441,37 +521,532 @@ const FoodCalorieCalculator: React.FC<FoodCalorieCalculatorProps> = ({ locale })
                       {locale === 'tr' ? 'Karbonhidrat' : 'Carbohydrates'}
                     </span>
                     <span className="font-medium text-neutral-900">
-                      {Math.round((nutritionSummary.totalCarbs * 4 * 100) / nutritionSummary.totalCalories)}%
+                      {nutritionSummary.macroDistribution.carbsPercentage.toFixed(0)}% ({nutritionSummary.totalCarbs}g)
                     </span>
                   </div>
                   <div className="h-2 overflow-hidden rounded-full bg-neutral-200">
                     <div
                       className="h-full rounded-full bg-green-500"
                       style={{
-                        width: `${(nutritionSummary.totalCarbs * 4 * 100) / nutritionSummary.totalCalories}%`,
+                        width: `${nutritionSummary.macroDistribution.carbsPercentage}%`,
                       }}
                     />
                   </div>
+                  <p className="mt-1 text-xs text-neutral-500">
+                    {nutritionSummary.macroDistribution.carbsCalories.toFixed(0)} {locale === 'tr' ? 'kal' : 'cal'}
+                  </p>
                 </div>
 
                 <div>
                   <div className="mb-1 flex justify-between text-sm">
                     <span className="text-neutral-600">{locale === 'tr' ? 'Yağ' : 'Fat'}</span>
                     <span className="font-medium text-neutral-900">
-                      {Math.round((nutritionSummary.totalFat * 9 * 100) / nutritionSummary.totalCalories)}%
+                      {nutritionSummary.macroDistribution.fatPercentage.toFixed(0)}% ({nutritionSummary.totalFat}g)
                     </span>
                   </div>
                   <div className="h-2 overflow-hidden rounded-full bg-neutral-200">
                     <div
                       className="h-full rounded-full bg-amber-500"
                       style={{
-                        width: `${(nutritionSummary.totalFat * 9 * 100) / nutritionSummary.totalCalories}%`,
+                        width: `${nutritionSummary.macroDistribution.fatPercentage}%`,
                       }}
                     />
+                  </div>
+                  <p className="mt-1 text-xs text-neutral-500">
+                    {nutritionSummary.macroDistribution.fatCalories.toFixed(0)} {locale === 'tr' ? 'kal' : 'cal'}
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
+        </Card>
+      )}
+
+      {/* Daily Goal Progress */}
+      {selectedFoods.length > 0 && nutritionSummary.dailyGoal && (
+        <Card>
+          <div className="mb-4 flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-green-500 to-emerald-600">
+              <Target className="h-5 w-5 text-white" />
+            </div>
+            <h3 className="text-lg font-bold text-neutral-900">
+              {locale === 'tr' ? 'Günlük Hedef İlerlemesi' : 'Daily Goal Progress'}
+            </h3>
+          </div>
+
+          <div className="mb-4 rounded-lg bg-gradient-to-br from-green-50 to-emerald-50 p-6">
+            <div className="mb-2 flex items-end justify-between">
+              <div>
+                <p className="text-sm text-neutral-600">
+                  {locale === 'tr' ? 'Tüketilen / Hedef' : 'Consumed / Target'}
+                </p>
+                <p className="text-3xl font-bold text-green-600">
+                  {nutritionSummary.totalCalories} / {nutritionSummary.dailyGoal.targetCalories}
+                </p>
+                <p className="text-sm text-neutral-500">{locale === 'tr' ? 'kalori' : 'calories'}</p>
+              </div>
+              <div className="text-right">
+                <p className="text-4xl font-bold text-green-600">
+                  {nutritionSummary.dailyGoal.progressPercentage.toFixed(0)}%
+                </p>
+                <p className="text-xs text-neutral-500">
+                  {locale === 'tr' ? 'tamamlandı' : 'complete'}
+                </p>
+              </div>
+            </div>
+
+            <div className="mb-3 h-3 overflow-hidden rounded-full bg-white">
+              <div
+                className={`h-full rounded-full transition-all ${
+                  nutritionSummary.dailyGoal.progressPercentage > 100
+                    ? 'bg-red-500'
+                    : 'bg-gradient-to-r from-green-500 to-emerald-500'
+                }`}
+                style={{
+                  width: `${Math.min(nutritionSummary.dailyGoal.progressPercentage, 100)}%`,
+                }}
+              />
+            </div>
+
+            <div className="flex items-center justify-between text-sm">
+              <span className="text-neutral-600">
+                {nutritionSummary.dailyGoal.remainingCalories >= 0
+                  ? locale === 'tr'
+                    ? 'Kalan'
+                    : 'Remaining'
+                  : locale === 'tr'
+                  ? 'Aşılan'
+                  : 'Over'}
+              </span>
+              <span
+                className={`font-bold ${
+                  nutritionSummary.dailyGoal.remainingCalories >= 0
+                    ? 'text-green-600'
+                    : 'text-red-600'
+                }`}
+              >
+                {Math.abs(nutritionSummary.dailyGoal.remainingCalories)} {locale === 'tr' ? 'kal' : 'cal'}
+              </span>
+            </div>
+          </div>
+
+          {nutritionSummary.dailyGoal.progressPercentage > 100 && (
+            <div className="rounded-lg border-2 border-red-200 bg-red-50 p-3">
+              <p className="text-sm text-red-700">
+                {locale === 'tr'
+                  ? '⚠️ Günlük kalori hedefinizi aştınız. Aktivite seviyenizi artırabilir veya bir sonraki öğünü hafif tutabilirsiniz.'
+                  : '⚠️ You have exceeded your daily calorie goal. Consider increasing your activity level or keeping the next meal lighter.'}
+              </p>
+            </div>
+          )}
+        </Card>
+      )}
+
+      {/* Health Score */}
+      {selectedFoods.length > 0 && nutritionSummary.healthScore && (
+        <Card>
+          <div className="mb-4 flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-purple-500 to-pink-500">
+              <Award className="h-5 w-5 text-white" />
+            </div>
+            <h3 className="text-lg font-bold text-neutral-900">
+              {locale === 'tr' ? 'Beslenme Sağlık Skoru' : 'Nutrition Health Score'}
+            </h3>
+          </div>
+
+          <div className="mb-6 flex items-center justify-center">
+            <div className="relative h-32 w-32">
+              <svg className="h-32 w-32 -rotate-90 transform">
+                <circle
+                  cx="64"
+                  cy="64"
+                  r="56"
+                  stroke="currentColor"
+                  strokeWidth="8"
+                  fill="none"
+                  className="text-neutral-200"
+                />
+                <circle
+                  cx="64"
+                  cy="64"
+                  r="56"
+                  stroke="currentColor"
+                  strokeWidth="8"
+                  fill="none"
+                  strokeDasharray={`${(nutritionSummary.healthScore.overall * 351.68) / 100} 351.68`}
+                  className={
+                    nutritionSummary.healthScore.overall >= 80
+                      ? 'text-green-500'
+                      : nutritionSummary.healthScore.overall >= 60
+                      ? 'text-yellow-500'
+                      : 'text-orange-500'
+                  }
+                />
+              </svg>
+              <div className="absolute inset-0 flex flex-col items-center justify-center">
+                <span
+                  className={`text-3xl font-bold ${
+                    nutritionSummary.healthScore.overall >= 80
+                      ? 'text-green-600'
+                      : nutritionSummary.healthScore.overall >= 60
+                      ? 'text-yellow-600'
+                      : 'text-orange-600'
+                  }`}
+                >
+                  {nutritionSummary.healthScore.overall.toFixed(0)}
+                </span>
+                <span className="text-xs text-neutral-500">{locale === 'tr' ? 'puan' : 'score'}</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2">
+            <div className="rounded-lg border border-blue-200 bg-blue-50 p-3">
+              <div className="mb-2 flex items-center justify-between">
+                <span className="text-sm font-medium text-neutral-700">
+                  {locale === 'tr' ? 'Protein Dengesi' : 'Protein Balance'}
+                </span>
+                <span className="text-sm font-bold text-blue-600">
+                  {nutritionSummary.healthScore.proteinScore}/25
+                </span>
+              </div>
+              <div className="h-2 overflow-hidden rounded-full bg-blue-200">
+                <div
+                  className="h-full rounded-full bg-blue-500"
+                  style={{ width: `${(nutritionSummary.healthScore.proteinScore / 25) * 100}%` }}
+                />
+              </div>
+              <p className="mt-1 text-xs text-neutral-600">
+                {locale === 'tr'
+                  ? 'İdeal: Kalorilerin %20-35\'i protein'
+                  : 'Ideal: 20-35% of calories from protein'}
+              </p>
+            </div>
+
+            <div className="rounded-lg border border-purple-200 bg-purple-50 p-3">
+              <div className="mb-2 flex items-center justify-between">
+                <span className="text-sm font-medium text-neutral-700">
+                  {locale === 'tr' ? 'Lif Alımı' : 'Fiber Intake'}
+                </span>
+                <span className="text-sm font-bold text-purple-600">
+                  {nutritionSummary.healthScore.fiberScore}/25
+                </span>
+              </div>
+              <div className="h-2 overflow-hidden rounded-full bg-purple-200">
+                <div
+                  className="h-full rounded-full bg-purple-500"
+                  style={{ width: `${(nutritionSummary.healthScore.fiberScore / 25) * 100}%` }}
+                />
+              </div>
+              <p className="mt-1 text-xs text-neutral-600">
+                {locale === 'tr'
+                  ? 'İdeal: 1000 kalori başına 14g lif'
+                  : 'Ideal: 14g fiber per 1000 calories'}
+              </p>
+            </div>
+
+            <div className="rounded-lg border border-green-200 bg-green-50 p-3">
+              <div className="mb-2 flex items-center justify-between">
+                <span className="text-sm font-medium text-neutral-700">
+                  {locale === 'tr' ? 'Makro Dengesi' : 'Macro Balance'}
+                </span>
+                <span className="text-sm font-bold text-green-600">
+                  {nutritionSummary.healthScore.balanceScore}/30
+                </span>
+              </div>
+              <div className="h-2 overflow-hidden rounded-full bg-green-200">
+                <div
+                  className="h-full rounded-full bg-green-500"
+                  style={{ width: `${(nutritionSummary.healthScore.balanceScore / 30) * 100}%` }}
+                />
+              </div>
+              <p className="mt-1 text-xs text-neutral-600">
+                {locale === 'tr'
+                  ? 'İdeal oran: 25% protein, 50% karb, 25% yağ'
+                  : 'Ideal ratio: 25% protein, 50% carbs, 25% fat'}
+              </p>
+            </div>
+
+            <div className="rounded-lg border border-orange-200 bg-orange-50 p-3">
+              <div className="mb-2 flex items-center justify-between">
+                <span className="text-sm font-medium text-neutral-700">
+                  {locale === 'tr' ? 'Çeşitlilik' : 'Variety'}
+                </span>
+                <span className="text-sm font-bold text-orange-600">
+                  {nutritionSummary.healthScore.varietyScore}/20
+                </span>
+              </div>
+              <div className="h-2 overflow-hidden rounded-full bg-orange-200">
+                <div
+                  className="h-full rounded-full bg-orange-500"
+                  style={{ width: `${(nutritionSummary.healthScore.varietyScore / 20) * 100}%` }}
+                />
+              </div>
+              <p className="mt-1 text-xs text-neutral-600">
+                {locale === 'tr'
+                  ? 'Farklı gıda sayısı: ' + selectedFoods.length
+                  : 'Different foods: ' + selectedFoods.length}
+              </p>
+            </div>
+          </div>
+
+          {nutritionSummary.healthScore.overall < 60 && (
+            <div className="mt-4 rounded-lg border-2 border-yellow-200 bg-yellow-50 p-3">
+              <p className="mb-2 text-sm font-semibold text-yellow-800">
+                💡 {locale === 'tr' ? 'Beslenme Önerileri' : 'Nutrition Recommendations'}:
+              </p>
+              <ul className="space-y-1 text-sm text-yellow-700">
+                {nutritionSummary.healthScore.proteinScore < 15 && (
+                  <li>
+                    • {locale === 'tr'
+                      ? 'Protein alımınızı artırın (tavuk, balık, yumurta, baklagiller)'
+                      : 'Increase protein intake (chicken, fish, eggs, legumes)'}
+                  </li>
+                )}
+                {nutritionSummary.healthScore.fiberScore < 15 && (
+                  <li>
+                    • {locale === 'tr'
+                      ? 'Daha fazla lif için sebze, meyve ve tam tahıllar ekleyin'
+                      : 'Add vegetables, fruits, and whole grains for more fiber'}
+                  </li>
+                )}
+                {nutritionSummary.healthScore.varietyScore < 10 && (
+                  <li>
+                    • {locale === 'tr'
+                      ? 'Daha fazla çeşitli gıda ekleyerek besin çeşitliliğini artırın'
+                      : 'Increase food variety by adding more diverse foods'}
+                  </li>
+                )}
+              </ul>
+            </div>
+          )}
+        </Card>
+      )}
+
+      {/* Meal Summary */}
+      {selectedFoods.length > 0 && nutritionSummary.mealSummary && (
+        <Card>
+          <div className="mb-4 flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-indigo-500">
+              <Utensils className="h-5 w-5 text-white" />
+            </div>
+            <h3 className="text-lg font-bold text-neutral-900">
+              {locale === 'tr' ? 'Öğünlere Göre Dağılım' : 'Meal Distribution'}
+            </h3>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {/* Breakfast */}
+            {nutritionSummary.mealSummary.breakfast.count > 0 && (
+              <div className="rounded-lg border-2 border-orange-200 bg-orange-50 p-4">
+                <div className="mb-3 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl">🌅</span>
+                    <span className="font-semibold text-neutral-900">
+                      {locale === 'tr' ? 'Kahvaltı' : 'Breakfast'}
+                    </span>
+                  </div>
+                  <Badge variant="secondary" size="sm">
+                    {nutritionSummary.mealSummary.breakfast.count} {locale === 'tr' ? 'gıda' : 'foods'}
+                  </Badge>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-neutral-600">{locale === 'tr' ? 'Kalori' : 'Calories'}</span>
+                    <span className="font-bold text-orange-600">
+                      {nutritionSummary.mealSummary.breakfast.calories.toFixed(0)} {locale === 'tr' ? 'kal' : 'cal'}
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-3 gap-2 text-xs">
+                    <div>
+                      <span className="text-neutral-500">P: </span>
+                      <span className="font-medium text-neutral-700">
+                        {nutritionSummary.mealSummary.breakfast.protein.toFixed(0)}g
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-neutral-500">C: </span>
+                      <span className="font-medium text-neutral-700">
+                        {nutritionSummary.mealSummary.breakfast.carbs.toFixed(0)}g
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-neutral-500">F: </span>
+                      <span className="font-medium text-neutral-700">
+                        {nutritionSummary.mealSummary.breakfast.fat.toFixed(0)}g
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
             )}
+
+            {/* Lunch */}
+            {nutritionSummary.mealSummary.lunch.count > 0 && (
+              <div className="rounded-lg border-2 border-yellow-200 bg-yellow-50 p-4">
+                <div className="mb-3 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl">🌞</span>
+                    <span className="font-semibold text-neutral-900">
+                      {locale === 'tr' ? 'Öğle' : 'Lunch'}
+                    </span>
+                  </div>
+                  <Badge variant="secondary" size="sm">
+                    {nutritionSummary.mealSummary.lunch.count} {locale === 'tr' ? 'gıda' : 'foods'}
+                  </Badge>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-neutral-600">{locale === 'tr' ? 'Kalori' : 'Calories'}</span>
+                    <span className="font-bold text-yellow-600">
+                      {nutritionSummary.mealSummary.lunch.calories.toFixed(0)} {locale === 'tr' ? 'kal' : 'cal'}
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-3 gap-2 text-xs">
+                    <div>
+                      <span className="text-neutral-500">P: </span>
+                      <span className="font-medium text-neutral-700">
+                        {nutritionSummary.mealSummary.lunch.protein.toFixed(0)}g
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-neutral-500">C: </span>
+                      <span className="font-medium text-neutral-700">
+                        {nutritionSummary.mealSummary.lunch.carbs.toFixed(0)}g
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-neutral-500">F: </span>
+                      <span className="font-medium text-neutral-700">
+                        {nutritionSummary.mealSummary.lunch.fat.toFixed(0)}g
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Dinner */}
+            {nutritionSummary.mealSummary.dinner.count > 0 && (
+              <div className="rounded-lg border-2 border-purple-200 bg-purple-50 p-4">
+                <div className="mb-3 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl">🌙</span>
+                    <span className="font-semibold text-neutral-900">
+                      {locale === 'tr' ? 'Akşam' : 'Dinner'}
+                    </span>
+                  </div>
+                  <Badge variant="secondary" size="sm">
+                    {nutritionSummary.mealSummary.dinner.count} {locale === 'tr' ? 'gıda' : 'foods'}
+                  </Badge>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-neutral-600">{locale === 'tr' ? 'Kalori' : 'Calories'}</span>
+                    <span className="font-bold text-purple-600">
+                      {nutritionSummary.mealSummary.dinner.calories.toFixed(0)} {locale === 'tr' ? 'kal' : 'cal'}
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-3 gap-2 text-xs">
+                    <div>
+                      <span className="text-neutral-500">P: </span>
+                      <span className="font-medium text-neutral-700">
+                        {nutritionSummary.mealSummary.dinner.protein.toFixed(0)}g
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-neutral-500">C: </span>
+                      <span className="font-medium text-neutral-700">
+                        {nutritionSummary.mealSummary.dinner.carbs.toFixed(0)}g
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-neutral-500">F: </span>
+                      <span className="font-medium text-neutral-700">
+                        {nutritionSummary.mealSummary.dinner.fat.toFixed(0)}g
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Snack */}
+            {nutritionSummary.mealSummary.snack.count > 0 && (
+              <div className="rounded-lg border-2 border-green-200 bg-green-50 p-4">
+                <div className="mb-3 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl">🍎</span>
+                    <span className="font-semibold text-neutral-900">
+                      {locale === 'tr' ? 'Atıştırmalık' : 'Snack'}
+                    </span>
+                  </div>
+                  <Badge variant="secondary" size="sm">
+                    {nutritionSummary.mealSummary.snack.count} {locale === 'tr' ? 'gıda' : 'foods'}
+                  </Badge>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-neutral-600">{locale === 'tr' ? 'Kalori' : 'Calories'}</span>
+                    <span className="font-bold text-green-600">
+                      {nutritionSummary.mealSummary.snack.calories.toFixed(0)} {locale === 'tr' ? 'kal' : 'cal'}
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-3 gap-2 text-xs">
+                    <div>
+                      <span className="text-neutral-500">P: </span>
+                      <span className="font-medium text-neutral-700">
+                        {nutritionSummary.mealSummary.snack.protein.toFixed(0)}g
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-neutral-500">C: </span>
+                      <span className="font-medium text-neutral-700">
+                        {nutritionSummary.mealSummary.snack.carbs.toFixed(0)}g
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-neutral-500">F: </span>
+                      <span className="font-medium text-neutral-700">
+                        {nutritionSummary.mealSummary.snack.fat.toFixed(0)}g
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </Card>
+      )}
+
+      {/* Nutrient Density */}
+      {selectedFoods.length > 0 && nutritionSummary.nutrientDensity !== undefined && (
+        <Card>
+          <div className="mb-4 flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500">
+              <Flame className="h-5 w-5 text-white" />
+            </div>
+            <h3 className="text-lg font-bold text-neutral-900">
+              {locale === 'tr' ? 'Besin Yoğunluğu' : 'Nutrient Density'}
+            </h3>
+          </div>
+
+          <div className="rounded-lg bg-gradient-to-br from-cyan-50 to-blue-50 p-4">
+            <div className="mb-2 text-center">
+              <p className="text-4xl font-bold text-cyan-600">
+                {nutritionSummary.nutrientDensity.toFixed(1)}
+              </p>
+              <p className="text-sm text-neutral-600">
+                {locale === 'tr' ? '100 kalori başına besin değeri' : 'nutrient value per 100 calories'}
+              </p>
+            </div>
+            <div className="mt-4 rounded-lg bg-white p-3 text-sm">
+              <p className="text-neutral-700">
+                {locale === 'tr'
+                  ? 'Besin yoğunluğu, tükettiğiniz kalorilere göre aldığınız protein, lif ve diğer besinlerin miktarını gösterir. Yüksek değer, daha sağlıklı gıda seçimlerini ifade eder.'
+                  : 'Nutrient density shows the amount of protein, fiber and other nutrients you get per calorie consumed. Higher values indicate healthier food choices.'}
+              </p>
+            </div>
           </div>
         </Card>
       )}

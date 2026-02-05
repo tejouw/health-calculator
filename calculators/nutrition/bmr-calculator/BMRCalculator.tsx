@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { Button, Input, RadioGroup, Card, Badge } from '@/components/ui';
 import { calculateBMR, getActivityDescription, getTDEE, getWeightLossTarget, getMuscleGainTarget } from './bmrLogic';
 import { BMRInput, ActivityLevel } from './bmrTypes';
-import { Zap, Activity, Target, TrendingUp, TrendingDown, Flame } from 'lucide-react';
+import { Zap, Activity, Target, TrendingUp, TrendingDown, Flame, Droplet, CalendarDays, PieChart, Utensils, Scale, Award } from 'lucide-react';
 import MetabolismTips from './components/MetabolismTips';
 
 interface BMRCalculatorProps {
@@ -21,6 +21,7 @@ const BMRCalculator: React.FC<BMRCalculatorProps> = ({ locale }) => {
   const [gender, setGender] = useState<'male' | 'female'>('male');
   const [height, setHeight] = useState<string>('');
   const [weight, setWeight] = useState<string>('');
+  const [goalWeight, setGoalWeight] = useState<string>('');
   const [unit, setUnit] = useState<'metric' | 'imperial'>('metric');
   const [selectedActivityLevel, setSelectedActivityLevel] = useState<ActivityLevel>('moderate');
   const [result, setResult] = useState<ReturnType<typeof calculateBMR> | null>(null);
@@ -51,12 +52,15 @@ const BMRCalculator: React.FC<BMRCalculatorProps> = ({ locale }) => {
       return;
     }
 
+    const goalWeightNum = goalWeight ? parseFloat(goalWeight) : undefined;
+
     const input: BMRInput = {
       age: ageNum,
       gender,
       height: heightNum,
       weight: weightNum,
       unit,
+      goalWeight: goalWeightNum,
     };
 
     try {
@@ -75,6 +79,7 @@ const BMRCalculator: React.FC<BMRCalculatorProps> = ({ locale }) => {
     setAge('');
     setHeight('');
     setWeight('');
+    setGoalWeight('');
     setGender('male');
     setUnit('metric');
     setSelectedActivityLevel('moderate');
@@ -207,6 +212,21 @@ const BMRCalculator: React.FC<BMRCalculatorProps> = ({ locale }) => {
           />
         </div>
 
+        {/* Goal Weight (Optional) */}
+        <div className="mt-6">
+          <Input
+            label={locale === 'tr' ? 'Hedef Kilo (Opsiyonel)' : 'Goal Weight (Optional)'}
+            type="number"
+            value={goalWeight}
+            onChange={(e) => setGoalWeight(e.target.value)}
+            placeholder={unit === 'metric' ? '65' : '143'}
+            rightIcon={
+              <span className="text-sm">{unit === 'metric' ? tUnits('kg') : tUnits('lbs')}</span>
+            }
+            helperText={locale === 'tr' ? 'Hedefe ulaşma süresini görmek için' : 'To see timeline to reach your goal'}
+          />
+        </div>
+
         {/* Activity Level */}
         <div className="mt-6">
           <label className="mb-3 block text-sm font-medium text-neutral-700">
@@ -252,6 +272,97 @@ const BMRCalculator: React.FC<BMRCalculatorProps> = ({ locale }) => {
       {/* Results */}
       {result && (
         <div className="space-y-4">
+          {/* Metabolic Overview */}
+          <Card className="animate-slide-up bg-gradient-to-br from-purple-50 to-indigo-50 border-2 border-purple-100">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-indigo-500">
+                <Award className="h-6 w-6 text-white" />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-neutral-900">
+                  {locale === 'tr' ? 'Metabolik Profil' : 'Metabolic Profile'}
+                </h3>
+                <p className="text-sm text-neutral-600">
+                  {locale === 'tr' ? 'Genel metabolizma değerlendirmesi' : 'Overall metabolism assessment'}
+                </p>
+              </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-4">
+              {/* Metabolic Age */}
+              {result.metabolicAge && (
+                <div className="rounded-lg bg-white p-4 text-center border border-purple-200">
+                  <p className="text-xs text-neutral-600 mb-1">{locale === 'tr' ? 'Metabolik Yaş' : 'Metabolic Age'}</p>
+                  <div className="text-3xl font-bold text-purple-600">{result.metabolicAge}</div>
+                  <p className="text-xs text-neutral-500 mt-1">
+                    {result.metabolicAge < parseInt(age) ? '🎉 ' : result.metabolicAge > parseInt(age) ? '💪 ' : '✅ '}
+                    {result.metabolicAge < parseInt(age)
+                      ? (locale === 'tr' ? 'Harika!' : 'Great!')
+                      : result.metabolicAge > parseInt(age)
+                      ? (locale === 'tr' ? 'Geliştirilebilir' : 'Room to improve')
+                      : (locale === 'tr' ? 'Normal' : 'On track')}
+                  </p>
+                </div>
+              )}
+
+              {/* Metabolic Rate */}
+              <div className="rounded-lg bg-white p-4 text-center border border-indigo-200">
+                <p className="text-xs text-neutral-600 mb-1">{locale === 'tr' ? 'Metabolizma Hızı' : 'Metabolic Rate'}</p>
+                <div className={`text-2xl font-bold ${result.metabolicRate === 'high' ? 'text-green-600' : result.metabolicRate === 'low' ? 'text-red-600' : 'text-blue-600'}`}>
+                  {result.metabolicRate === 'high' ? (locale === 'tr' ? 'Yüksek' : 'High') :
+                   result.metabolicRate === 'low' ? (locale === 'tr' ? 'Düşük' : 'Low') :
+                   (locale === 'tr' ? 'Normal' : 'Normal')}
+                </div>
+                <p className="text-xs text-neutral-500 mt-1">
+                  {result.metabolicRate === 'high' ? '🔥' : result.metabolicRate === 'low' ? '🐢' : '✓'}
+                </p>
+              </div>
+
+              {/* BMI */}
+              {result.bmi && (
+                <div className="rounded-lg bg-white p-4 text-center border border-blue-200">
+                  <p className="text-xs text-neutral-600 mb-1">{locale === 'tr' ? 'Vücut Kütle İndeksi' : 'Body Mass Index'}</p>
+                  <div className="text-3xl font-bold text-blue-600">{result.bmi}</div>
+                  <p className="text-xs text-neutral-500 mt-1">
+                    {result.bmi < 18.5 ? (locale === 'tr' ? 'Zayıf' : 'Underweight') :
+                     result.bmi < 25 ? (locale === 'tr' ? 'Normal' : 'Normal') :
+                     result.bmi < 30 ? (locale === 'tr' ? 'Fazla' : 'Overweight') :
+                     (locale === 'tr' ? 'Obez' : 'Obese')}
+                  </p>
+                </div>
+              )}
+
+              {/* Water Intake */}
+              {result.dailyWaterIntake && (
+                <div className="rounded-lg bg-white p-4 text-center border border-cyan-200">
+                  <Droplet className="mx-auto h-6 w-6 text-cyan-600 mb-1" />
+                  <div className="text-3xl font-bold text-cyan-600">{result.dailyWaterIntake}</div>
+                  <p className="text-xs text-neutral-600 mt-1">
+                    {unit === 'metric' ? (locale === 'tr' ? 'litre/gün' : 'liters/day') : 'oz/day'}
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Ideal Weight Range */}
+            {result.idealWeight && (
+              <div className="mt-4 rounded-lg bg-white p-4 border border-green-200">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium text-neutral-700">{locale === 'tr' ? 'İdeal Kilo Aralığınız' : 'Your Ideal Weight Range'}</p>
+                    <p className="text-xs text-neutral-500">{locale === 'tr' ? 'Sağlıklı BMI aralığına göre (18.5-24.9)' : 'Based on healthy BMI range (18.5-24.9)'}</p>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-2xl font-bold text-green-600">
+                      {result.idealWeight.min} - {result.idealWeight.max}
+                    </span>
+                    <span className="ml-2 text-sm text-neutral-600">{unit === 'metric' ? tUnits('kg') : tUnits('lbs')}</span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </Card>
+
           {/* BMR Display */}
           <Card className="animate-slide-up border-2 border-amber-100 bg-gradient-to-br from-amber-50 to-orange-50">
             <div className="mb-6 flex items-center justify-between">
@@ -361,6 +472,260 @@ const BMRCalculator: React.FC<BMRCalculatorProps> = ({ locale }) => {
               })}
             </div>
           </Card>
+
+          {/* Macro Suggestions */}
+          {result.macroSuggestions && (
+            <Card className="animate-slide-up">
+              <div className="flex items-center gap-2 mb-4">
+                <PieChart className="h-5 w-5 text-indigo-600" />
+                <h3 className="text-lg font-bold text-neutral-900">
+                  {locale === 'tr' ? 'Makro Besin Önerileri' : 'Macro Nutrient Recommendations'}
+                </h3>
+              </div>
+              <p className="text-sm text-neutral-600 mb-4">
+                {locale === 'tr'
+                  ? 'Hedeflerinize göre önerilen günlük protein, karbonhidrat ve yağ miktarları'
+                  : 'Recommended daily protein, carbs, and fat based on your goals'}
+              </p>
+
+              <div className="grid gap-4 md:grid-cols-3">
+                {/* Weight Loss */}
+                <div className="rounded-lg border-2 border-red-200 bg-red-50 p-4">
+                  <h4 className="mb-3 font-semibold text-red-900">{locale === 'tr' ? 'Kilo Kaybı' : 'Weight Loss'}</h4>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-neutral-700">Protein:</span>
+                      <span className="font-bold text-red-900">{result.macroSuggestions.weightLoss.protein.grams}g ({result.macroSuggestions.weightLoss.protein.percentage}%)</span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-neutral-700">{locale === 'tr' ? 'Karb:' : 'Carbs:'}</span>
+                      <span className="font-bold text-red-900">{result.macroSuggestions.weightLoss.carbs.grams}g ({result.macroSuggestions.weightLoss.carbs.percentage}%)</span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-neutral-700">{locale === 'tr' ? 'Yağ:' : 'Fat:'}</span>
+                      <span className="font-bold text-red-900">{result.macroSuggestions.weightLoss.fat.grams}g ({result.macroSuggestions.weightLoss.fat.percentage}%)</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Maintenance */}
+                <div className="rounded-lg border-2 border-blue-200 bg-blue-50 p-4">
+                  <h4 className="mb-3 font-semibold text-blue-900">{locale === 'tr' ? 'Koruma' : 'Maintenance'}</h4>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-neutral-700">Protein:</span>
+                      <span className="font-bold text-blue-900">{result.macroSuggestions.maintenance.protein.grams}g ({result.macroSuggestions.maintenance.protein.percentage}%)</span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-neutral-700">{locale === 'tr' ? 'Karb:' : 'Carbs:'}</span>
+                      <span className="font-bold text-blue-900">{result.macroSuggestions.maintenance.carbs.grams}g ({result.macroSuggestions.maintenance.carbs.percentage}%)</span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-neutral-700">{locale === 'tr' ? 'Yağ:' : 'Fat:'}</span>
+                      <span className="font-bold text-blue-900">{result.macroSuggestions.maintenance.fat.grams}g ({result.macroSuggestions.maintenance.fat.percentage}%)</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Muscle Gain */}
+                <div className="rounded-lg border-2 border-green-200 bg-green-50 p-4">
+                  <h4 className="mb-3 font-semibold text-green-900">{locale === 'tr' ? 'Kas Kazanımı' : 'Muscle Gain'}</h4>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-neutral-700">Protein:</span>
+                      <span className="font-bold text-green-900">{result.macroSuggestions.muscleGain.protein.grams}g ({result.macroSuggestions.muscleGain.protein.percentage}%)</span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-neutral-700">{locale === 'tr' ? 'Karb:' : 'Carbs:'}</span>
+                      <span className="font-bold text-green-900">{result.macroSuggestions.muscleGain.carbs.grams}g ({result.macroSuggestions.muscleGain.carbs.percentage}%)</span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-neutral-700">{locale === 'tr' ? 'Yağ:' : 'Fat:'}</span>
+                      <span className="font-bold text-green-900">{result.macroSuggestions.muscleGain.fat.grams}g ({result.macroSuggestions.muscleGain.fat.percentage}%)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          )}
+
+          {/* Meal Plans */}
+          {result.mealPlans && (
+            <Card className="animate-slide-up">
+              <div className="flex items-center gap-2 mb-4">
+                <Utensils className="h-5 w-5 text-orange-600" />
+                <h3 className="text-lg font-bold text-neutral-900">
+                  {locale === 'tr' ? 'Öğün Planlama Önerileri' : 'Meal Planning Suggestions'}
+                </h3>
+              </div>
+              <p className="text-sm text-neutral-600 mb-4">
+                {locale === 'tr'
+                  ? 'Günlük kalori ihtiyacınızın öğünlere dağılımı (orta aktivite seviyesi için)'
+                  : 'Distribution of daily calorie needs across meals (for moderate activity level)'}
+              </p>
+
+              <div className="grid gap-4 sm:grid-cols-3">
+                {/* 3 Meals */}
+                <div className="rounded-lg border-2 border-blue-200 bg-blue-50 p-4">
+                  <h4 className="mb-3 font-semibold text-blue-900">
+                    {locale === 'tr' ? '3 Ana Öğün' : '3 Main Meals'}
+                  </h4>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-neutral-700">{locale === 'tr' ? 'Kahvaltı:' : 'Breakfast:'}</span>
+                      <span className="font-bold text-blue-900">{result.mealPlans.threeMeals.breakfast} kal</span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-neutral-700">{locale === 'tr' ? 'Öğle:' : 'Lunch:'}</span>
+                      <span className="font-bold text-blue-900">{result.mealPlans.threeMeals.lunch} kal</span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-neutral-700">{locale === 'tr' ? 'Akşam:' : 'Dinner:'}</span>
+                      <span className="font-bold text-blue-900">{result.mealPlans.threeMeals.dinner} kal</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 4 Meals */}
+                <div className="rounded-lg border-2 border-green-200 bg-green-50 p-4">
+                  <h4 className="mb-3 font-semibold text-green-900">
+                    {locale === 'tr' ? '3 Öğün + Atıştırma' : '3 Meals + Snacks'}
+                  </h4>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-neutral-700">{locale === 'tr' ? 'Kahvaltı:' : 'Breakfast:'}</span>
+                      <span className="font-bold text-green-900">{result.mealPlans.fourMeals.breakfast} kal</span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-neutral-700">{locale === 'tr' ? 'Öğle:' : 'Lunch:'}</span>
+                      <span className="font-bold text-green-900">{result.mealPlans.fourMeals.lunch} kal</span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-neutral-700">{locale === 'tr' ? 'Akşam:' : 'Dinner:'}</span>
+                      <span className="font-bold text-green-900">{result.mealPlans.fourMeals.dinner} kal</span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-neutral-700">{locale === 'tr' ? 'Atıştırma:' : 'Snacks:'}</span>
+                      <span className="font-bold text-green-900">{result.mealPlans.fourMeals.snacks} kal</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 6 Meals */}
+                <div className="rounded-lg border-2 border-purple-200 bg-purple-50 p-4">
+                  <h4 className="mb-3 font-semibold text-purple-900">
+                    {locale === 'tr' ? '6 Küçük Öğün' : '6 Small Meals'}
+                  </h4>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-neutral-700">{locale === 'tr' ? 'Kahvaltı:' : 'Breakfast:'}</span>
+                      <span className="font-bold text-purple-900">{result.mealPlans.sixMeals.breakfast} kal</span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-neutral-700">{locale === 'tr' ? 'Öğle:' : 'Lunch:'}</span>
+                      <span className="font-bold text-purple-900">{result.mealPlans.sixMeals.lunch} kal</span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-neutral-700">{locale === 'tr' ? 'Akşam:' : 'Dinner:'}</span>
+                      <span className="font-bold text-purple-900">{result.mealPlans.sixMeals.dinner} kal</span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-neutral-700">{locale === 'tr' ? 'Ara öğünler:' : 'Snacks (3x):'}</span>
+                      <span className="font-bold text-purple-900">{result.mealPlans.sixMeals.snacks} kal</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          )}
+
+          {/* Weight Goal Timeline */}
+          {result.weightGoal && (
+            <Card className="animate-slide-up bg-gradient-to-br from-green-50 to-teal-50 border-2 border-green-200">
+              <div className="flex items-center gap-2 mb-4">
+                <CalendarDays className="h-5 w-5 text-green-600" />
+                <h3 className="text-lg font-bold text-neutral-900">
+                  {locale === 'tr' ? 'Hedef Kilo Zaman Çizelgesi' : 'Weight Goal Timeline'}
+                </h3>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+                <div className="rounded-lg bg-white p-4 text-center border border-green-200">
+                  <p className="text-xs text-neutral-600 mb-1">{locale === 'tr' ? 'Mevcut Kilo' : 'Current Weight'}</p>
+                  <div className="text-3xl font-bold text-blue-600">{result.weightGoal.currentWeight}</div>
+                  <p className="text-xs text-neutral-500 mt-1">{unit === 'metric' ? tUnits('kg') : tUnits('lbs')}</p>
+                </div>
+
+                <div className="rounded-lg bg-white p-4 text-center border border-green-200">
+                  <p className="text-xs text-neutral-600 mb-1">{locale === 'tr' ? 'Hedef Kilo' : 'Goal Weight'}</p>
+                  <div className="text-3xl font-bold text-green-600">{result.weightGoal.goalWeight}</div>
+                  <p className="text-xs text-neutral-500 mt-1">{unit === 'metric' ? tUnits('kg') : tUnits('lbs')}</p>
+                </div>
+
+                <div className="rounded-lg bg-white p-4 text-center border border-green-200">
+                  <p className="text-xs text-neutral-600 mb-1">{locale === 'tr' ? 'Haftalık Değişim' : 'Weekly Change'}</p>
+                  <div className="text-3xl font-bold text-orange-600">{result.weightGoal.weeklyChange}</div>
+                  <p className="text-xs text-neutral-500 mt-1">{unit === 'metric' ? 'kg/hafta' : 'lbs/week'}</p>
+                </div>
+
+                <div className="rounded-lg bg-white p-4 text-center border border-green-200">
+                  <p className="text-xs text-neutral-600 mb-1">{locale === 'tr' ? 'Tahmini Süre' : 'Estimated Time'}</p>
+                  <div className="text-3xl font-bold text-purple-600">{result.weightGoal.weeksToGoal}</div>
+                  <p className="text-xs text-neutral-500 mt-1">{locale === 'tr' ? 'hafta' : 'weeks'}</p>
+                </div>
+              </div>
+
+              <div className="mt-4 rounded-lg bg-white p-4 border border-green-200">
+                <p className="text-sm text-neutral-700">
+                  <span className="font-semibold">{locale === 'tr' ? 'Tahmini Ulaşma Tarihi:' : 'Estimated Goal Date:'}</span>{' '}
+                  <span className="text-green-600 font-bold">{result.weightGoal.estimatedDate}</span>
+                </p>
+                <p className="text-xs text-neutral-500 mt-2">
+                  {locale === 'tr'
+                    ? 'Bu tahmin sağlıklı ve sürdürülebilir bir kilo değişim hızına dayanmaktadır. Gerçek sonuçlar kişiden kişiye değişebilir.'
+                    : 'This estimate is based on a healthy and sustainable rate of weight change. Actual results may vary.'}
+                </p>
+              </div>
+            </Card>
+          )}
+
+          {/* Weekly/Monthly Calories */}
+          {result.weeklyCalories && result.monthlyCalories && (
+            <Card className="animate-slide-up">
+              <div className="flex items-center gap-2 mb-4">
+                <Scale className="h-5 w-5 text-amber-600" />
+                <h3 className="text-lg font-bold text-neutral-900">
+                  {locale === 'tr' ? 'Uzun Vadeli Kalori Planlaması' : 'Long-term Calorie Planning'}
+                </h3>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="rounded-lg border border-neutral-200 p-4">
+                  <h4 className="mb-3 font-semibold text-neutral-900">{locale === 'tr' ? 'Haftalık Kalori' : 'Weekly Calories'}</h4>
+                  <div className="space-y-2">
+                    {activityOptions.map((option) => (
+                      <div key={option.value} className="flex items-center justify-between text-sm">
+                        <span className="text-neutral-700">{option.label}:</span>
+                        <span className="font-bold text-amber-600">{result.weeklyCalories![option.value].toLocaleString()} kal</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="rounded-lg border border-neutral-200 p-4">
+                  <h4 className="mb-3 font-semibold text-neutral-900">{locale === 'tr' ? 'Aylık Kalori' : 'Monthly Calories'}</h4>
+                  <div className="space-y-2">
+                    {activityOptions.map((option) => (
+                      <div key={option.value} className="flex items-center justify-between text-sm">
+                        <span className="text-neutral-700">{option.label}:</span>
+                        <span className="font-bold text-orange-600">{result.monthlyCalories![option.value].toLocaleString()} kal</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Card>
+          )}
 
           {/* Summary and Info */}
           <Card className="animate-slide-up">

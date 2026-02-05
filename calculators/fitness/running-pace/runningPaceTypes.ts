@@ -4,6 +4,32 @@ export interface RunningPaceInput {
   hours: number;
   minutes: number;
   seconds: number;
+  // Optional for enhanced calculations
+  age?: number;
+  weight?: number;
+  weightUnit?: 'kg' | 'lbs';
+  gender?: 'male' | 'female';
+}
+
+export type RunningLevel = 'beginner' | 'intermediate' | 'advanced' | 'elite';
+
+export interface TrainingZone {
+  name: string;
+  description: string;
+  paceRange: {
+    min: { minutes: number; seconds: number };
+    max: { minutes: number; seconds: number };
+  };
+  percentage: string;
+  heartRatePercentage?: string;
+}
+
+export interface RacePrediction {
+  distance: number;
+  distanceLabel: string;
+  unit: string;
+  predictedTime: string;
+  predictedPace: string;
 }
 
 export interface RunningPaceResult {
@@ -31,5 +57,27 @@ export interface RunningPaceResult {
     distance: number;
     unit: string;
     time: string;
+    pace?: string;
   }[];
+  // Enhanced results
+  runningLevel: RunningLevel;
+  vo2Max?: number;
+  caloriesBurned?: number;
+  trainingZones: TrainingZone[];
+  racePredictions: RacePrediction[];
+  worldRecordComparison?: {
+    recordTime: string;
+    recordPace: string;
+    percentageOfRecord: number;
+  };
+  heartRateZones?: {
+    maxHeartRate: number;
+    zones: {
+      name: string;
+      min: number;
+      max: number;
+      percentage: string;
+    }[];
+  };
+  performanceScore: number; // 0-100
 }

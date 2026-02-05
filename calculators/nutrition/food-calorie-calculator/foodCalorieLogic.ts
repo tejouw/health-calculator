@@ -2280,3 +2280,201 @@ export function getFoodsByCategory(category: FoodCategory): FoodItem[] {
 export function getCategoryInfo(category: FoodCategory): CategoryInfo | undefined {
   return categories.find((c) => c.name === category);
 }
+
+// Enhanced calculation functions
+import type { MacroDistribution, MealSummary, HealthScore, MealType } from './foodCalorieTypes';
+
+export function calculateMacroDistribution(
+  totalProtein: number,
+  totalCarbs: number,
+  totalFat: number
+): MacroDistribution {
+  const proteinCalories = totalProtein * 4;
+  const carbsCalories = totalCarbs * 4;
+  const fatCalories = totalFat * 9;
+  const totalCal = proteinCalories + carbsCalories + fatCalories;
+
+  if (totalCal === 0) {
+    return {
+      proteinPercentage: 0,
+      carbsPercentage: 0,
+      fatPercentage: 0,
+      proteinCalories: 0,
+      carbsCalories: 0,
+      fatCalories: 0,
+    };
+  }
+
+  return {
+    proteinPercentage: Math.round((proteinCalories / totalCal) * 100),
+    carbsPercentage: Math.round((carbsCalories / totalCal) * 100),
+    fatPercentage: Math.round((fatCalories / totalCal) * 100),
+    proteinCalories: Math.round(proteinCalories),
+    carbsCalories: Math.round(carbsCalories),
+    fatCalories: Math.round(fatCalories),
+  };
+}
+
+export function calculateMealSummary(selectedFoods: SelectedFood[]): MealSummary {
+  const summary: MealSummary = {
+    breakfast: { calories: 0, protein: 0, carbs: 0, fat: 0, count: 0 },
+    lunch: { calories: 0, protein: 0, carbs: 0, fat: 0, count: 0 },
+    dinner: { calories: 0, protein: 0, carbs: 0, fat: 0, count: 0 },
+    snack: { calories: 0, protein: 0, carbs: 0, fat: 0, count: 0 },
+  };
+
+  selectedFoods.forEach((sf) => {
+    const nutrition = calculateFoodNutrition(sf.food, sf.grams);
+    const mealType = sf.mealType || 'snack';
+
+    summary[mealType].calories += nutrition.calories;
+    summary[mealType].protein += nutrition.protein;
+    summary[mealType].carbs += nutrition.carbs;
+    summary[mealType].fat += nutrition.fat;
+    summary[mealType].count += 1;
+  });
+
+  // Round values
+  Object.keys(summary).forEach((key) => {
+    const meal = summary[key as MealType];
+    meal.protein = Math.round(meal.protein * 10) / 10;
+    meal.carbs = Math.round(meal.carbs * 10) / 10;
+    meal.fat = Math.round(meal.fat * 10) / 10;
+  });
+
+  return summary;
+}
+
+export function calculateHealthScore(
+  totalCalories: number,
+  totalProtein: number,
+  totalFiber: number,
+  macroDistribution: MacroDistribution,
+  varietyCount: number
+): HealthScore {
+  let proteinScore = 0;
+  let fiberScore = 0;
+  let balanceScore = 0;
+  let varietyScore = 0;
+
+  // Protein score (0-25 points) - based on % of calories from protein
+  const proteinPercent = macroDistribution.proteinPercentage;
+  if (proteinPercent >= 20 && proteinPercent <= 35) proteinScore = 25;
+  else if (proteinPercent >= 15 && proteinPercent < 20) proteinScore = 20;
+  else if (proteinPercent >= 10 && proteinPercent < 15) proteinScore = 15;
+  else proteinScore = 5;
+
+  // Fiber score (0-25 points) - based on fiber per 1000 calories
+  const fiberPer1000Cal = totalCalories > 0 ? (totalFiber / totalCalories) * 1000 : 0;
+  if (fiberPer1000Cal >= 14) fiberScore = 25;
+  else if (fiberPer1000Cal >= 10) fiberScore = 20;
+  else if (fiberPer1000Cal >= 6) fiberScore = 15;
+  else if (fiberPer1000Cal >= 3) fiberScore = 10;
+  else fiberScore = 5;
+
+  // Balance score (0-30 points) - based on macro distribution
+  const { proteinPercentage, carbsPercentage, fatPercentage } = macroDistribution;
+  const idealProtein = 25;
+  const idealCarbs = 50;
+  const idealFat = 25;
+
+  const proteinDiff = Math.abs(proteinPercentage - idealProtein);
+  const carbsDiff = Math.abs(carbsPercentage - idealCarbs);
+  const fatDiff = Math.abs(fatPercentage - idealFat);
+  const totalDiff = proteinDiff + carbsDiff + fatDiff;
+
+  if (totalDiff <= 20) balanceScore = 30;
+  else if (totalDiff <= 40) balanceScore = 20;
+  else if (totalDiff <= 60) balanceScore = 10;
+  else balanceScore = 5;
+
+  // Variety score (0-20 points) - based on number of different foods
+  if (varietyCount >= 10) varietyScore = 20;
+  else if (varietyCount >= 7) varietyScore = 15;
+  else if (varietyCount >= 5) varietyScore = 10;
+  else if (varietyCount >= 3) varietyScore = 5;
+  else varietyScore = 0;
+
+  const overall = proteinScore + fiberScore + balanceScore + varietyScore;
+
+  return {
+    overall,
+    proteinScore,
+    fiberScore,
+    balanceScore,
+    varietyScore,
+  };
+}
+
+export function calculateNutrientDensity(
+  totalProtein: number,
+  totalFiber: number,
+  totalCalories: number
+): number {
+  if (totalCalories === 0) return 0;
+
+  // Calculate nutrients (protein + fiber) per 100 calories
+  const nutrientsPerCal = ((totalProtein + totalFiber) / totalCalories) * 100;
+  return Math.round(nutrientsPerCal * 10) / 10;
+}
+
+export function calculateEnhancedNutrition(
+  selectedFoods: SelectedFood[],
+  dailyGoalCalories?: number
+): NutritionSummary {
+  const basic = calculateTotalNutrition(selectedFoods);
+
+  // Macro distribution
+  const macroDistribution = calculateMacroDistribution(
+    basic.totalProtein,
+    basic.totalCarbs,
+    basic.totalFat
+  );
+
+  // Meal summary
+  const mealSummary = calculateMealSummary(selectedFoods);
+
+  // Health score
+  const healthScore = calculateHealthScore(
+    basic.totalCalories,
+    basic.totalProtein,
+    basic.totalFiber,
+    macroDistribution,
+    selectedFoods.length
+  );
+
+  // Nutrient density
+  const nutrientDensity = calculateNutrientDensity(
+    basic.totalProtein,
+    basic.totalFiber,
+    basic.totalCalories
+  );
+
+  // Daily goal tracking
+  let dailyGoal;
+  if (dailyGoalCalories && dailyGoalCalories > 0) {
+    const remaining = dailyGoalCalories - basic.totalCalories;
+    const progress = Math.min(100, Math.round((basic.totalCalories / dailyGoalCalories) * 100));
+    dailyGoal = {
+      targetCalories: dailyGoalCalories,
+      remainingCalories: remaining,
+      progressPercentage: progress,
+    };
+  }
+
+  // Add meal type to foods
+  const foodsWithMeal = basic.foods.map((f, index) => ({
+    ...f,
+    mealType: selectedFoods[index].mealType,
+  }));
+
+  return {
+    ...basic,
+    foods: foodsWithMeal,
+    macroDistribution,
+    mealSummary,
+    healthScore,
+    nutrientDensity,
+    dailyGoal,
+  };
+}
