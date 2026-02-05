@@ -181,6 +181,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
               name: calculator.title[locale as 'en' | 'tr'],
               description: calculator.description[locale as 'en' | 'tr'],
               url: pageUrl,
+              locale: locale as 'en' | 'tr',
             })
           ),
         }}
@@ -196,6 +197,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
               description: calculator.description[locale as 'en' | 'tr'],
               url: pageUrl,
               specialty: categoryToSpecialty[calculator.category] || 'General Health',
+              locale: locale as 'en' | 'tr',
             })
           ),
         }}
@@ -210,6 +212,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
               headline: calculator.title[locale as 'en' | 'tr'],
               description: calculator.description[locale as 'en' | 'tr'],
               url: pageUrl,
+              locale: locale as 'en' | 'tr',
             })
           ),
         }}

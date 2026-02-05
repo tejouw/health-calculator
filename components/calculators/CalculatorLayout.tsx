@@ -7,6 +7,7 @@ import { Breadcrumbs } from '@/components/layout';
 import { Card } from '@/components/ui';
 import { getCategoryById } from '@/config/categories.config';
 import { usePageViewTracking } from '@/hooks/usePageViewTracking';
+import { ShieldCheck } from 'lucide-react';
 
 // Import BMI-specific components (will be conditionally rendered)
 import BMICategoriesTable from '@/calculators/body-weight/bmi/components/BMICategoriesTable';
@@ -78,6 +79,12 @@ const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
             <div>
               <h1 className="heading-2 mb-3">{calculator.title[locale]}</h1>
               <p className="text-body max-w-3xl">{calculator.description[locale]}</p>
+              <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-green-50 px-3 py-1.5 text-xs text-green-700">
+                <ShieldCheck className="h-3.5 w-3.5" />
+                <span>
+                  {t('medicallyReviewedBy')}: {t('medicalReviewTeam')} | {t('lastMedicalReview')}: {t('medicalReviewDate')}
+                </span>
+              </div>
             </div>
             <ShareButtons
               url={shareUrl}

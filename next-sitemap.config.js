@@ -175,7 +175,7 @@ module.exports = {
   siteUrl: process.env.SITE_URL || 'https://prohealthcalc.com',
   generateRobotsTxt: false,
   generateIndexSitemap: false,
-  exclude: ['/server-sitemap.xml'], // Only exclude server-generated sitemaps
+  exclude: ['/server-sitemap.xml'],
   changefreq: 'daily',
   priority: 0.7,
   robotsTxtOptions: {
@@ -190,39 +190,48 @@ module.exports = {
     ],
   },
   transform: async (config, path) => {
-    // Extract locale from path prefix
+    // Extract locale from path prefix (/en/... or /tr/...)
     const localePrefix = path.startsWith('/tr') ? 'tr' : 'en';
 
-    // Remove locale prefix from URL for domain-based routing
-    // /en/something -> /something or /tr/something -> /something
+    // Remove locale prefix: /en/something -> /something, /tr/something -> /something
     const cleanPath = path.replace(/^\/(en|tr)/, '') || '/';
 
-    // Detect the actual locale of the path content (not just the prefix)
-    // This handles cases where paths might be in different locales
-    const pathLocale = cleanPath === '/' ? localePrefix : detectPathLocale(cleanPath);
+    // Determine domains based on locale prefix
+    const enDomain = 'https://prohealthcalc.com';
+    const trDomain = 'https://saglikhesapla.com';
+    const domain = localePrefix === 'en' ? enDomain : trDomain;
 
-    // Determine the domain based on locale prefix (this determines which site the URL is for)
-    const domain = localePrefix === 'en' ? 'https://prohealthcalc.com' : 'https://saglikhesapla.com';
-    const alternateDomain = localePrefix === 'en' ? 'https://saglikhesapla.com' : 'https://prohealthcalc.com';
-    const alternateLocale = localePrefix === 'en' ? 'tr' : 'en';
-
-    // Translate paths correctly based on detected locale
-    let localizedPath, alternatePath;
+    // Determine EN and TR paths
+    // For localePrefix=en: cleanPath has English slugs
+    // For localePrefix=tr: cleanPath may have Turkish slugs (categories/calculators)
+    //   but static pages use internal English names (about, contact, etc.)
+    let enPath, trPath;
 
     if (cleanPath === '/') {
-      localizedPath = '/';
-      alternatePath = '/';
+      enPath = '/';
+      trPath = '/';
+    } else if (localePrefix === 'en') {
+      enPath = cleanPath;
+      trPath = translatePath(cleanPath, 'en', 'tr');
     } else {
-      // If path is in English format, translate to Turkish for alternate
-      // If path is in Turkish format, translate to English for alternate
-      if (pathLocale === 'en') {
-        localizedPath = cleanPath;
-        alternatePath = translatePath(cleanPath, 'en', 'tr');
+      // TR locale: cleanPath has Turkish slugs for categories/calculators
+      // but may have English internal names for static pages (about → hakkimizda)
+      const segments = cleanPath.split('/').filter(Boolean);
+      const isInternalStaticPage = segments.length === 1 &&
+        Object.values(STATIC_PAGE_SLUGS).some(s => s.en === segments[0]);
+
+      if (isInternalStaticPage) {
+        // Static page with internal (English) name - translate to both locales
+        enPath = cleanPath;
+        trPath = translatePath(cleanPath, 'en', 'tr');
       } else {
-        localizedPath = cleanPath;
-        alternatePath = translatePath(cleanPath, 'tr', 'en');
+        trPath = cleanPath;
+        enPath = translatePath(cleanPath, 'tr', 'en');
       }
     }
+
+    // Use the correct localized path for the loc URL
+    const localizedPath = localePrefix === 'en' ? enPath : trPath;
 
     // Determine page type from the path for priority
     const segments = cleanPath.split('/').filter(Boolean);
@@ -253,16 +262,31 @@ module.exports = {
       changefreq = 'weekly';
     }
 
+    // Build alternateRefs with self-referencing + alternate hreflang (Google best practice)
+    const alternateRefs = [
+      {
+        href: `${enDomain}${enPath}`,
+        hreflang: 'en',
+        hrefIsAbsolute: true,
+      },
+      {
+        href: `${trDomain}${trPath}`,
+        hreflang: 'tr',
+        hrefIsAbsolute: true,
+      },
+      {
+        href: `${domain}${localizedPath === '/' ? '/' : localizedPath}`,
+        hreflang: 'x-default',
+        hrefIsAbsolute: true,
+      },
+    ];
+
     return {
-      loc: `${domain}${localizedPath}`,
+      loc: `${domain}${localizedPath === '/' ? '' : localizedPath}`,
       changefreq,
       priority,
       lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
-      alternateRefs: [{
-        href: `${alternateDomain}${alternatePath}`,
-        hreflang: alternateLocale,
-        hrefIsAbsolute: true,
-      }],
+      alternateRefs,
     };
   },
 };

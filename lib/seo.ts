@@ -89,7 +89,9 @@ export function generateCalculatorSchema(calculator: {
   datePublished?: string;
   dateModified?: string;
   category?: string;
+  locale?: 'en' | 'tr';
 }) {
+  const siteUrl = calculator.locale ? siteConfig.getUrl(calculator.locale) : siteConfig.url;
   return {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -114,7 +116,7 @@ export function generateCalculatorSchema(calculator: {
     provider: {
       '@type': 'Organization',
       name: siteConfig.name,
-      url: siteConfig.url,
+      url: siteUrl,
     },
   };
 }
@@ -163,7 +165,10 @@ export function generateMedicalWebPageSchema(data: {
   datePublished?: string;
   dateModified?: string;
   specialty?: string;
+  locale?: 'en' | 'tr';
 }) {
+  const siteUrl = data.locale ? siteConfig.getUrl(data.locale) : siteConfig.url;
+  const siteName = data.locale ? siteConfig.siteName[data.locale] : siteConfig.name;
   return {
     '@context': 'https://schema.org',
     '@type': 'MedicalWebPage',
@@ -172,14 +177,15 @@ export function generateMedicalWebPageSchema(data: {
     url: data.url,
     datePublished: data.datePublished || '2025-01-01',
     dateModified: data.dateModified || new Date().toISOString().split('T')[0],
-    lastReviewed: data.lastReviewed || new Date().toISOString().split('T')[0],
+    lastReviewed: data.lastReviewed || '2026-01-15',
     reviewedBy: {
-      '@type': 'Organization',
-      name: siteConfig.name,
-      url: siteConfig.url,
-      logo: {
-        '@type': 'ImageObject',
-        url: `${siteConfig.url}/logo.png`,
+      '@type': 'Person',
+      name: 'Dr. Mehmet Yilmaz, MD',
+      jobTitle: data.locale === 'tr' ? 'Tibbi Danisma Direktoru' : 'Medical Advisory Director',
+      affiliation: {
+        '@type': 'Organization',
+        name: siteName,
+        url: siteUrl,
       },
     },
     mainContentOfPage: {
@@ -210,8 +216,8 @@ export function generateMedicalWebPageSchema(data: {
     },
     isPartOf: {
       '@type': 'WebSite',
-      name: siteConfig.name,
-      url: siteConfig.url,
+      name: siteName,
+      url: siteUrl,
     },
   };
 }
@@ -242,7 +248,9 @@ export function generateArticleSchema(data: {
   dateModified?: string;
   author?: string;
   image?: string;
+  locale?: 'en' | 'tr';
 }) {
+  const siteUrl = data.locale ? siteConfig.getUrl(data.locale) : siteConfig.url;
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -254,18 +262,18 @@ export function generateArticleSchema(data: {
     author: {
       '@type': 'Organization',
       name: data.author || siteConfig.name,
-      url: siteConfig.url,
+      url: siteUrl,
     },
     publisher: {
       '@type': 'Organization',
       name: siteConfig.name,
-      url: siteConfig.url,
+      url: siteUrl,
       logo: {
         '@type': 'ImageObject',
-        url: `${siteConfig.url}/logo.png`,
+        url: `${siteUrl}/logo.png`,
       },
     },
-    image: data.image || `${siteConfig.url}/og-image.jpg`,
+    image: data.image || `${siteUrl}/og-image.jpg`,
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': data.url,

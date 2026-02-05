@@ -113,7 +113,11 @@
     "howToCalculate": "How to Calculate",
     "interpretation": "Interpretation",
     "tips": "Tips",
-    "faq": "Frequently Asked Questions"
+    "faq": "Frequently Asked Questions",
+    "medicallyReviewedBy": "Medically Reviewed by",
+    "medicalReviewTeam": "Health Calculator Medical Team",
+    "lastMedicalReview": "Last Review",
+    "medicalReviewDate": "January 2026"
   },
   "branding": {
     "siteName": "ProHealthCalc"

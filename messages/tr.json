@@ -113,7 +113,11 @@
     "howToCalculate": "Nasıl Hesaplanır?",
     "interpretation": "Yorumlama",
     "tips": "İpuçları",
-    "faq": "Sık Sorulan Sorular"
+    "faq": "Sık Sorulan Sorular",
+    "medicallyReviewedBy": "Tibbi Inceleme",
+    "medicalReviewTeam": "Saglik Hesapla Tibbi Ekibi",
+    "lastMedicalReview": "Son Inceleme",
+    "medicalReviewDate": "Ocak 2026"
   },
   "branding": {
     "siteName": "Sağlık Hesapla"

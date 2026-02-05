@@ -1,5 +1,17 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /*?s=
+Disallow: /_next/static/
+Disallow: /admin/
+Disallow: /staging/
+
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.webp
+Allow: /*.avif
 
 Sitemap: https://prohealthcalc.com/sitemap.xml
 Sitemap: https://saglikhesapla.com/sitemap.xml

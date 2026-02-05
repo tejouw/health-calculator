@@ -5,6 +5,10 @@ export const siteConfig = {
     en: 'https://prohealthcalc.com',
     tr: 'https://saglikhesapla.com',
   },
+  /** Get locale-specific domain URL */
+  getUrl(locale: 'en' | 'tr'): string {
+    return this.domains[locale];
+  },
   siteName: {
     en: 'ProHealthCalc',
     tr: 'Sağlık Hesapla',

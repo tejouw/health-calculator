@@ -22,22 +22,26 @@ const nextConfig: NextConfig = {
         destination: '/:path*',
         permanent: true,
       },
-      // Fix English paths on Turkish domain - redirect to Turkish equivalents
-      {
-        source: '/pregnancy/due-date-calculator',
-        destination: '/hamilelik/dogum-tarihi-hesaplayici',
+      // Redirect English category paths to Turkish equivalents (only on Turkish domain)
+      ...[
+        { en: 'body-weight', tr: 'vucut-kilo' },
+        { en: 'nutrition', tr: 'beslenme' },
+        { en: 'pregnancy', tr: 'hamilelik' },
+        { en: 'womens-health', tr: 'kadin-sagligi' },
+        { en: 'mens-health', tr: 'erkek-sagligi' },
+        { en: 'heart', tr: 'kalp' },
+        { en: 'diabetes', tr: 'diyabet' },
+        { en: 'medical', tr: 'tibbi-hesaplamalar' },
+        { en: 'mental-health', tr: 'ruh-sagligi' },
+        { en: 'sleep', tr: 'uyku' },
+        { en: 'childrens-health', tr: 'cocuk-sagligi' },
+        { en: 'daily-life', tr: 'gunluk-yasam' },
+      ].map(({ en, tr }) => ({
+        source: `/${en}/:slug*`,
+        has: [{ type: 'host' as const, value: 'saglikhesapla.com' }],
+        destination: `/${tr}/:slug*`,
         permanent: true,
-      },
-      {
-        source: '/womens-health/ovulation-calculator',
-        destination: '/kadin-sagligi/yumurtlama-hesaplayici',
-        permanent: true,
-      },
-      {
-        source: '/nutrition/calorie-calculator',
-        destination: '/beslenme/kalori-hesaplayici',
-        permanent: true,
-      },
+      })),
       // Fix broken URL with ampersand
       {
         source: '/&',
