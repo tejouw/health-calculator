@@ -143,3 +143,11 @@ export function isValidCategorySlug(slug: string): boolean {
 export function getAllCategorySlugs(): CategoryId[] {
   return Object.values(CATEGORY_SLUG_MAP);
 }
+
+/**
+ * Get localized category name from CategoryId
+ */
+export function getCategoryNameByLocale(categoryId: CategoryId, locale: 'en' | 'tr'): string {
+  const category = categories.find(cat => cat.id === categoryId);
+  return category?.name[locale] || categoryId;
+}

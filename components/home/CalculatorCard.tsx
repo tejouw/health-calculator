@@ -4,7 +4,7 @@ import { Link } from '@/lib/navigation';
 import { Card } from '@/components/ui';
 import { CalculatorMeta } from '@/types/calculator';
 import { getIcon } from '@/lib/iconUtils';
-import { getCategorySlugByLocale } from '@/lib/categoryMapping';
+import { getCategorySlugByLocale, getCategoryNameByLocale } from '@/lib/categoryMapping';
 import { Calculator, ArrowRight, TrendingUp } from 'lucide-react';
 
 interface CalculatorCardProps {
@@ -17,6 +17,7 @@ export function CalculatorCard({ calculator, locale, showPopularBadge = false }:
   const IconComponent = getIcon(calculator.icon, Calculator);
   const title = calculator.title[locale];
   const description = calculator.description[locale];
+  const categoryName = getCategoryNameByLocale(calculator.category, locale);
 
   // Build the href based on category and calculator slug (both localized)
   const categorySlug = getCategorySlugByLocale(calculator.category, locale);
@@ -64,7 +65,7 @@ export function CalculatorCard({ calculator, locale, showPopularBadge = false }:
           <div className="flex items-center justify-between gap-2">
             <div className="flex items-center gap-1 sm:gap-1.5 text-xs font-medium text-neutral-500">
               <Calculator className="h-3 w-3 sm:h-3.5 sm:w-3.5 flex-shrink-0" />
-              <span className="leading-none capitalize">{calculator.category.replace('-', ' ')}</span>
+              <span className="leading-none">{categoryName}</span>
             </div>
 
             <div className="ml-auto flex items-center gap-0.5 sm:gap-1 text-xs sm:text-sm font-semibold text-primary-600 opacity-0 sm:opacity-0 group-hover:opacity-100 transition-opacity">
