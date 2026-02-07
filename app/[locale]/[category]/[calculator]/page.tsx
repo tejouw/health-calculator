@@ -35,6 +35,7 @@ import { a1cContent } from '@/calculators/diabetes/a1c-calculator/a1cContent';
 import { bloodSugarContent } from '@/calculators/diabetes/blood-sugar-converter/bloodSugarContent';
 import { gfrContent } from '@/calculators/medical/gfr-calculator/gfrContent';
 import { creatinineContent } from '@/calculators/medical/creatinine-clearance/creatinineContent';
+import { bsaContent } from '@/calculators/medical/bsa-calculator/bsaContent';
 import { phq9Content } from '@/calculators/mental-health/phq9-calculator/phq9Content';
 // Men's Health
 import { psaContent } from '@/calculators/mens-health/psa-calculator/psaContent';
@@ -147,6 +148,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     // Medical
     'gfr-calculator': gfrContent,
     'creatinine-clearance-calculator': creatinineContent,
+    'bsa-calculator': bsaContent,
     // Mental Health
     'phq9-calculator': phq9Content,
     // Men's Health

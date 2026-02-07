@@ -124,7 +124,7 @@ const AgeCalculator: React.FC<AgeCalculatorProps> = ({ locale }) => {
       {/* Input Card */}
       <Card>
         <div className="mb-6 flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-purple-500">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500">
             <Cake className="h-6 w-6 text-white" />
           </div>
           <div>
@@ -187,20 +187,20 @@ const AgeCalculator: React.FC<AgeCalculatorProps> = ({ locale }) => {
       {displayAge && (
         <>
           {/* Main Result Card */}
-          <Card className="animate-slide-up border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-purple-50">
+          <Card className="animate-slide-up border-2 border-primary-100 bg-gradient-to-br from-primary-50 to-secondary-50">
             <div className="text-center">
               <div className="mb-6">
                 <div className="mb-2 text-sm font-medium text-neutral-600">
                   {locale === 'tr' ? 'Yaşınız' : 'Your Age'}
                 </div>
-                <div className="text-6xl font-bold text-blue-600">
+                <div className="text-6xl font-bold text-primary-600">
                   {displayAge.age.years}
                 </div>
                 <div className="mt-2 text-lg text-neutral-700">
                   {locale === 'tr' ? 'Yıl' : 'Years'}{' '}
-                  <span className="text-blue-600">{displayAge.age.months}</span>{' '}
+                  <span className="text-primary-600">{displayAge.age.months}</span>{' '}
                   {locale === 'tr' ? 'Ay' : 'Months'}{' '}
-                  <span className="text-blue-600">{displayAge.age.days}</span>{' '}
+                  <span className="text-primary-600">{displayAge.age.days}</span>{' '}
                   {locale === 'tr' ? 'Gün' : 'Days'}
                 </div>
               </div>
@@ -212,7 +212,7 @@ const AgeCalculator: React.FC<AgeCalculatorProps> = ({ locale }) => {
                 </div>
                 <div className="grid grid-cols-3 gap-4 text-sm">
                   <div>
-                    <div className="text-2xl font-bold text-purple-600">
+                    <div className="text-2xl font-bold text-secondary-600">
                       {String(displayAge.age.hours).padStart(2, '0')}
                     </div>
                     <div className="text-xs text-neutral-600">
@@ -220,7 +220,7 @@ const AgeCalculator: React.FC<AgeCalculatorProps> = ({ locale }) => {
                     </div>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-purple-600">
+                    <div className="text-2xl font-bold text-secondary-600">
                       {String(displayAge.age.minutes).padStart(2, '0')}
                     </div>
                     <div className="text-xs text-neutral-600">
@@ -228,7 +228,7 @@ const AgeCalculator: React.FC<AgeCalculatorProps> = ({ locale }) => {
                     </div>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-purple-600">
+                    <div className="text-2xl font-bold text-secondary-600">
                       {String(displayAge.age.seconds).padStart(2, '0')}
                     </div>
                     <div className="text-xs text-neutral-600">
@@ -242,23 +242,23 @@ const AgeCalculator: React.FC<AgeCalculatorProps> = ({ locale }) => {
               <div className="grid grid-cols-2 gap-3">
                 <div className="rounded-lg bg-white p-3">
                   <div className="mb-1 flex items-center justify-center gap-1">
-                    <Calendar className="h-4 w-4 text-blue-600" />
+                    <Calendar className="h-4 w-4 text-primary-600" />
                     <span className="text-xs font-medium text-neutral-600">
                       {locale === 'tr' ? 'Toplam Gün' : 'Total Days'}
                     </span>
                   </div>
-                  <div className="text-xl font-bold text-blue-600">
+                  <div className="text-xl font-bold text-primary-600">
                     {displayAge.totalDays.toLocaleString()}
                   </div>
                 </div>
                 <div className="rounded-lg bg-white p-3">
                   <div className="mb-1 flex items-center justify-center gap-1">
-                    <Gift className="h-4 w-4 text-purple-600" />
+                    <Gift className="h-4 w-4 text-secondary-600" />
                     <span className="text-xs font-medium text-neutral-600">
                       {locale === 'tr' ? 'Sonraki Doğum Günü' : 'Next Birthday'}
                     </span>
                   </div>
-                  <div className="text-xl font-bold text-purple-600">
+                  <div className="text-xl font-bold text-secondary-600">
                     {displayAge.daysUntilBirthday}{' '}
                     <span className="text-sm">{locale === 'tr' ? 'gün' : 'days'}</span>
                   </div>
@@ -267,7 +267,7 @@ const AgeCalculator: React.FC<AgeCalculatorProps> = ({ locale }) => {
 
               {/* Generation Badge */}
               <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
-                <Users className="h-4 w-4 text-blue-600" />
+                <Users className="h-4 w-4 text-primary-600" />
                 <span className="font-semibold text-neutral-700">
                   {displayAge.generation.name[locale]}
                 </span>
@@ -278,19 +278,19 @@ const AgeCalculator: React.FC<AgeCalculatorProps> = ({ locale }) => {
           {/* Birth Information */}
           <Card>
             <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-neutral-900">
-              <Cake className="h-5 w-5 text-blue-600" />
+              <Cake className="h-5 w-5 text-primary-600" />
               {locale === 'tr' ? 'Doğum Bilgileri' : 'Birth Information'}
             </h3>
             <div className="grid gap-4 md:grid-cols-2">
-              <div className="rounded-lg bg-gradient-to-r from-blue-50 to-cyan-50 p-4">
+              <div className="rounded-lg bg-gradient-to-r from-primary-50 to-secondary-50 p-4">
                 <div className="mb-1 text-sm text-neutral-600">
                   {locale === 'tr' ? 'Doğduğunuz Gün' : 'Day of Birth'}
                 </div>
-                <div className="text-xl font-bold text-blue-600">
+                <div className="text-xl font-bold text-primary-600">
                   {displayAge.dayOfWeek[locale]}
                 </div>
               </div>
-              <div className="rounded-lg bg-gradient-to-r from-purple-50 to-pink-50 p-4">
+              <div className="rounded-lg bg-gradient-to-r from-secondary-50 to-primary-50 p-4">
                 <div className="mb-1 text-sm text-neutral-600">
                   {locale === 'tr' ? 'Doğum Taşı' : 'Birthstone'}
                 </div>
@@ -299,7 +299,7 @@ const AgeCalculator: React.FC<AgeCalculatorProps> = ({ locale }) => {
                     className="h-4 w-4 rounded-full"
                     style={{ backgroundColor: displayAge.birthstone.color }}
                   />
-                  <div className="text-xl font-bold text-purple-600">
+                  <div className="text-xl font-bold text-secondary-600">
                     {displayAge.birthstone.name}
                   </div>
                 </div>
@@ -328,12 +328,12 @@ const AgeCalculator: React.FC<AgeCalculatorProps> = ({ locale }) => {
           {/* Generation Info */}
           <Card>
             <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-neutral-900">
-              <Users className="h-5 w-5 text-blue-600" />
+              <Users className="h-5 w-5 text-primary-600" />
               {displayAge.generation.name[locale]}
             </h3>
             <p className="mb-4 text-neutral-700">{displayAge.generation.description[locale]}</p>
-            <div className="rounded-lg bg-blue-50 p-3 text-sm">
-              <span className="font-semibold text-blue-600">
+            <div className="rounded-lg bg-primary-50 p-3 text-sm">
+              <span className="font-semibold text-primary-600">
                 {locale === 'tr' ? 'Yıl Aralığı: ' : 'Years: '}
               </span>
               <span className="text-neutral-700">{displayAge.generation.yearsRange}</span>
@@ -343,51 +343,51 @@ const AgeCalculator: React.FC<AgeCalculatorProps> = ({ locale }) => {
           {/* Time Statistics */}
           <Card>
             <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-neutral-900">
-              <Timer className="h-5 w-5 text-blue-600" />
+              <Timer className="h-5 w-5 text-primary-600" />
               {locale === 'tr' ? 'Zaman İstatistikleri' : 'Time Statistics'}
             </h3>
             <div className="grid gap-3 md:grid-cols-2">
               <div className="rounded-lg bg-neutral-50 p-4">
                 <div className="mb-2 flex items-center gap-2">
-                  <Clock className="h-4 w-4 text-blue-600" />
+                  <Clock className="h-4 w-4 text-primary-600" />
                   <span className="text-sm text-neutral-600">
                     {locale === 'tr' ? 'Toplam Saat' : 'Total Hours'}
                   </span>
                 </div>
-                <div className="text-2xl font-bold text-blue-600">
+                <div className="text-2xl font-bold text-primary-600">
                   {displayAge.totalHours.toLocaleString()}
                 </div>
               </div>
               <div className="rounded-lg bg-neutral-50 p-4">
                 <div className="mb-2 flex items-center gap-2">
-                  <Timer className="h-4 w-4 text-purple-600" />
+                  <Timer className="h-4 w-4 text-secondary-600" />
                   <span className="text-sm text-neutral-600">
                     {locale === 'tr' ? 'Toplam Dakika' : 'Total Minutes'}
                   </span>
                 </div>
-                <div className="text-2xl font-bold text-purple-600">
+                <div className="text-2xl font-bold text-secondary-600">
                   {displayAge.totalMinutes.toLocaleString()}
                 </div>
               </div>
               <div className="rounded-lg bg-neutral-50 p-4">
                 <div className="mb-2 flex items-center gap-2">
-                  <Zap className="h-4 w-4 text-pink-600" />
+                  <Zap className="h-4 w-4 text-primary-600" />
                   <span className="text-sm text-neutral-600">
                     {locale === 'tr' ? 'Toplam Saniye' : 'Total Seconds'}
                   </span>
                 </div>
-                <div className="text-2xl font-bold text-pink-600">
+                <div className="text-2xl font-bold text-primary-600">
                   {displayAge.totalSeconds.toLocaleString()}
                 </div>
               </div>
               <div className="rounded-lg bg-neutral-50 p-4">
                 <div className="mb-2 flex items-center gap-2">
-                  <Calendar className="h-4 w-4 text-green-600" />
+                  <Calendar className="h-4 w-4 text-secondary-600" />
                   <span className="text-sm text-neutral-600">
                     {locale === 'tr' ? 'Toplam Hafta' : 'Total Weeks'}
                   </span>
                 </div>
-                <div className="text-2xl font-bold text-green-600">
+                <div className="text-2xl font-bold text-secondary-600">
                   {displayAge.totalWeeks.toLocaleString()}
                 </div>
               </div>
@@ -397,7 +397,7 @@ const AgeCalculator: React.FC<AgeCalculatorProps> = ({ locale }) => {
           {/* Life Statistics */}
           <Card>
             <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-neutral-900">
-              <Activity className="h-5 w-5 text-blue-600" />
+              <Activity className="h-5 w-5 text-primary-600" />
               {locale === 'tr' ? 'Yaşam İstatistikleri' : 'Life Statistics'}
             </h3>
             <div className="space-y-3">
@@ -441,18 +441,18 @@ const AgeCalculator: React.FC<AgeCalculatorProps> = ({ locale }) => {
               ].map((stat, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between rounded-lg bg-gradient-to-r from-blue-50 to-purple-50 p-4"
+                  className="flex items-center justify-between rounded-lg bg-gradient-to-r from-primary-50 to-secondary-50 p-4"
                 >
                   <div className="flex items-center gap-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white">
-                      <stat.icon className="h-5 w-5 text-blue-600" />
+                      <stat.icon className="h-5 w-5 text-primary-600" />
                     </div>
                     <div>
                       <div className="font-medium text-neutral-900">{stat.label}</div>
                       <div className="text-xs text-neutral-600">{stat.desc}</div>
                     </div>
                   </div>
-                  <div className="text-xl font-bold text-blue-600">{stat.value}</div>
+                  <div className="text-xl font-bold text-primary-600">{stat.value}</div>
                 </div>
               ))}
             </div>
@@ -461,7 +461,7 @@ const AgeCalculator: React.FC<AgeCalculatorProps> = ({ locale }) => {
           {/* Life Progress Bar */}
           <Card>
             <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-neutral-900">
-              <TrendingUp className="h-5 w-5 text-blue-600" />
+              <TrendingUp className="h-5 w-5 text-primary-600" />
               {locale === 'tr' ? 'Yaşam İlerlemesi' : 'Life Progress'}
             </h3>
             <div className="mb-2 flex items-center justify-between">
@@ -470,13 +470,13 @@ const AgeCalculator: React.FC<AgeCalculatorProps> = ({ locale }) => {
                   ? 'Ortalama yaşam süresine göre (80 yıl)'
                   : 'Based on average life expectancy (80 years)'}
               </span>
-              <span className="text-xl font-bold text-blue-600">
+              <span className="text-xl font-bold text-primary-600">
                 {displayAge.lifePercentage}%
               </span>
             </div>
             <div className="h-4 w-full overflow-hidden rounded-full bg-neutral-100">
               <div
-                className="h-full rounded-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-1000"
+                className="h-full rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 transition-all duration-1000"
                 style={{ width: `${displayAge.lifePercentage}%` }}
               />
             </div>
@@ -492,18 +492,18 @@ const AgeCalculator: React.FC<AgeCalculatorProps> = ({ locale }) => {
           {/* Western Zodiac */}
           <Card>
             <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-neutral-900">
-              <Star className="h-5 w-5 text-blue-600" />
+              <Star className="h-5 w-5 text-primary-600" />
               {locale === 'tr' ? 'Batı Burcu' : 'Western Zodiac'}
             </h3>
             <div className="mb-4 text-center">
-              <div className="mb-2 text-4xl font-bold text-blue-600">
+              <div className="mb-2 text-4xl font-bold text-primary-600">
                 {displayAge.zodiacSign.sign}
               </div>
               <div className="mb-4 text-sm text-neutral-600">
                 {displayAge.zodiacSign.dateRange}
               </div>
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-2">
-                <Sparkles className="h-4 w-4 text-blue-600" />
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-2">
+                <Sparkles className="h-4 w-4 text-primary-600" />
                 <span className="font-medium text-neutral-700">
                   {locale === 'tr' ? 'Element: ' : 'Element: '}
                   {displayAge.zodiacSign.element[locale]}
@@ -519,7 +519,7 @@ const AgeCalculator: React.FC<AgeCalculatorProps> = ({ locale }) => {
                 {displayAge.zodiacSign.traits[locale].map((trait, index) => (
                   <span
                     key={index}
-                    className="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-700"
+                    className="rounded-full bg-primary-100 px-3 py-1 text-sm text-primary-700"
                   >
                     {trait}
                   </span>
@@ -535,7 +535,7 @@ const AgeCalculator: React.FC<AgeCalculatorProps> = ({ locale }) => {
                 {displayAge.zodiacSign.luckyNumbers.map((num, index) => (
                   <div
                     key={index}
-                    className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-purple-500 font-bold text-white"
+                    className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 font-bold text-white"
                   >
                     {num}
                   </div>
@@ -551,7 +551,7 @@ const AgeCalculator: React.FC<AgeCalculatorProps> = ({ locale }) => {
                 {displayAge.zodiacSign.compatibleSigns.map((sign, index) => (
                   <span
                     key={index}
-                    className="rounded-lg bg-purple-100 px-3 py-1 text-sm font-medium text-purple-700"
+                    className="rounded-lg bg-secondary-100 px-3 py-1 text-sm font-medium text-secondary-700"
                   >
                     {sign}
                   </span>
@@ -563,15 +563,15 @@ const AgeCalculator: React.FC<AgeCalculatorProps> = ({ locale }) => {
           {/* Chinese Zodiac */}
           <Card>
             <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-neutral-900">
-              <Sparkles className="h-5 w-5 text-purple-600" />
+              <Sparkles className="h-5 w-5 text-secondary-600" />
               {locale === 'tr' ? 'Çin Burcu' : 'Chinese Zodiac'}
             </h3>
             <div className="mb-4 text-center">
-              <div className="mb-2 text-4xl font-bold text-purple-600">
+              <div className="mb-2 text-4xl font-bold text-secondary-600">
                 {displayAge.chineseZodiac.animal}
               </div>
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-purple-50 px-4 py-2">
-                <Star className="h-4 w-4 text-purple-600" />
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-secondary-50 px-4 py-2">
+                <Star className="h-4 w-4 text-secondary-600" />
                 <span className="font-medium text-neutral-700">
                   {locale === 'tr' ? 'Element: ' : 'Element: '}
                   {displayAge.chineseZodiac.element[locale]}
@@ -587,7 +587,7 @@ const AgeCalculator: React.FC<AgeCalculatorProps> = ({ locale }) => {
                 {displayAge.chineseZodiac.traits[locale].map((trait, index) => (
                   <span
                     key={index}
-                    className="rounded-full bg-purple-100 px-3 py-1 text-sm text-purple-700"
+                    className="rounded-full bg-secondary-100 px-3 py-1 text-sm text-secondary-700"
                   >
                     {trait}
                   </span>
@@ -619,7 +619,7 @@ const AgeCalculator: React.FC<AgeCalculatorProps> = ({ locale }) => {
                 {displayAge.chineseZodiac.compatibleAnimals.map((animal, index) => (
                   <span
                     key={index}
-                    className="rounded-lg bg-green-100 px-3 py-1 text-sm font-medium text-green-700"
+                    className="rounded-lg bg-primary-100 px-3 py-1 text-sm font-medium text-primary-700"
                   >
                     {animal}
                   </span>
@@ -631,7 +631,7 @@ const AgeCalculator: React.FC<AgeCalculatorProps> = ({ locale }) => {
           {/* Life Milestones */}
           <Card>
             <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-neutral-900">
-              <Target className="h-5 w-5 text-blue-600" />
+              <Target className="h-5 w-5 text-primary-600" />
               {locale === 'tr' ? 'Yaşam Kilometre Taşları' : 'Life Milestones'}
             </h3>
             <div className="space-y-3">
@@ -641,7 +641,7 @@ const AgeCalculator: React.FC<AgeCalculatorProps> = ({ locale }) => {
                   className={`rounded-lg p-4 ${
                     milestone.achieved
                       ? 'bg-gradient-to-r from-green-50 to-emerald-50'
-                      : 'bg-gradient-to-r from-blue-50 to-purple-50'
+                      : 'bg-gradient-to-r from-primary-50 to-secondary-50'
                   }`}
                 >
                   <div className="flex items-center justify-between">
@@ -651,7 +651,7 @@ const AgeCalculator: React.FC<AgeCalculatorProps> = ({ locale }) => {
                           <Award className="h-5 w-5 text-white" />
                         </div>
                       ) : (
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-500">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-500">
                           <Target className="h-5 w-5 text-white" />
                         </div>
                       )}
@@ -666,7 +666,7 @@ const AgeCalculator: React.FC<AgeCalculatorProps> = ({ locale }) => {
                     </div>
                     <div
                       className={`text-sm font-bold ${
-                        milestone.achieved ? 'text-green-600' : 'text-blue-600'
+                        milestone.achieved ? 'text-green-600' : 'text-primary-600'
                       }`}
                     >
                       {milestone.achieved
@@ -686,16 +686,16 @@ const AgeCalculator: React.FC<AgeCalculatorProps> = ({ locale }) => {
           {/* Retirement Countdown */}
           <Card>
             <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-neutral-900">
-              <Brain className="h-5 w-5 text-blue-600" />
+              <Brain className="h-5 w-5 text-primary-600" />
               {locale === 'tr' ? 'Emeklilik Geri Sayımı' : 'Retirement Countdown'}
             </h3>
-            <div className="rounded-lg bg-gradient-to-r from-orange-50 to-amber-50 p-6 text-center">
+            <div className="rounded-lg bg-gradient-to-r from-primary-50 to-secondary-50 p-6 text-center">
               <div className="mb-2 text-sm text-neutral-600">
                 {locale === 'tr'
                   ? 'Emekliliğe (65 yaş) kalan süre'
                   : 'Time until retirement (age 65)'}
               </div>
-              <div className="text-4xl font-bold text-orange-600">
+              <div className="text-4xl font-bold text-primary-600">
                 {displayAge.retirementCountdown.years > 0
                   ? `${displayAge.retirementCountdown.years} ${
                       locale === 'tr' ? 'Yıl' : 'Years'

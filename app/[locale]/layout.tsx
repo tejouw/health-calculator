@@ -19,6 +19,16 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#3b82f6' },
+    { media: '(prefers-color-scheme: dark)', color: '#2563eb' },
+  ],
+};
+
 export async function generateMetadata({
   params,
 }: {
@@ -43,6 +53,16 @@ export async function generateMetadata({
     authors: [{ name: siteConfig.author }],
     creator: siteConfig.author,
     metadataBase: new URL(domain),
+    icons: {
+      icon: [
+        { url: '/icon', type: 'image/png', sizes: '32x32' },
+        { url: '/icon', type: 'image/png', sizes: '16x16' },
+      ],
+      apple: [
+        { url: '/apple-icon', type: 'image/png', sizes: '180x180' },
+      ],
+    },
+    manifest: '/manifest.webmanifest',
     alternates: {
       canonical: '/',
       languages: {
@@ -59,7 +79,7 @@ export async function generateMetadata({
       siteName: siteName,
       images: [
         {
-          url: `${domain}/og-image.jpg`,
+          url: '/opengraph-image',
           width: 1200,
           height: 630,
           alt: siteName,
@@ -70,7 +90,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title,
       description,
-      images: [`${domain}/og-image.jpg`],
+      images: ['/opengraph-image'],
     },
     robots: {
       index: true,
@@ -82,6 +102,9 @@ export async function generateMetadata({
         'max-image-preview': 'large',
         'max-snippet': -1,
       },
+    },
+    verification: {
+      google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
     },
   };
 }

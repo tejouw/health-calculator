@@ -58,7 +58,9 @@
   },
   "form": {
     "height": "Height",
+    "heightUnit": "Height Unit",
     "weight": "Weight",
+    "weightUnit": "Weight Unit",
     "age": "Age",
     "gender": "Gender",
     "male": "Male",

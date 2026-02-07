@@ -2,10 +2,10 @@
 
 import React, { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { Button, Card, Badge, RadioGroup } from '@/components/ui';
+import { Button, Card, Badge, RadioGroup, Input, Select } from '@/components/ui';
 import { calculatePHQ9, phq9Info } from './phq9Logic';
 import { PHQ9Input, phq9Questions, phq9Options, phq9Severities } from './phq9Types';
-import { Brain, AlertCircle, Info } from 'lucide-react';
+import { Brain, AlertCircle, Info, User, Calendar } from 'lucide-react';
 
 interface PHQ9CalculatorProps {
   locale: 'en' | 'tr';
@@ -15,6 +15,8 @@ const PHQ9Calculator: React.FC<PHQ9CalculatorProps> = ({ locale }) => {
   const tCommon = useTranslations('common');
 
   const [answers, setAnswers] = useState<number[]>(Array(9).fill(-1));
+  const [age, setAge] = useState<string>('');
+  const [gender, setGender] = useState<'male' | 'female' | 'other' | ''>('');
   const [result, setResult] = useState<ReturnType<typeof calculatePHQ9> | null>(null);
   const [error, setError] = useState<string>('');
 
@@ -38,13 +40,19 @@ const PHQ9Calculator: React.FC<PHQ9CalculatorProps> = ({ locale }) => {
       return;
     }
 
-    const input: PHQ9Input = { answers };
+    const input: PHQ9Input = {
+      answers,
+      age: age ? parseInt(age) : undefined,
+      gender: gender || undefined,
+    };
     const phq9Result = calculatePHQ9(input);
     setResult(phq9Result);
   };
 
   const handleReset = () => {
     setAnswers(Array(9).fill(-1));
+    setAge('');
+    setGender('');
     setResult(null);
     setError('');
   };
@@ -68,6 +76,57 @@ const PHQ9Calculator: React.FC<PHQ9CalculatorProps> = ({ locale }) => {
                 ? 'Son 2 haftada ne sıklıkta yaşadınız?'
                 : 'Over the last 2 weeks, how often have you been bothered by:'}
             </p>
+          </div>
+        </div>
+
+        {/* Demographic Information (Optional) */}
+        <div className="mb-6 rounded-lg border border-violet-200 bg-violet-50 p-4">
+          <div className="mb-3 flex items-center gap-2">
+            <User className="h-5 w-5 text-violet-600" />
+            <h3 className="font-semibold text-neutral-900">
+              {locale === 'tr' ? 'Demografik Bilgiler (Opsiyonel)' : 'Demographic Information (Optional)'}
+            </h3>
+          </div>
+          <p className="mb-4 text-sm text-neutral-600">
+            {locale === 'tr'
+              ? 'Yaş ve cinsiyetinizi girerek daha detaylı ve kişiselleştirilmiş değerlendirme alabilirsiniz.'
+              : 'Enter your age and gender for a more detailed and personalized assessment.'}
+          </p>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <div>
+              <label className="mb-2 block text-sm font-medium text-neutral-700">
+                <div className="mb-1 flex items-center gap-2">
+                  <Calendar className="h-4 w-4" />
+                  {locale === 'tr' ? 'Yaş' : 'Age'}
+                </div>
+              </label>
+              <Input
+                type="number"
+                value={age}
+                onChange={(e) => setAge(e.target.value)}
+                placeholder={locale === 'tr' ? 'Örn: 25' : 'e.g., 25'}
+                min="13"
+                max="120"
+              />
+            </div>
+            <div>
+              <label className="mb-2 block text-sm font-medium text-neutral-700">
+                <div className="mb-1 flex items-center gap-2">
+                  <User className="h-4 w-4" />
+                  {locale === 'tr' ? 'Cinsiyet' : 'Gender'}
+                </div>
+              </label>
+              <Select
+                value={gender}
+                onChange={(e) => setGender(e.target.value as 'male' | 'female' | 'other' | '')}
+                options={[
+                  { value: '', label: locale === 'tr' ? 'Seçiniz' : 'Select' },
+                  { value: 'male', label: locale === 'tr' ? 'Erkek' : 'Male' },
+                  { value: 'female', label: locale === 'tr' ? 'Kadın' : 'Female' },
+                  { value: 'other', label: locale === 'tr' ? 'Diğer' : 'Other' },
+                ]}
+              />
+            </div>
           </div>
         </div>
 
@@ -152,6 +211,40 @@ const PHQ9Calculator: React.FC<PHQ9CalculatorProps> = ({ locale }) => {
                   </p>
                 </div>
               </div>
+            </Card>
+          )}
+
+          {/* Demographic-Specific Information */}
+          {result.demographicInfo && (result.demographicInfo.genderSpecificRisks || result.demographicInfo.recommendations) && (
+            <Card className="animate-slide-up border-2 border-blue-100 bg-gradient-to-br from-blue-50 to-indigo-50">
+              <div className="mb-4 flex items-center gap-2">
+                <User className="h-5 w-5 text-blue-600" />
+                <h3 className="text-lg font-bold text-neutral-900">
+                  {locale === 'tr' ? 'Size Özel Değerlendirme' : 'Personalized Assessment'}
+                </h3>
+              </div>
+
+              {result.demographicInfo.genderSpecificRisks && result.demographicInfo.genderSpecificRisks[locale] && (
+                <div className="mb-4">
+                  <h4 className="mb-2 text-sm font-semibold text-neutral-900">
+                    {locale === 'tr' ? 'Risk Faktörleri' : 'Risk Factors'}
+                  </h4>
+                  <p className="text-sm leading-relaxed text-neutral-700">
+                    {result.demographicInfo.genderSpecificRisks[locale]}
+                  </p>
+                </div>
+              )}
+
+              {result.demographicInfo.recommendations && result.demographicInfo.recommendations[locale] && (
+                <div className="rounded-lg bg-white p-4">
+                  <h4 className="mb-2 text-sm font-semibold text-neutral-900">
+                    {locale === 'tr' ? 'Öneriler' : 'Recommendations'}
+                  </h4>
+                  <p className="text-sm leading-relaxed text-neutral-700">
+                    {result.demographicInfo.recommendations[locale]}
+                  </p>
+                </div>
+              )}
             </Card>
           )}
 

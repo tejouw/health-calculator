@@ -8,6 +8,8 @@ export interface PHQ9Question {
 
 export interface PHQ9Input {
   answers: number[]; // 0-3 for each of 9 questions
+  age?: number;
+  gender?: 'male' | 'female' | 'other';
 }
 
 export interface PHQ9Result {
@@ -19,6 +21,11 @@ export interface PHQ9Result {
     description: { en: string; tr: string };
     recommendation: { en: string; tr: string };
     color: 'success' | 'primary' | 'warning' | 'danger';
+  };
+  demographicInfo?: {
+    ageGroup?: string;
+    genderSpecificRisks?: { en: string; tr: string };
+    recommendations?: { en: string; tr: string };
   };
 }
 

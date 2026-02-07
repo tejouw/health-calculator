@@ -128,12 +128,16 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
 
   // Medical calculators
   'gfr-calculator': {
-    primary: ['creatinine-clearance-calculator'],
+    primary: ['creatinine-clearance-calculator', 'bsa-calculator'],
     secondary: ['bmi-calculator'],
   },
   'creatinine-clearance-calculator': {
-    primary: ['gfr-calculator'],
+    primary: ['gfr-calculator', 'bsa-calculator'],
     secondary: ['bmi-calculator'],
+  },
+  'bsa-calculator': {
+    primary: ['gfr-calculator', 'creatinine-clearance-calculator'],
+    secondary: ['bmi-calculator', 'body-fat-calculator'],
   },
 
   // Mental Health calculators

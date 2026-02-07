@@ -25,6 +25,7 @@ import { bloodSugarMeta } from '@/calculators/diabetes/blood-sugar-converter/blo
 // New calculators - Medical
 import { gfrMeta } from '@/calculators/medical/gfr-calculator/gfrMeta';
 import { creatinineMeta } from '@/calculators/medical/creatinine-clearance/creatinineMeta';
+import { bsaMeta } from '@/calculators/medical/bsa-calculator/bsaMeta';
 // New calculators - Mental Health
 import { phq9Meta } from '@/calculators/mental-health/phq9-calculator/phq9Meta';
 // New calculators - Men's Health
@@ -74,6 +75,7 @@ export const calculatorRegistry: CalculatorMeta[] = [
   // Medical
   gfrMeta,
   creatinineMeta,
+  bsaMeta,
   // Mental Health
   phq9Meta,
   // Men's Health

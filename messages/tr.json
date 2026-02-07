@@ -58,7 +58,9 @@
   },
   "form": {
     "height": "Boy",
+    "heightUnit": "Boy Birimi",
     "weight": "Kilo",
+    "weightUnit": "Kilo Birimi",
     "age": "Yaş",
     "gender": "Cinsiyet",
     "male": "Erkek",
