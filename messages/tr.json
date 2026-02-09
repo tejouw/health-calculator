@@ -20,7 +20,8 @@
     "featured": "Öne Çıkan",
     "tryDifferentKeywords": "Farklı anahtar kelimeler deneyin veya kategorilere göz atın",
     "recentSearches": "Son Aramalar",
-    "typeToSearch": "Aramak için en az 2 karakter yazın"
+    "typeToSearch": "Aramak için en az 2 karakter yazın",
+    "calculator_inputs": "Hesaplama Bilgileri"
   },
   "categories": {
     "bodyWeight": "Vücut & Kilo",
@@ -35,7 +36,8 @@
     "mentalHealth": "Ruh Sağlığı",
     "sleep": "Uyku & Dinlenme",
     "childrensHealth": "Çocuk Sağlığı",
-    "dailyLife": "Günlük Yaşam"
+    "dailyLife": "Günlük Yaşam",
+    "substance": "Madde & Alkol"
   },
   "units": {
     "cm": "cm",
@@ -44,6 +46,7 @@
     "gram": "gr",
     "lbs": "lbs",
     "inch": "inç",
+    "in": "inç",
     "feet": "fit",
     "kcal": "kkal",
     "years": "yıl",

@@ -167,6 +167,12 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
     primary: ['age-calculator'],
     secondary: ['sleep-calculator'],
   },
+
+  // Substance calculators
+  'blood-alcohol-calculator': {
+    primary: ['bmi-calculator', 'water-intake-calculator'],
+    secondary: ['calorie-calculator', 'body-fat-calculator', 'bmr-calculator'],
+  },
 };
 
 /**

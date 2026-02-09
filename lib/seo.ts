@@ -238,6 +238,7 @@ export const categoryToSpecialty: Record<string, string> = {
   'mental-health': 'Psychiatry',
   'sleep': 'Sleep Medicine',
   'childrens-health': 'Pediatrics',
+  'substance': 'Addiction Medicine',
 };
 
 export function generateArticleSchema(data: {

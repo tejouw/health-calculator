@@ -1,5 +1,9 @@
 import { ImageResponse } from 'next/og';
 
+interface Props {
+  params: Promise<{ locale: string }>;
+}
+
 // Image metadata
 export const alt = 'ProHealthCalc - Professional Health Calculators';
 export const size = {
@@ -9,7 +13,19 @@ export const size = {
 export const contentType = 'image/png';
 
 // Image generation
-export default async function OgImage() {
+export default async function OgImage({ params }: Props) {
+  const { locale } = await params;
+
+  const content = locale === 'tr' ? {
+    title: 'Sağlık Hesapla',
+    subtitle: '350+ Profesyonel Sağlık Hesaplayıcısı',
+    tags: 'VKİ • Kalori • Hamilelik • Fitness • Tıbbi',
+  } : {
+    title: 'ProHealthCalc',
+    subtitle: '350+ Professional Health Calculators',
+    tags: 'BMI • Calories • Pregnancy • Fitness • Medical',
+  };
+
   return new ImageResponse(
     (
       <div
@@ -29,12 +45,12 @@ export default async function OgImage() {
         }}
       >
         <div style={{ fontSize: 120, marginBottom: 20 }}>💊</div>
-        <div style={{ fontSize: 48, textAlign: 'center' }}>ProHealthCalc</div>
+        <div style={{ fontSize: 48, textAlign: 'center' }}>{content.title}</div>
         <div style={{ fontSize: 32, marginTop: 20, opacity: 0.9 }}>
-          350+ Professional Health Calculators
+          {content.subtitle}
         </div>
         <div style={{ fontSize: 24, marginTop: 10, opacity: 0.8 }}>
-          BMI • Calories • Pregnancy • Fitness • Medical
+          {content.tags}
         </div>
       </div>
     ),

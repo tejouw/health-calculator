@@ -237,6 +237,24 @@ export const categories: Category[] = [
     color: 'emerald',
     gradient: 'from-emerald-500 to-teal-500',
   },
+  {
+    id: 'substance',
+    slug: {
+      en: 'substance',
+      tr: 'madde',
+    },
+    name: {
+      en: 'Substance & Alcohol',
+      tr: 'Madde & Alkol',
+    },
+    description: {
+      en: 'Blood alcohol calculator, substance effects, safety information',
+      tr: 'Kan alkol hesaplayıcı, madde etkileri, güvenlik bilgileri',
+    },
+    icon: 'Wine',
+    color: 'amber',
+    gradient: 'from-amber-500 to-orange-500',
+  },
 ];
 
 export function getCategoryById(id: string): Category | undefined {

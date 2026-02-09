@@ -45,6 +45,10 @@ import { ageMeta } from '@/calculators/daily-life/age-calculator/ageMeta';
 import { loveMeta } from '@/calculators/daily-life/love-calculator/loveMeta';
 // Body Weight - Waist-Hip Ratio
 import { waistHipRatioMeta } from '@/calculators/body-weight/waist-hip-ratio/waistHipRatioMeta';
+// Substance - Blood Alcohol
+import { bloodAlcoholMeta } from '@/calculators/substance/blood-alcohol-calculator/bloodAlcoholMeta';
+// Substance - Caffeine
+import { caffeineMeta } from '@/calculators/substance/caffeine-calculator/caffeineMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -87,6 +91,9 @@ export const calculatorRegistry: CalculatorMeta[] = [
   loveMeta,
   // Body Weight - Waist-Hip Ratio
   waistHipRatioMeta,
+  // Substance
+  bloodAlcoholMeta,
+  caffeineMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {

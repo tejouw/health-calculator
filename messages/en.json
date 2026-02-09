@@ -20,7 +20,8 @@
     "featured": "Featured",
     "tryDifferentKeywords": "Try different keywords or browse categories",
     "recentSearches": "Recent Searches",
-    "typeToSearch": "Type at least 2 characters to search"
+    "typeToSearch": "Type at least 2 characters to search",
+    "calculator_inputs": "Calculator Inputs"
   },
   "categories": {
     "bodyWeight": "Body & Weight",
@@ -35,7 +36,8 @@
     "mentalHealth": "Mental Health",
     "sleep": "Sleep & Rest",
     "childrensHealth": "Children's Health",
-    "dailyLife": "Daily Life"
+    "dailyLife": "Daily Life",
+    "substance": "Substance & Alcohol"
   },
   "units": {
     "cm": "cm",
@@ -44,6 +46,7 @@
     "gram": "g",
     "lbs": "lbs",
     "inch": "in",
+    "in": "in",
     "feet": "ft",
     "kcal": "kcal",
     "years": "years",

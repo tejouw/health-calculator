@@ -54,6 +54,8 @@ import { ageContent } from '@/calculators/daily-life/age-calculator/ageContent';
 import { loveContent } from '@/calculators/daily-life/love-calculator/loveContent';
 // Body Weight - Waist-Hip Ratio
 import { waistHipRatioContent } from '@/calculators/body-weight/waist-hip-ratio/waistHipRatioContent';
+// Substance - Blood Alcohol
+import { bloodAlcoholContent } from '@/calculators/substance/blood-alcohol-calculator/bloodAlcoholContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -160,6 +162,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'love-calculator': loveContent,
     // Body Weight - Waist-Hip Ratio
     'waist-hip-ratio-calculator': waistHipRatioContent,
+    // Substance
+    'blood-alcohol-calculator': bloodAlcoholContent,
   };
 
   const content = contentMap[calculator.id];

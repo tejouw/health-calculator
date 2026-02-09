@@ -4,7 +4,65 @@
  */
 
 import * as LucideIcons from 'lucide-react';
+import {
+  Calendar,
+  Heart,
+  Scale,
+  Activity,
+  Flame,
+  Zap,
+  Wine,
+  Ruler,
+  Calculator as CalculatorIcon,
+  Apple,
+  Beef,
+  TrendingDown,
+  TrendingUp,
+  Droplet,
+  Baby,
+  Sparkles,
+  HeartPulse,
+  Moon,
+  Stethoscope,
+  Syringe,
+  TestTube,
+  Brain,
+  Target,
+  Dumbbell,
+  Timer,
+  Gauge
+} from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
+
+// Explicit icon mapping for better reliability
+const iconMap: Record<string, LucideIcon> = {
+  Calendar,
+  Heart,
+  Scale,
+  Activity,
+  Flame,
+  Zap,
+  Wine,
+  Ruler,
+  Calculator: CalculatorIcon,
+  Apple,
+  Beef,
+  TrendingDown,
+  TrendingUp,
+  Droplet,
+  Baby,
+  Sparkles,
+  HeartPulse,
+  Moon,
+  Stethoscope,
+  Syringe,
+  TestTube,
+  Brain,
+  Target,
+  Dumbbell,
+  Timer,
+  Gauge,
+};
 
 /**
  * Get a Lucide icon component by name
@@ -12,9 +70,22 @@ import type { LucideIcon } from 'lucide-react';
  * @param fallback - Fallback icon if the requested icon is not found
  * @returns LucideIcon component
  */
-export function getIcon(iconName: string, fallback: LucideIcon = LucideIcons.Activity): LucideIcon {
+export function getIcon(iconName: string, fallback: LucideIcon = Activity): LucideIcon {
+  // First try explicit map (more reliable)
+  if (iconMap[iconName]) {
+    return iconMap[iconName];
+  }
+
+  // Fallback to dynamic lookup
   const icons = LucideIcons as unknown as Record<string, LucideIcon>;
-  return icons[iconName] || fallback;
+  const icon = icons[iconName];
+
+  // Debug logging
+  if (typeof window !== 'undefined' && !icon) {
+    console.warn(`[Icon Warning] Icon "${iconName}" not found, using fallback`);
+  }
+
+  return icon || fallback;
 }
 
 /**

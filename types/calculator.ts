@@ -14,7 +14,8 @@ export type CategoryId =
   | 'mental-health'
   | 'sleep'
   | 'childrens-health'
-  | 'daily-life';
+  | 'daily-life'
+  | 'substance';
 
 export interface LocalizedString {
   en: string;
