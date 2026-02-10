@@ -49,6 +49,10 @@ import { waistHipRatioMeta } from '@/calculators/body-weight/waist-hip-ratio/wai
 import { bloodAlcoholMeta } from '@/calculators/substance/blood-alcohol-calculator/bloodAlcoholMeta';
 // Substance - Caffeine
 import { caffeineMeta } from '@/calculators/substance/caffeine-calculator/caffeineMeta';
+// Heart - Blood Pressure
+import { bloodPressureMeta } from '@/calculators/heart/blood-pressure-calculator/bloodPressureMeta';
+// Pregnancy - Chinese Gender Predictor
+import { chineseGenderMeta } from '@/calculators/pregnancy/chinese-gender-predictor/chineseGenderMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -56,6 +60,8 @@ export const calculatorRegistry: CalculatorMeta[] = [
   calorieMeta,
   tdeeMeta,
   dueDateMeta,
+  pregnancyWeekMeta,
+  chineseGenderMeta,
   ovulationMeta,
   periodMeta,
   idealWeightMeta,
@@ -66,8 +72,8 @@ export const calculatorRegistry: CalculatorMeta[] = [
   waterIntakeMeta,
   calorieDeficitMeta,
   proteinMeta,
-  pregnancyWeekMeta,
   heartRateZoneMeta,
+  bloodPressureMeta,
   // Fitness
   oneRepMaxMeta,
   runningPaceMeta,

@@ -77,11 +77,15 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
   // Pregnancy calculators
   'due-date-calculator': {
     primary: ['pregnancy-week-calculator', 'ovulation-calculator'],
-    secondary: ['period-calculator'],
+    secondary: ['chinese-gender-predictor', 'period-calculator'],
   },
   'pregnancy-week-calculator': {
-    primary: ['due-date-calculator'],
+    primary: ['due-date-calculator', 'chinese-gender-predictor'],
     secondary: ['ovulation-calculator'],
+  },
+  'chinese-gender-predictor': {
+    primary: ['due-date-calculator', 'pregnancy-week-calculator'],
+    secondary: ['ovulation-calculator', 'period-calculator'],
   },
 
   // Women's Health calculators
@@ -106,8 +110,12 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
 
   // Heart calculators
   'heart-rate-zone-calculator': {
-    primary: ['running-pace-calculator', 'one-rep-max-calculator'],
-    secondary: ['calorie-calculator', 'tdee-calculator'],
+    primary: ['blood-pressure-calculator', 'running-pace-calculator'],
+    secondary: ['one-rep-max-calculator', 'calorie-calculator', 'tdee-calculator'],
+  },
+  'blood-pressure-calculator': {
+    primary: ['heart-rate-zone-calculator'],
+    secondary: ['bmi-calculator', 'calorie-calculator', 'age-calculator'],
   },
 
   // Sleep calculators
@@ -170,8 +178,12 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
 
   // Substance calculators
   'blood-alcohol-calculator': {
-    primary: ['bmi-calculator', 'water-intake-calculator'],
+    primary: ['caffeine-calculator', 'water-intake-calculator'],
     secondary: ['calorie-calculator', 'body-fat-calculator', 'bmr-calculator'],
+  },
+  'caffeine-calculator': {
+    primary: ['blood-alcohol-calculator', 'water-intake-calculator'],
+    secondary: ['sleep-calculator', 'calorie-calculator', 'bmr-calculator'],
   },
 };
 

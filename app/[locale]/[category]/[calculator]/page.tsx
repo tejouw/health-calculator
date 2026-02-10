@@ -27,6 +27,7 @@ import { bmrContent } from '@/calculators/nutrition/bmr-calculator/bmrContent';
 import { foodCalorieContent } from '@/calculators/nutrition/food-calorie-calculator/foodCalorieContent';
 import { pregnancyWeekContent } from '@/calculators/pregnancy/pregnancy-week-calculator/pregnancyWeekContent';
 import { heartRateZoneContent } from '@/calculators/heart/heart-rate-zone/heartRateZoneContent';
+import { bloodPressureContent } from '@/calculators/heart/blood-pressure-calculator/bloodPressureContent';
 // New calculator content
 import { oneRepMaxContent } from '@/calculators/fitness/one-rep-max/oneRepMaxContent';
 import { runningPaceContent } from '@/calculators/fitness/running-pace/runningPaceContent';
@@ -56,6 +57,10 @@ import { loveContent } from '@/calculators/daily-life/love-calculator/loveConten
 import { waistHipRatioContent } from '@/calculators/body-weight/waist-hip-ratio/waistHipRatioContent';
 // Substance - Blood Alcohol
 import { bloodAlcoholContent } from '@/calculators/substance/blood-alcohol-calculator/bloodAlcoholContent';
+// Substance - Caffeine
+import { caffeineContent } from '@/calculators/substance/caffeine-calculator/caffeineContent';
+// Pregnancy - Chinese Gender Predictor
+import { chineseGenderContent } from '@/calculators/pregnancy/chinese-gender-predictor/chineseGenderContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -127,6 +132,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'calorie-calculator': calorieContent,
     'tdee-calculator': tdeeContent,
     'due-date-calculator': dueDateContent,
+    'pregnancy-week-calculator': pregnancyWeekContent,
+    'chinese-gender-predictor': chineseGenderContent,
     'ovulation-calculator': ovulationContent,
     'period-calculator': periodContent,
     'ideal-weight-calculator': idealWeightContent,
@@ -137,8 +144,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'water-intake-calculator': waterIntakeContent,
     'calorie-deficit-calculator': calorieDeficitContent,
     'protein-calculator': proteinContent,
-    'pregnancy-week-calculator': pregnancyWeekContent,
     'heart-rate-zone-calculator': heartRateZoneContent,
+    'blood-pressure-calculator': bloodPressureContent,
     // Fitness
     'one-rep-max-calculator': oneRepMaxContent,
     'running-pace-calculator': runningPaceContent,
@@ -164,6 +171,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'waist-hip-ratio-calculator': waistHipRatioContent,
     // Substance
     'blood-alcohol-calculator': bloodAlcoholContent,
+    'caffeine-calculator': caffeineContent,
   };
 
   const content = contentMap[calculator.id];

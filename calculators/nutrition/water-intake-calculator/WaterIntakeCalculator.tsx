@@ -5,8 +5,9 @@ import { useTranslations } from 'next-intl';
 import { Button, Input, RadioGroup, Card, Badge } from '@/components/ui';
 import { calculateWaterIntake, getHydrationStatus } from './waterIntakeLogic';
 import { WaterIntakeInput, ActivityLevel, ClimateType, SpecialCondition } from './waterIntakeTypes';
-import { Droplet, Activity, Sun, Heart, Clock } from 'lucide-react';
+import { Droplet, Activity, Sun, Heart, Clock, AlertTriangle, CheckCircle2, Sparkles, BookOpen, HelpCircle, FileText, TrendingUp, Zap } from 'lucide-react';
 import HydrationGuide from './components/HydrationGuide';
+import { waterIntakeContent } from './waterIntakeContent';
 
 interface WaterIntakeCalculatorProps {
   locale: 'en' | 'tr';
@@ -596,6 +597,272 @@ const WaterIntakeCalculator: React.FC<WaterIntakeCalculatorProps> = ({ locale })
 
           {/* Hydration Guide */}
           <HydrationGuide dailyWater={result.dailyIntakeLiters} locale={locale} />
+
+          {/* Interactive Cards - Layer 1 */}
+          {/* Dehydration Warning Signs */}
+          <Card className="animate-slide-up border-l-4 border-l-red-500 bg-red-50">
+            <div className="flex items-center gap-3 mb-4">
+              <AlertTriangle className="h-6 w-6 text-red-600" />
+              <h3 className="text-xl font-bold text-neutral-900">
+                {locale === 'tr' ? '⚠️ Dehidratasyon Belirtileri' : '⚠️ Dehydration Warning Signs'}
+              </h3>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {[
+                { icon: '😓', text: locale === 'tr' ? 'Koyu sarı idrar' : 'Dark yellow urine' },
+                { icon: '🤕', text: locale === 'tr' ? 'Baş ağrısı' : 'Headache' },
+                { icon: '😴', text: locale === 'tr' ? 'Yorgunluk ve halsizlik' : 'Fatigue and weakness' },
+                { icon: '💧', text: locale === 'tr' ? 'Kuru ağız ve dudaklar' : 'Dry mouth and lips' },
+                { icon: '🧠', text: locale === 'tr' ? 'Konsantrasyon zorluğu' : 'Difficulty concentrating' },
+                { icon: '💓', text: locale === 'tr' ? 'Hızlı kalp atışı' : 'Rapid heartbeat' },
+              ].map((sign, index) => (
+                <div key={index} className="flex items-center gap-2 bg-white p-3 rounded-lg">
+                  <span className="text-2xl">{sign.icon}</span>
+                  <span className="text-sm text-neutral-700">{sign.text}</span>
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          {/* Hydration Benefits */}
+          <Card className="animate-slide-up bg-gradient-to-br from-blue-50 to-cyan-50">
+            <div className="flex items-center gap-3 mb-4">
+              <Sparkles className="h-6 w-6 text-blue-600" />
+              <h3 className="text-xl font-bold text-neutral-900">
+                {locale === 'tr' ? '✨ Yeterli Hidratasyonun Faydaları' : '✨ Benefits of Proper Hydration'}
+              </h3>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                { icon: '💪', title: locale === 'tr' ? 'Fiziksel Performans' : 'Physical Performance', desc: locale === 'tr' ? 'Dayanıklılık ve güç artışı' : 'Increased endurance & strength' },
+                { icon: '🧠', title: locale === 'tr' ? 'Zihinsel Netlik' : 'Mental Clarity', desc: locale === 'tr' ? 'Konsantrasyon ve hafıza' : 'Better focus & memory' },
+                { icon: '🌡️', title: locale === 'tr' ? 'Sıcaklık Dengesi' : 'Temperature Control', desc: locale === 'tr' ? 'Vücut ısısı regülasyonu' : 'Body temperature regulation' },
+                { icon: '✨', title: locale === 'tr' ? 'Cilt Sağlığı' : 'Skin Health', desc: locale === 'tr' ? 'Nemli ve parlak cilt' : 'Hydrated & glowing skin' },
+                { icon: '🍎', title: locale === 'tr' ? 'Sindirim Sağlığı' : 'Digestive Health', desc: locale === 'tr' ? 'Düzenli bağırsak hareketi' : 'Regular bowel movements' },
+                { icon: '⚡', title: locale === 'tr' ? 'Enerji Seviyesi' : 'Energy Levels', desc: locale === 'tr' ? 'Yorgunluk azalması' : 'Reduced fatigue' },
+              ].map((benefit, index) => (
+                <div key={index} className="bg-white/80 p-4 rounded-lg backdrop-blur">
+                  <div className="text-3xl mb-2">{benefit.icon}</div>
+                  <h4 className="font-semibold text-neutral-900 mb-1 text-sm">{benefit.title}</h4>
+                  <p className="text-xs text-neutral-600">{benefit.desc}</p>
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          {/* Water Sources */}
+          <Card className="animate-slide-up">
+            <div className="flex items-center gap-3 mb-4">
+              <Droplet className="h-6 w-6 text-cyan-600" />
+              <h3 className="text-xl font-bold text-neutral-900">
+                {locale === 'tr' ? '💧 Su Kaynakları' : '💧 Water Sources'}
+              </h3>
+            </div>
+            <div className="space-y-3">
+              <div className="bg-blue-50 p-4 rounded-lg">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="font-semibold text-blue-900">{locale === 'tr' ? 'Sıvı İçecekler' : 'Beverages'}</span>
+                  <span className="text-2xl font-bold text-blue-600">70-80%</span>
+                </div>
+                <p className="text-sm text-blue-800">
+                  {locale === 'tr' ? 'Su, çay, kahve, süt, meyve suları' : 'Water, tea, coffee, milk, fruit juices'}
+                </p>
+              </div>
+              <div className="bg-green-50 p-4 rounded-lg">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="font-semibold text-green-900">{locale === 'tr' ? 'Yiyecekler' : 'Foods'}</span>
+                  <span className="text-2xl font-bold text-green-600">20-30%</span>
+                </div>
+                <p className="text-sm text-green-800">
+                  {locale === 'tr' ? '🍉 Meyve, 🥒 sebze, 🍲 çorba, 🥗 salata' : '🍉 Fruits, 🥒 vegetables, 🍲 soups, 🥗 salads'}
+                </p>
+              </div>
+            </div>
+          </Card>
+
+          {/* Quick Hydration Hacks */}
+          <Card className="animate-slide-up bg-gradient-to-br from-purple-50 to-pink-50">
+            <div className="flex items-center gap-3 mb-4">
+              <Zap className="h-6 w-6 text-purple-600" />
+              <h3 className="text-xl font-bold text-neutral-900">
+                {locale === 'tr' ? '⚡ Hızlı Hidrasyon İpuçları' : '⚡ Quick Hydration Hacks'}
+              </h3>
+            </div>
+            <div className="grid gap-2 sm:grid-cols-2">
+              {waterIntakeContent[locale].tips.slice(0, 8).map((tip, index) => (
+                <div key={index} className="flex items-start gap-2 bg-white/80 p-3 rounded-lg backdrop-blur">
+                  <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-sm text-neutral-700">{tip}</span>
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          {/* SEO Content - Layer 2 - Collapsible */}
+          <Card className="animate-slide-up">
+            <div className="flex items-center gap-3 mb-4">
+              <BookOpen className="h-6 w-6 text-indigo-600" />
+              <h3 className="text-xl font-bold text-neutral-900">
+                {locale === 'tr' ? '📚 Detaylı Bilgiler' : '📚 Detailed Information'}
+              </h3>
+            </div>
+            <div className="space-y-3">
+              {/* What is Water Intake */}
+              <details className="group border border-neutral-200 rounded-lg">
+                <summary className="flex items-center justify-between cursor-pointer p-4 hover:bg-neutral-50">
+                  <span className="font-semibold text-neutral-900">
+                    {locale === 'tr' ? '🔍 Su İhtiyacı Nedir?' : '🔍 What is Water Intake?'}
+                  </span>
+                  <span className="transform group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div className="p-4 pt-0 text-sm text-neutral-700 leading-relaxed border-t border-neutral-100">
+                  <p>{waterIntakeContent[locale].whatIs.substring(0, 600)}...</p>
+                </div>
+              </details>
+
+              {/* How to Calculate */}
+              <details className="group border border-neutral-200 rounded-lg">
+                <summary className="flex items-center justify-between cursor-pointer p-4 hover:bg-neutral-50">
+                  <span className="font-semibold text-neutral-900">
+                    {locale === 'tr' ? '🧮 Nasıl Hesaplanır?' : '🧮 How is it Calculated?'}
+                  </span>
+                  <span className="transform group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div className="p-4 pt-0 text-sm text-neutral-700 leading-relaxed border-t border-neutral-100">
+                  <div className="bg-neutral-50 p-3 rounded mb-3 font-mono text-xs">
+                    {locale === 'tr' ? 'Temel İhtiyaç = Kilo (kg) × 30-35ml' : 'Baseline = Weight (kg) × 30-35ml'}
+                    <br />
+                    {locale === 'tr' ? 'Toplam = (Temel × Aktivite × İklim) + Özel Durum' : 'Total = (Baseline × Activity × Climate) + Special'}
+                  </div>
+                  <p>{waterIntakeContent[locale].howToCalculate.substring(0, 500)}...</p>
+                </div>
+              </details>
+
+              {/* Formula Details */}
+              <details className="group border border-neutral-200 rounded-lg">
+                <summary className="flex items-center justify-between cursor-pointer p-4 hover:bg-neutral-50">
+                  <span className="font-semibold text-neutral-900">
+                    {locale === 'tr' ? '📐 Formül ve Metodoloji' : '📐 Formula & Methodology'}
+                  </span>
+                  <span className="transform group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div className="p-4 pt-0 text-sm text-neutral-700 leading-relaxed border-t border-neutral-100">
+                  <p>{waterIntakeContent[locale].formulaDetails.substring(0, 600)}...</p>
+                </div>
+              </details>
+
+              {/* Interpretation */}
+              <details className="group border border-neutral-200 rounded-lg">
+                <summary className="flex items-center justify-between cursor-pointer p-4 hover:bg-neutral-50">
+                  <span className="font-semibold text-neutral-900">
+                    {locale === 'tr' ? '📊 Sonuçları Yorumlama' : '📊 Interpreting Results'}
+                  </span>
+                  <span className="transform group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div className="p-4 pt-0 text-sm text-neutral-700 leading-relaxed border-t border-neutral-100">
+                  <p>{waterIntakeContent[locale].interpretation.substring(0, 500)}...</p>
+                  <div className="mt-3 p-3 bg-blue-50 rounded-lg">
+                    <p className="text-xs font-semibold text-blue-900">
+                      💡 {locale === 'tr' ? 'İpucu: İdrar renginiz en iyi hidrasyon göstergesidir - açık sarı idealdir!' : 'Tip: Urine color is the best hydration indicator - pale yellow is ideal!'}
+                    </p>
+                  </div>
+                </div>
+              </details>
+
+              {/* Categories */}
+              <details className="group border border-neutral-200 rounded-lg bg-gradient-to-r from-blue-50 to-cyan-50">
+                <summary className="flex items-center justify-between cursor-pointer p-4 hover:bg-blue-100">
+                  <span className="font-semibold text-blue-900">
+                    {locale === 'tr' ? '📋 Hidrasyon Kategorileri' : '📋 Hydration Categories'}
+                  </span>
+                  <span className="transform group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div className="p-4 pt-0 border-t border-blue-200">
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    {waterIntakeContent[locale].categories.map((cat, index) => (
+                      <div key={index} className="bg-white p-3 rounded-lg" style={{ borderLeft: `4px solid ${cat.color}` }}>
+                        <h4 className="font-semibold text-neutral-900 mb-1 text-sm">{cat.label}</h4>
+                        <p className="text-xs text-neutral-600 mb-2">{cat.range}</p>
+                        <p className="text-xs text-neutral-700">{cat.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </details>
+
+              {/* Limitations */}
+              <details className="group border border-orange-200 rounded-lg bg-orange-50">
+                <summary className="flex items-center justify-between cursor-pointer p-4 hover:bg-orange-100">
+                  <span className="font-semibold text-orange-900">
+                    {locale === 'tr' ? '⚠️ Sınırlamalar' : '⚠️ Limitations'}
+                  </span>
+                  <span className="transform group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div className="p-4 pt-0 text-sm text-orange-900 border-t border-orange-200">
+                  <p>{waterIntakeContent[locale].limitations.substring(0, 400)}...</p>
+                </div>
+              </details>
+
+              {/* Medical Disclaimer */}
+              <details className="group border-2 border-amber-400 rounded-lg bg-amber-50">
+                <summary className="flex items-center justify-between cursor-pointer p-4 hover:bg-amber-100">
+                  <span className="font-semibold text-amber-900">
+                    {locale === 'tr' ? '⚕️ Tıbbi Sorumluluk Reddi' : '⚕️ Medical Disclaimer'}
+                  </span>
+                  <span className="transform group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div className="p-4 pt-0 text-sm text-amber-900 border-t border-amber-300">
+                  <p>{waterIntakeContent[locale].medicalDisclaimer.substring(0, 400)}...</p>
+                  <p className="mt-3 text-xs font-semibold">
+                    ⚠️ {locale === 'tr' ? 'Tıbbi tavsiye değildir. Sağlık sorunlarınız için doktorunuza danışın.' : 'Not medical advice. Consult your doctor for health concerns.'}
+                  </p>
+                </div>
+              </details>
+            </div>
+          </Card>
+
+          {/* FAQ */}
+          <Card className="animate-slide-up">
+            <div className="flex items-center gap-3 mb-4">
+              <HelpCircle className="h-6 w-6 text-purple-600" />
+              <h3 className="text-xl font-bold text-neutral-900">
+                {locale === 'tr' ? '❓ Sıkça Sorulan Sorular' : '❓ Frequently Asked Questions'}
+              </h3>
+            </div>
+            <div className="space-y-3">
+              {waterIntakeContent[locale].faqs.map((faq, index) => (
+                <details key={index} className="group">
+                  <summary className="flex items-center justify-between cursor-pointer p-3 bg-neutral-50 rounded-lg hover:bg-neutral-100">
+                    <span className="font-semibold text-neutral-900 text-sm">{faq.question}</span>
+                    <span className="transform group-open:rotate-180 transition-transform">▼</span>
+                  </summary>
+                  <p className="p-3 text-sm text-neutral-700">{faq.answer}</p>
+                </details>
+              ))}
+            </div>
+          </Card>
+
+          {/* Scientific References */}
+          <Card className="animate-slide-up bg-neutral-50">
+            <details className="group">
+              <summary className="flex items-center justify-between cursor-pointer">
+                <div className="flex items-center gap-3">
+                  <FileText className="h-6 w-6 text-neutral-600" />
+                  <h3 className="text-xl font-bold text-neutral-900">
+                    {locale === 'tr' ? '📖 Bilimsel Kaynaklar' : '📖 Scientific References'}
+                  </h3>
+                </div>
+                <span className="transform group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <ol className="mt-4 space-y-2 text-xs text-neutral-600 leading-relaxed">
+                {waterIntakeContent[locale].references.map((ref, index) => (
+                  <li key={index} className="pl-4 border-l-2 border-neutral-300">
+                    {index + 1}. {ref}
+                  </li>
+                ))}
+              </ol>
+            </details>
+          </Card>
         </div>
       )}
     </div>
