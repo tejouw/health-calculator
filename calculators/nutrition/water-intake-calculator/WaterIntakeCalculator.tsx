@@ -689,7 +689,7 @@ const WaterIntakeCalculator: React.FC<WaterIntakeCalculatorProps> = ({ locale })
               </h3>
             </div>
             <div className="grid gap-2 sm:grid-cols-2">
-              {waterIntakeContent[locale].tips.slice(0, 8).map((tip, index) => (
+              {waterIntakeContent[locale].tips?.slice(0, 8).map((tip, index) => (
                 <div key={index} className="flex items-start gap-2 bg-white/80 p-3 rounded-lg backdrop-blur">
                   <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
                   <span className="text-sm text-neutral-700">{tip}</span>
@@ -747,7 +747,7 @@ const WaterIntakeCalculator: React.FC<WaterIntakeCalculatorProps> = ({ locale })
                   <span className="transform group-open:rotate-180 transition-transform">▼</span>
                 </summary>
                 <div className="p-4 pt-0 text-sm text-neutral-700 leading-relaxed border-t border-neutral-100">
-                  <p>{waterIntakeContent[locale].formulaDetails.substring(0, 600)}...</p>
+                  <p>{waterIntakeContent[locale].formulaDetails?.substring(0, 600)}...</p>
                 </div>
               </details>
 
@@ -760,7 +760,7 @@ const WaterIntakeCalculator: React.FC<WaterIntakeCalculatorProps> = ({ locale })
                   <span className="transform group-open:rotate-180 transition-transform">▼</span>
                 </summary>
                 <div className="p-4 pt-0 text-sm text-neutral-700 leading-relaxed border-t border-neutral-100">
-                  <p>{waterIntakeContent[locale].interpretation.substring(0, 500)}...</p>
+                  <p>{waterIntakeContent[locale].interpretation?.substring(0, 500)}...</p>
                   <div className="mt-3 p-3 bg-blue-50 rounded-lg">
                     <p className="text-xs font-semibold text-blue-900">
                       💡 {locale === 'tr' ? 'İpucu: İdrar renginiz en iyi hidrasyon göstergesidir - açık sarı idealdir!' : 'Tip: Urine color is the best hydration indicator - pale yellow is ideal!'}
@@ -779,7 +779,7 @@ const WaterIntakeCalculator: React.FC<WaterIntakeCalculatorProps> = ({ locale })
                 </summary>
                 <div className="p-4 pt-0 border-t border-blue-200">
                   <div className="grid gap-3 sm:grid-cols-2">
-                    {waterIntakeContent[locale].categories.map((cat, index) => (
+                    {waterIntakeContent[locale].categories?.map((cat, index) => (
                       <div key={index} className="bg-white p-3 rounded-lg" style={{ borderLeft: `4px solid ${cat.color}` }}>
                         <h4 className="font-semibold text-neutral-900 mb-1 text-sm">{cat.label}</h4>
                         <p className="text-xs text-neutral-600 mb-2">{cat.range}</p>
@@ -799,7 +799,7 @@ const WaterIntakeCalculator: React.FC<WaterIntakeCalculatorProps> = ({ locale })
                   <span className="transform group-open:rotate-180 transition-transform">▼</span>
                 </summary>
                 <div className="p-4 pt-0 text-sm text-orange-900 border-t border-orange-200">
-                  <p>{waterIntakeContent[locale].limitations.substring(0, 400)}...</p>
+                  <p>{waterIntakeContent[locale].limitations?.substring(0, 400)}...</p>
                 </div>
               </details>
 
@@ -812,7 +812,7 @@ const WaterIntakeCalculator: React.FC<WaterIntakeCalculatorProps> = ({ locale })
                   <span className="transform group-open:rotate-180 transition-transform">▼</span>
                 </summary>
                 <div className="p-4 pt-0 text-sm text-amber-900 border-t border-amber-300">
-                  <p>{waterIntakeContent[locale].medicalDisclaimer.substring(0, 400)}...</p>
+                  <p>{waterIntakeContent[locale].medicalDisclaimer?.substring(0, 400)}...</p>
                   <p className="mt-3 text-xs font-semibold">
                     ⚠️ {locale === 'tr' ? 'Tıbbi tavsiye değildir. Sağlık sorunlarınız için doktorunuza danışın.' : 'Not medical advice. Consult your doctor for health concerns.'}
                   </p>
@@ -830,7 +830,7 @@ const WaterIntakeCalculator: React.FC<WaterIntakeCalculatorProps> = ({ locale })
               </h3>
             </div>
             <div className="space-y-3">
-              {waterIntakeContent[locale].faqs.map((faq, index) => (
+              {waterIntakeContent[locale].faqs?.map((faq, index) => (
                 <details key={index} className="group">
                   <summary className="flex items-center justify-between cursor-pointer p-3 bg-neutral-50 rounded-lg hover:bg-neutral-100">
                     <span className="font-semibold text-neutral-900 text-sm">{faq.question}</span>
@@ -855,7 +855,7 @@ const WaterIntakeCalculator: React.FC<WaterIntakeCalculatorProps> = ({ locale })
                 <span className="transform group-open:rotate-180 transition-transform">▼</span>
               </summary>
               <ol className="mt-4 space-y-2 text-xs text-neutral-600 leading-relaxed">
-                {waterIntakeContent[locale].references.map((ref, index) => (
+                {waterIntakeContent[locale].references?.map((ref, index) => (
                   <li key={index} className="pl-4 border-l-2 border-neutral-300">
                     {index + 1}. {ref}
                   </li>

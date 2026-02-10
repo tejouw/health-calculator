@@ -150,7 +150,7 @@ const ChineseGenderCalculator: React.FC<ChineseGenderCalculatorProps> = ({ local
             onChange={(e) => setConceptionDate(e.target.value)}
             required
             leftIcon={<Baby className="h-5 w-5" />}
-            hint={
+            helperText={
               locale === 'tr'
                 ? 'Genellikle son adet tarihinden 2 hafta sonra'
                 : 'Typically 2 weeks after last menstrual period'
@@ -213,7 +213,7 @@ const ChineseGenderCalculator: React.FC<ChineseGenderCalculatorProps> = ({ local
                         : 'Girl'}
                   </div>
                   <Badge
-                    variant={result.predictedGender === 'boy' ? 'info' : 'danger'}
+                    variant={result.predictedGender === 'boy' ? 'primary' : 'danger'}
                     size="lg"
                     className="mt-2"
                   >
@@ -540,7 +540,7 @@ const ChineseGenderCalculator: React.FC<ChineseGenderCalculatorProps> = ({ local
                   <div className="text-3xl">{item.icon}</div>
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
-                      <Badge variant="info" size="sm">{item.week}</Badge>
+                      <Badge variant="primary" size="sm">{item.week}</Badge>
                       <h4 className="font-semibold text-neutral-900">{item.title}</h4>
                     </div>
                     <p className="text-sm text-neutral-600">{item.desc}</p>
@@ -674,7 +674,7 @@ const ChineseGenderCalculator: React.FC<ChineseGenderCalculatorProps> = ({ local
                     <br />
                     Lunar Month = Conception Month (simplified)
                   </div>
-                  <p>{chineseGenderContent[locale].formulaDetails.substring(0, 500)}...</p>
+                  <p>{chineseGenderContent[locale].formulaDetails?.substring(0, 500)}...</p>
                 </div>
               </details>
 
@@ -687,7 +687,7 @@ const ChineseGenderCalculator: React.FC<ChineseGenderCalculatorProps> = ({ local
                   <span className="transform group-open:rotate-180 transition-transform">▼</span>
                 </summary>
                 <div className="p-4 pt-0 text-sm text-neutral-700 leading-relaxed border-t border-neutral-100">
-                  <p>{chineseGenderContent[locale].interpretation.substring(0, 600)}...</p>
+                  <p>{chineseGenderContent[locale].interpretation?.substring(0, 600)}...</p>
                   <div className="mt-3 p-3 bg-amber-50 rounded-lg border border-amber-200">
                     <p className="text-xs font-semibold text-amber-900">
                       ⚠️ {locale === 'tr' ? 'Önemli: %50 doğruluk oranı - sadece eğlence için!' : 'Important: 50% accuracy - for entertainment only!'}
@@ -758,7 +758,7 @@ const ChineseGenderCalculator: React.FC<ChineseGenderCalculatorProps> = ({ local
                   <span className="transform group-open:rotate-180 transition-transform">▼</span>
                 </summary>
                 <div className="p-4 pt-0 text-sm text-amber-900 leading-relaxed border-t border-amber-300">
-                  <p className="mb-3">{chineseGenderContent[locale].medicalDisclaimer.substring(0, 400)}...</p>
+                  <p className="mb-3">{chineseGenderContent[locale].medicalDisclaimer?.substring(0, 400)}...</p>
                   <p className="text-xs font-semibold">
                     {locale === 'tr'
                       ? '⚠️ Bu hesaplayıcı tıbbi tavsiye değildir. Sağlık konularında mutlaka doktorunuza danışın.'
@@ -782,7 +782,7 @@ const ChineseGenderCalculator: React.FC<ChineseGenderCalculatorProps> = ({ local
                 <span className="transform group-open:rotate-180 transition-transform">▼</span>
               </summary>
               <ol className="mt-4 space-y-2 text-xs text-neutral-600 leading-relaxed">
-                {chineseGenderContent[locale].references.map((reference, index) => (
+                {chineseGenderContent[locale].references?.map((reference, index) => (
                   <li key={index} className="pl-4 border-l-2 border-neutral-300">
                     {index + 1}. {reference}
                   </li>

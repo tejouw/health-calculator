@@ -499,7 +499,7 @@ const ProteinCalculator: React.FC<ProteinCalculatorProps> = ({ locale }) => {
               </h3>
             </div>
             <div className="grid gap-2 sm:grid-cols-2">
-              {proteinContent[locale].tips.slice(0, 6).map((tip, index) => (
+              {proteinContent[locale].tips?.slice(0, 6).map((tip, index) => (
                 <div key={index} className="flex items-start gap-2 bg-white/80 p-3 rounded-lg backdrop-blur">
                   <TrendingUp className="h-5 w-5 text-purple-600 flex-shrink-0 mt-0.5" />
                   <span className="text-sm text-neutral-700">{tip}</span>
@@ -571,7 +571,7 @@ const ProteinCalculator: React.FC<ProteinCalculatorProps> = ({ locale }) => {
                 </summary>
                 <div className="p-4 pt-0 border-t border-blue-200">
                   <div className="grid gap-3 sm:grid-cols-2">
-                    {proteinContent[locale].categories.map((cat, index) => (
+                    {proteinContent[locale].categories?.map((cat, index) => (
                       <div key={index} className="bg-white p-3 rounded-lg" style={{ borderLeft: `4px solid ${cat.color}` }}>
                         <h4 className="font-semibold text-neutral-900 mb-1 text-sm">{cat.label}</h4>
                         <p className="text-xs text-neutral-600 mb-2">{cat.range}</p>
@@ -632,7 +632,7 @@ const ProteinCalculator: React.FC<ProteinCalculatorProps> = ({ locale }) => {
               </h3>
             </div>
             <div className="space-y-3">
-              {proteinContent[locale].faqs.map((faq, index) => (
+              {proteinContent[locale].faqs?.map((faq, index) => (
                 <details key={index} className="group">
                   <summary className="flex items-center justify-between cursor-pointer p-3 bg-neutral-50 rounded-lg hover:bg-neutral-100">
                     <span className="font-semibold text-neutral-900 text-sm">{faq.question}</span>
@@ -657,7 +657,7 @@ const ProteinCalculator: React.FC<ProteinCalculatorProps> = ({ locale }) => {
                 <span className="transform group-open:rotate-180 transition-transform">▼</span>
               </summary>
               <ol className="mt-4 space-y-2 text-xs text-neutral-600 leading-relaxed">
-                {proteinContent[locale].references.map((ref, index) => (
+                {proteinContent[locale].references?.map((ref, index) => (
                   <li key={index} className="pl-4 border-l-2 border-neutral-300">
                     {index + 1}. {ref}
                   </li>
