@@ -34,7 +34,7 @@ import {
 } from 'lucide-react';
 
 import { calculateBiologicalAge } from './biologicalAgeLogic';
-import { biologicalAgeContent } from './biologicalAgeContent';
+import { biologicalAgeUIContent } from './biologicalAgeContent';
 import type { BiologicalAgeResult, BiologicalAgeInput } from './biologicalAgeTypes';
 
 import ResultCard from './components/ResultCard';
@@ -42,14 +42,6 @@ import AgingFactorsBreakdown from './components/AgingFactorsBreakdown';
 import HealthAgesCards from './components/HealthAgesCards';
 import LifeExpectancySection from './components/LifeExpectancySection';
 import ActionItemsCards from './components/ActionItemsCards';
-import BiologicalAgeHowItWorks from './components/BiologicalAgeHowItWorks';
-import BiologicalAgeFormula from './components/BiologicalAgeFormula';
-import BiologicalAgeInterpreting from './components/BiologicalAgeInterpreting';
-import BiologicalAgeCategories from './components/BiologicalAgeCategories';
-import BiologicalAgeFAQ from './components/BiologicalAgeFAQ';
-import BiologicalAgeDisclaimer from './components/BiologicalAgeDisclaimer';
-import BiologicalAgeReferences from './components/BiologicalAgeReferences';
-import ContentNavigation from './components/ContentNavigation';
 
 interface BiologicalAgeCalculatorProps {
   locale: 'en' | 'tr';
@@ -57,7 +49,7 @@ interface BiologicalAgeCalculatorProps {
 
 export default function BiologicalAgeCalculator({ locale }: BiologicalAgeCalculatorProps) {
   const tCommon = useTranslations('common');
-  const content = biologicalAgeContent[locale];
+  const content = biologicalAgeUIContent[locale];
 
   // === FORM STATE ===
   // Basic Info
@@ -110,19 +102,6 @@ export default function BiologicalAgeCalculator({ locale }: BiologicalAgeCalcula
   const toggleSection = (section: string) => {
     setOpenSections(prev => ({ ...prev, [section]: !prev[section] }));
   };
-
-  // Table of Contents sections
-  const contentSections = [
-    { id: 'calculator-form', title: content.tocCalculator || (locale === 'en' ? 'Calculator' : 'Hesaplayıcı') },
-    { id: 'results-section', title: content.tocResults || (locale === 'en' ? 'Results' : 'Sonuçlar') },
-    { id: 'how-it-works', title: content.tocHowItWorks || (locale === 'en' ? 'How It Works' : 'Nasıl Çalışır') },
-    { id: 'formula', title: content.tocFormula || (locale === 'en' ? 'Formula & Methodology' : 'Formül ve Metodoloji') },
-    { id: 'interpreting', title: content.tocInterpreting || (locale === 'en' ? 'Interpreting Results' : 'Sonuçları Yorumlama') },
-    { id: 'categories', title: content.tocCategories || (locale === 'en' ? 'Categories' : 'Kategoriler') },
-    { id: 'faq', title: content.tocFaq || (locale === 'en' ? 'FAQs' : 'Sıkça Sorulan Sorular') },
-    { id: 'disclaimer', title: content.tocDisclaimer || (locale === 'en' ? 'Medical Disclaimer' : 'Tıbbi Sorumluluk Reddi') },
-    { id: 'references', title: content.tocReferences || (locale === 'en' ? 'References' : 'Kaynaklar') },
-  ];
 
   const handleCalculate = () => {
     setError('');
@@ -541,11 +520,7 @@ export default function BiologicalAgeCalculator({ locale }: BiologicalAgeCalcula
 
       {/* === RESULTS SECTION === */}
       {result && (
-        <div className="lg:grid lg:grid-cols-[1fr_250px] lg:gap-8">
-          {/* Main Content Column */}
-          <div className="space-y-6">
-            {/* Results Section */}
-            <div id="results-section" className="space-y-6">
+        <div className="space-y-6">
           {/* Main Result */}
           <ResultCard result={result} locale={locale} />
 
@@ -720,42 +695,6 @@ export default function BiologicalAgeCalculator({ locale }: BiologicalAgeCalcula
               ))}
             </div>
           </Card>
-            </div>
-
-            {/* Educational Sections */}
-            <div id="how-it-works">
-              <BiologicalAgeHowItWorks content={biologicalAgeContent[locale]} />
-            </div>
-
-            <div id="formula">
-              <BiologicalAgeFormula content={biologicalAgeContent[locale]} />
-            </div>
-
-            <div id="interpreting">
-              <BiologicalAgeInterpreting content={biologicalAgeContent[locale]} />
-            </div>
-
-            <div id="categories">
-              <BiologicalAgeCategories content={biologicalAgeContent[locale]} />
-            </div>
-
-            <div id="faq">
-              <BiologicalAgeFAQ faqs={biologicalAgeContent[locale].faqs} />
-            </div>
-
-            <div id="disclaimer">
-              <BiologicalAgeDisclaimer disclaimer={biologicalAgeContent[locale].disclaimerContent} title={biologicalAgeContent[locale].disclaimerTitle} />
-            </div>
-
-            <div id="references">
-              <BiologicalAgeReferences references={biologicalAgeContent[locale].references} title={biologicalAgeContent[locale].referencesTitle} />
-            </div>
-          </div>
-
-          {/* Sidebar - TOC (sticky) */}
-          <aside className="hidden lg:block">
-            <ContentNavigation sections={contentSections} locale={locale} />
-          </aside>
         </div>
       )}
     </div>
