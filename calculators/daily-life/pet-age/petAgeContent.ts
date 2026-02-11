@@ -3,6 +3,10 @@ export const petAgeContent = {
     title: 'Pet Age Calculator',
     description: 'Calculate your pet\'s age in human years with scientific accuracy',
 
+    // Required ContentSection properties
+    whatIs: 'The Pet Age Calculator is a scientifically-backed tool that converts your pet\'s age into human years using validated formulas from the American Veterinary Medical Association (AVMA). Unlike the outdated "multiply by 7" rule, this calculator accounts for species-specific aging patterns, breed size (for dogs), and other factors that affect how pets age compared to humans.',
+    howToCalculate: 'Enter your pet\'s type (dog, cat, rabbit, hamster, bird, or guinea pig), their current age in years and months, and for dogs, select their size category. The calculator uses AVMA-approved formulas: for cats, the first year equals 15 human years, the second year adds 9 more (total 24), then each year adds 4. For dogs, the formula adjusts based on size, with smaller breeds aging more slowly than giant breeds after the first two years.',
+
     // Form labels
     petTypeLabel: 'Select Your Pet Type',
     petTypes: {
@@ -293,6 +297,10 @@ Weight Management: Obesity dramatically shortens lifespan and worsens age-relate
   tr: {
     title: 'Evcil Hayvan Yaşı Hesaplayıcı',
     description: 'Evcil hayvanınızın insan yıllarındaki yaşını bilimsel doğrulukla hesaplayın',
+
+    // Required ContentSection properties
+    whatIs: 'Evcil Hayvan Yaşı Hesaplayıcı, American Veterinary Medical Association (AVMA) tarafından doğrulanmış formüller kullanarak evcil hayvanınızın yaşını insan yıllarına dönüştüren bilimsel olarak desteklenmiş bir araçtır. Güncelliğini yitirmiş "7 ile çarp" kuralının aksine, bu hesaplayıcı türe özgü yaşlanma kalıplarını, ırk büyüklüğünü (köpekler için) ve evcil hayvanların insanlara kıyasla nasıl yaşlandığını etkileyen diğer faktörleri dikkate alır.',
+    howToCalculate: 'Evcil hayvanınızın türünü (köpek, kedi, tavşan, hamster, kuş veya ginepigi), mevcut yaşını yıl ve ay cinsinden girin ve köpekler için büyüklük kategorilerini seçin. Hesaplayıcı AVMA onaylı formüller kullanır: kediler için ilk yıl 15 insan yılına eşittir, ikinci yıl 9 daha ekler (toplam 24), sonra her yıl 4 ekler. Köpekler için formül büyüklüğe göre ayarlanır, küçük ırklar ilk iki yıldan sonra dev ırklardan daha yavaş yaşlanır.',
 
     // Form labels
     petTypeLabel: 'Evcil Hayvan Türünüzü Seçin',
