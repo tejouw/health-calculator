@@ -168,12 +168,16 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
 
   // Daily Life calculators
   'age-calculator': {
-    primary: ['love-calculator'],
+    primary: ['love-calculator', 'pet-age-calculator'],
     secondary: ['bmi-calculator', 'sleep-calculator'],
   },
   'love-calculator': {
-    primary: ['age-calculator'],
+    primary: ['age-calculator', 'pet-age-calculator'],
     secondary: ['sleep-calculator'],
+  },
+  'pet-age-calculator': {
+    primary: ['age-calculator', 'love-calculator'],
+    secondary: ['sleep-calculator', 'growth-percentile-calculator'],
   },
 
   // Substance calculators

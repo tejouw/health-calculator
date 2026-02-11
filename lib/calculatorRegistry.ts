@@ -9,6 +9,7 @@ import { dueDateMeta } from '@/calculators/pregnancy/due-date-calculator/dueDate
 import { ovulationMeta } from '@/calculators/womens-health/ovulation-calculator/ovulationMeta';
 import { idealWeightMeta } from '@/calculators/body-weight/ideal-weight/idealWeightMeta';
 import { bodyFatMeta } from '@/calculators/body-weight/body-fat/bodyFatMeta';
+import { biologicalAgeMeta } from '@/calculators/body-weight/biological-age/biologicalAgeMeta';
 import { macroMeta } from '@/calculators/nutrition/macro-calculator/macroMeta';
 import { bmrMeta } from '@/calculators/nutrition/bmr-calculator/bmrMeta';
 import { foodCalorieMeta } from '@/calculators/nutrition/food-calorie-calculator/foodCalorieMeta';
@@ -43,6 +44,7 @@ import { periodMeta } from '@/calculators/womens-health/period-calculator/period
 // New calculators - Daily Life
 import { ageMeta } from '@/calculators/daily-life/age-calculator/ageMeta';
 import { loveMeta } from '@/calculators/daily-life/love-calculator/loveMeta';
+import { petAgeMeta } from '@/calculators/daily-life/pet-age/petAgeMeta';
 // Body Weight - Waist-Hip Ratio
 import { waistHipRatioMeta } from '@/calculators/body-weight/waist-hip-ratio/waistHipRatioMeta';
 // Substance - Blood Alcohol
@@ -66,6 +68,7 @@ export const calculatorRegistry: CalculatorMeta[] = [
   periodMeta,
   idealWeightMeta,
   bodyFatMeta,
+  biologicalAgeMeta,
   macroMeta,
   bmrMeta,
   foodCalorieMeta,
@@ -95,6 +98,7 @@ export const calculatorRegistry: CalculatorMeta[] = [
   // Daily Life
   ageMeta,
   loveMeta,
+  petAgeMeta,
   // Body Weight - Waist-Hip Ratio
   waistHipRatioMeta,
   // Substance

@@ -53,6 +53,7 @@ import { periodContent } from '@/calculators/womens-health/period-calculator/per
 // Daily Life
 import { ageContent } from '@/calculators/daily-life/age-calculator/ageContent';
 import { loveContent } from '@/calculators/daily-life/love-calculator/loveContent';
+import { petAgeContent } from '@/calculators/daily-life/pet-age/petAgeContent';
 // Body Weight - Waist-Hip Ratio
 import { waistHipRatioContent } from '@/calculators/body-weight/waist-hip-ratio/waistHipRatioContent';
 // Substance - Blood Alcohol
@@ -61,6 +62,8 @@ import { bloodAlcoholContent } from '@/calculators/substance/blood-alcohol-calcu
 import { caffeineContent } from '@/calculators/substance/caffeine-calculator/caffeineContent';
 // Pregnancy - Chinese Gender Predictor
 import { chineseGenderContent } from '@/calculators/pregnancy/chinese-gender-predictor/chineseGenderContent';
+// Body Weight - Biological Age
+import { biologicalAgeContent } from '@/calculators/body-weight/biological-age/biologicalAgeContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -167,11 +170,14 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     // Daily Life
     'age-calculator': ageContent,
     'love-calculator': loveContent,
+    'pet-age-calculator': petAgeContent,
     // Body Weight - Waist-Hip Ratio
     'waist-hip-ratio-calculator': waistHipRatioContent,
     // Substance
     'blood-alcohol-calculator': bloodAlcoholContent,
     'caffeine-calculator': caffeineContent,
+    // Body Weight - Biological Age
+    'biological-age-calculator': biologicalAgeContent,
   };
 
   const content = contentMap[calculator.id];
