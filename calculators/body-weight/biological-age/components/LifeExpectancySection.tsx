@@ -1,7 +1,7 @@
 import { Card } from '@/components/ui';
 import { Calendar, Target, TrendingUp } from 'lucide-react';
 import type { BiologicalAgeResult } from '../biologicalAgeTypes';
-import { biologicalAgeContent } from '../biologicalAgeContent';
+import { biologicalAgeUIContent } from '../biologicalAgeContent';
 
 interface LifeExpectancySectionProps {
   result: BiologicalAgeResult;
@@ -9,7 +9,7 @@ interface LifeExpectancySectionProps {
 }
 
 export default function LifeExpectancySection({ result, locale }: LifeExpectancySectionProps) {
-  const content = biologicalAgeContent[locale];
+  const content = biologicalAgeUIContent[locale];
   const yearsLabel = locale === 'en' ? 'years' : 'yil';
   const currentAgeLabel = locale === 'en' ? 'Current Age' : 'Mevcut Yas';
   const potentialLabel = locale === 'en' ? 'Potential Lifespan' : 'Potansiyel Yasam Suresi';

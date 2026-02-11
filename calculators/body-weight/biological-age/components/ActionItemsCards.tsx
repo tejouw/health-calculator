@@ -1,7 +1,7 @@
 import { Card, Badge } from '@/components/ui';
 import { ArrowUp, ArrowRight, ArrowDown, Zap, Target, CheckCircle2 } from 'lucide-react';
 import type { ActionItem } from '../biologicalAgeTypes';
-import { biologicalAgeContent } from '../biologicalAgeContent';
+import { biologicalAgeUIContent } from '../biologicalAgeContent';
 
 interface ActionItemsCardsProps {
   actions: ActionItem[];
@@ -9,7 +9,7 @@ interface ActionItemsCardsProps {
 }
 
 export default function ActionItemsCards({ actions, locale }: ActionItemsCardsProps) {
-  const content = biologicalAgeContent[locale];
+  const content = biologicalAgeUIContent[locale];
 
   const getImpactIcon = (impact: string) => {
     switch (impact) {

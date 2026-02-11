@@ -1,7 +1,7 @@
 import { Card, Badge } from '@/components/ui';
 import { TrendingDown, TrendingUp, Minus, Trophy, Award } from 'lucide-react';
 import type { BiologicalAgeResult } from '../biologicalAgeTypes';
-import { biologicalAgeContent } from '../biologicalAgeContent';
+import { biologicalAgeUIContent } from '../biologicalAgeContent';
 
 interface ResultCardProps {
   result: BiologicalAgeResult;
@@ -9,7 +9,7 @@ interface ResultCardProps {
 }
 
 export default function ResultCard({ result, locale }: ResultCardProps) {
-  const content = biologicalAgeContent[locale];
+  const content = biologicalAgeUIContent[locale];
 
   const getCategoryColor = (category: string) => {
     switch (category) {

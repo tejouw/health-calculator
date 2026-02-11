@@ -22,7 +22,7 @@ import {
   Sunrise,
 } from 'lucide-react';
 import type { AgingFactor } from '../biologicalAgeTypes';
-import { biologicalAgeContent } from '../biologicalAgeContent';
+import { biologicalAgeUIContent } from '../biologicalAgeContent';
 
 interface AgingFactorsBreakdownProps {
   factors: AgingFactor[];
@@ -64,7 +64,7 @@ const iconMap: Record<string, any> = {
 };
 
 export default function AgingFactorsBreakdown({ factors, locale }: AgingFactorsBreakdownProps) {
-  const content = biologicalAgeContent[locale];
+  const content = biologicalAgeUIContent[locale];
 
   const getFactorName = (factorName: string) => {
     const nameMap: Record<string, string> = {

@@ -1,7 +1,7 @@
 import { Card } from '@/components/ui';
 import { Heart, Zap, Bone, Brain as BrainIcon } from 'lucide-react';
 import type { BiologicalAgeResult } from '../biologicalAgeTypes';
-import { biologicalAgeContent } from '../biologicalAgeContent';
+import { biologicalAgeUIContent } from '../biologicalAgeContent';
 
 interface HealthAgesCardsProps {
   result: BiologicalAgeResult;
@@ -9,7 +9,7 @@ interface HealthAgesCardsProps {
 }
 
 export default function HealthAgesCards({ result, locale }: HealthAgesCardsProps) {
-  const content = biologicalAgeContent[locale];
+  const content = biologicalAgeUIContent[locale];
 
   const healthSystems = [
     {
