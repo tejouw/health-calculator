@@ -33,7 +33,7 @@ export const loveMeta: CalculatorMeta = {
     'sevgili uyumu',
     'aşk yüzdesi',
   ],
-  icon: 'Heart',
+  icon: 'HeartHandshake',
   popular: true,
   featured: true,
   component: LoveCalculator,

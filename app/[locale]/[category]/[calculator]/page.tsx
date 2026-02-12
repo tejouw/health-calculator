@@ -64,6 +64,8 @@ import { caffeineContent } from '@/calculators/substance/caffeine-calculator/caf
 import { chineseGenderContent } from '@/calculators/pregnancy/chinese-gender-predictor/chineseGenderContent';
 // Body Weight - Biological Age
 import { biologicalAgeContent } from '@/calculators/body-weight/biological-age/biologicalAgeContent';
+// Medical - Life Expectancy
+import { lifeExpectancyContent } from '@/calculators/medical/life-expectancy/lifeExpectancyContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -161,6 +163,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'gfr-calculator': gfrContent,
     'creatinine-clearance-calculator': creatinineContent,
     'bsa-calculator': bsaContent,
+    'life-expectancy-calculator': lifeExpectancyContent,
     // Mental Health
     'phq9-calculator': phq9Content,
     // Men's Health

@@ -30,7 +30,7 @@ export const growthMeta: CalculatorMeta = {
     'boy persentili',
     'kilo persentili',
   ],
-  icon: 'Baby',
+  icon: 'TrendingUp',
   popular: true,
   featured: false,
   component: GrowthPercentileCalculator,

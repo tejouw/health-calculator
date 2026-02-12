@@ -25,7 +25,7 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
   // Body & Weight calculators
   'bmi-calculator': {
     primary: ['body-fat-calculator', 'ideal-weight-calculator'],
-    secondary: ['waist-hip-ratio-calculator', 'bmr-calculator', 'tdee-calculator', 'calorie-calculator'],
+    secondary: ['waist-hip-ratio-calculator', 'bmr-calculator', 'tdee-calculator', 'calorie-calculator', 'life-expectancy-calculator'],
   },
   'body-fat-calculator': {
     primary: ['bmi-calculator', 'ideal-weight-calculator'],
@@ -38,6 +38,10 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
   'waist-hip-ratio-calculator': {
     primary: ['bmi-calculator', 'body-fat-calculator'],
     secondary: ['ideal-weight-calculator', 'calorie-calculator'],
+  },
+  'biological-age-calculator': {
+    primary: ['bmi-calculator', 'body-fat-calculator', 'life-expectancy-calculator'],
+    secondary: ['blood-pressure-calculator', 'heart-rate-zone-calculator', 'sleep-calculator'],
   },
 
   // Nutrition calculators
@@ -114,8 +118,8 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
     secondary: ['one-rep-max-calculator', 'calorie-calculator', 'tdee-calculator'],
   },
   'blood-pressure-calculator': {
-    primary: ['heart-rate-zone-calculator'],
-    secondary: ['bmi-calculator', 'calorie-calculator', 'age-calculator'],
+    primary: ['heart-rate-zone-calculator', 'life-expectancy-calculator'],
+    secondary: ['bmi-calculator', 'calorie-calculator', 'age-calculator', 'biological-age-calculator'],
   },
 
   // Sleep calculators
@@ -158,6 +162,12 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
   'psa-calculator': {
     primary: [],
     secondary: ['bmi-calculator', 'gfr-calculator'],
+  },
+
+  // Life Expectancy Calculator
+  'life-expectancy-calculator': {
+    primary: ['bmi-calculator', 'biological-age-calculator', 'blood-pressure-calculator'],
+    secondary: ['phq9-calculator', 'sleep-calculator', 'calorie-calculator', 'blood-alcohol-calculator'],
   },
 
   // Children's Health calculators

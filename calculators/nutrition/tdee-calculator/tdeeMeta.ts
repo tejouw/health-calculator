@@ -42,7 +42,7 @@ export const tdeeMeta: CalculatorMeta = {
     'kalori açığı',
     'kalori fazlalığı',
   ],
-  icon: 'Flame',
+  icon: 'Gauge',
   popular: true,
   featured: true,
   component: TDEECalculator,

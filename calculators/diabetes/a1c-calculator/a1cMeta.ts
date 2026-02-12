@@ -25,7 +25,7 @@ export const a1cMeta: CalculatorMeta = {
     'a1c hesaplayıcı',
     'diyabet hesaplayıcı',
   ],
-  icon: 'Activity',
+  icon: 'TestTube2',
   popular: true,
   featured: false,
   component: A1CCalculator,

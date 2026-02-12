@@ -33,7 +33,7 @@ export const waterIntakeMeta: CalculatorMeta = {
     'su gereksinimi',
     'sıvı alımı',
   ],
-  icon: 'Droplet',
+  icon: 'GlassWater',
   popular: true,
   featured: true,
   component: WaterIntakeCalculator,

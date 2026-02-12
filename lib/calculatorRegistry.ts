@@ -55,6 +55,8 @@ import { caffeineMeta } from '@/calculators/substance/caffeine-calculator/caffei
 import { bloodPressureMeta } from '@/calculators/heart/blood-pressure-calculator/bloodPressureMeta';
 // Pregnancy - Chinese Gender Predictor
 import { chineseGenderMeta } from '@/calculators/pregnancy/chinese-gender-predictor/chineseGenderMeta';
+// Medical - Life Expectancy
+import { lifeExpectancyMeta } from '@/calculators/medical/life-expectancy/lifeExpectancyMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -89,6 +91,7 @@ export const calculatorRegistry: CalculatorMeta[] = [
   gfrMeta,
   creatinineMeta,
   bsaMeta,
+  lifeExpectancyMeta,
   // Mental Health
   phq9Meta,
   // Men's Health

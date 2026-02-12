@@ -33,7 +33,7 @@ export const petAgeMeta: CalculatorMeta = {
     'köpek insan yaşı',
     'kedi insan yaşı',
   ],
-  icon: 'Heart',
+  icon: 'PawPrint',
   popular: true,
   featured: true,
   component: PetAgeCalculator,

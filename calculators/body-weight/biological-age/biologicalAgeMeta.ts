@@ -32,7 +32,7 @@ export const biologicalAgeMeta: CalculatorMeta = {
     'yaşlanma hesaplayıcı',
     'biyolojik yaş testi',
   ],
-  icon: 'TrendingUp',
+  icon: 'Clock',
   popular: true,
   featured: true,
   component: BiologicalAgeCalculator,

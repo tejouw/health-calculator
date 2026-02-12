@@ -26,7 +26,7 @@ export const gfrMeta: CalculatorMeta = {
     'gfr hesaplayıcı',
     'böbrek fonksiyonu',
   ],
-  icon: 'Heart',
+  icon: 'Microscope',
   popular: true,
   featured: false,
   component: GFRCalculator,

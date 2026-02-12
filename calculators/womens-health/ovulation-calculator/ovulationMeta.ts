@@ -39,7 +39,7 @@ export const ovulationMeta: CalculatorMeta = {
     'hamilelik planlama',
     'menstrüel döngü',
   ],
-  icon: 'Heart',
+  icon: 'Flower2',
   popular: true,
   featured: true,
   component: OvulationCalculator,

@@ -28,7 +28,7 @@ export const bsaMeta: CalculatorMeta = {
     'vücut yüzey alanı',
     'ilaç dozajı',
   ],
-  icon: 'Activity',
+  icon: 'UserSquare2',
   popular: true,
   featured: false,
   component: BSACalculator,

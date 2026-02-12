@@ -37,7 +37,7 @@ export const idealWeightMeta: CalculatorMeta = {
     'ideal boy kilo oranı',
     'vücut ağırlığı hesaplama',
   ],
-  icon: 'Scale',
+  icon: 'Target',
   popular: true,
   featured: true,
   component: IdealWeightCalculator,

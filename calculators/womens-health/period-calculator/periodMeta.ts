@@ -34,7 +34,7 @@ export const periodMeta: CalculatorMeta = {
     'verimli günler',
     'adet döngüsü',
   ],
-  icon: 'Calendar',
+  icon: 'CalendarClock',
   popular: true,
   featured: true,
   component: PeriodCalculator,

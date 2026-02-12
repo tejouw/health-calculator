@@ -27,7 +27,7 @@ export const bodyFatMeta: CalculatorMeta = {
     'navy yontemi',
     'vucut kompozisyonu',
   ],
-  icon: 'Activity',
+  icon: 'Percent',
   popular: true,
   featured: true,
   component: BodyFatCalculator,

@@ -34,7 +34,7 @@ export const pregnancyWeekMeta: CalculatorMeta = {
     'bebek boyutu',
     'hamilelik kilometre taşları',
   ],
-  icon: 'Heart',
+  icon: 'CalendarDays',
   popular: true,
   featured: true,
   component: PregnancyWeekCalculator,

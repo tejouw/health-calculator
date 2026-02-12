@@ -39,6 +39,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   const [isOpen, setIsOpen] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const [recentSearches, setRecentSearches] = useState<RecentSearch[]>([]);
+  const [isMounted, setIsMounted] = useState(false);
 
   // Get popular calculators
   const popularCalculators = calculators.filter(calc => calc.popular).slice(0, 3);
@@ -56,8 +57,9 @@ export const SearchBar: React.FC<SearchBarProps> = ({
     getSelectedResult,
   } = useSearch(calculators, { locale });
 
-  // Load recent searches on mount
+  // Load recent searches on mount (client-side only)
   useEffect(() => {
+    setIsMounted(true);
     setRecentSearches(getRecentSearches());
   }, []);
 
@@ -310,7 +312,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           ) : (
             <div className="py-2">
               {/* Recent Searches */}
-              {recentSearches.length > 0 && (
+              {isMounted && recentSearches.length > 0 && (
                 <div className="mb-4">
                   <div className="px-4 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-500">
                     <Clock className="mr-1 inline h-3 w-3" />
@@ -389,7 +391,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
               )}
 
               {/* Empty state */}
-              {recentSearches.length === 0 && popularCalculators.length === 0 && (
+              {isMounted && recentSearches.length === 0 && popularCalculators.length === 0 && (
                 <div className="p-8 text-center">
                   <div className="mb-2 text-4xl">💡</div>
                   <div className="text-sm text-neutral-500">
