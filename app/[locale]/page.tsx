@@ -1,7 +1,7 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/lib/navigation';
 import { categories } from '@/config/categories.config';
-import { getAllCalculators, getCategoryCalculatorCount, getPopularCalculators } from '@/lib/calculatorRegistry';
+import { getAllCalculators, getCategoryCalculatorCount, getPopularCalculators, getFormattedCalculatorCount } from '@/lib/calculatorRegistry';
 import { CategoryCard } from '@/components/home/CategoryCard';
 import { PopularCalculators } from '@/components/home/PopularCalculators';
 import { SearchBar } from '@/components/search';
@@ -24,10 +24,11 @@ interface HomePageProps {
 export async function generateMetadata({ params }: HomePageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'seo' });
+  const calculatorCount = getFormattedCalculatorCount();
 
   // Metadata is already set in layout, this is just for page-specific overrides
   return {
-    title: t('defaultTitle'),
+    title: t('homePageTitle', { count: calculatorCount }),
     description: t('defaultDescription'),
   };
 }
@@ -56,8 +57,11 @@ export default async function HomePage({ params }: HomePageProps) {
     calculatorCount: getCategoryCalculatorCount(category.id),
   }));
 
+  // Dynamically get calculator count
+  const calculatorCount = getFormattedCalculatorCount();
+
   const stats = [
-    { icon: Calculator, value: '350+', label: tStats('healthCalculators') },
+    { icon: Calculator, value: calculatorCount, label: tStats('healthCalculators') },
     { icon: Users, value: '100K+', label: tStats('activeUsers') },
     { icon: Star, value: '4.9/5', label: tStats('userRating') },
     { icon: Shield, value: '100%', label: tStats('privacyProtected') },
@@ -103,7 +107,7 @@ export default async function HomePage({ params }: HomePageProps) {
           </div>
 
           <h1 className="mb-4 sm:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight px-2">
-            {tHero('title')}
+            {tHero('title', { count: calculatorCount })}
           </h1>
           <p className="mx-auto mb-6 sm:mb-8 md:mb-10 max-w-3xl text-base sm:text-lg md:text-xl lg:text-2xl text-primary-50 leading-relaxed px-4">
             {tHero('subtitle')}

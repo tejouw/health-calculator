@@ -50,6 +50,8 @@ export interface ContentSection {
   categories?: BMICategory[];
   limitations?: string;
   healthRisks?: string;
+  healthBenefits?: string;
+  improvementTips?: string;
   alternativeMeasures?: string;
   demographicDifferences?: string;
   medicalDisclaimer?: string;

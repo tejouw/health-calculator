@@ -15,6 +15,7 @@ const CATEGORY_SLUGS = {
   'sleep': { en: 'sleep', tr: 'uyku' },
   'childrens-health': { en: 'childrens-health', tr: 'cocuk-sagligi' },
   'daily-life': { en: 'daily-life', tr: 'gunluk-yasam' },
+  'substance': { en: 'substance', tr: 'madde' },
 };
 
 // Calculator slug mappings for path translation
@@ -27,6 +28,7 @@ const CALCULATOR_SLUGS = {
   'blood-sugar-converter': { en: 'blood-sugar-converter', tr: 'kan-sekeri-donusturucu' },
   'one-rep-max-calculator': { en: 'one-rep-max-calculator', tr: 'maksimum-tek-tekrar-hesaplama' },
   'running-pace-calculator': { en: 'running-pace-calculator', tr: 'kosu-temposu-hesaplama' },
+  'vo2-max-calculator': { en: 'vo2-max-calculator', tr: 'vo2-max-hesaplayici' },
   'heart-rate-zone-calculator': { en: 'heart-rate-zone-calculator', tr: 'kalp-atisi-bolgesi-hesaplayici' },
   'creatinine-clearance-calculator': { en: 'creatinine-clearance-calculator', tr: 'kreatinin-klirensi-hesaplama' },
   'gfr-calculator': { en: 'gfr-calculator', tr: 'gfr-hesaplayici' },
@@ -47,7 +49,15 @@ const CALCULATOR_SLUGS = {
   'period-calculator': { en: 'period-calculator', tr: 'adet-takvimi' },
   'age-calculator': { en: 'age-calculator', tr: 'yas-hesaplayici' },
   'love-calculator': { en: 'love-calculator', tr: 'ask-hesaplayici' },
+  'pet-age-calculator': { en: 'pet-age-calculator', tr: 'evcil-hayvan-yasi-hesaplayici' },
   'waist-hip-ratio-calculator': { en: 'waist-hip-ratio-calculator', tr: 'bel-kalca-orani-hesaplama' },
+  'blood-pressure-calculator': { en: 'blood-pressure-calculator', tr: 'kan-basinci-hesaplayici' },
+  'chinese-gender-predictor': { en: 'chinese-gender-predictor', tr: 'cin-cinsiyet-tahmini' },
+  'blood-alcohol-calculator': { en: 'blood-alcohol-calculator', tr: 'kan-alkol-hesaplayici' },
+  'caffeine-calculator': { en: 'caffeine-calculator', tr: 'kafein-hesaplayici' },
+  'bsa-calculator': { en: 'bsa-calculator', tr: 'vya-hesaplayici' },
+  'biological-age-calculator': { en: 'biological-age-calculator', tr: 'biyolojik-yas-hesaplayici' },
+  'life-expectancy-calculator': { en: 'life-expectancy-calculator', tr: 'yasam-beklentisi-hesaplama' },
 };
 
 // Static page slug mappings

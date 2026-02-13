@@ -42,6 +42,8 @@
   "units": {
     "cm": "cm",
     "meter": "m",
+    "meters": "meters",
+    "miles": "miles",
     "kg": "kg",
     "gram": "g",
     "lbs": "lbs",
@@ -95,7 +97,7 @@
     "english": "English"
   },
   "hero": {
-    "title": "350+ Health Calculators",
+    "title": "{count} Health Calculators",
     "subtitle": "From BMI to pregnancy tracking, nutrition planning to fitness goals - all the health calculators you need in one place.",
     "cta": "Browse Calculators"
   },
@@ -108,7 +110,8 @@
     "copyright": "© 2025 ProHealthCalc. All rights reserved."
   },
   "seo": {
-    "defaultTitle": "ProHealthCalc - 350+ Free Health Calculators | BMI, Calorie & Pregnancy",
+    "defaultTitle": "ProHealthCalc - Free Health Calculators | BMI, Calorie & Pregnancy",
+    "homePageTitle": "ProHealthCalc - {count} Free Health Calculators | BMI, Calorie & Pregnancy",
     "defaultDescription": "Professional health calculators for BMI, calorie tracking, pregnancy, fitness goals and more. Get instant, accurate results. Trusted by 100,000+ users worldwide."
   },
   "calculator": {

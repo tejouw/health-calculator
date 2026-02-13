@@ -66,6 +66,8 @@ import { chineseGenderContent } from '@/calculators/pregnancy/chinese-gender-pre
 import { biologicalAgeContent } from '@/calculators/body-weight/biological-age/biologicalAgeContent';
 // Medical - Life Expectancy
 import { lifeExpectancyContent } from '@/calculators/medical/life-expectancy/lifeExpectancyContent';
+// Fitness - VO2 Max
+import { vo2MaxContent } from '@/calculators/fitness/vo2-max/vo2MaxContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -154,6 +156,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     // Fitness
     'one-rep-max-calculator': oneRepMaxContent,
     'running-pace-calculator': runningPaceContent,
+    'vo2-max-calculator': vo2MaxContent,
     // Sleep
     'sleep-calculator': sleepContent,
     // Diabetes

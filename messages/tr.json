@@ -42,6 +42,8 @@
   "units": {
     "cm": "cm",
     "meter": "m",
+    "meters": "metre",
+    "miles": "mil",
     "kg": "kg",
     "gram": "gr",
     "lbs": "lbs",
@@ -95,7 +97,7 @@
     "english": "English"
   },
   "hero": {
-    "title": "350+ Sağlık Hesaplayıcısı",
+    "title": "{count} Sağlık Hesaplayıcısı",
     "subtitle": "BMI'dan hamilelik takibine, beslenme planlamasından fitness hedeflerine kadar ihtiyacınız olan tüm sağlık hesaplayıcıları bir arada.",
     "cta": "Hesaplayıcılara Göz Atın"
   },
@@ -108,7 +110,8 @@
     "copyright": "© 2025 Sağlık Hesapla. Tüm hakları saklıdır."
   },
   "seo": {
-    "defaultTitle": "Sağlık Hesapla - 350+ Ücretsiz Sağlık Hesaplayıcısı | VKİ, Kalori ve Hamilelik",
+    "defaultTitle": "Sağlık Hesapla - Ücretsiz Sağlık Hesaplayıcısı | VKİ, Kalori ve Hamilelik",
+    "homePageTitle": "Sağlık Hesapla - {count} Ücretsiz Sağlık Hesaplayıcısı | VKİ, Kalori ve Hamilelik",
     "defaultDescription": "Profesyonel sağlık hesaplayıcıları: VKİ, kalori takibi, hamilelik, fitness hedefleri ve daha fazlası. Anında doğru sonuçlar. Dünya çapında 100.000+ kullanıcı tarafından güvenilir."
   },
   "calculator": {

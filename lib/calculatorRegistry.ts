@@ -18,6 +18,7 @@ import { heartRateZoneMeta } from '@/calculators/heart/heart-rate-zone/heartRate
 // New calculators - Fitness
 import { oneRepMaxMeta } from '@/calculators/fitness/one-rep-max/oneRepMaxMeta';
 import { runningPaceMeta } from '@/calculators/fitness/running-pace/runningPaceMeta';
+import { vo2MaxMeta } from '@/calculators/fitness/vo2-max/vo2MaxMeta';
 // New calculators - Sleep
 import { sleepMeta } from '@/calculators/sleep/sleep-calculator/sleepMeta';
 // New calculators - Diabetes
@@ -82,6 +83,7 @@ export const calculatorRegistry: CalculatorMeta[] = [
   // Fitness
   oneRepMaxMeta,
   runningPaceMeta,
+  vo2MaxMeta,
   // Sleep
   sleepMeta,
   // Diabetes
@@ -175,4 +177,29 @@ export function searchCalculators(query: string, locale: 'en' | 'tr'): Calculato
  */
 export function getCategoryCalculatorCount(categoryId: CategoryId): number {
   return calculatorRegistry.filter((calc) => calc.category === categoryId).length;
+}
+
+/**
+ * Gets the total number of calculators
+ * Returns the count as a number
+ */
+export function getTotalCalculatorCount(): number {
+  return calculatorRegistry.length;
+}
+
+/**
+ * Formats the calculator count for display
+ * Returns a string like "34+" or "100+" depending on the actual count
+ * Rounds down to nearest 10 for counts over 50
+ */
+export function getFormattedCalculatorCount(): string {
+  const count = getTotalCalculatorCount();
+
+  if (count < 50) {
+    return `${count}+`;
+  }
+
+  // Round down to nearest 10 for better presentation
+  const roundedCount = Math.floor(count / 10) * 10;
+  return `${roundedCount}+`;
 }

@@ -60,6 +60,8 @@ const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
         content[locale].categories && { id: 'categories', title: locale === 'en' ? 'Categories' : 'Kategoriler' },
         content[locale].interpretation && { id: 'interpretation', title: t('interpretation') },
         content[locale].limitations && { id: 'limitations', title: locale === 'en' ? 'Limitations' : 'Sınırlamalar' },
+        content[locale].healthBenefits && { id: 'health-benefits', title: locale === 'en' ? 'Health Benefits' : 'Sağlık Faydaları' },
+        content[locale].improvementTips && { id: 'improvement-tips', title: locale === 'en' ? 'How to Improve' : 'Nasıl Geliştir ilir' },
         content[locale].healthRisks && { id: 'health-risks', title: locale === 'en' ? 'Health Risks' : 'Sağlık Riskleri' },
         content[locale].alternativeMeasures && { id: 'alternative-measures', title: locale === 'en' ? 'Alternative Measures' : 'Alternatif Ölçümler' },
         content[locale].demographicDifferences && { id: 'demographic-differences', title: locale === 'en' ? 'Demographic Differences' : 'Demografik Farklılıklar' },
@@ -188,6 +190,26 @@ const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
                     {locale === 'en' ? 'Limitations' : 'Sınırlamalar'}
                   </h2>
                   <p className="text-body">{content[locale].limitations}</p>
+                </div>
+              )}
+
+              {/* Health Benefits */}
+              {content[locale].healthBenefits && (
+                <div id="health-benefits" className="mb-12 scroll-mt-20">
+                  <h2 className="heading-3 mb-4">
+                    {locale === 'en' ? 'Health Benefits' : 'Sağlık Faydaları'}
+                  </h2>
+                  <p className="text-body">{content[locale].healthBenefits}</p>
+                </div>
+              )}
+
+              {/* Improvement Tips */}
+              {content[locale].improvementTips && (
+                <div id="improvement-tips" className="mb-12 scroll-mt-20">
+                  <h2 className="heading-3 mb-4">
+                    {locale === 'en' ? 'How to Improve' : 'Nasıl Geliştir ilir'}
+                  </h2>
+                  <p className="text-body">{content[locale].improvementTips}</p>
                 </div>
               )}
 
