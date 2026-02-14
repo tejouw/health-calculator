@@ -40,6 +40,8 @@ import { waterIntakeMeta } from '@/calculators/nutrition/water-intake-calculator
 import { calorieDeficitMeta } from '@/calculators/nutrition/calorie-deficit-calculator/calorieDeficitMeta';
 // New calculators - Nutrition (Protein)
 import { proteinMeta } from '@/calculators/nutrition/protein-calculator/proteinMeta';
+// New calculators - Nutrition (Intermittent Fasting)
+import { fastingMeta } from '@/calculators/nutrition/intermittent-fasting-calculator/fastingMeta';
 // New calculators - Women's Health (Period)
 import { periodMeta } from '@/calculators/womens-health/period-calculator/periodMeta';
 // New calculators - Daily Life
@@ -78,6 +80,7 @@ export const calculatorRegistry: CalculatorMeta[] = [
   waterIntakeMeta,
   calorieDeficitMeta,
   proteinMeta,
+  fastingMeta,
   heartRateZoneMeta,
   bloodPressureMeta,
   // Fitness

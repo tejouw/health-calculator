@@ -46,6 +46,7 @@ const CALCULATOR_SLUGS = {
   'calorie-deficit-calculator': { en: 'calorie-deficit-calculator', tr: 'kalori-acigi-hesaplama' },
   'water-intake-calculator': { en: 'water-intake-calculator', tr: 'su-ihtiyaci-hesaplama' },
   'protein-calculator': { en: 'protein-calculator', tr: 'protein-hesaplama' },
+  'intermittent-fasting-calculator': { en: 'intermittent-fasting-calculator', tr: 'aralikli-oruc-hesaplayici' },
   'period-calculator': { en: 'period-calculator', tr: 'adet-takvimi' },
   'age-calculator': { en: 'age-calculator', tr: 'yas-hesaplayici' },
   'love-calculator': { en: 'love-calculator', tr: 'ask-hesaplayici' },

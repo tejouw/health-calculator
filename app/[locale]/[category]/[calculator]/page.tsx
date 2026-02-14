@@ -48,6 +48,8 @@ import { waterIntakeContent } from '@/calculators/nutrition/water-intake-calcula
 import { calorieDeficitContent } from '@/calculators/nutrition/calorie-deficit-calculator/calorieDeficitContent';
 // Nutrition - Protein
 import { proteinContent } from '@/calculators/nutrition/protein-calculator/proteinContent';
+// Nutrition - Intermittent Fasting
+import { fastingContent } from '@/calculators/nutrition/intermittent-fasting-calculator/fastingContent';
 // Women's Health - Period
 import { periodContent } from '@/calculators/womens-health/period-calculator/periodContent';
 // Daily Life
@@ -151,6 +153,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'water-intake-calculator': waterIntakeContent,
     'calorie-deficit-calculator': calorieDeficitContent,
     'protein-calculator': proteinContent,
+    'intermittent-fasting-calculator': fastingContent,
     'heart-rate-zone-calculator': heartRateZoneContent,
     'blood-pressure-calculator': bloodPressureContent,
     // Fitness
