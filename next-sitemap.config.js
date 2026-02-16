@@ -59,6 +59,7 @@ const CALCULATOR_SLUGS = {
   'bsa-calculator': { en: 'bsa-calculator', tr: 'vya-hesaplayici' },
   'biological-age-calculator': { en: 'biological-age-calculator', tr: 'biyolojik-yas-hesaplayici' },
   'life-expectancy-calculator': { en: 'life-expectancy-calculator', tr: 'yasam-beklentisi-hesaplama' },
+  'lean-body-mass-calculator': { en: 'lean-body-mass-calculator', tr: 'yagsiz-vucut-kutlesi-hesaplama' },
 };
 
 // Static page slug mappings

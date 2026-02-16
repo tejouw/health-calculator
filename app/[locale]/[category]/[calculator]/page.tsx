@@ -70,6 +70,8 @@ import { biologicalAgeContent } from '@/calculators/body-weight/biological-age/b
 import { lifeExpectancyContent } from '@/calculators/medical/life-expectancy/lifeExpectancyContent';
 // Fitness - VO2 Max
 import { vo2MaxContent } from '@/calculators/fitness/vo2-max/vo2MaxContent';
+// Body Weight - Lean Body Mass
+import { leanBodyMassContent } from '@/calculators/body-weight/lean-body-mass/leanBodyMassContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -187,6 +189,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'caffeine-calculator': caffeineContent,
     // Body Weight - Biological Age
     'biological-age-calculator': biologicalAgeContent,
+    // Body Weight - Lean Body Mass
+    'lean-body-mass-calculator': leanBodyMassContent,
   };
 
   const content = contentMap[calculator.id];

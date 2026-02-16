@@ -25,15 +25,15 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
   // Body & Weight calculators
   'bmi-calculator': {
     primary: ['body-fat-calculator', 'ideal-weight-calculator'],
-    secondary: ['waist-hip-ratio-calculator', 'biological-age-calculator', 'bmr-calculator', 'tdee-calculator', 'calorie-calculator', 'life-expectancy-calculator', 'calorie-deficit-calculator'],
+    secondary: ['lean-body-mass-calculator', 'waist-hip-ratio-calculator', 'biological-age-calculator', 'bmr-calculator', 'tdee-calculator', 'calorie-calculator', 'life-expectancy-calculator', 'calorie-deficit-calculator'],
   },
   'body-fat-calculator': {
     primary: ['bmi-calculator', 'ideal-weight-calculator'],
-    secondary: ['waist-hip-ratio-calculator', 'biological-age-calculator', 'bmr-calculator', 'macro-calculator', 'calorie-calculator'],
+    secondary: ['lean-body-mass-calculator', 'waist-hip-ratio-calculator', 'biological-age-calculator', 'bmr-calculator', 'macro-calculator', 'calorie-calculator'],
   },
   'ideal-weight-calculator': {
     primary: ['bmi-calculator', 'body-fat-calculator'],
-    secondary: ['waist-hip-ratio-calculator', 'calorie-calculator', 'tdee-calculator', 'calorie-deficit-calculator', 'macro-calculator', 'biological-age-calculator'],
+    secondary: ['lean-body-mass-calculator', 'waist-hip-ratio-calculator', 'calorie-calculator', 'tdee-calculator', 'calorie-deficit-calculator', 'macro-calculator', 'biological-age-calculator'],
   },
   'waist-hip-ratio-calculator': {
     primary: ['bmi-calculator', 'body-fat-calculator'],
@@ -202,6 +202,12 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
   'caffeine-calculator': {
     primary: ['blood-alcohol-calculator', 'water-intake-calculator'],
     secondary: ['sleep-calculator', 'calorie-calculator', 'bmr-calculator', 'heart-rate-zone-calculator', 'blood-pressure-calculator', 'phq9-calculator'],
+  },
+
+  // Body Weight - Lean Body Mass
+  'lean-body-mass-calculator': {
+    primary: ['body-fat-calculator', 'bmi-calculator', 'ideal-weight-calculator'],
+    secondary: ['waist-hip-ratio-calculator', 'bmr-calculator', 'tdee-calculator', 'protein-calculator', 'one-rep-max-calculator', 'biological-age-calculator'],
   },
 };
 

@@ -60,6 +60,8 @@ import { bloodPressureMeta } from '@/calculators/heart/blood-pressure-calculator
 import { chineseGenderMeta } from '@/calculators/pregnancy/chinese-gender-predictor/chineseGenderMeta';
 // Medical - Life Expectancy
 import { lifeExpectancyMeta } from '@/calculators/medical/life-expectancy/lifeExpectancyMeta';
+// Body Weight - Lean Body Mass
+import { leanBodyMassMeta } from '@/calculators/body-weight/lean-body-mass/leanBodyMassMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -112,6 +114,8 @@ export const calculatorRegistry: CalculatorMeta[] = [
   // Substance
   bloodAlcoholMeta,
   caffeineMeta,
+  // Body Weight - Lean Body Mass
+  leanBodyMassMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {
