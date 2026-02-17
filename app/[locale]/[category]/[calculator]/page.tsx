@@ -38,6 +38,8 @@ import { gfrContent } from '@/calculators/medical/gfr-calculator/gfrContent';
 import { creatinineContent } from '@/calculators/medical/creatinine-clearance/creatinineContent';
 import { bsaContent } from '@/calculators/medical/bsa-calculator/bsaContent';
 import { phq9Content } from '@/calculators/mental-health/phq9-calculator/phq9Content';
+// Mental Health - GAD-7
+import { gad7Content } from '@/calculators/mental-health/gad7-calculator/gad7Content';
 // Men's Health
 import { psaContent } from '@/calculators/mens-health/psa-calculator/psaContent';
 // Children's Health
@@ -174,6 +176,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'life-expectancy-calculator': lifeExpectancyContent,
     // Mental Health
     'phq9-calculator': phq9Content,
+    'gad7-calculator': gad7Content,
     // Men's Health
     'psa-calculator': psaContent,
     // Children's Health

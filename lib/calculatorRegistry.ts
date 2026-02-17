@@ -62,6 +62,8 @@ import { chineseGenderMeta } from '@/calculators/pregnancy/chinese-gender-predic
 import { lifeExpectancyMeta } from '@/calculators/medical/life-expectancy/lifeExpectancyMeta';
 // Body Weight - Lean Body Mass
 import { leanBodyMassMeta } from '@/calculators/body-weight/lean-body-mass/leanBodyMassMeta';
+// Mental Health - GAD-7
+import { gad7Meta } from '@/calculators/mental-health/gad7-calculator/gad7Meta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -101,6 +103,7 @@ export const calculatorRegistry: CalculatorMeta[] = [
   lifeExpectancyMeta,
   // Mental Health
   phq9Meta,
+  gad7Meta,
   // Men's Health
   psaMeta,
   // Children's Health

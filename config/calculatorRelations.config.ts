@@ -158,8 +158,12 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
 
   // Mental Health calculators
   'phq9-calculator': {
-    primary: ['sleep-calculator', 'life-expectancy-calculator', 'biological-age-calculator'],
-    secondary: ['caffeine-calculator', 'bmi-calculator', 'blood-pressure-calculator'],
+    primary: ['gad7-calculator', 'sleep-calculator', 'life-expectancy-calculator'],
+    secondary: ['biological-age-calculator', 'caffeine-calculator', 'bmi-calculator', 'blood-pressure-calculator'],
+  },
+  'gad7-calculator': {
+    primary: ['phq9-calculator', 'sleep-calculator', 'biological-age-calculator'],
+    secondary: ['life-expectancy-calculator', 'caffeine-calculator', 'bmi-calculator', 'blood-pressure-calculator', 'heart-rate-zone-calculator'],
   },
 
   // Men's Health calculators
