@@ -74,6 +74,8 @@ import { lifeExpectancyContent } from '@/calculators/medical/life-expectancy/lif
 import { vo2MaxContent } from '@/calculators/fitness/vo2-max/vo2MaxContent';
 // Body Weight - Lean Body Mass
 import { leanBodyMassContent } from '@/calculators/body-weight/lean-body-mass/leanBodyMassContent';
+// Nutrition - Keto
+import { ketoContent } from '@/calculators/nutrition/keto-calculator/ketoContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -194,6 +196,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'biological-age-calculator': biologicalAgeContent,
     // Body Weight - Lean Body Mass
     'lean-body-mass-calculator': leanBodyMassContent,
+    // Nutrition - Keto
+    'keto-calculator': ketoContent,
   };
 
   const content = contentMap[calculator.id];

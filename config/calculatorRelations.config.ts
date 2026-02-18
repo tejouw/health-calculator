@@ -213,6 +213,18 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
     primary: ['body-fat-calculator', 'bmi-calculator', 'ideal-weight-calculator'],
     secondary: ['waist-hip-ratio-calculator', 'bmr-calculator', 'tdee-calculator', 'protein-calculator', 'one-rep-max-calculator', 'biological-age-calculator'],
   },
+
+  // Nutrition - Keto
+  'keto-calculator': {
+    primary: ['macro-calculator', 'tdee-calculator', 'calorie-calculator'],
+    secondary: ['protein-calculator', 'intermittent-fasting-calculator', 'calorie-deficit-calculator', 'body-fat-calculator', 'bmr-calculator', 'water-intake-calculator'],
+  },
+
+  // Nutrition - Intermittent Fasting (add keto as related)
+  'intermittent-fasting-calculator': {
+    primary: ['calorie-calculator', 'tdee-calculator', 'keto-calculator'],
+    secondary: ['macro-calculator', 'calorie-deficit-calculator', 'bmr-calculator', 'bmi-calculator', 'water-intake-calculator'],
+  },
 };
 
 /**

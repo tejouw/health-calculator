@@ -64,6 +64,8 @@ import { lifeExpectancyMeta } from '@/calculators/medical/life-expectancy/lifeEx
 import { leanBodyMassMeta } from '@/calculators/body-weight/lean-body-mass/leanBodyMassMeta';
 // Mental Health - GAD-7
 import { gad7Meta } from '@/calculators/mental-health/gad7-calculator/gad7Meta';
+// Nutrition - Keto
+import { ketoMeta } from '@/calculators/nutrition/keto-calculator/ketoMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -119,6 +121,8 @@ export const calculatorRegistry: CalculatorMeta[] = [
   caffeineMeta,
   // Body Weight - Lean Body Mass
   leanBodyMassMeta,
+  // Nutrition - Keto
+  ketoMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {

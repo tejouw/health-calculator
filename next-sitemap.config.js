@@ -61,6 +61,7 @@ const CALCULATOR_SLUGS = {
   'life-expectancy-calculator': { en: 'life-expectancy-calculator', tr: 'yasam-beklentisi-hesaplama' },
   'lean-body-mass-calculator': { en: 'lean-body-mass-calculator', tr: 'yagsiz-vucut-kutlesi-hesaplama' },
   'gad7-anxiety-calculator': { en: 'gad7-anxiety-calculator', tr: 'gad7-anksiyete-testi' },
+  'keto-calculator': { en: 'keto-calculator', tr: 'keto-hesaplayici' },
 };
 
 // Static page slug mappings
