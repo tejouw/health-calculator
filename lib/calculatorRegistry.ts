@@ -66,6 +66,8 @@ import { leanBodyMassMeta } from '@/calculators/body-weight/lean-body-mass/leanB
 import { gad7Meta } from '@/calculators/mental-health/gad7-calculator/gad7Meta';
 // Nutrition - Keto
 import { ketoMeta } from '@/calculators/nutrition/keto-calculator/ketoMeta';
+// Pregnancy - Fetal Weight
+import { fetalWeightMeta } from '@/calculators/pregnancy/fetal-weight-calculator/fetalWeightMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -123,6 +125,8 @@ export const calculatorRegistry: CalculatorMeta[] = [
   leanBodyMassMeta,
   // Nutrition - Keto
   ketoMeta,
+  // Pregnancy - Fetal Weight
+  fetalWeightMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {

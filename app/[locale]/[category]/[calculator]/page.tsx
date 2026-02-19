@@ -76,6 +76,8 @@ import { vo2MaxContent } from '@/calculators/fitness/vo2-max/vo2MaxContent';
 import { leanBodyMassContent } from '@/calculators/body-weight/lean-body-mass/leanBodyMassContent';
 // Nutrition - Keto
 import { ketoContent } from '@/calculators/nutrition/keto-calculator/ketoContent';
+// Pregnancy - Fetal Weight
+import { fetalWeightContent } from '@/calculators/pregnancy/fetal-weight-calculator/fetalWeightContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -198,6 +200,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'lean-body-mass-calculator': leanBodyMassContent,
     // Nutrition - Keto
     'keto-calculator': ketoContent,
+    // Pregnancy - Fetal Weight
+    'fetal-weight-calculator': fetalWeightContent,
   };
 
   const content = contentMap[calculator.id];

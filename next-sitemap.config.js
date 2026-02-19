@@ -62,6 +62,7 @@ const CALCULATOR_SLUGS = {
   'lean-body-mass-calculator': { en: 'lean-body-mass-calculator', tr: 'yagsiz-vucut-kutlesi-hesaplama' },
   'gad7-anxiety-calculator': { en: 'gad7-anxiety-calculator', tr: 'gad7-anksiyete-testi' },
   'keto-calculator': { en: 'keto-calculator', tr: 'keto-hesaplayici' },
+  'fetal-weight-calculator': { en: 'fetal-weight-calculator', tr: 'fetus-agirlik-hesaplama' },
 };
 
 // Static page slug mappings
