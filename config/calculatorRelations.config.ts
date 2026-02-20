@@ -25,15 +25,15 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
   // Body & Weight calculators
   'bmi-calculator': {
     primary: ['body-fat-calculator', 'ideal-weight-calculator'],
-    secondary: ['lean-body-mass-calculator', 'waist-hip-ratio-calculator', 'biological-age-calculator', 'bmr-calculator', 'tdee-calculator', 'calorie-calculator', 'life-expectancy-calculator', 'calorie-deficit-calculator'],
+    secondary: ['body-type-calculator', 'lean-body-mass-calculator', 'waist-hip-ratio-calculator', 'biological-age-calculator', 'bmr-calculator', 'tdee-calculator', 'calorie-calculator', 'life-expectancy-calculator', 'calorie-deficit-calculator'],
   },
   'body-fat-calculator': {
     primary: ['bmi-calculator', 'ideal-weight-calculator'],
-    secondary: ['lean-body-mass-calculator', 'waist-hip-ratio-calculator', 'biological-age-calculator', 'bmr-calculator', 'macro-calculator', 'calorie-calculator'],
+    secondary: ['body-type-calculator', 'lean-body-mass-calculator', 'waist-hip-ratio-calculator', 'biological-age-calculator', 'bmr-calculator', 'macro-calculator', 'calorie-calculator'],
   },
   'ideal-weight-calculator': {
     primary: ['bmi-calculator', 'body-fat-calculator'],
-    secondary: ['lean-body-mass-calculator', 'waist-hip-ratio-calculator', 'calorie-calculator', 'tdee-calculator', 'calorie-deficit-calculator', 'macro-calculator', 'biological-age-calculator'],
+    secondary: ['body-type-calculator', 'lean-body-mass-calculator', 'waist-hip-ratio-calculator', 'calorie-calculator', 'tdee-calculator', 'calorie-deficit-calculator', 'macro-calculator', 'biological-age-calculator'],
   },
   'waist-hip-ratio-calculator': {
     primary: ['bmi-calculator', 'body-fat-calculator'],
@@ -228,6 +228,12 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
   'intermittent-fasting-calculator': {
     primary: ['calorie-calculator', 'tdee-calculator', 'keto-calculator'],
     secondary: ['macro-calculator', 'calorie-deficit-calculator', 'bmr-calculator', 'bmi-calculator', 'water-intake-calculator'],
+  },
+
+  // Body Weight - Body Type
+  'body-type-calculator': {
+    primary: ['bmi-calculator', 'body-fat-calculator', 'ideal-weight-calculator'],
+    secondary: ['lean-body-mass-calculator', 'waist-hip-ratio-calculator', 'macro-calculator', 'tdee-calculator', 'protein-calculator', 'biological-age-calculator'],
   },
 };
 

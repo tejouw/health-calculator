@@ -37,13 +37,17 @@ export function ContactForm() {
         }),
       });
 
-      if (response.ok) {
+      const data = await response.json();
+
+      if (response.ok && data.success) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
+        console.error('Web3Forms error:', data);
         setSubmitStatus('error');
       }
     } catch (error) {
+      console.error('Contact form submission error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);

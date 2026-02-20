@@ -68,6 +68,8 @@ import { gad7Meta } from '@/calculators/mental-health/gad7-calculator/gad7Meta';
 import { ketoMeta } from '@/calculators/nutrition/keto-calculator/ketoMeta';
 // Pregnancy - Fetal Weight
 import { fetalWeightMeta } from '@/calculators/pregnancy/fetal-weight-calculator/fetalWeightMeta';
+// Body Weight - Body Type
+import { bodyTypeMeta } from '@/calculators/body-weight/body-type/bodyTypeMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -127,6 +129,8 @@ export const calculatorRegistry: CalculatorMeta[] = [
   ketoMeta,
   // Pregnancy - Fetal Weight
   fetalWeightMeta,
+  // Body Weight - Body Type
+  bodyTypeMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {

@@ -63,6 +63,7 @@ const CALCULATOR_SLUGS = {
   'gad7-anxiety-calculator': { en: 'gad7-anxiety-calculator', tr: 'gad7-anksiyete-testi' },
   'keto-calculator': { en: 'keto-calculator', tr: 'keto-hesaplayici' },
   'fetal-weight-calculator': { en: 'fetal-weight-calculator', tr: 'fetus-agirlik-hesaplama' },
+  'body-type-calculator': { en: 'body-type-calculator', tr: 'vucut-tipi-hesaplayici' },
 };
 
 // Static page slug mappings

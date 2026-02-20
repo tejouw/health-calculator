@@ -271,7 +271,7 @@ export function generateArticleSchema(data: {
       url: siteUrl,
       logo: {
         '@type': 'ImageObject',
-        url: `${siteUrl}/logo.png`,
+        url: `${siteUrl}/logo.svg`,
       },
     },
     image: data.image || `${siteUrl}/og-image.jpg`,
@@ -279,6 +279,43 @@ export function generateArticleSchema(data: {
       '@type': 'WebPage',
       '@id': data.url,
     },
+  };
+}
+
+export function generateWebSiteSchema(locale: 'en' | 'tr') {
+  const siteUrl = siteConfig.getUrl(locale);
+  const siteName = siteConfig.siteName[locale];
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: siteName,
+    url: siteUrl,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${siteUrl}/search?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
+  };
+}
+
+export function generateOrganizationSchema(locale: 'en' | 'tr') {
+  const siteUrl = siteConfig.getUrl(locale);
+  const siteName = siteConfig.siteName[locale];
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: siteName,
+    url: siteUrl,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${siteUrl}/logo.svg`,
+      width: 512,
+      height: 512,
+    },
+    sameAs: [siteConfig.domains.en, siteConfig.domains.tr],
   };
 }
 

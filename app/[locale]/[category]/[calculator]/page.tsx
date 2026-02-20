@@ -78,6 +78,8 @@ import { leanBodyMassContent } from '@/calculators/body-weight/lean-body-mass/le
 import { ketoContent } from '@/calculators/nutrition/keto-calculator/ketoContent';
 // Pregnancy - Fetal Weight
 import { fetalWeightContent } from '@/calculators/pregnancy/fetal-weight-calculator/fetalWeightContent';
+// Body Weight - Body Type
+import { bodyTypeContent } from '@/calculators/body-weight/body-type/bodyTypeContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -202,6 +204,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'keto-calculator': ketoContent,
     // Pregnancy - Fetal Weight
     'fetal-weight-calculator': fetalWeightContent,
+    // Body Weight - Body Type
+    'body-type-calculator': bodyTypeContent,
   };
 
   const content = contentMap[calculator.id];

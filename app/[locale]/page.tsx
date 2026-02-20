@@ -16,6 +16,7 @@ import {
   ArrowRight,
   Star
 } from 'lucide-react';
+import { generateWebSiteSchema, generateOrganizationSchema } from '@/lib/seo';
 
 interface HomePageProps {
   params: Promise<{ locale: string }>;
@@ -91,6 +92,19 @@ export default async function HomePage({ params }: HomePageProps) {
   ];
 
   return (
+    <>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(generateWebSiteSchema(locale as 'en' | 'tr')),
+      }}
+    />
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(generateOrganizationSchema(locale as 'en' | 'tr')),
+      }}
+    />
     <div className="min-h-screen">
       {/* Hero Section - Mobile Optimized */}
       <section className="relative overflow-hidden bg-gradient-to-br from-primary-600 via-primary-700 to-secondary-600">
@@ -239,5 +253,6 @@ export default async function HomePage({ params }: HomePageProps) {
         </div>
       </section>
     </div>
+    </>
   );
 }
