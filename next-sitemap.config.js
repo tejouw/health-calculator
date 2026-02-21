@@ -64,6 +64,7 @@ const CALCULATOR_SLUGS = {
   'keto-calculator': { en: 'keto-calculator', tr: 'keto-hesaplayici' },
   'fetal-weight-calculator': { en: 'fetal-weight-calculator', tr: 'fetus-agirlik-hesaplama' },
   'body-type-calculator': { en: 'body-type-calculator', tr: 'vucut-tipi-hesaplayici' },
+  'pregnancy-weight-gain-calculator': { en: 'pregnancy-weight-gain-calculator', tr: 'hamilelik-kilo-alimi-hesaplayici' },
 };
 
 // Static page slug mappings

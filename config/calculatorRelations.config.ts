@@ -81,19 +81,23 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
   // Pregnancy calculators
   'due-date-calculator': {
     primary: ['pregnancy-week-calculator', 'fetal-weight-calculator', 'ovulation-calculator'],
-    secondary: ['chinese-gender-predictor', 'period-calculator', 'bmi-calculator', 'age-calculator'],
+    secondary: ['pregnancy-weight-gain-calculator', 'chinese-gender-predictor', 'period-calculator', 'bmi-calculator', 'age-calculator'],
   },
   'pregnancy-week-calculator': {
-    primary: ['due-date-calculator', 'fetal-weight-calculator', 'chinese-gender-predictor'],
-    secondary: ['ovulation-calculator', 'period-calculator', 'bmi-calculator'],
+    primary: ['due-date-calculator', 'fetal-weight-calculator', 'pregnancy-weight-gain-calculator'],
+    secondary: ['chinese-gender-predictor', 'ovulation-calculator', 'period-calculator', 'bmi-calculator'],
   },
   'chinese-gender-predictor': {
     primary: ['due-date-calculator', 'pregnancy-week-calculator'],
-    secondary: ['fetal-weight-calculator', 'ovulation-calculator', 'period-calculator', 'age-calculator', 'love-calculator'],
+    secondary: ['pregnancy-weight-gain-calculator', 'fetal-weight-calculator', 'ovulation-calculator', 'period-calculator', 'age-calculator', 'love-calculator'],
   },
   'fetal-weight-calculator': {
-    primary: ['pregnancy-week-calculator', 'due-date-calculator'],
+    primary: ['pregnancy-week-calculator', 'due-date-calculator', 'pregnancy-weight-gain-calculator'],
     secondary: ['chinese-gender-predictor', 'ovulation-calculator', 'bmi-calculator', 'growth-percentile-calculator'],
+  },
+  'pregnancy-weight-gain-calculator': {
+    primary: ['pregnancy-week-calculator', 'due-date-calculator', 'fetal-weight-calculator'],
+    secondary: ['bmi-calculator', 'calorie-calculator', 'ideal-weight-calculator', 'chinese-gender-predictor', 'ovulation-calculator'],
   },
 
   // Women's Health calculators
