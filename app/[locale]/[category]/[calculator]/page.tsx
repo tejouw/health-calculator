@@ -82,6 +82,8 @@ import { fetalWeightContent } from '@/calculators/pregnancy/fetal-weight-calcula
 import { bodyTypeContent } from '@/calculators/body-weight/body-type/bodyTypeContent';
 // Pregnancy - Weight Gain
 import { pregnancyWeightGainContent } from '@/calculators/pregnancy/pregnancy-weight-gain/pregnancyWeightGainContent';
+// Fitness - Calories Burned
+import { caloriesBurnedContent } from '@/calculators/fitness/calories-burned/caloriesBurnedContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -210,6 +212,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'body-type-calculator': bodyTypeContent,
     // Pregnancy - Weight Gain
     'pregnancy-weight-gain-calculator': pregnancyWeightGainContent,
+    // Fitness - Calories Burned
+    'calories-burned-calculator': caloriesBurnedContent,
   };
 
   const content = contentMap[calculator.id];

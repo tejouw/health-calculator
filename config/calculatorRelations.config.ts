@@ -113,15 +113,15 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
   // Fitness calculators
   'one-rep-max-calculator': {
     primary: ['running-pace-calculator', 'vo2-max-calculator'],
-    secondary: ['heart-rate-zone-calculator', 'calorie-calculator', 'bmr-calculator', 'protein-calculator', 'macro-calculator', 'bmi-calculator'],
+    secondary: ['calories-burned-calculator', 'heart-rate-zone-calculator', 'calorie-calculator', 'bmr-calculator', 'protein-calculator', 'macro-calculator', 'bmi-calculator'],
   },
   'running-pace-calculator': {
     primary: ['vo2-max-calculator', 'heart-rate-zone-calculator'],
-    secondary: ['one-rep-max-calculator', 'calorie-calculator', 'tdee-calculator', 'water-intake-calculator', 'bmi-calculator', 'sleep-calculator'],
+    secondary: ['calories-burned-calculator', 'one-rep-max-calculator', 'calorie-calculator', 'tdee-calculator', 'water-intake-calculator', 'bmi-calculator', 'sleep-calculator'],
   },
   'vo2-max-calculator': {
     primary: ['running-pace-calculator', 'heart-rate-zone-calculator'],
-    secondary: ['one-rep-max-calculator', 'bmi-calculator', 'calorie-calculator', 'sleep-calculator', 'biological-age-calculator', 'life-expectancy-calculator'],
+    secondary: ['calories-burned-calculator', 'one-rep-max-calculator', 'bmi-calculator', 'calorie-calculator', 'sleep-calculator', 'biological-age-calculator', 'life-expectancy-calculator'],
   },
 
   // Heart calculators
@@ -232,6 +232,12 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
   'intermittent-fasting-calculator': {
     primary: ['calorie-calculator', 'tdee-calculator', 'keto-calculator'],
     secondary: ['macro-calculator', 'calorie-deficit-calculator', 'bmr-calculator', 'bmi-calculator', 'water-intake-calculator'],
+  },
+
+  // Fitness - Calories Burned
+  'calories-burned-calculator': {
+    primary: ['calorie-calculator', 'tdee-calculator', 'running-pace-calculator'],
+    secondary: ['vo2-max-calculator', 'one-rep-max-calculator', 'heart-rate-zone-calculator', 'calorie-deficit-calculator', 'bmr-calculator', 'water-intake-calculator'],
   },
 
   // Body Weight - Body Type

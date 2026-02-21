@@ -72,6 +72,8 @@ import { fetalWeightMeta } from '@/calculators/pregnancy/fetal-weight-calculator
 import { bodyTypeMeta } from '@/calculators/body-weight/body-type/bodyTypeMeta';
 // Pregnancy - Weight Gain
 import { pregnancyWeightGainMeta } from '@/calculators/pregnancy/pregnancy-weight-gain/pregnancyWeightGainMeta';
+// Fitness - Calories Burned
+import { caloriesBurnedMeta } from '@/calculators/fitness/calories-burned/caloriesBurnedMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -135,6 +137,8 @@ export const calculatorRegistry: CalculatorMeta[] = [
   bodyTypeMeta,
   // Pregnancy - Weight Gain
   pregnancyWeightGainMeta,
+  // Fitness - Calories Burned
+  caloriesBurnedMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {
