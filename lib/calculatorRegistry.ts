@@ -74,6 +74,8 @@ import { bodyTypeMeta } from '@/calculators/body-weight/body-type/bodyTypeMeta';
 import { pregnancyWeightGainMeta } from '@/calculators/pregnancy/pregnancy-weight-gain/pregnancyWeightGainMeta';
 // Fitness - Calories Burned
 import { caloriesBurnedMeta } from '@/calculators/fitness/calories-burned/caloriesBurnedMeta';
+// Mental Health - Stress Level
+import { stressLevelMeta } from '@/calculators/mental-health/stress-level-calculator/stressLevelMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -139,6 +141,8 @@ export const calculatorRegistry: CalculatorMeta[] = [
   pregnancyWeightGainMeta,
   // Fitness - Calories Burned
   caloriesBurnedMeta,
+  // Mental Health - Stress Level
+  stressLevelMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {

@@ -66,6 +66,7 @@ const CALCULATOR_SLUGS = {
   'body-type-calculator': { en: 'body-type-calculator', tr: 'vucut-tipi-hesaplayici' },
   'pregnancy-weight-gain-calculator': { en: 'pregnancy-weight-gain-calculator', tr: 'hamilelik-kilo-alimi-hesaplayici' },
   'calories-burned-calculator': { en: 'calories-burned-calculator', tr: 'yakilan-kalori-hesaplayici' },
+  'stress-level-calculator': { en: 'stress-level-calculator', tr: 'stres-duzeyi-hesaplayici' },
 };
 
 // Static page slug mappings

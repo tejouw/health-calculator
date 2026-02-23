@@ -84,6 +84,8 @@ import { bodyTypeContent } from '@/calculators/body-weight/body-type/bodyTypeCon
 import { pregnancyWeightGainContent } from '@/calculators/pregnancy/pregnancy-weight-gain/pregnancyWeightGainContent';
 // Fitness - Calories Burned
 import { caloriesBurnedContent } from '@/calculators/fitness/calories-burned/caloriesBurnedContent';
+// Mental Health - Stress Level
+import { stressLevelContent } from '@/calculators/mental-health/stress-level-calculator/stressLevelContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -214,6 +216,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'pregnancy-weight-gain-calculator': pregnancyWeightGainContent,
     // Fitness - Calories Burned
     'calories-burned-calculator': caloriesBurnedContent,
+    // Mental Health - Stress Level
+    'stress-level-calculator': stressLevelContent,
   };
 
   const content = contentMap[calculator.id];

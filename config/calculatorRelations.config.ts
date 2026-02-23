@@ -166,12 +166,12 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
 
   // Mental Health calculators
   'phq9-calculator': {
-    primary: ['gad7-calculator', 'sleep-calculator', 'life-expectancy-calculator'],
-    secondary: ['biological-age-calculator', 'caffeine-calculator', 'bmi-calculator', 'blood-pressure-calculator'],
+    primary: ['gad7-calculator', 'stress-level-calculator', 'sleep-calculator'],
+    secondary: ['life-expectancy-calculator', 'biological-age-calculator', 'caffeine-calculator', 'bmi-calculator', 'blood-pressure-calculator'],
   },
   'gad7-calculator': {
-    primary: ['phq9-calculator', 'sleep-calculator', 'biological-age-calculator'],
-    secondary: ['life-expectancy-calculator', 'caffeine-calculator', 'bmi-calculator', 'blood-pressure-calculator', 'heart-rate-zone-calculator'],
+    primary: ['phq9-calculator', 'stress-level-calculator', 'sleep-calculator'],
+    secondary: ['biological-age-calculator', 'life-expectancy-calculator', 'caffeine-calculator', 'bmi-calculator', 'blood-pressure-calculator', 'heart-rate-zone-calculator'],
   },
 
   // Men's Health calculators
@@ -238,6 +238,12 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
   'calories-burned-calculator': {
     primary: ['calorie-calculator', 'tdee-calculator', 'running-pace-calculator'],
     secondary: ['vo2-max-calculator', 'one-rep-max-calculator', 'heart-rate-zone-calculator', 'calorie-deficit-calculator', 'bmr-calculator', 'water-intake-calculator'],
+  },
+
+  // Mental Health - Stress Level
+  'stress-level-calculator': {
+    primary: ['phq9-calculator', 'gad7-calculator', 'sleep-calculator'],
+    secondary: ['biological-age-calculator', 'life-expectancy-calculator', 'caffeine-calculator', 'blood-pressure-calculator', 'heart-rate-zone-calculator'],
   },
 
   // Body Weight - Body Type
