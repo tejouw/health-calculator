@@ -22,11 +22,11 @@ const OptimalAdjustments: React.FC<OptimalAdjustmentsProps> = ({ result, locale 
           </div>
           <div>
             <h3 className="text-lg font-bold text-green-900">
-              {locale === 'tr' ? 'Mukemmel Hizalama!' : 'Perfect Alignment!'}
+              {locale === 'tr' ? 'Mükemmel Hizalama!' : 'Perfect Alignment!'}
             </h3>
             <p className="text-sm text-green-700">
               {locale === 'tr'
-                ? `${completeCycles} tam dongu ile uyaniyorsunuz. Uyku zamanlama onerisi yok.`
+                ? `${completeCycles} tam döngü ile uyanıyorsunuz. Uyku zamanlama önerisi yok.`
                 : `You wake up at ${completeCycles} complete cycles. No timing adjustment needed.`}
             </p>
           </div>
@@ -45,7 +45,7 @@ const OptimalAdjustments: React.FC<OptimalAdjustmentsProps> = ({ result, locale 
       </div>
       <p className="mb-4 text-sm text-neutral-600">
         {locale === 'tr'
-          ? `Simdi ${completeCycles} tam dongu + ${partialCycleMinutes} dakika eksik dongunuz var. Iste iyilestirme onerileri:`
+          ? `Şimdi ${completeCycles} tam döngü + ${partialCycleMinutes} dakika eksik döngünüz var. İşte iyileştirme önerileri:`
           : `You currently have ${completeCycles} complete cycles + ${partialCycleMinutes}min partial cycle. Here are improvement suggestions:`}
       </p>
 
@@ -66,19 +66,19 @@ const OptimalAdjustments: React.FC<OptimalAdjustmentsProps> = ({ result, locale 
                   <p className="text-sm font-semibold text-indigo-900">
                     {isEarlier
                       ? locale === 'tr'
-                        ? `${absMinutes} dakika daha erken yatin`
+                        ? `${absMinutes} dakika daha erken yatın`
                         : `Go to bed ${absMinutes} minutes earlier`
                       : adj.minutesDelta > 0
                         ? locale === 'tr'
-                          ? `${absMinutes} dakika daha gec kalkin`
+                          ? `${absMinutes} dakika daha geç kalkın`
                           : `Wake up ${absMinutes} minutes later`
                         : locale === 'tr'
-                          ? `${absMinutes} dakika daha erken kalkin`
+                          ? `${absMinutes} dakika daha erken kalkın`
                           : `Wake up ${absMinutes} minutes earlier`}
                   </p>
                   <p className="text-xs text-indigo-700">
                     {locale === 'tr'
-                      ? `${adj.resultingCycles} tam dongu, toplam ${durH}s${durM > 0 ? ` ${durM}d` : ''} uyku`
+                      ? `${adj.resultingCycles} tam döngü, toplam ${durH}s${durM > 0 ? ` ${durM}d` : ''} uyku`
                       : `${adj.resultingCycles} complete cycles, total ${durH}h${durM > 0 ? ` ${durM}m` : ''} sleep`}
                     {' '}&rarr; <span className="font-semibold">{adj.newTime.formatted}</span>
                   </p>

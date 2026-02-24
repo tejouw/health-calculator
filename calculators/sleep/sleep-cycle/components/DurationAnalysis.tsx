@@ -24,27 +24,27 @@ const DurationAnalysis: React.FC<DurationAnalysisProps> = ({ result, locale }) =
 
   const statusConfig = {
     under: {
-      badge: { en: 'Under Recommended', tr: 'Onerilen Altinda' },
+      badge: { en: 'Under Recommended', tr: 'Önerilen Altında' },
       variant: 'danger' as const,
       description: {
         en: `You are sleeping ${(ageRecommendation.minHours - sleepHours).toFixed(1)} hours less than the minimum recommended for your age group.`,
-        tr: `Yas grubunuz icin onerilen minimumdan ${(ageRecommendation.minHours - sleepHours).toFixed(1)} saat daha az uyuyorsunuz.`,
+        tr: `Yaş grubunuz için önerilen minimumdan ${(ageRecommendation.minHours - sleepHours).toFixed(1)} saat daha az uyuyorsunuz.`,
       },
     },
     optimal: {
-      badge: { en: 'Optimal Range', tr: 'Optimal Aralik' },
+      badge: { en: 'Optimal Range', tr: 'Optimal Aralık' },
       variant: 'success' as const,
       description: {
         en: 'Your sleep duration falls within the recommended range for your age group.',
-        tr: 'Uyku sureniz yas grubunuz icin onerilen aralikta.',
+        tr: 'Uyku süreniz yaş grubunuz için önerilen aralıkta.',
       },
     },
     over: {
-      badge: { en: 'Over Recommended', tr: 'Onerilen Uzerinde' },
+      badge: { en: 'Over Recommended', tr: 'Önerilen Üzerinde' },
       variant: 'warning' as const,
       description: {
         en: `You are sleeping ${(sleepHours - ageRecommendation.maxHours).toFixed(1)} hours more than the maximum recommended. This may indicate underlying health issues.`,
-        tr: `Onerilen maksimumdan ${(sleepHours - ageRecommendation.maxHours).toFixed(1)} saat daha fazla uyuyorsunuz. Bu altta yatan saglik sorunlarini isaret edebilir.`,
+        tr: `Önerilen maksimumdan ${(sleepHours - ageRecommendation.maxHours).toFixed(1)} saat daha fazla uyuyorsunuz. Bu altta yatan sağlık sorunlarını işaret edebilir.`,
       },
     },
   };
@@ -55,13 +55,13 @@ const DurationAnalysis: React.FC<DurationAnalysisProps> = ({ result, locale }) =
     <Card className="animate-slide-up">
       <div className="mb-4 flex items-center justify-between">
         <h3 className="text-lg font-bold text-neutral-900">
-          {locale === 'tr' ? 'Sure Analizi' : 'Duration Analysis'}
+          {locale === 'tr' ? 'Süre Analizi' : 'Duration Analysis'}
         </h3>
         <Badge variant={status.variant}>{status.badge[locale]}</Badge>
       </div>
 
       <p className="mb-2 text-sm text-neutral-500">
-        {ageRecommendation.label[locale]} — {locale === 'tr' ? 'Onerilen' : 'Recommended'}: {ageRecommendation.minHours}-{ageRecommendation.maxHours}h
+        {ageRecommendation.label[locale]} — {locale === 'tr' ? 'Önerilen' : 'Recommended'}: {ageRecommendation.minHours}-{ageRecommendation.maxHours}h
       </p>
 
       {/* Visual range bar */}

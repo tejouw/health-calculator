@@ -51,27 +51,27 @@ const SleepCycleCalculator: React.FC<SleepCycleCalculatorProps> = ({ locale }) =
     const fallAsleep = parseInt(fallAsleepMinutes);
 
     if (isNaN(bedH) || bedH < 0 || bedH > 23) {
-      setError(locale === 'tr' ? 'Yatis saati 0-23 arasi olmali' : 'Bedtime hours must be 0-23');
+      setError(locale === 'tr' ? 'Yatış saati 0-23 arası olmalı' : 'Bedtime hours must be 0-23');
       return;
     }
     if (isNaN(bedM) || bedM < 0 || bedM > 59) {
-      setError(locale === 'tr' ? 'Yatis dakikasi 0-59 arasi olmali' : 'Bedtime minutes must be 0-59');
+      setError(locale === 'tr' ? 'Yatış dakikası 0-59 arası olmalı' : 'Bedtime minutes must be 0-59');
       return;
     }
     if (isNaN(wakeH) || wakeH < 0 || wakeH > 23) {
-      setError(locale === 'tr' ? 'Uyanis saati 0-23 arasi olmali' : 'Wakeup hours must be 0-23');
+      setError(locale === 'tr' ? 'Uyanış saati 0-23 arası olmalı' : 'Wakeup hours must be 0-23');
       return;
     }
     if (isNaN(wakeM) || wakeM < 0 || wakeM > 59) {
-      setError(locale === 'tr' ? 'Uyanis dakikasi 0-59 arasi olmali' : 'Wakeup minutes must be 0-59');
+      setError(locale === 'tr' ? 'Uyanış dakikası 0-59 arası olmalı' : 'Wakeup minutes must be 0-59');
       return;
     }
     if (isNaN(ageNum) || ageNum < 1 || ageNum > 120) {
-      setError(locale === 'tr' ? 'Gecerli bir yas secin' : 'Please select a valid age');
+      setError(locale === 'tr' ? 'Geçerli bir yaş seçin' : 'Please select a valid age');
       return;
     }
     if (isNaN(fallAsleep) || fallAsleep < 0 || fallAsleep > 60) {
-      setError(locale === 'tr' ? 'Uykuya dalma suresi 0-60 dakika olmali' : 'Fall asleep time must be 0-60 minutes');
+      setError(locale === 'tr' ? 'Uykuya dalma süresi 0-60 dakika olmalı' : 'Fall asleep time must be 0-60 minutes');
       return;
     }
 
@@ -108,11 +108,11 @@ const SleepCycleCalculator: React.FC<SleepCycleCalculatorProps> = ({ locale }) =
           </div>
           <div>
             <h2 className="text-2xl font-bold text-neutral-900">
-              {locale === 'tr' ? 'Uyku Dongusu Hesaplayici' : 'Sleep Cycle Calculator'}
+              {locale === 'tr' ? 'Uyku Döngüsü Hesaplayıcı' : 'Sleep Cycle Calculator'}
             </h2>
             <p className="text-sm text-neutral-600">
               {locale === 'tr'
-                ? 'Uyku kalitenizi ve dongu analizinizi goruntuleyin'
+                ? 'Uyku kalitenizi ve döngü analizinizi görüntüleyin'
                 : 'Analyze your sleep quality and cycle patterns'}
             </p>
           </div>
@@ -122,7 +122,7 @@ const SleepCycleCalculator: React.FC<SleepCycleCalculatorProps> = ({ locale }) =
         <div className="mb-5">
           <label className="mb-2 flex items-center gap-2 text-sm font-medium text-neutral-700">
             <BedDouble className="h-4 w-4 text-indigo-500" />
-            {locale === 'tr' ? 'Yatis Saati' : 'Bedtime'}
+            {locale === 'tr' ? 'Yatış Saati' : 'Bedtime'}
           </label>
           <div className="grid grid-cols-2 gap-3">
             <Input
@@ -152,7 +152,7 @@ const SleepCycleCalculator: React.FC<SleepCycleCalculatorProps> = ({ locale }) =
         <div className="mb-5">
           <label className="mb-2 flex items-center gap-2 text-sm font-medium text-neutral-700">
             <Clock className="h-4 w-4 text-indigo-500" />
-            {locale === 'tr' ? 'Uyanis Saati' : 'Wake Up Time'}
+            {locale === 'tr' ? 'Uyanış Saati' : 'Wake Up Time'}
           </label>
           <div className="grid grid-cols-2 gap-3">
             <Input
@@ -181,12 +181,12 @@ const SleepCycleCalculator: React.FC<SleepCycleCalculatorProps> = ({ locale }) =
         {/* Age Group */}
         <div className="mb-5">
           <Select
-            label={locale === 'tr' ? 'Yas Grubu' : 'Age Group'}
+            label={locale === 'tr' ? 'Yaş Grubu' : 'Age Group'}
             value={age}
             onChange={(e) => setAge(e.target.value)}
             options={AGE_OPTIONS.map((opt) => ({
               value: opt.value,
-              label: `${opt.label} ${locale === 'tr' ? 'yas' : 'years'}`,
+              label: `${opt.label} ${locale === 'tr' ? 'yaş' : 'years'}`,
             }))}
           />
         </div>
@@ -194,7 +194,7 @@ const SleepCycleCalculator: React.FC<SleepCycleCalculatorProps> = ({ locale }) =
         {/* Fall Asleep Time */}
         <div className="mb-6">
           <Input
-            label={locale === 'tr' ? 'Uykuya Dalma Suresi (dakika)' : 'Time to Fall Asleep (minutes)'}
+            label={locale === 'tr' ? 'Uykuya Dalma Süresi (dakika)' : 'Time to Fall Asleep (minutes)'}
             type="number"
             value={fallAsleepMinutes}
             onChange={(e) => setFallAsleepMinutes(e.target.value)}

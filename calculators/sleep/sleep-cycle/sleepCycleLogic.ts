@@ -50,12 +50,12 @@ function calculateTotalSleepMinutes(input: SleepCycleInput): number {
 }
 
 function getAgeRecommendation(age: number): AgeRecommendation {
-  if (age < 6) return { minHours: 9, maxHours: 12, optimalHours: 10, label: { en: 'Child (3-5)', tr: 'Cocuk (3-5)' } };
-  if (age < 13) return { minHours: 9, maxHours: 11, optimalHours: 10, label: { en: 'Child (6-12)', tr: 'Cocuk (6-12)' } };
+  if (age < 6) return { minHours: 9, maxHours: 12, optimalHours: 10, label: { en: 'Child (3-5)', tr: 'Çocuk (3-5)' } };
+  if (age < 13) return { minHours: 9, maxHours: 11, optimalHours: 10, label: { en: 'Child (6-12)', tr: 'Çocuk (6-12)' } };
   if (age < 18) return { minHours: 8, maxHours: 10, optimalHours: 9, label: { en: 'Teen (13-17)', tr: 'Ergen (13-17)' } };
-  if (age < 26) return { minHours: 7, maxHours: 9, optimalHours: 8, label: { en: 'Young Adult (18-25)', tr: 'Genc Yetiskin (18-25)' } };
-  if (age < 65) return { minHours: 7, maxHours: 9, optimalHours: 8, label: { en: 'Adult (26-64)', tr: 'Yetiskin (26-64)' } };
-  return { minHours: 7, maxHours: 8, optimalHours: 7.5, label: { en: 'Older Adult (65+)', tr: 'Yasli Yetiskin (65+)' } };
+  if (age < 26) return { minHours: 7, maxHours: 9, optimalHours: 8, label: { en: 'Young Adult (18-25)', tr: 'Genç Yetişkin (18-25)' } };
+  if (age < 65) return { minHours: 7, maxHours: 9, optimalHours: 8, label: { en: 'Adult (26-64)', tr: 'Yetişkin (26-64)' } };
+  return { minHours: 7, maxHours: 8, optimalHours: 7.5, label: { en: 'Older Adult (65+)', tr: 'Yaşlı Yetişkin (65+)' } };
 }
 
 function calculateCycleCountScore(completeCycles: number): number {
@@ -90,10 +90,10 @@ function calculateQualityScore(factors: QualityFactors): number {
 }
 
 function getQualityLabel(score: number): { en: string; tr: string } {
-  if (score >= 80) return { en: 'Excellent', tr: 'Mukemmel' };
-  if (score >= 60) return { en: 'Good', tr: 'Iyi' };
+  if (score >= 80) return { en: 'Excellent', tr: 'Mükemmel' };
+  if (score >= 60) return { en: 'Good', tr: 'İyi' };
   if (score >= 40) return { en: 'Fair', tr: 'Orta' };
-  return { en: 'Poor', tr: 'Zayif' };
+  return { en: 'Poor', tr: 'Zayıf' };
 }
 
 function getQualityColor(score: number): string {
@@ -264,7 +264,7 @@ function generateEnvironmentTips(bedtimeHours: number, bedtimeMinutes: number): 
       title: { en: 'Last Caffeine', tr: 'Son Kafein' },
       description: {
         en: 'Stop all caffeine intake by this time. Caffeine has a half-life of 5-6 hours.',
-        tr: 'Bu saate kadar kafein alimini durdurun. Kafeinin yari omru 5-6 saattir.',
+        tr: 'Bu saate kadar kafein alımını durdurun. Kafeinin yarı ömrü 5-6 saattir.',
       },
       time: { ...caffeineTime, formatted: formatTimeString(caffeineTime.hours, caffeineTime.minutes) },
       gradient: 'from-amber-500 to-orange-500',
@@ -272,10 +272,10 @@ function generateEnvironmentTips(bedtimeHours: number, bedtimeMinutes: number): 
     {
       id: 'meal',
       icon: 'UtensilsCrossed',
-      title: { en: 'Last Heavy Meal', tr: 'Son Agir Ogun' },
+      title: { en: 'Last Heavy Meal', tr: 'Son Ağır Öğün' },
       description: {
         en: 'Finish your last large meal by this time to allow proper digestion.',
-        tr: 'Duzgun sindirim icin son buyuk ogununu bu saate kadar bitirin.',
+        tr: 'Düzgün sindirim için son büyük öğününüzü bu saate kadar bitirin.',
       },
       time: { ...mealTime, formatted: formatTimeString(mealTime.hours, mealTime.minutes) },
       gradient: 'from-green-500 to-emerald-500',
@@ -286,7 +286,7 @@ function generateEnvironmentTips(bedtimeHours: number, bedtimeMinutes: number): 
       title: { en: 'Screen Cutoff', tr: 'Ekran Kesme' },
       description: {
         en: 'Turn off screens to reduce blue light exposure that suppresses melatonin.',
-        tr: 'Melatonini baskiyan mavi isik maruziyetini azaltmak icin ekranlari kapatin.',
+        tr: 'Melatonini baskılayan mavi ışık maruziyetini azaltmak için ekranları kapatın.',
       },
       time: { ...screenTime, formatted: formatTimeString(screenTime.hours, screenTime.minutes) },
       gradient: 'from-blue-500 to-indigo-500',
@@ -297,7 +297,7 @@ function generateEnvironmentTips(bedtimeHours: number, bedtimeMinutes: number): 
       title: { en: 'Wind-Down Routine', tr: 'Rahatlama Rutini' },
       description: {
         en: 'Begin relaxation activities: reading, gentle stretching, or meditation.',
-        tr: 'Rahatlama aktivitelerine baslayin: kitap okuma, hafif esneme veya meditasyon.',
+        tr: 'Rahatlama aktivitelerine başlayın: kitap okuma, hafif esneme veya meditasyon.',
       },
       time: { ...windDownTime, formatted: formatTimeString(windDownTime.hours, windDownTime.minutes) },
       gradient: 'from-purple-500 to-pink-500',
@@ -305,10 +305,10 @@ function generateEnvironmentTips(bedtimeHours: number, bedtimeMinutes: number): 
     {
       id: 'temperature',
       icon: 'Thermometer',
-      title: { en: 'Room Temperature', tr: 'Oda Sicakligi' },
+      title: { en: 'Room Temperature', tr: 'Oda Sıcaklığı' },
       description: {
         en: 'Keep bedroom at 18-20°C (64-68°F) for optimal sleep conditions.',
-        tr: 'Optimal uyku kosullari icin yatak odasini 18-20°C arasinda tutun.',
+        tr: 'Optimal uyku koşulları için yatak odanızı 18-20°C arasında tutun.',
       },
       gradient: 'from-cyan-500 to-blue-500',
     },
@@ -318,7 +318,7 @@ function generateEnvironmentTips(bedtimeHours: number, bedtimeMinutes: number): 
       title: { en: 'Last Exercise', tr: 'Son Egzersiz' },
       description: {
         en: 'Complete vigorous exercise at least 4 hours before bedtime.',
-        tr: 'Yogun egzersizi yatmadan en az 4 saat once tamamlayin.',
+        tr: 'Yoğun egzersizi yatmadan en az 4 saat önce tamamlayın.',
       },
       time: { ...exerciseTime, formatted: formatTimeString(exerciseTime.hours, exerciseTime.minutes) },
       gradient: 'from-red-500 to-orange-500',

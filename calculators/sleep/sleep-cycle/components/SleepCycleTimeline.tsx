@@ -30,11 +30,11 @@ const SleepCycleTimeline: React.FC<SleepCycleTimelineProps> = ({ result, locale 
   return (
     <Card className="animate-slide-up">
       <h3 className="mb-2 text-lg font-bold text-neutral-900">
-        {locale === 'tr' ? 'Uyku Dongusu Zaman Cizelgesi' : 'Sleep Cycle Timeline'}
+        {locale === 'tr' ? 'Uyku Döngüsü Zaman Çizelgesi' : 'Sleep Cycle Timeline'}
       </h3>
       <p className="mb-4 text-sm text-neutral-600">
         {locale === 'tr'
-          ? 'Gece boyunca uyku dongulerinizin gorsel dagilimidir'
+          ? 'Gece boyunca uyku döngülerinizin görsel dağılımıdır'
           : 'Visual breakdown of your sleep cycles throughout the night'}
       </p>
 
@@ -72,7 +72,7 @@ const SleepCycleTimeline: React.FC<SleepCycleTimelineProps> = ({ result, locale 
                   key={`cycle-${i}`}
                   className={`flex overflow-hidden rounded-md ${!cycle.isComplete ? 'opacity-50' : ''}`}
                   style={{ flex: cycle.duration }}
-                  title={`${locale === 'tr' ? 'Dongu' : 'Cycle'} ${cycle.cycleNumber}${!cycle.isComplete ? ` (${locale === 'tr' ? 'eksik' : 'incomplete'})` : ''}`}
+                  title={`${locale === 'tr' ? 'Döngü' : 'Cycle'} ${cycle.cycleNumber}${!cycle.isComplete ? ` (${locale === 'tr' ? 'eksik' : 'incomplete'})` : ''}`}
                 >
                   <div className={`${STAGE_COLORS.light.bg} h-8`} style={{ flex: lightFlex }} />
                   <div className={`${STAGE_COLORS.deep.bg} h-8`} style={{ flex: deepFlex }} />
@@ -109,7 +109,7 @@ const SleepCycleTimeline: React.FC<SleepCycleTimelineProps> = ({ result, locale 
         <div className="flex items-center gap-2">
           <div className="h-3 w-6 rounded bg-neutral-300 opacity-50" />
           <span className="text-xs text-neutral-600">
-            {locale === 'tr' ? 'Eksik Dongu' : 'Incomplete Cycle'}
+            {locale === 'tr' ? 'Eksik Döngü' : 'Incomplete Cycle'}
           </span>
         </div>
       </div>
@@ -118,7 +118,7 @@ const SleepCycleTimeline: React.FC<SleepCycleTimelineProps> = ({ result, locale 
       <div className="mt-3 rounded-lg bg-blue-50 p-3">
         <p className="text-xs text-blue-800">
           {locale === 'tr'
-            ? 'Derin uyku erken dongulerde daha agirliklidir, REM uyku ise sabaha dogru artar. Bu, optimum uyku kalitesi icin dogal bir desendir.'
+            ? 'Derin uyku erken döngülerde daha ağırlıklıdır, REM uyku ise sabaha doğru artar. Bu, optimum uyku kalitesi için doğal bir desendir.'
             : 'Deep sleep is heavier in early cycles, while REM sleep increases toward morning. This is a natural pattern for optimal sleep quality.'}
         </p>
       </div>

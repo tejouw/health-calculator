@@ -10,11 +10,11 @@ export const sleepCycleMeta: CalculatorMeta = {
   },
   title: {
     en: 'Sleep Cycle Calculator - Analyze Your Sleep Quality & Patterns',
-    tr: 'Uyku Dongusu Hesaplayici - Uyku Kalitenizi ve Duzeninizi Analiz Edin',
+    tr: 'Uyku Döngüsü Hesaplayıcı - Uyku Kalitenizi ve Düzeninizi Analiz Edin',
   },
   description: {
     en: 'Analyze your sleep cycles, quality score, stage breakdown, and get personalized recommendations. Enter your bedtime and wake time for a comprehensive sleep analysis.',
-    tr: 'Uyku dongulerinizi, kalite puaninizi, asama dagiliminizi analiz edin ve kisisellestirilmis oneriler alin. Kapsamli bir uyku analizi icin yatis ve uyanis saatinizi girin.',
+    tr: 'Uyku döngülerinizi, kalite puanınızı, aşama dağılımınızı analiz edin ve kişiselleştirilmiş öneriler alın. Kapsamlı bir uyku analizi için yatış ve uyanış saatinizi girin.',
   },
   keywords: [
     'sleep cycle calculator',
@@ -24,9 +24,9 @@ export const sleepCycleMeta: CalculatorMeta = {
     'deep sleep',
     'sleep analysis',
     'sleep score',
-    'uyku dongusu hesaplayici',
+    'uyku döngüsü hesaplayıcı',
     'uyku kalitesi',
-    'uyku asamalari',
+    'uyku aşamaları',
     'REM uyku',
     'derin uyku',
     'uyku analizi',

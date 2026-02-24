@@ -14,19 +14,19 @@ const SleepQualityGauge: React.FC<SleepQualityGaugeProps> = ({ result, locale })
 
   const factors = [
     {
-      label: { en: 'Cycle Count', tr: 'Dongu Sayisi' },
+      label: { en: 'Cycle Count', tr: 'Döngü Sayısı' },
       score: qualityFactors.cycleCountScore,
       weight: '40%',
       color: 'bg-indigo-500',
     },
     {
-      label: { en: 'Duration Match', tr: 'Sure Uyumu' },
+      label: { en: 'Duration Match', tr: 'Süre Uyumu' },
       score: qualityFactors.durationScore,
       weight: '35%',
       color: 'bg-blue-500',
     },
     {
-      label: { en: 'Cycle Alignment', tr: 'Dongu Hizalamasi' },
+      label: { en: 'Cycle Alignment', tr: 'Döngü Hizalaması' },
       score: qualityFactors.alignmentScore,
       weight: '25%',
       color: 'bg-purple-500',
@@ -80,7 +80,7 @@ const SleepQualityGauge: React.FC<SleepQualityGaugeProps> = ({ result, locale })
             <div className="rounded-lg bg-white p-3 text-center shadow-sm">
               <div className="text-2xl font-bold text-indigo-600">{completeCycles}</div>
               <div className="text-xs text-neutral-500">
-                {locale === 'tr' ? 'Tam Dongu' : 'Complete Cycles'}
+                {locale === 'tr' ? 'Tam Döngü' : 'Complete Cycles'}
               </div>
             </div>
             <div className="rounded-lg bg-white p-3 text-center shadow-sm">
@@ -88,7 +88,7 @@ const SleepQualityGauge: React.FC<SleepQualityGaugeProps> = ({ result, locale })
                 {hours}h {mins > 0 ? `${mins}m` : ''}
               </div>
               <div className="text-xs text-neutral-500">
-                {locale === 'tr' ? 'Gercek Uyku' : 'Actual Sleep'}
+                {locale === 'tr' ? 'Gerçek Uyku' : 'Actual Sleep'}
               </div>
             </div>
           </div>

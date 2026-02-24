@@ -25,11 +25,11 @@ const SleepEnvironmentTips: React.FC<SleepEnvironmentTipsProps> = ({ result, loc
   return (
     <Card className="animate-slide-up">
       <h3 className="mb-2 text-lg font-bold text-neutral-900">
-        {locale === 'tr' ? 'Kisisel Uyku Ortami Ipuclari' : 'Personalized Sleep Environment Tips'}
+        {locale === 'tr' ? 'Kişisel Uyku Ortamı İpuçları' : 'Personalized Sleep Environment Tips'}
       </h3>
       <p className="mb-4 text-sm text-neutral-600">
         {locale === 'tr'
-          ? `Yatis saatiniz (${result.bedtime.formatted}) baz alinarak hesaplanmis kisisel oneriler`
+          ? `Yatış saatiniz (${result.bedtime.formatted}) baz alınarak hesaplanmış kişisel öneriler`
           : `Personalized recommendations calculated based on your bedtime (${result.bedtime.formatted})`}
       </p>
 

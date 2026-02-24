@@ -21,7 +21,7 @@ const SleepStageBreakdown: React.FC<SleepStageBreakdownProps> = ({ result, local
       bgColor: 'bg-blue-50',
       benefits: {
         en: ['Muscle repair begins', 'Heart rate & breathing slow', 'Memory processing starts'],
-        tr: ['Kas onarimi baslar', 'Kalp atisi ve nefes yavasar', 'Bellek isleme baslar'],
+        tr: ['Kas onarımı başlar', 'Kalp atışı ve nefes yavaşlar', 'Bellek işleme başlar'],
       },
     },
     {
@@ -32,7 +32,7 @@ const SleepStageBreakdown: React.FC<SleepStageBreakdownProps> = ({ result, local
       bgColor: 'bg-indigo-50',
       benefits: {
         en: ['Physical restoration', 'Growth hormone release', 'Immune system boost'],
-        tr: ['Fiziksel yenilenme', 'Buyume hormonu salgilanmasi', 'Bagisiklik sistemi guclendirme'],
+        tr: ['Fiziksel yenilenme', 'Büyüme hormonu salgılanması', 'Bağışıklık sistemi güçlendirme'],
       },
     },
     {
@@ -43,7 +43,7 @@ const SleepStageBreakdown: React.FC<SleepStageBreakdownProps> = ({ result, local
       bgColor: 'bg-purple-50',
       benefits: {
         en: ['Memory consolidation', 'Emotional processing', 'Dreaming & creativity'],
-        tr: ['Bellek pekistirme', 'Duygusal isleme', 'Ruya gorme ve yaraticilik'],
+        tr: ['Bellek pekiştirme', 'Duygusal işleme', 'Rüya görme ve yaratıcılık'],
       },
     },
   ];
@@ -51,7 +51,7 @@ const SleepStageBreakdown: React.FC<SleepStageBreakdownProps> = ({ result, local
   return (
     <Card className="animate-slide-up">
       <h3 className="mb-4 text-lg font-bold text-neutral-900">
-        {locale === 'tr' ? 'Uyku Asamasi Dagilimi' : 'Sleep Stage Breakdown'}
+        {locale === 'tr' ? 'Uyku Aşaması Dağılımı' : 'Sleep Stage Breakdown'}
       </h3>
 
       <div className="space-y-4">

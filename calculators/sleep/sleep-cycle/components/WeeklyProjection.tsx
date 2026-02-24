@@ -24,12 +24,12 @@ const WeeklyProjection: React.FC<WeeklyProjectionProps> = ({ result, locale }) =
   const isOver = weeklyTotalMinutes > weeklyRecommendedMinutes + 7 * 60;
 
   const healthLabel = healthImpactScore >= 85
-    ? { en: 'Excellent', tr: 'Mukemmel' }
+    ? { en: 'Excellent', tr: 'Mükemmel' }
     : healthImpactScore >= 70
-      ? { en: 'Good', tr: 'Iyi' }
+      ? { en: 'Good', tr: 'İyi' }
       : healthImpactScore >= 50
         ? { en: 'Fair', tr: 'Orta' }
-        : { en: 'Poor', tr: 'Zayif' };
+        : { en: 'Poor', tr: 'Zayıf' };
 
   const healthColor = healthImpactScore >= 85
     ? 'text-green-600'
@@ -41,25 +41,25 @@ const WeeklyProjection: React.FC<WeeklyProjectionProps> = ({ result, locale }) =
 
   const stats = [
     {
-      label: { en: 'Weekly Total', tr: 'Haftalik Toplam' },
+      label: { en: 'Weekly Total', tr: 'Haftalık Toplam' },
       value: formatHoursMinutes(weeklyTotalMinutes),
       color: 'text-indigo-600',
       bgColor: 'bg-indigo-50',
     },
     {
-      label: { en: 'Recommended', tr: 'Onerilen' },
+      label: { en: 'Recommended', tr: 'Önerilen' },
       value: formatHoursMinutes(weeklyRecommendedMinutes),
       color: 'text-green-600',
       bgColor: 'bg-green-50',
     },
     {
-      label: { en: 'Weekly Debt', tr: 'Haftalik Borc' },
+      label: { en: 'Weekly Debt', tr: 'Haftalık Borç' },
       value: hasDebt ? formatHoursMinutes(weeklyDebtMinutes) : isOver ? locale === 'tr' ? 'Fazla' : 'Over' : '-',
       color: hasDebt ? 'text-red-600' : isOver ? 'text-amber-600' : 'text-green-600',
       bgColor: hasDebt ? 'bg-red-50' : isOver ? 'bg-amber-50' : 'bg-green-50',
     },
     {
-      label: { en: 'Health Impact', tr: 'Saglik Etkisi' },
+      label: { en: 'Health Impact', tr: 'Sağlık Etkisi' },
       value: `${healthImpactScore}/100`,
       color: healthColor,
       bgColor: healthImpactScore >= 70 ? 'bg-green-50' : healthImpactScore >= 50 ? 'bg-amber-50' : 'bg-red-50',
@@ -69,11 +69,11 @@ const WeeklyProjection: React.FC<WeeklyProjectionProps> = ({ result, locale }) =
   return (
     <Card className="animate-slide-up">
       <h3 className="mb-4 text-lg font-bold text-neutral-900">
-        {locale === 'tr' ? 'Haftalik Projeksiyon' : 'Weekly Projection'}
+        {locale === 'tr' ? 'Haftalık Projeksiyon' : 'Weekly Projection'}
       </h3>
       <p className="mb-4 text-sm text-neutral-600">
         {locale === 'tr'
-          ? 'Mevcut uyku duzeni her gece ayni kaldiginda haftalik etki tahminidir'
+          ? 'Mevcut uyku düzeni her gece aynı kaldığında haftalık etki tahminidir'
           : 'Projected weekly impact if current sleep pattern remains the same every night'}
       </p>
 
@@ -93,18 +93,18 @@ const WeeklyProjection: React.FC<WeeklyProjectionProps> = ({ result, locale }) =
           {' '}&mdash;{' '}
           {healthImpactScore >= 85
             ? locale === 'tr'
-              ? 'Uyku duzeniniz sagliginiz icin mukemmel. Bu ritmi korumaya devam edin!'
+              ? 'Uyku düzeniniz sağlığınız için mükemmel. Bu ritmi korumaya devam edin!'
               : 'Your sleep pattern is excellent for health. Keep maintaining this rhythm!'
             : healthImpactScore >= 70
               ? locale === 'tr'
-                ? 'Uyku duzeniniz iyi seviyede. Kucuk iyilestirmeler fayda saglayabilir.'
+                ? 'Uyku düzeniniz iyi seviyede. Küçük iyileştirmeler fayda sağlayabilir.'
                 : 'Your sleep pattern is at a good level. Small improvements could be beneficial.'
               : healthImpactScore >= 50
                 ? locale === 'tr'
-                  ? 'Uyku duzeniniz iyilestirme gerektirebilir. Uyku borcunu azaltmayi hedefleyin.'
+                  ? 'Uyku düzeniniz iyileştirme gerektirebilir. Uyku borcunu azaltmayı hedefleyin.'
                   : 'Your sleep pattern may need improvement. Aim to reduce sleep debt.'
                 : locale === 'tr'
-                  ? 'Uyku duzeniniz sagliginizi olumsuz etkileyebilir. Uyku suresi ve kalitesini artirmayi oncelik haline getirin.'
+                  ? 'Uyku düzeniniz sağlığınızı olumsuz etkileyebilir. Uyku süresi ve kalitesini artırmayı öncelik haline getirin.'
                   : 'Your sleep pattern may negatively affect your health. Prioritize increasing sleep duration and quality.'}
         </span>
       </div>
