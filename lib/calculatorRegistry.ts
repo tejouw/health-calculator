@@ -21,6 +21,7 @@ import { runningPaceMeta } from '@/calculators/fitness/running-pace/runningPaceM
 import { vo2MaxMeta } from '@/calculators/fitness/vo2-max/vo2MaxMeta';
 // New calculators - Sleep
 import { sleepMeta } from '@/calculators/sleep/sleep-calculator/sleepMeta';
+import { sleepCycleMeta } from '@/calculators/sleep/sleep-cycle/sleepCycleMeta';
 // New calculators - Diabetes
 import { a1cMeta } from '@/calculators/diabetes/a1c-calculator/a1cMeta';
 import { bloodSugarMeta } from '@/calculators/diabetes/blood-sugar-converter/bloodSugarMeta';
@@ -105,6 +106,7 @@ export const calculatorRegistry: CalculatorMeta[] = [
   vo2MaxMeta,
   // Sleep
   sleepMeta,
+  sleepCycleMeta,
   // Diabetes
   a1cMeta,
   bloodSugarMeta,

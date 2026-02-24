@@ -42,6 +42,7 @@ const CALCULATOR_SLUGS = {
   'due-date-calculator': { en: 'due-date-calculator', tr: 'dogum-tarihi-hesaplayici' },
   'pregnancy-week-calculator': { en: 'pregnancy-week-calculator', tr: 'hamilelik-hafta-hesaplama' },
   'sleep-calculator': { en: 'sleep-calculator', tr: 'uyku-hesaplayici' },
+  'sleep-cycle-calculator': { en: 'sleep-cycle-calculator', tr: 'uyku-dongusu-hesaplayici' },
   'ovulation-calculator': { en: 'ovulation-calculator', tr: 'yumurtlama-hesaplayici' },
   'calorie-deficit-calculator': { en: 'calorie-deficit-calculator', tr: 'kalori-acigi-hesaplama' },
   'water-intake-calculator': { en: 'water-intake-calculator', tr: 'su-ihtiyaci-hesaplama' },

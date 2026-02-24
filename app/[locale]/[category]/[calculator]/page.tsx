@@ -32,6 +32,7 @@ import { bloodPressureContent } from '@/calculators/heart/blood-pressure-calcula
 import { oneRepMaxContent } from '@/calculators/fitness/one-rep-max/oneRepMaxContent';
 import { runningPaceContent } from '@/calculators/fitness/running-pace/runningPaceContent';
 import { sleepContent } from '@/calculators/sleep/sleep-calculator/sleepContent';
+import { sleepCycleContent } from '@/calculators/sleep/sleep-cycle/sleepCycleContent';
 import { a1cContent } from '@/calculators/diabetes/a1c-calculator/a1cContent';
 import { bloodSugarContent } from '@/calculators/diabetes/blood-sugar-converter/bloodSugarContent';
 import { gfrContent } from '@/calculators/medical/gfr-calculator/gfrContent';
@@ -178,6 +179,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'vo2-max-calculator': vo2MaxContent,
     // Sleep
     'sleep-calculator': sleepContent,
+    'sleep-cycle-calculator': sleepCycleContent,
     // Diabetes
     'a1c-calculator': a1cContent,
     'blood-sugar-converter': bloodSugarContent,

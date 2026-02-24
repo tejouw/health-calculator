@@ -136,8 +136,12 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
 
   // Sleep calculators
   'sleep-calculator': {
-    primary: ['biological-age-calculator', 'phq9-calculator', 'life-expectancy-calculator'],
-    secondary: ['caffeine-calculator', 'heart-rate-zone-calculator', 'bmr-calculator', 'calorie-calculator'],
+    primary: ['sleep-cycle-calculator', 'biological-age-calculator', 'phq9-calculator'],
+    secondary: ['life-expectancy-calculator', 'caffeine-calculator', 'heart-rate-zone-calculator', 'bmr-calculator', 'calorie-calculator'],
+  },
+  'sleep-cycle-calculator': {
+    primary: ['sleep-calculator', 'biological-age-calculator', 'caffeine-calculator'],
+    secondary: ['phq9-calculator', 'gad7-calculator', 'stress-level-calculator', 'life-expectancy-calculator'],
   },
 
   // Diabetes calculators
