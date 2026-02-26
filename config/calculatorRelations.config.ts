@@ -25,7 +25,7 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
   // Body & Weight calculators
   'bmi-calculator': {
     primary: ['body-fat-calculator', 'ideal-weight-calculator'],
-    secondary: ['body-type-calculator', 'lean-body-mass-calculator', 'waist-hip-ratio-calculator', 'biological-age-calculator', 'bmr-calculator', 'tdee-calculator', 'calorie-calculator', 'life-expectancy-calculator', 'calorie-deficit-calculator'],
+    secondary: ['body-type-calculator', 'lean-body-mass-calculator', 'waist-hip-ratio-calculator', 'waist-height-ratio-calculator', 'biological-age-calculator', 'bmr-calculator', 'tdee-calculator', 'calorie-calculator', 'life-expectancy-calculator', 'calorie-deficit-calculator'],
   },
   'body-fat-calculator': {
     primary: ['bmi-calculator', 'ideal-weight-calculator'],
@@ -36,7 +36,7 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
     secondary: ['body-type-calculator', 'lean-body-mass-calculator', 'waist-hip-ratio-calculator', 'calorie-calculator', 'tdee-calculator', 'calorie-deficit-calculator', 'macro-calculator', 'biological-age-calculator'],
   },
   'waist-hip-ratio-calculator': {
-    primary: ['bmi-calculator', 'body-fat-calculator'],
+    primary: ['bmi-calculator', 'body-fat-calculator', 'waist-height-ratio-calculator'],
     secondary: ['ideal-weight-calculator', 'biological-age-calculator', 'calorie-calculator', 'blood-pressure-calculator', 'life-expectancy-calculator'],
   },
   'biological-age-calculator': {
@@ -253,7 +253,13 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
   // Body Weight - Body Type
   'body-type-calculator': {
     primary: ['bmi-calculator', 'body-fat-calculator', 'ideal-weight-calculator'],
-    secondary: ['lean-body-mass-calculator', 'waist-hip-ratio-calculator', 'macro-calculator', 'tdee-calculator', 'protein-calculator', 'biological-age-calculator'],
+    secondary: ['lean-body-mass-calculator', 'waist-hip-ratio-calculator', 'waist-height-ratio-calculator', 'macro-calculator', 'tdee-calculator', 'protein-calculator', 'biological-age-calculator'],
+  },
+
+  // Body Weight - Waist-Height Ratio
+  'waist-height-ratio-calculator': {
+    primary: ['bmi-calculator', 'waist-hip-ratio-calculator', 'body-fat-calculator'],
+    secondary: ['ideal-weight-calculator', 'body-type-calculator', 'lean-body-mass-calculator', 'biological-age-calculator', 'blood-pressure-calculator', 'life-expectancy-calculator', 'calorie-calculator'],
   },
 };
 

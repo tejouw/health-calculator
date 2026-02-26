@@ -87,6 +87,8 @@ import { pregnancyWeightGainContent } from '@/calculators/pregnancy/pregnancy-we
 import { caloriesBurnedContent } from '@/calculators/fitness/calories-burned/caloriesBurnedContent';
 // Mental Health - Stress Level
 import { stressLevelContent } from '@/calculators/mental-health/stress-level-calculator/stressLevelContent';
+// Body Weight - Waist-Height Ratio
+import { waistHeightRatioContent } from '@/calculators/body-weight/waist-height-ratio/waistHeightRatioContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -220,6 +222,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'calories-burned-calculator': caloriesBurnedContent,
     // Mental Health - Stress Level
     'stress-level-calculator': stressLevelContent,
+    // Body Weight - Waist-Height Ratio
+    'waist-height-ratio-calculator': waistHeightRatioContent,
   };
 
   const content = contentMap[calculator.id];

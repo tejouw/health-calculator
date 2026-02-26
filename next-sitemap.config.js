@@ -68,6 +68,7 @@ const CALCULATOR_SLUGS = {
   'pregnancy-weight-gain-calculator': { en: 'pregnancy-weight-gain-calculator', tr: 'hamilelik-kilo-alimi-hesaplayici' },
   'calories-burned-calculator': { en: 'calories-burned-calculator', tr: 'yakilan-kalori-hesaplayici' },
   'stress-level-calculator': { en: 'stress-level-calculator', tr: 'stres-duzeyi-hesaplayici' },
+  'waist-height-ratio-calculator': { en: 'waist-height-ratio-calculator', tr: 'bel-boy-orani-hesaplama' },
 };
 
 // Static page slug mappings
