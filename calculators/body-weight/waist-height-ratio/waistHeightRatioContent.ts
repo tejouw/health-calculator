@@ -138,37 +138,37 @@ export const waistHeightRatioContent: CalculatorContent = {
 
   tr: {
     whatIs:
-      'Bel-boy orani (BBO), bel cevrenizi boyunuzla karsilastirarak merkezi obeziteyle iliskili saglik riskini degerlendiren basit ama guclu bir antropometrik olcumdur. Yalnizca toplam vucut agirligini boya gore degerlendiren VKI\'nin aksine, BBO dogrudan vucudunuzun yagi nerede depoladigini — ozellikle karin cevresinde — degerlendirmektedir. 2012 yilinda Dr. Margaret Ashwell ve arkadaslari tarafindan Obesity Reviews dergisinde yayimlanan, birden fazla etnik grupta 300.000\'den fazla yetiskinin verilerini analiz eden donemlerin sistematik incelemesi, BBO\'nun kardiyovaskuler hastalik, tip 2 diyabet ve metabolik sendrom icin VKI\'den onemli olcude daha iyi bir on gostege oldugunun sonucuna varmistir. Temel mesaj zarif bicimde basittir: "Bel cevrenizi boyunuzun yarisindan az tutun." Bu, evrensel bir sinir degeri olan 0.5\'e karsilik gelir — erkeklerde, kadinlarda ve farkli etnik gruplarda cinsiyete veya etnik kokenine ozgu kesme degerleri gerektirmeden gayet iyi calisan bir esik deger. BBO\'nun basitligi, bir halk sagligi araci olarak en buyuk guclerinden biridir. VKI kasli bireyleri fazla kilolu olarak yanlis siniflandirabilir veya metabolik olarak sagliksiz normal kilolu bireyleri (bazen "disaridan ince-iceriden yagli" veya TOFI olarak adlandirilir) tanimlayamazken, BBO merkezi yag birikimini dogrudan yakalamaktadir. Visseral yag — ic organlari cevreleyen derin karin yagi — metabolik olarak en tehlikeli vucut yagi turudur; damar duvarini hasar veren, insulin hassasiyetini bozan ve kalp hastaligi, inme ve diyabet riskini artiran iltihaplanma molekulleri salmaktadir. BBO, visseral yag birikimini VKI\'den daha dogru yansimasiyla, onlenebilir olumlerin cogunundan sorumlu durumlar icin ustun bir tarama araci konumundadir.',
+      'Bel-boy oranı (BBO), bel çevrenizi boyunuzla karşılaştırarak merkezi obeziteyle ilişkili sağlık riskini değerlendiren basit ama güçlü bir antropometrik ölçümdür. Yalnızca toplam vücut ağırlığını boya göre değerlendiren VKİ\'nin aksine, BBO doğrudan vücudunuzun yağı nerede depoladığını — özellikle karın çevresinde — değerlendirmektedir. 2012 yılında Dr. Margaret Ashwell ve arkadaşları tarafından Obesity Reviews dergisinde yayımlanan, birden fazla etnik grupta 300.000\'den fazla yetişkinin verilerini analiz eden dönemlerin sistematik incelemesi, BBO\'nun kardiyovasküler hastalık, tip 2 diyabet ve metabolik sendrom için VKİ\'den önemli ölçüde daha iyi bir ön gösterge olduğunun sonucuna varmıştır. Temel mesaj zarif biçimde basittir: "Bel çevrenizi boyunuzun yarısından az tutun." Bu, evrensel bir sınır değeri olan 0.5\'e karşılık gelir — erkeklerde, kadınlarda ve farklı etnik gruplarda cinsiyete veya etnik kökene özgü kesme değerleri gerektirmeden gayet iyi çalışan bir eşik değer. BBO\'nun basitliği, bir halk sağlığı aracı olarak en büyük güçlerinden biridir. VKİ kaslı bireyleri fazla kilolu olarak yanlış sınıflandırabilir veya metabolik olarak sağlıksız normal kilolu bireyleri (bazen "dışarıdan ince-içeriden yağlı" veya TOFI olarak adlandırılır) tanımlayamazken, BBO merkezi yağ birikimini doğrudan yakalamaktadır. Visseral yağ — iç organları çevreleyen derin karın yağı — metabolik olarak en tehlikeli vücut yağı türüdür; damar duvarını hasar veren, insulin hassasiyetini bozan ve kalp hastalığı, inme ve diyabet riskini artıran iltihaplanma molekülleri salmaktadır. BBO, visseral yağ birikimini VKİ\'den daha doğru yansıması ile, önlenebilir ölümlerin çoğundan sorumlu durumlar için üstün bir tarama aracı konumundadır.',
 
     howToCalculate:
-      'Bel-boy oraninizi hesaplamak icin yalnizca iki olcum ve temel bir bolme islemi gerekmektedir. Once boyunuzu dogru olcun. Yakin zamandaki bir doktor ziyaretinden boyunuzu biliyorsaniz o degeri kullanabilirsiniz. Aksi takdirde, ayaklariniz bir arada duz bir duvara yaslanarak durun, basinizin ustune duvara temas eden duz bir nesne (kitap gibi) yerlestirin ve yerden nesnenin alt kenarini olcun. En dogru bel cevresi icin sabah yemek yemeden olcum yapin. Dik ve rahat durun — nefesinizi tutmayin veya karninizi iceri cekmeyin. Esnek bir mezurayi govdenizin en dar noktasinda, genellikle gobek deliginiz hizasinda veya hemen ustunde bel cevrenize dolatin. Mezura cildinize yakin ancak dokuyu sikistirmamali ve tamamen yatay olmalidir. Olcumu kaydedin. Her iki olcum de ayni birimi kullanmalidir — ya her ikisi de santimetre ya da her ikisi de inc. Hesaplayicimiz donusumu otomatik olarak yapar. Bel cevrenizi ve boyunuzu girdikten sonra hesaplayici belinizi boyunuza bolerek BBO degerinizi uretir. 0.5\'in altindaki deger saglikli bir orani gosterirken, 0.5 ve uzeri bir deger merkezi yag birikiminden kaynaklanan artan saglik riskine isaret eder.',
+      'Bel-boy oranınızı hesaplamak için yalnızca iki ölçüm ve temel bir bölme işlemi gerekmektedir. Önce boyunuzu doğru ölçün. Yakın zamandaki bir doktor ziyaretinden boyunuzu biliyorsanız o değeri kullanabilirsiniz. Aksi takdirde, ayaklarınız bir arada düz bir duvara yaslanarak durun, başınızın üstüne duvara temas eden düz bir nesne (kitap gibi) yerleştirin ve yerden nesnenin alt kenarını ölçün. En doğru bel çevresi için sabah yemek yemeden ölçüm yapın. Dik ve rahat durun — nefesinizi tutmayın veya karınızı içeri çekmeyin. Esnek bir mezurayı gövdenizin en dar noktasında, genellikle göbek deliğiniz hizasında veya hemen üstünde bel çevrenize dolayın. Mezura cildınize yakın ancak dokuyu sıkıştırmamalı ve tamamen yatay olmalıdır. Ölçümü kaydedin. Her iki ölçüm de aynı birimi kullanmalıdır — ya her ikisi de santimetre ya da her ikisi de inç. Hesaplayıcımız dönüşümü otomatik olarak yapar. Bel çevrenizi ve boyunuzu girdikten sonra hesaplayıcı belinizi boyunuza bölerek BBO değerinizi üretir. 0.5\'in altındaki değer sağlıklı bir oranı gösterirken, 0.5 ve üzeri bir değer merkezi yağ birikiminden kaynaklanan artan sağlık riskine işaret eder.',
 
     formulaDetails:
-      'Bel-boy orani mumkun olan en basit formulu kullanir: BBO = Bel Cevresi / Boy. Her iki olcum de ayni birimi kullandigi icin, sonuc birimsiz bir oran olarak ortaya cikar — santimetre veya inc ile olcseniz de ayni deger elde edilir. 0.5 kritik sinir degeri, kapsamli meta-analiz arastirmalariyla olusturulmustur. 2012 Ashwell meta-analizi 31 calismayi ve 300.000\'den fazla yetiskini inceledi ve 0.5 sinirinda BBO\'nun kardiyovaskuler risk faktorlerini tespit etmede VKI ve tek basina bel cevresine gore ustun ayirt edici guce sahip oldugunu gostermistir. 2010 yilinda Browning ve arkadaslarinin Nutrition Research Reviews\'da yayimladigi bir calisma, 0.5 kesme degerinin farkli populasyonlarda metabolik riski dikkat cekici bir tutarlilikla taniladigini dogrulamistir. Ashwell Sekil Tablosu BBO\'yu alti bolgeye ayirir: 0.35 alti (Dikkat - Dusuk Kilolu), 0.35-0.42 (Ince), 0.43-0.52 (Saglikli), 0.53-0.57 (Fazla Kilolu), 0.58-0.63 (Cok Fazla Kilolu) ve 0.64+ (Morbid Obez). VKI kategorilerinin aksine, bu sinirlar cinsiyetten bagimsizdir — ayni esikler hem erkekler hem de kadinlar icin gecerlidir; cunku metabolik tehlikeyi isaret eden bel-boy arasindaki kritik oran cinsiyetler arasinda tutarlidir.',
+      'Bel-boy oranı mümkün olan en basit formülü kullanır: BBO = Bel Çevresi / Boy. Her iki ölçüm de aynı birimi kullandığı için, sonuç birimsiz bir oran olarak ortaya çıkar — santimetre veya inç ile ölçseniz de aynı değer elde edilir. 0.5 kritik sınır değeri, kapsamlı meta-analiz araştırmalarıyla oluşturulmuştur. 2012 Ashwell meta-analizi 31 çalışmayı ve 300.000\'den fazla yetişkini inceledi ve 0.5 sınırında BBO\'nun kardiyovasküler risk faktörlerini tespit etmede VKİ ve tek başına bel çevresine göre üstün ayırt edici güce sahip olduğunu göstermiştir. 2010 yılında Browning ve arkadaşlarının Nutrition Research Reviews\'da yayımladığı bir çalışma, 0.5 kesme değerinin farklı populasyonlarda metabolik riski dikkat çekici bir tutarlılıkla tanıladığını doğrulamıştır. Ashwell Şekil Tablosu BBO\'yu altı bölgeye ayırır: 0.35 altı (Dikkat - Düşük Kilolu), 0.35-0.42 (İnce), 0.43-0.52 (Sağlıklı), 0.53-0.57 (Fazla Kilolu), 0.58-0.63 (Çok Fazla Kilolu) ve 0.64+ (Morbid Obez). VKİ kategorilerinin aksine, bu sınırlar cinsiyetten bağımsızdır — aynı eşikler hem erkekler hem de kadınlar için geçerlidir; çünkü metabolik tehlikeyi işaret eden bel-boy arasındaki kritik oran cinsiyetler arasında tutarlıdır.',
 
     interpretation:
-      'BBO sonucunuz, 0.5 sinir degerini temel referans noktasi olarak kullanilarak yorumlanmalidir. Oraniniz 0.5\'in altindaysa, bel cevreniz boyunuzun yarisindan az demektir; bu da merkezi yag birikiminin genellikle dusuk kardiyovaskuler ve metabolik riskle iliskilendirilen bir aralikta oldugunu gosterir. 0.43 ile 0.49 arasindaki degerler optimal saglikli araligi temsil eder. 0.35\'in altindaki degerler dusuk kilolu olmayi isaret edebilir ve bu da besin eksiklikleri ve azalmis kemik yogunlugu gibi kendi saglik kaygalarini beraberinde getirir. Oraniniz 0.5 veya uzeri ise, anlamli merkezi yag birikiminin sinyalini verir. 0.50 ile 0.57 arasindaki oran ilgi gerektiren artan riski gosterir — fiziksel aktivite artisi ve beslenme iyilestirmelerini iceren yasam tarzi degisiklikleri bu orani zamanla anlamli olcude dusurebiir. 0.58\'in uzerindeki bir oran, kardiyovaskuler hastalik, tip 2 diyabet, hipertansiyon ve metabolik sendrom icin onemli olcude yukselmis risklerle birlikte belirgin merkezi obeziteyi gosterir. Unutmayin ki BBO bir tarama aracidir, tani araci degildir. Zamanla takip edildiginde en iyi sonucu verir: aylik olcumler yaparak egilimi gozlemlemek, herhangi bir tekil okumadan daha degerli saglik bilgisi saglar.',
+      'BBO sonucunuz, 0.5 sınır değerini temel referans noktası olarak kullanılarak yorumlanmalıdır. Oranınız 0.5\'in altındaysa, bel çevreniz boyunuzun yarısından az demektir; bu da merkezi yağ birikiminin genellikle düşük kardiyovasküler ve metabolik riskle ilişkilendirilen bir aralıkta olduğunu gösterir. 0.43 ile 0.49 arasındaki değerler optimal sağlıklı aralığı temsil eder. 0.35\'in altındaki değerler düşük kilolu olmayı işaret edebilir ve bu da besin eksiklikleri ve azalmış kemik yoğunluğu gibi kendi sağlık kaygılarını beraberinde getirir. Oranınız 0.5 veya üzeri ise, anlamlı merkezi yağ birikiminin sinyalini verir. 0.50 ile 0.57 arasındaki oran ilgi gerektiren artan riski gösterir — fiziksel aktivite artışı ve beslenme iyileştirmelerini içeren yaşam tarzı değişiklikleri bu oranı zamanla anlamlı ölçüde düşürebilir. 0.58\'in üzerindeki bir oran, kardiyovasküler hastalık, tip 2 diyabet, hipertansiyon ve metabolik sendrom için önemli ölçüde yükseltilmiş risklerle birlikte belirgin merkezi obeziteyi gösterir. Unutmayın ki BBO bir tarama aracıdır, tanı aracı değildir. Zamanla takip edildiğinde en iyi sonucu verir: aylık ölçümler yaparak eğilimi gözlemlemek, herhangi bir tekil okumadam daha değerli sağlık bilgisi sağlar.',
 
     limitations:
-      'BBO, merkezi obezite riskini degerlendirmede VKI\'ye gore onemli avantajlara sahip olsa da bazi oneml sinirlamalari vardir. Tum antropometrik olcumler gibi, dogru olcum teknigine bagldir — tutarsiz mezura yerlestirmesi veya gerilimi sonuclari etkileyebilir. BBO, visseral yag (organlar cevresindeki derin, metabolik olarak tehlikeli yag) ile subkutan yag (deri altindaki daha az zararli yag) arasinda ayrim yapamaz; her ikisini de bir arada olcer. Cok uzun veya cok kisa bireylerin riski hafifce fazla veya az tahmin edilebilir, ancak bu etki VKI\'deki karsilik gelen sinirlamadan daha kucuktur. BBO kas kutlesini hesaba katmaz — onemli kor kas yapisina sahip iyi egitimli bir sporcu, karsilik gelen visseral yag olmadan daha buyuk bir bel cevresine sahip olabilir. 0.5 siniri dikkat cekici bicimde evrensel olsa da, oncelikle yetiskin populasyonlarinda dogrulanmistir ve 5 yas alti cocuklara uygulanmamalidir. Hamile kadinlar, karin fitigi veya onemli karin izleri olan bireyler ve karin siskinligine neden olan durumlar (assit gibi) olan kisiler guvenilmez sonuclar elde edecektir.',
+      'BBO, merkezi obezite riskini değerlendirmede VKİ\'ye göre önemli avantajlara sahip olsa da bazı önemli sınırlamaları vardır. Tüm antropometrik ölçümler gibi, doğru ölçüm tekniğine bağlıdır — tutarsız mezura yerleştirilmesi veya gerilimi sonuçları etkileyebilir. BBO, visseral yağ (organlar çevresindeki derin, metabolik olarak tehlikeli yağ) ile subkutan yağ (deri altındaki daha az zararlı yağ) arasında ayrım yapamaz; her ikisini de bir arada ölçer. Çok uzun veya çok kısa bireylerin riski hafifçe fazla veya az tahmin edilebilir, ancak bu etki VKİ\'deki karşılık gelen sınırlamadan daha küçüktür. BBO kas kütlesini hesaba katmaz — önemli kor kas yapısına sahip iyi eğitimli bir sporcu, karşılık gelen visseral yağ olmadan daha büyük bir bel çevresine sahip olabilir. 0.5 sınırı dikkat çekici biçimde evrensel olsa da, öncelikle yetişkin populasyonlarında doğrulanmıştır ve 5 yaş altı çocuklara uygulanmamalıdır. Hamile kadınlar, karın fıtığı veya önemli karın izleri olan bireyler ve karın şişkinliğine neden olan durumlar (assit gibi) olan kişiler güvenilmez sonuçlar elde edecektir.',
 
     healthRisks:
-      'Yuksek BBO ile olculen merkezi obezite, ciddi saglik durumlarinin genis bir yelpazesi ile iliskilidir. Mekanizmalar iyi anlasilmistir: visseral karin yagi, neredeyse bir endokrin organ gibi isleyen metabolik olarak aktif bir dokudur; pro-inflamatuar sitokinler (TNF-alfa ve interlokin-6 dahil), adipokinler ve serbest yag asitleri salar; bunlar damar endotelini sistemik olarak hasar verir, insulin direncini tesvik eder ve vucut genelinde kronik dusuk duzeyli bir iltihaplanma durumu olusturur. Kardiyovaskuler hastalik en kapsamli sekilde belgelenmis sonuctur — BBO degeri 0.5 uzerinde olan bireyler koroner arter hastaligi, kalp krizi, inme ve periferal arter hastaligi icin onemli olcude artan risklerle karsi karsiya kalir. Tip 2 diyabet riski artan merkezi yaganma ile hizla yukselir: visseral yag dogrudan karacigerin glikozu duzenleme yetenegini bozar ve periferik insulin hassasiyetini azaltir. Metabolik sendrom — merkezi obezite, yuksek kan sekeri, yuksek trigliseritler, dusuk HDL kolesterol ve hipertansiyonun tehlikeli kumelenmesi — BBO degerleri 0.5\'in uzerinde olanlarda guclu sekilde on gorulur. Cesaret verici gerceklik sudur ki visseral yag, yasam tarzi mudahalesine en duyarli yag birikimleri arasindadir — duzgun aerobik egzersiz ve beslenme iyilestirmesi 8-12 hafta icinde olculebilir bel cevresi azalmalari uretebilir.',
+      'Yüksek BBO ile ölçülen merkezi obezite, ciddi sağlık durumlarının geniş bir yelpazesi ile ilişkilidir. Mekanizmalar iyi anlaşılmıştır: visseral karın yağı, neredeyse bir endokrin organ gibi işleyen metabolik olarak aktif bir dokudur; pro-inflamatuar sitokinler (TNF-alfa ve interlökin-6 dahil), adipokinler ve serbest yağ asitleri salar; bunlar damar endotelini sistemik olarak hasar verir, insulin direncini teşvik eder ve vücut genelinde kronik düşük düzeyli bir iltihaplanma durumu oluşturur. Kardiyovasküler hastalık en kapsamlı şekilde belgelenmiş sonuçtur — BBO değeri 0.5 üzerinde olan bireyler koroner arter hastalığı, kalp krizi, inme ve periferik arter hastalığı için önemli ölçüde artan risklerle karşı karşıya kalır. Tip 2 diyabet riski artan merkezi yağlanma ile hızla yükselir: visseral yağ doğrudan karaciğerin glükozu düzenleme yeteneğini bozar ve periferik insulin hassasiyetini azaltır. Metabolik sendrom — merkezi obezite, yüksek kan şekeri, yüksek trigliseritler, düşük HDL kolesterol ve hipertansiyonun tehlikeli kümeleşmesi — BBO değerleri 0.5\'in üzerinde olanlarda güçlü şekilde ön görülür. Cesaret verici gerçeklik şudur ki visseral yağ, yaşam tarzı müdahalesine en duyarlı yağ birikimleri arasındadır — düzgün aerobik egzersiz ve beslenme iyileştirmesi 8-12 hafta içinde ölçülebilir bel çevresi azalmaları üretebilir.',
 
     alternativeMeasures:
-      'BBO ile birlikte kapsamli bir saglik resmi olusturmak icin bircok tamamlayici antropometrik olcum kullanilabilir. Vucut Kitle Indeksi (VKI), agirligin kilogram cinsinden boyun metre karesine bolunmesiyle hesaplanan en yaygin tarama araci olmaya devam etmektedir. Ancak VKI, kas ile yag arasinda ayrim yapamaz, yagin nerede dagitildigini gostermez ve dogrudan vucut kompozisyonu degerlendirmesine kiyasla bireylerin %30\'una kadar yanlis siniflandirabilir. Tek basina bel cevresi, DSO kesme degerleriyle (erkekler icin >102 cm, kadinlar icin >88 cm) merkezi obezite icin basit ve etkili bir olcumdur — ancak bu cinsiyete ozgu kesme degerler BBO\'nun onledigi bir karmasiklik ekler. Bel-kalca orani (BKO) bel ile kalca cevresini karsilastirir ancak her ikisi orantiyla degistiginde artislari maskeleyebilir. Vucut yag yuzdesi, DEXA, biyoelektrik empedans veya deri katlama olcumleri ile olculur; dogrudan kompozisyon verileri saglar ancak uzman ekipman gerektirir. Arastirmalar tutarli sekilde BBO\'yu kardiyovaskuler riskin en iyi tekil antropometrik on goricisi olarak konumlandirir.',
+      'BBO ile birlikte kapsamlı bir sağlık resmi oluşturmak için birçok tamamlayıcı antropometrik ölçüm kullanılabilir. Vücut Kitle İndeksi (VKİ), ağırlığın kilogram cinsinden boyun metre karesine bölünmesiyle hesaplanan en yaygın tarama aracı olmaya devam etmektedir. Ancak VKİ, kas ile yağ arasında ayrım yapamaz, yağın nerede dağıtıldığını göstermez ve doğrudan vücut kompozisyonu değerlendirmesine kıyasla bireylerin %30\'una kadar yanlış sınıflandırabilir. Tek başına bel çevresi, DSO kesme değerleriyle (erkekler için >102 cm, kadınlar için >88 cm) merkezi obezite için basit ve etkili bir ölçümdür — ancak bu cinsiyete özgü kesme değerler BBO\'nun önlediği bir karmaşıklık ekler. Bel-kalça oranı (BKO) bel ile kalça çevresini karşılaştırır ancak her ikisi orantılı olarak değiştiğinde artışları maskeleyebilir. Vücut yağ yüzdesi, DEXA, biyoelektrik empedans veya deri katlama ölçümleri ile ölçülür; doğrudan kompozisyon verileri sağlar ancak uzman ekipman gerektirir. Araştırmalar tutarlı şekilde BBO\'yu kardiyovasküler riskin en iyi tekil antropometrik ön göricisi olarak konumlandırır.',
 
     demographicDifferences:
-      'BBO\'nun en buyuk guclerinden biri, diger antropometrik olculere kiyasla demografik gruplar arasinda dikkat cekici tutarliligidir. 0.5 sinir degeri Avrupa, Afro-Amerikan, Asya ve Latin Amerika populasyonlarinda VKI veya bel cevresi kesme degerlerinden daha buyuk bir tutarlilikla dogrulanmistir. Ancak bazi nuanslar vardir. Guney Asya populasyonlarinda, genel olarak daha dusuk vucut agirliklarinda visseral yag birikimine genetik yatkinlik nedeniyle metabolik risk biraz daha dusuk BBO degerlerinde (yaklasik 0.48-0.49) ortaya cikabilir. Yas bir rol oynar: BBO dogal olarak yaslanimla birlikte karin yagi birikimi ve hafif boy kisalmasi nedeniyle artma egilimindedir. Cinsiyet farkliliklari diger metriklere gore BBO\'da belirgin sekilde daha kucuktur — erkekler ve kadinlar ayni 0.5 sinirini kullanir. Menopoz sirasinda, kadinlarin BBO degerleri genellikle azalan estrojenin yag depolamayi karina dogru kaydirmsiyla artar.',
+      'BBO\'nun en büyük güçlerinden biri, diğer antropometrik ölçülere kıyasla demografik gruplar arasında dikkat çekici tutarlılığıdır. 0.5 sınır değeri Avrupa, Afro-Amerikan, Asya ve Latin Amerika populasyonlarında VKİ veya bel çevresi kesme değerlerinden daha büyük bir tutarlılıkla doğrulanmıştır. Ancak bazı nuanslar vardır. Güney Asya populasyonlarında, genel olarak daha düşük vücut ağırlıklarında visseral yağ birikimine genetik yatkınlık nedeniyle metabolik risk biraz daha düşük BBO değerlerinde (yaklaşık 0.48-0.49) ortaya çıkabilir. Yaş bir rol oynar: BBO doğal olarak yaşlanmayla birlikte karın yağı birikimi ve hafif boy kısalması nedeniyle artma eğilimindedir. Cinsiyet farklılıkları diğer metriklere göre BBO\'da belirgin şekilde daha küçüktür — erkekler ve kadınlar aynı 0.5 sınırını kullanır. Menopoz sırasında, kadınların BBO değerleri genellikle azalan estrojenin yağ depolamayı karına doğru kaydırmasıyla artar.',
 
     medicalDisclaimer:
-      'Bu bel-boy orani hesaplayicisi yalnizca egitim ve genel bilgilendirme amaciyla sunulmaktadir ve profesyonel tibbi danisma, tani veya tedavinin yerine gecirilmemelidir. BBO kapsamli yayimlanmis arastirmalarla desteklenen iyi dogrulanmis bir tarama araci olsa da, bircok metrik arasinda yalnizca bir tanesidir ve bireysel saglik riskinin tum karmasikligini yakalayamaz. Olumlu bir BBO, kardiyovaskuler veya metabolik hastalik yoklugunu garanti etmez — aile gecmisi, sigara, fiziksel hareketsizlik, beslenme kalitesi, kan basinci, kolesterol ve kan sekeri hastalik riskine bagimsiz olarak katki yapar. Benzer sekilde, yuksek bir BBO tani olusturmaz — nitelikli bir saglik uzmaninin daha ileri degerlendirmesini gerektiren bir risk gostergesidir. Bu arac hamile kadinlar, 5 yas alti cocuklar, yeme bozukluklari olan bireyler veya karin siskinligine neden olan durumlar icin kulllanilmak uzere tasarlanmamistir.',
+      'Bu bel-boy oranı hesaplayıcısı yalnızca eğitim ve genel bilgilendirme amacıyla sunulmaktadır ve profesyonel tıbbi danışma, tanı veya tedavinin yerine geçirilmemelidir. BBO kapsamlı yayımlanmış araştırmalarla desteklenen iyi doğrulanmış bir tarama aracı olsa da, birçok metrik arasında yalnızca bir tanesidir ve bireysel sağlık riskinin tüm karmaşıklığını yakalayamaz. Olumlu bir BBO, kardiyovasküler veya metabolik hastalık yokluğunu garanti etmez — aile geçmişi, sigara, fiziksel hareketsizlik, beslenme kalitesi, kan basıncı, kolesterol ve kan şekeri hastalık riskine bağımsız olarak katkı yapar. Benzer şekilde, yüksek bir BBO tanı oluşturmaz — nitelikli bir sağlık uzmanının daha ileri değerlendirmesini gerektiren bir risk göstergesidir. Bu araç hamile kadınlar, 5 yaş altı çocuklar, yeme bozuklukları olan bireyler veya karın şişkinliğine neden olan durumlar için kullanılmak üzere tasarlanmamıştır.',
 
     references: [
       'Ashwell M, Gunn P, Gibson S. Waist-to-height ratio is a better screening tool than waist circumference and BMI for adult cardiometabolic risk factors: systematic review and meta-analysis. Obesity Reviews. 2012;13(3):275-286.',
       'Browning LM, Hsieh SD, Ashwell M. A systematic review of waist-to-height ratio as a screening tool for the prediction of cardiovascular disease and diabetes: 0.5 could be a suitable global boundary value. Nutrition Research Reviews. 2010;23(2):247-269.',
       'Ashwell M, Hsieh SD. Six reasons why the waist-to-height ratio is a rapid and effective global indicator for health risks of obesity. International Journal of Food Sciences and Nutrition. 2005;56(5):303-307.',
-      'Dunya Saglik Orgutu. Bel cevresi ve bel-kalca orani: DSO uzman danismanlik raporu. Cenevre: DSO; 2008.',
+      'Dünya Sağlık Örgütü. Bel çevresi ve bel-kalça oranı: DSO uzman danışmanlık raporu. Cenevre: DSO; 2008.',
       'Lee CM, Huxley RR, Wildman RP, Woodward M. Indices of abdominal obesity are better discriminators of cardiovascular risk factors than BMI: a meta-analysis. Journal of Clinical Epidemiology. 2008;61(7):646-653.',
       'Savva SC, Lamnisos D, Kafatos AG. Predicting cardiometabolic risk: waist-to-height ratio or BMI. A meta-analysis. Diabetes, Metabolic Syndrome and Obesity. 2013;6:403-419.',
       'Swainson MG, Batterham AM, Tsakirides C, et al. Prediction of whole-body fat percentage and visceral adipose tissue mass from five anthropometric variables. PLoS One. 2017;12(5):e0177175.',
@@ -176,96 +176,96 @@ export const waistHeightRatioContent: CalculatorContent = {
     ],
 
     tips: [
-      'Altin kural basittir: bel cevrenizi boyunuzun yarisindan az tutun. Bu tek mesaj hatirlmasi kolay ve herkes icin gecerlidir.',
-      'Belinizi govdenizin en dar noktasinda, genellikle gobek deliginiz hizasinda veya hemen ustunde, rahat durarak ve normal nefes alarak olcun.',
-      'BBO\'nuzu gunluk degil, aylik olarak takip edin. Hidrasyon, ogunnler ve siskinlikten kaynaklanan kisa sureli dalgalanmalar olcumleri kaydirabilir.',
-      'Aerobik egzersiz (yurume, kosma, bisiklet, yuzme) visseral karin yagini azaltmada en etkili egzersiz turudur.',
-      'Diyet lifi alimi, karin yagi ile guclu bir ters iliskiye sahiptir. Sebze, meyve, tam tahillar ve baklagillrdan gunluk 25-35 gram lif hdefleyin.',
-      'Kronik stres, ozellikle visseral yag depolamasini tesvik eden kortizolu yukseltir. Uyku, meditasyon veya hobiler yoluyla stres yonetimi dogrudan bel azaltmayi destekler.',
-      'Uyku kalitesi onemlidir: calismalar, gece 6 saatten az uyumanin, diyet ve egzerszden bagimsiz olarak artan visseral yag birikimiyle iliskili oldugunu gostermektedir.',
-      'Alkol tuketimi, ozellikle bira ve sert ickilier, karin yagi birikimiyle guclu sekilde iliskilidir. Alkol alimini azaltmak BBO\'nuzu anlamli olcude iyilestirebilir.',
-      'Subkutan yagin aksine, visseral yag yasam tarzi degisikliklerine nispeten hizli yanit verir. 8-12 haftalik tutarli caba genellikle olculebilir bel cevresi azalmasi uretir.',
-      'BBO, kasli bireyler icin VKI\'den daha dogrudr. Duzenli egzersiz yapiyor ve onemli kas kutleniz varsa, BBO daha guvenilir bir saglik degerlendirmesi saglar.',
+      'Altın kural basittir: bel çevrenizi boyunuzun yarısından az tutun. Bu tek mesaj hatırlaması kolay ve herkes için geçerlidir.',
+      'Belinizi gövdenizin en dar noktasında, genellikle göbek deliğiniz hizasında veya hemen üstünde, rahat durarak ve normal nefes alarak ölçün.',
+      'BBO\'nuzu günlük değil, aylık olarak takip edin. Hidrasyon, öğünler ve şişkinlikten kaynaklanan kısa süreli dalgalanmalar ölçümleri kaydırabilir.',
+      'Aerobik egzersiz (yürüme, koşma, bisiklet, yüzme) visseral karın yağını azaltmada en etkili egzersiz türüdür.',
+      'Diyet lifi alımı, karın yağı ile güçlü bir ters ilişkiye sahiptir. Sebze, meyve, tam tahıllar ve baklagiller\'den günlük 25-35 gram lif hedefleyin.',
+      'Kronik stres, özellikle visseral yağ depolamasını teşvik eden kortizolu yükseltir. Uyku, meditasyon veya hobiler yoluyla stres yönetimi doğrudan bel azaltmayı destekler.',
+      'Uyku kalitesi önemlidir: çalışmalar, gece 6 saatten az uyumanın, diyet ve egzersizden bağımsız olarak artan visseral yağ birikimi ile ilişkili olduğunu göstermektedir.',
+      'Alkol tüketimi, özellikle bira ve sert içkiler, karın yağı birikimi ile güçlü şekilde ilişkilidir. Alkol alımını azaltmak BBO\'nuzu anlamlı ölçüde iyileştirebilir.',
+      'Subkutan yağın aksine, visseral yağ yaşam tarzı değişikliklerine nispeten hızlı yanıt verir. 8-12 haftalık tutarlı çaba genellikle ölçülebilir bel çevresi azalması üretir.',
+      'BBO, kaslı bireyler için VKİ\'den daha doğrudur. Düzenli egzersiz yapıyor ve önemli kas kütleniz varsa, BBO daha güvenilir bir sağlık değerlendirmesi sağlar.',
     ],
 
     faqs: [
       {
-        question: 'BBO neden VKI\'den daha iyi kabul edilir?',
+        question: 'BBO neden VKİ\'den daha iyi kabul edilir?',
         answer:
-          '2012 yilinda 300.000\'den fazla yetiskinin meta-analizi, BBO\'nun hipertansiyon, tip 2 diyabet ve metabolik sendrom dahil kardiyovaskuler risk faktorlerini tahmin etmede VKI\'den onemli olcude daha iyi oldugunu ortaya koymustur. VKI yalnizca toplam vucut agirligini boya gore yanstir; kas ile yag arasinda ayrim yapamaz veya yagin nerede depolandigini gosteremez. BBO, kardiometabolik hastalik riskinin birincil itmegucu olan merkezi yag birikimini dogrudan olcer.',
+          '2012 yılında 300.000\'den fazla yetişkinin meta-analizi, BBO\'nun hipertansiyon, tip 2 diyabet ve metabolik sendrom dahil kardiyovasküler risk faktörlerini tahmin etmede VKİ\'den önemli ölçüde daha iyi olduğunu ortaya koymuştur. VKİ yalnızca toplam vücut ağırlığını boya göre yansıtır; kas ile yağ arasında ayrım yapamaz veya yağın nerede depolanğını gösteremez. BBO, kardiyometabolik hastalık riskinin birincil itici gücü olan merkezi yağ birikimini doğrudan ölçer.',
       },
       {
-        question: '0.5 sinir degeri ne anlama gelir?',
+        question: '0.5 sınır değeri ne anlama gelir?',
         answer:
-          '0.5 siniri basit bir saglik mesajina karsilik gelir: beliniz boyunuzun yarisindan az olmalidr. 170 cm boyundaysaniz, bel cevreniz 85 cm\'nin altinda olmalidir. Bu esik birden fazla etnik grupta dogrulanmistir ve hem erkekler hem de kadinlar icin esit sekilde gecerlidir.',
+          '0.5 sınırı basit bir sağlık mesajına karşılık gelir: beliniz boyunuzun yarısından az olmalıdır. 170 cm boyundaysanız, bel çevreniz 85 cm\'nin altında olmalıdır. Bu eşik birden fazla etnik grupta doğrulanmıştır ve hem erkekler hem de kadınlar için eşit şekilde geçerlidir.',
       },
       {
-        question: 'BBO hem erkekler hem de kadinlar icin gecerli mi?',
+        question: 'BBO hem erkekler hem de kadınlar için geçerli mi?',
         answer:
-          'Evet. Cinsiyete ozgu yorum kesme degerleri gerektiren VKI ve bel cevresinin aksine, BBO hem erkekler hem de kadinlar icin ayni 0.5 sinirini kullanir. Arastirmalar bu sinirin cinsiyetler arasinda etkili oldugunu dogrulamistir, bu da BBO\'yu daha basit ve evrensel olarak uygulanabilir bir tarama araci yapar.',
+          'Evet. Cinsiyete özgü yorum kesme değerleri gerektiren VKİ ve bel çevresinin aksine, BBO hem erkekler hem de kadınlar için aynı 0.5 sınırını kullanır. Araştırmalar bu sınırın cinsiyetler arasında etkili olduğunu doğrulamıştır, bu da BBO\'yu daha basit ve evrensel olarak uygulanabilir bir tarama aracı yapar.',
       },
       {
-        question: 'BBO\'mu dusurebiilir miyim?',
+        question: 'BBO\'mu düşürebilir miyim?',
         answer:
-          'Kesinlikle. Visseral karin yagi, yasam tarzi degisikliklerine en duyarli yag birikimleri arasindadir. Duzenli aerobik egzersiz (haftada 150+ dakika), tam gidlara vurgu yapan liften zengin bir diyet, yeterli uyku (7-9 saat), stres yonetimi ve olculu alkol tuketiminin kombinasyonu 8-12 hafta icinde olculebilir bel cevresi azalmasi uretebilir.',
+          'Kesinlikle. Visseral karın yağı, yaşam tarzı değişikliklerine en duyarlı yağ birikimleri arasındadır. Düzenli aerobik egzersiz (haftada 150+ dakika), tam gıdalara vurgu yapan liften zengin bir diyet, yeterli uyku (7-9 saat), stres yönetimi ve ölçülü alkol tüketiminin kombinasyonu 8-12 hafta içinde ölçülebilir bel çevresi azalması üretebilir.',
       },
       {
-        question: 'BBO sporculr ve kasli kisiler icin dogru mudur?',
+        question: 'BBO sporcular ve kaslı kişiler için doğru mudur?',
         answer:
-          'BBO, kasli bireyleri siklikla fazla kilolu olarak yanlis siniflandiran VKI\'den daha guvenilirdir. Ancak onemli kor kas yapisina sahip bireyler, visseral yagi yansitmayan hafifce yukselmis bel olcumlerine sahip olabilir. Ciddi sporculr icin BBO\'yu vucut yag yuzdesi olcumuyle birlestirmek en dogru resmi saglar.',
+          'BBO, kaslı bireyleri sıklıkla fazla kilolu olarak yanlış sınıflandıran VKİ\'den daha güvenilirdir. Ancak önemli kor kas yapısına sahip bireyler, visseral yağı yansıtmayan hafifçe yükseltilmiş bel ölçümlerine sahip olabilir. Ciddi sporcular için BBO\'yu vücut yağ yüzdesi ölçümü ile birleştirmek en doğru resmi sağlar.',
       },
       {
-        question: 'BBO cocuklar icin gecerli mi?',
+        question: 'BBO çocuklar için geçerli mi?',
         answer:
-          '0.5 sinirinin 5-17 yas arasi cocuklar icin genis olcude uygulanabilir oldugu bulunmustur, ancak yetiskin populasyonlarindakinden daha az saglam dogrulama ile. Garnett ve arkadaslarinin (2008) arastirmasi, pediatrik merkezi obezite taramasinda BBO kullanimini desteklemektedir. 5 yas alti cocuklar icin standart buyume grafikleri daha uygundur.',
+          '0.5 sınırının 5-17 yaş arası çocuklar için geniş ölçüde uygulanabilir olduğu bulunmuştur, ancak yetişkin populasyonlarındakinden daha az sağlam doğrulama ile. Garnett ve arkadaşlarının (2008) araştırması, pediatrik merkezi obezite taramasında BBO kullanımını desteklemektedir. 5 yaş altı çocuklar için standart büyüme grafikleri daha uygundur.',
       },
       {
-        question: 'BBO\'mu ne siklikta olcmeliyim?',
+        question: 'BBO\'mu ne sıklıkta ölçmeliyim?',
         answer:
-          'Tutarli kosullar altinda (gunun ayni saati, ayni duzey kiyafet, yemek yemeden once) aylik olcumler en faydali takip verilerini saglar. Gunluk olcumlerden kacinin, cunku hidrasyon, ogunler ve siskinlik vucut kompozisyonundaki anlamli degisiklikleri yansitmayan kisa vadeli dalgalanmalara neden olabilir.',
+          'Tutarlı koşullar altında (günün aynı saati, aynı düzey kiyafet, yemek yemeden önce) aylık ölçümler en faydalı takip verilerini sağlar. Günlük ölçümlerden kaçının, çünkü hidrasyon, öğünler ve şişkinlik vücut kompozisyonundaki anlamlı değişiklikleri yansıtmayan kısa vadeli dalgalanmalara neden olabilir.',
       },
       {
-        question: 'Ideal BBO degeri nedir?',
+        question: 'İdeal BBO değeri nedir?',
         answer:
-          'Optimal aralik 0.43 ile 0.50 arasindadir. Bu araliktaki degerler, populasyonlar arasinda en dusuk kardiyovaskuler ve metabolik riskle iliskilidir. Yaklasik 0.46 BBO saglikli bolgenin merkezini temsil eder. 0.35\'in altindaki degerler dusuk kilolu olmayi isaret edebilir ve bunun kendi saglik etkileri vardir.',
+          'Optimal aralık 0.43 ile 0.50 arasındadır. Bu aralıktaki değerler, populasyonlar arasında en düşük kardiyovasküler ve metabolik riskle ilişkilidir. Yaklaşık 0.46 BBO sağlıklı bölgenin merkezini temsil eder. 0.35\'in altındaki değerler düşük kilolu olmayı işaret edebilir ve bunun kendi sağlık etkileri vardır.',
       },
     ],
 
     categories: [
       {
         range: '< 0.35',
-        label: 'Dikkat (Dusuk Kilolu)',
-        description: '0.35\'in altindaki BBO dusuk kilolu olmayi isaret edebilir. Beslenme durumunuz hakkinda bir saglik uzmanina danisin.',
+        label: 'Dikkat (Düşük Kilolu)',
+        description: '0.35\'in altındaki BBO düşük kilolu olmayı işaret edebilir. Beslenme durumunuz hakkında bir sağlık uzmanına danışın.',
         color: '#3B82F6',
       },
       {
         range: '0.35 - 0.42',
-        label: 'Ince',
-        description: 'Merkezi obezite riski olmayan ince vucut kompozisyonu. Saglikli yasam tarzinin surdurlmesi onerilir.',
+        label: 'İnce',
+        description: 'Merkezi obezite riski olmayan ince vücut kompozisyonu. Sağlıklı yaşam tarzının sürdürülmesi önerilir.',
         color: '#06B6D4',
       },
       {
         range: '0.43 - 0.52',
-        label: 'Saglikli',
-        description: 'En dusuk kardiyovaskuler ve metabolik riskle optimal aralik. Beliniz boyunuza uygun sekilde orantilidir.',
+        label: 'Sağlıklı',
+        description: 'En düşük kardiyovasküler ve metabolik riskle optimal aralık. Beliniz boyunuza uygun şekilde orantılıdır.',
         color: '#10B981',
       },
       {
         range: '0.53 - 0.57',
         label: 'Fazla Kilolu',
-        description: 'Asiri merkezi yag birikimini gosterir. Saglik risklerini azaltmak icin yasam tarzi degisiklikleri onerilir.',
+        description: 'Aşırı merkezi yağ birikimini gösterir. Sağlık risklerini azaltmak için yaşam tarzı değişiklikleri önerilir.',
         color: '#F59E0B',
       },
       {
         range: '0.58 - 0.63',
-        label: 'Cok Fazla Kilolu',
-        description: 'Kardiyovaskuler hastalik, diyabet ve metabolik sendrom icin yukselmis risklerle birlikte belirgin merkezi obezite.',
+        label: 'Çok Fazla Kilolu',
+        description: 'Kardiyovasküler hastalık, diyabet ve metabolik sendrom için yükseltilmiş risklerle birlikte belirgin merkezi obezite.',
         color: '#EF4444',
       },
       {
         range: '0.64+',
         label: 'Morbid Obez',
-        description: 'Cok yuksek saglik riski. Kapsamli metabolik degerlendirme icin tibbi danismanlik kesinlikle onerilir.',
+        description: 'Çok yüksek sağlık riski. Kapsamlı metabolik değerlendirme için tıbbi danışmanlık kesinlikle önerilir.',
         color: '#991B1B',
       },
     ],
