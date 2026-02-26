@@ -36,10 +36,10 @@ const riskStyles = {
 };
 
 const riskLabels = {
-  low: { en: 'Low Risk', tr: 'Dusuk Risk' },
+  low: { en: 'Low Risk', tr: 'Düşük Risk' },
   moderate: { en: 'Moderate Risk', tr: 'Orta Risk' },
-  high: { en: 'High Risk', tr: 'Yuksek Risk' },
-  'very-high': { en: 'Very High Risk', tr: 'Cok Yuksek Risk' },
+  high: { en: 'High Risk', tr: 'Yüksek Risk' },
+  'very-high': { en: 'Very High Risk', tr: 'Çok Yüksek Risk' },
 };
 
 const categoryStyles: Record<string, { bg: string; text: string; border: string }> = {
@@ -52,11 +52,11 @@ const categoryStyles: Record<string, { bg: string; text: string; border: string 
 };
 
 const categoryLabels: Record<string, { en: string; tr: string }> = {
-  'take-care': { en: 'Underweight', tr: 'Dusuk Kilolu' },
-  slim: { en: 'Slim', tr: 'Ince' },
-  healthy: { en: 'Healthy', tr: 'Saglikli' },
+  'take-care': { en: 'Underweight', tr: 'Düşük Kilolu' },
+  slim: { en: 'Slim', tr: 'İnce' },
+  healthy: { en: 'Healthy', tr: 'Sağlıklı' },
   overweight: { en: 'Overweight', tr: 'Fazla Kilolu' },
-  'very-overweight': { en: 'Very Overweight', tr: 'Cok Fazla Kilolu' },
+  'very-overweight': { en: 'Very Overweight', tr: 'Çok Fazla Kilolu' },
   obese: { en: 'Morbidly Obese', tr: 'Morbid Obez' },
 };
 
@@ -84,12 +84,12 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
     const ageNum = age ? parseInt(age) : undefined;
 
     if (isNaN(waistNum) || isNaN(heightNum) || waistNum <= 0 || heightNum <= 0) {
-      setError(locale === 'tr' ? 'Lutfen gecerli olcum degerleri girin' : 'Please enter valid measurement values');
+      setError(locale === 'tr' ? 'Lütfen geçerli ölçüm değerleri girin' : 'Please enter valid measurement values');
       return;
     }
 
     if (ageNum && (ageNum < 5 || ageNum > 120)) {
-      setError(locale === 'tr' ? 'Lutfen gecerli bir yas girin (5-120)' : 'Please enter a valid age (5-120)');
+      setError(locale === 'tr' ? 'Lütfen geçerli bir yaş girin (5-120)' : 'Please enter a valid age (5-120)');
       return;
     }
 
@@ -128,10 +128,10 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
           </div>
           <div>
             <h2 className="text-2xl font-bold text-neutral-900">
-              {locale === 'tr' ? 'Bel-Boy Orani Hesaplama' : 'Waist-to-Height Ratio Calculator'}
+              {locale === 'tr' ? 'Bel-Boy Oranı Hesaplama' : 'Waist-to-Height Ratio Calculator'}
             </h2>
             <p className="text-sm text-neutral-600">
-              {locale === 'tr' ? 'VKI\'den daha iyi bir saglik gostergesi' : 'A better health predictor than BMI'}
+              {locale === 'tr' ? 'VKİ\'den daha iyi bir sağlık göstergesi' : 'A better health predictor than BMI'}
             </p>
           </div>
         </div>
@@ -142,11 +142,11 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
             <Info className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
             <div>
               <p className="text-sm font-semibold text-emerald-800">
-                {locale === 'tr' ? 'Neden Bel-Boy Orani?' : 'Why Waist-to-Height Ratio?'}
+                {locale === 'tr' ? 'Neden Bel-Boy Oranı?' : 'Why Waist-to-Height Ratio?'}
               </p>
               <p className="mt-1 text-sm text-emerald-700">
                 {locale === 'tr'
-                  ? '300.000+ kisilik arastirma: BBO, kardiyovaskuler riski tahmin etmede VKI\'den daha iyidir. Basit kural: Beliniz boyunuzun yarisindan az olmali.'
+                  ? '300.000+ kişilik araştırma: BBO, kardiyovasküler riski tahmin etmede VKİ\'den daha iyidir. Basit kural: Beliniz boyunuzun yarısından az olmalı.'
                   : 'Research on 300,000+ adults: WHtR is better than BMI at predicting cardiovascular risk. Simple rule: Keep your waist to less than half your height.'}
               </p>
             </div>
@@ -176,7 +176,7 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
         {/* Gender (Optional - for contextual info) */}
         <div className="mb-6">
           <RadioGroup
-            label={`${tForm('gender')} (${locale === 'tr' ? 'Opsiyonel' : 'Optional'})`}
+            label={`${tForm('gender')} (${locale === 'tr' ? 'İsteğe Bağlı' : 'Optional'})`}
             name="gender"
             value={gender}
             onChange={(value) => setGender(value as 'male' | 'female')}
@@ -200,26 +200,26 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
             required
           />
           <Input
-            label={locale === 'tr' ? 'Bel Cevresi' : 'Waist Circumference'}
+            label={locale === 'tr' ? 'Bel Çevresi' : 'Waist Circumference'}
             type="number"
             value={waist}
             onChange={(e) => setWaist(e.target.value)}
             placeholder={unit === 'metric' ? '80' : '31'}
             rightIcon={<span className="text-sm">{unit === 'metric' ? tUnits('cm') : tUnits('inch')}</span>}
             required
-            helperText={locale === 'tr' ? 'Gobek deliginizin hizasinda, en dar noktada olcun' : 'Measure at your navel level, at the narrowest point'}
+            helperText={locale === 'tr' ? 'Göbek deliğinizin hizasında, en dar noktada ölçün' : 'Measure at your navel level, at the narrowest point'}
           />
         </div>
 
         {/* Age (Optional) */}
         <div className="mt-6">
           <Input
-            label={locale === 'tr' ? 'Yas (Opsiyonel)' : 'Age (Optional)'}
+            label={locale === 'tr' ? 'Yaş (İsteğe Bağlı)' : 'Age (Optional)'}
             type="number"
             value={age}
             onChange={(e) => setAge(e.target.value)}
             placeholder="30"
-            rightIcon={<span className="text-sm">{locale === 'tr' ? 'yas' : 'years'}</span>}
+            rightIcon={<span className="text-sm">{locale === 'tr' ? 'yaş' : 'years'}</span>}
           />
         </div>
 
@@ -245,7 +245,7 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
           <Card className={`animate-slide-up border-2 ${catStyle.border} ${catStyle.bg}`}>
             <div className="flex items-center justify-between">
               <h3 className="text-lg font-semibold text-neutral-900">
-                {locale === 'tr' ? 'Sonuc' : 'Result'}
+                {locale === 'tr' ? 'Sonuç' : 'Result'}
               </h3>
               <span className={`rounded-full px-3 py-1 text-sm font-semibold ${catStyle.bg} ${catStyle.text} border ${catStyle.border}`}>
                 {categoryLabels[result.category][locale]}
@@ -259,26 +259,26 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
                   {result.ratio.toFixed(2)}
                 </div>
                 <p className="mt-1 text-sm text-neutral-600">
-                  {locale === 'tr' ? 'Bel-Boy Orani' : 'Waist-to-Height Ratio'}
+                  {locale === 'tr' ? 'Bel-Boy Oranı' : 'Waist-to-Height Ratio'}
                 </p>
                 {/* Boundary message */}
                 <div className="mt-2">
                   {result.boundaryMessage === 'under' && (
                     <span className="inline-flex items-center gap-1 text-sm font-medium text-green-600">
                       <CheckCircle className="h-4 w-4" />
-                      {locale === 'tr' ? 'Sinirin altinda' : 'Below the 0.5 boundary'}
+                      {locale === 'tr' ? 'Sınırın altında' : 'Below the 0.5 boundary'}
                     </span>
                   )}
                   {result.boundaryMessage === 'at' && (
                     <span className="inline-flex items-center gap-1 text-sm font-medium text-amber-600">
                       <AlertCircle className="h-4 w-4" />
-                      {locale === 'tr' ? 'Sinir degerinde' : 'At the 0.5 boundary'}
+                      {locale === 'tr' ? 'Sınır değerinde' : 'At the 0.5 boundary'}
                     </span>
                   )}
                   {result.boundaryMessage === 'over' && (
                     <span className="inline-flex items-center gap-1 text-sm font-medium text-red-600">
                       <XCircle className="h-4 w-4" />
-                      {locale === 'tr' ? 'Sinirin uzerinde' : 'Above the 0.5 boundary'}
+                      {locale === 'tr' ? 'Sınırın üzerinde' : 'Above the 0.5 boundary'}
                     </span>
                   )}
                 </div>
@@ -305,7 +305,7 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
                   </div>
                 </div>
                 <p className="mt-2 text-sm text-neutral-600">
-                  {locale === 'tr' ? 'Saglik Skoru' : 'Health Score'}
+                  {locale === 'tr' ? 'Sağlık Skoru' : 'Health Score'}
                 </p>
               </div>
             </div>
@@ -338,8 +338,8 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
                 </div>
               </div>
               <div className="mt-8 flex justify-between text-xs text-neutral-500">
-                <span>{locale === 'tr' ? 'Ince' : 'Slim'}</span>
-                <span>{locale === 'tr' ? 'Saglikli' : 'Healthy'}</span>
+                <span>{locale === 'tr' ? 'İnce' : 'Slim'}</span>
+                <span>{locale === 'tr' ? 'Sağlıklı' : 'Healthy'}</span>
                 <span>{locale === 'tr' ? 'Fazla' : 'Overweight'}</span>
                 <span>{locale === 'tr' ? 'Obez' : 'Obese'}</span>
               </div>
@@ -356,7 +356,7 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
             <div className="flex items-center gap-2 mb-4">
               <Scale className="h-5 w-5 text-indigo-600" />
               <h3 className="text-lg font-semibold text-neutral-900">
-                {locale === 'tr' ? 'VKI vs BBO: Neden BBO Daha Iyi?' : 'BMI vs WHtR: Why WHtR Is Better'}
+                {locale === 'tr' ? 'VKİ vs BBO: Neden BBO Daha İyi?' : 'BMI vs WHtR: Why WHtR Is Better'}
               </h3>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
@@ -364,24 +364,24 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
               <div className="rounded-lg bg-white/80 p-4 border border-red-100">
                 <h4 className="font-semibold text-red-700 flex items-center gap-1.5 mb-2">
                   <XCircle className="h-4 w-4" />
-                  {locale === 'tr' ? 'VKI Eksiklikleri' : 'BMI Limitations'}
+                  {locale === 'tr' ? 'VKİ Eksiklikleri' : 'BMI Limitations'}
                 </h4>
                 <ul className="space-y-1.5 text-sm text-neutral-700">
                   <li className="flex items-start gap-1.5">
                     <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-red-400" />
-                    {locale === 'tr' ? 'Kas ile yagi ayirt edemez' : 'Cannot distinguish muscle from fat'}
+                    {locale === 'tr' ? 'Kas ile yağı ayırt edemez' : 'Cannot distinguish muscle from fat'}
                   </li>
                   <li className="flex items-start gap-1.5">
                     <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-red-400" />
-                    {locale === 'tr' ? 'Yag dagitimini gostermez' : 'Shows nothing about fat distribution'}
+                    {locale === 'tr' ? 'Yağ dağıtımını göstermez' : 'Shows nothing about fat distribution'}
                   </li>
                   <li className="flex items-start gap-1.5">
                     <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-red-400" />
-                    {locale === 'tr' ? 'Sporculari yanlis siniflandirir' : 'Misclassifies athletes as overweight'}
+                    {locale === 'tr' ? 'Sporcuları yanlış sınıflandırır' : 'Misclassifies athletes as overweight'}
                   </li>
                   <li className="flex items-start gap-1.5">
                     <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-red-400" />
-                    {locale === 'tr' ? 'TOFI bireyleri kacirabilir' : 'Can miss TOFI individuals'}
+                    {locale === 'tr' ? 'TOFI bireylerini kaçırabilir' : 'Can miss TOFI individuals'}
                   </li>
                 </ul>
               </div>
@@ -389,24 +389,24 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
               <div className="rounded-lg bg-white/80 p-4 border border-green-100">
                 <h4 className="font-semibold text-green-700 flex items-center gap-1.5 mb-2">
                   <CheckCircle className="h-4 w-4" />
-                  {locale === 'tr' ? 'BBO Avantajlari' : 'WHtR Advantages'}
+                  {locale === 'tr' ? 'BBO Avantajları' : 'WHtR Advantages'}
                 </h4>
                 <ul className="space-y-1.5 text-sm text-neutral-700">
                   <li className="flex items-start gap-1.5">
                     <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-green-400" />
-                    {locale === 'tr' ? 'Merkezi yagi dogrudan olcer' : 'Directly measures central fat'}
+                    {locale === 'tr' ? 'Merkezi yağı doğrudan ölçer' : 'Directly measures central fat'}
                   </li>
                   <li className="flex items-start gap-1.5">
                     <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-green-400" />
-                    {locale === 'tr' ? 'Cinsiyetten bagimsiz (0.5 siniri)' : 'Gender-neutral (0.5 boundary)'}
+                    {locale === 'tr' ? 'Cinsiyetten bağımsız (0.5 sınırı)' : 'Gender-neutral (0.5 boundary)'}
                   </li>
                   <li className="flex items-start gap-1.5">
                     <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-green-400" />
-                    {locale === 'tr' ? 'Etnik gruplar arasi tutarli' : 'Consistent across ethnicities'}
+                    {locale === 'tr' ? 'Etnik gruplar arası tutarlı' : 'Consistent across ethnicities'}
                   </li>
                   <li className="flex items-start gap-1.5">
                     <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-green-400" />
-                    {locale === 'tr' ? 'Daha iyi kardiyovaskuler risk tahmini' : 'Better cardiovascular risk prediction'}
+                    {locale === 'tr' ? 'Daha iyi kardiyovasküler risk tahmini' : 'Better cardiovascular risk prediction'}
                   </li>
                 </ul>
               </div>
@@ -416,7 +416,7 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
           {/* ── Detailed Risk Assessment ── */}
           <Card className="animate-slide-up">
             <h3 className="mb-4 text-lg font-semibold text-neutral-900">
-              {locale === 'tr' ? 'Detayli Risk Degerlendirmesi' : 'Detailed Risk Assessment'}
+              {locale === 'tr' ? 'Detaylı Risk Değerlendirmesi' : 'Detailed Risk Assessment'}
             </h3>
             <div className="space-y-4">
               {/* Cardiovascular Risk */}
@@ -427,7 +427,7 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
                 <div className="flex-1">
                   <div className="flex items-center justify-between">
                     <h4 className="font-semibold text-neutral-900">
-                      {locale === 'tr' ? 'Kardiyovaskuler Risk' : 'Cardiovascular Risk'}
+                      {locale === 'tr' ? 'Kardiyovasküler Risk' : 'Cardiovascular Risk'}
                     </h4>
                     <span className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${riskStyles[result.cardiovascularRisk].badge}`}>
                       {riskLabels[result.cardiovascularRisk][locale]}
@@ -495,7 +495,7 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
             <div className="flex items-center gap-2 mb-4">
               <Target className="h-5 w-5 text-teal-600" />
               <h3 className="text-lg font-semibold text-neutral-900">
-                {locale === 'tr' ? 'Hedef ve Aksiyon Plani' : 'Target & Action Plan'}
+                {locale === 'tr' ? 'Hedef ve Aksiyon Planı' : 'Target & Action Plan'}
               </h3>
             </div>
 
@@ -514,7 +514,7 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
               {/* Ideal */}
               <div className="rounded-lg bg-white p-4 text-center border-2 border-green-300">
                 <p className="text-xs font-medium text-green-600 uppercase tracking-wide">
-                  {locale === 'tr' ? 'Ideal Bel' : 'Ideal Waist'}
+                  {locale === 'tr' ? 'İdeal Bel' : 'Ideal Waist'}
                 </p>
                 <p className="mt-1 text-2xl font-bold text-green-600">
                   {result.idealWaist} {unit === 'metric' ? tUnits('cm') : tUnits('inch')}
@@ -526,9 +526,9 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
               <div className={`rounded-lg bg-white p-4 text-center ${result.waistChange > 0 ? 'border-l-4 border-amber-500' : result.waistChange < -2 ? 'border-l-4 border-blue-500' : 'border-l-4 border-green-500'}`}>
                 <p className="text-xs font-medium text-neutral-500 uppercase tracking-wide">
                   {result.waistChange > 0
-                    ? (locale === 'tr' ? 'Azaltilmasi Gereken' : 'To Reduce')
+                    ? (locale === 'tr' ? 'Azaltılması Gereken' : 'To Reduce')
                     : result.waistChange < -2
-                      ? (locale === 'tr' ? 'Kazanilabilir' : 'Could Gain')
+                      ? (locale === 'tr' ? 'Kazanılabilir' : 'Could Gain')
                       : (locale === 'tr' ? 'Hedefte' : 'On Target')}
                 </p>
                 <p className={`mt-1 text-2xl font-bold ${result.waistChange > 0 ? 'text-amber-600' : result.waistChange < -2 ? 'text-blue-600' : 'text-green-600'}`}>
@@ -551,12 +551,12 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
               <div className="flex items-center gap-2">
                 <ShieldCheck className="h-5 w-5 text-amber-600" />
                 <p className="font-semibold text-neutral-800">
-                  {locale === 'tr' ? 'Altin Kural' : 'The Golden Rule'}
+                  {locale === 'tr' ? 'Altın Kural' : 'The Golden Rule'}
                 </p>
               </div>
               <p className="mt-1 text-sm text-neutral-700">
                 {locale === 'tr'
-                  ? `Boyunuz ${height} ${unit === 'metric' ? 'cm' : 'inc'} oldugundan, bel cevreniz ${Math.round(parseFloat(height) * 0.5)} ${unit === 'metric' ? 'cm' : 'inc'}\'den az olmalidir. Simdi ${result.boundaryMessage === 'under' ? 'bu sinirin altindasiniz' : result.boundaryMessage === 'at' ? 'tam sinir degerindesiniz' : 'bu sinirin uzerindesiniz'}.`
+                  ? `Boyunuz ${height} ${unit === 'metric' ? 'cm' : 'inç'} olduğundan, bel çevreniz ${Math.round(parseFloat(height) * 0.5)} ${unit === 'metric' ? 'cm' : 'inç'}\'den az olmalıdır. Şimdi ${result.boundaryMessage === 'under' ? 'bu sınırın altındasınız' : result.boundaryMessage === 'at' ? 'tam sınır değerinde siniz' : 'bu sınırın üzerindesiniz'}.`
                   : `Since your height is ${height} ${unit === 'metric' ? 'cm' : 'inches'}, your waist should be under ${Math.round(parseFloat(height) * 0.5)} ${unit === 'metric' ? 'cm' : 'inches'}. You are currently ${result.boundaryMessage === 'under' ? 'below this boundary' : result.boundaryMessage === 'at' ? 'at the boundary' : 'above this boundary'}.`}
               </p>
             </div>
@@ -565,7 +565,7 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
           {/* ── Lifestyle Recommendations (8 actionable cards) ── */}
           <Card className="animate-slide-up">
             <h3 className="mb-4 text-lg font-semibold text-neutral-900">
-              {locale === 'tr' ? 'Yasam Tarzi Onerileri' : 'Lifestyle Recommendations'}
+              {locale === 'tr' ? 'Yaşam Tarzı Önerileri' : 'Lifestyle Recommendations'}
             </h3>
             <div className="grid gap-3 sm:grid-cols-2">
               {/* Cardio */}
@@ -579,7 +579,7 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
                   </h4>
                   <p className="text-xs text-neutral-600">
                     {locale === 'tr'
-                      ? 'Haftada 150+ dk. yuruyu, kosma veya yuzme. Visseral yag azaltmada en etkili.'
+                      ? 'Haftada 150+ dk. yürüyüş, koşma veya yüzme. Visseral yağ azaltmada en etkili.'
                       : '150+ min/week of walking, running, or swimming. Most effective for visceral fat reduction.'}
                   </p>
                 </div>
@@ -592,11 +592,11 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
                 </div>
                 <div>
                   <h4 className="text-sm font-semibold text-neutral-900">
-                    {locale === 'tr' ? 'Guc Antrenmani' : 'Strength Training'}
+                    {locale === 'tr' ? 'Güç Antrenmanı' : 'Strength Training'}
                   </h4>
                   <p className="text-xs text-neutral-600">
                     {locale === 'tr'
-                      ? 'Haftada 2-3 seans direnc egzersizi metabolizmayi hizlandirir ve karin yagini azaltir.'
+                      ? 'Haftada 2-3 seans direnç egzersizi metabolizmayı hızlandırır ve karın yağını azaltır.'
                       : '2-3 resistance sessions per week boost metabolism and reduce abdominal fat.'}
                   </p>
                 </div>
@@ -613,7 +613,7 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
                   </h4>
                   <p className="text-xs text-neutral-600">
                     {locale === 'tr'
-                      ? 'Gunluk 25-35g lif: sebze, meyve, tam tahillar. Karin yagi ile ters korelasyon.'
+                      ? 'Günlük 25-35g lif: sebze, meyve, tam tahıllar. Karın yağı ile ters korelasyon.'
                       : 'Daily 25-35g fiber: vegetables, fruits, whole grains. Inversely correlated with belly fat.'}
                   </p>
                 </div>
@@ -626,11 +626,11 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
                 </div>
                 <div>
                   <h4 className="text-sm font-semibold text-neutral-900">
-                    {locale === 'tr' ? 'Yeterli Su Icme' : 'Adequate Hydration'}
+                    {locale === 'tr' ? 'Yeterli Su İçme' : 'Adequate Hydration'}
                   </h4>
                   <p className="text-xs text-neutral-600">
                     {locale === 'tr'
-                      ? 'Gunde 2-3 litre su. Yemeklerden once su icmek kalori alimini %25 azaltabilir.'
+                      ? 'Günde 2-3 litre su. Yemeklerden önce su içmek kalori alımını %25 azaltabilir.'
                       : '2-3 liters daily. Drinking water before meals can reduce calorie intake by ~25%.'}
                   </p>
                 </div>
@@ -647,7 +647,7 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
                   </h4>
                   <p className="text-xs text-neutral-600">
                     {locale === 'tr'
-                      ? '7-9 saat uyku. 6 saatten az uyku visseral yag birikimini arttirir.'
+                      ? '7-9 saat uyku. 6 saatten az uyku visseral yağ birikimini artırır.'
                       : '7-9 hours sleep. Less than 6 hours increases visceral fat accumulation.'}
                   </p>
                 </div>
@@ -660,11 +660,11 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
                 </div>
                 <div>
                   <h4 className="text-sm font-semibold text-neutral-900">
-                    {locale === 'tr' ? 'Stres Yonetimi' : 'Stress Management'}
+                    {locale === 'tr' ? 'Stres Yönetimi' : 'Stress Management'}
                   </h4>
                   <p className="text-xs text-neutral-600">
                     {locale === 'tr'
-                      ? 'Kronik stres kortizol salar ve karin yagi birikimini tesvik eder. Meditasyon ve hobiler yardimci olur.'
+                      ? 'Kronik stres kortizol salar ve karın yağı birikimini teşvik eder. Meditasyon ve hobiler yardımcı olur.'
                       : 'Chronic stress raises cortisol, promoting belly fat. Meditation and hobbies help.'}
                   </p>
                 </div>
@@ -677,11 +677,11 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
                 </div>
                 <div>
                   <h4 className="text-sm font-semibold text-neutral-900">
-                    {locale === 'tr' ? 'Alkolu Azaltin' : 'Reduce Alcohol'}
+                    {locale === 'tr' ? 'Alkolu Azaltın' : 'Reduce Alcohol'}
                   </h4>
                   <p className="text-xs text-neutral-600">
                     {locale === 'tr'
-                      ? 'Ozellikle bira ve sert ickiler karin yagi birikimiyle dogrudan iliskilidir.'
+                      ? 'Özellikle bira ve sert içkiler karın yağı birikimi ile doğrudan ilişkilidir.'
                       : 'Beer and spirits are directly linked to abdominal fat accumulation.'}
                   </p>
                 </div>
@@ -694,11 +694,11 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
                 </div>
                 <div>
                   <h4 className="text-sm font-semibold text-emerald-800">
-                    {locale === 'tr' ? 'Sonuc Zaman Cizelgesi' : 'Result Timeline'}
+                    {locale === 'tr' ? 'Sonuç Zaman Çizelgesi' : 'Result Timeline'}
                   </h4>
                   <p className="text-xs text-emerald-700">
                     {locale === 'tr'
-                      ? 'Tutarli yasam tarzi degisiklikleri ile 8-12 haftada olculebilir bel cevresi azalmasi beklenir.'
+                      ? 'Tutarlı yaşam tarzı değişiklikleri ile 8-12 haftada ölçülebilir bel çevresi azalması beklenir.'
                       : 'With consistent lifestyle changes, measurable waist reduction is expected in 8-12 weeks.'}
                   </p>
                 </div>
@@ -711,7 +711,7 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
             <div className="flex items-center gap-2 mb-4">
               <Ruler className="h-5 w-5 text-neutral-700" />
               <h3 className="text-lg font-semibold text-neutral-900">
-                {locale === 'tr' ? 'Ashwell Sekil Tablosu - BBO Kategorileri' : 'Ashwell Shape Chart - WHtR Categories'}
+                {locale === 'tr' ? 'Ashwell Şekil Tablosu - BBO Kategorileri' : 'Ashwell Shape Chart - WHtR Categories'}
               </h3>
             </div>
             <div className="overflow-x-auto">
@@ -719,13 +719,13 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
                 <thead>
                   <tr className="border-b border-neutral-200">
                     <th className="py-2 text-left font-semibold text-neutral-700">
-                      {locale === 'tr' ? 'Aralik' : 'Range'}
+                      {locale === 'tr' ? 'Aralık' : 'Range'}
                     </th>
                     <th className="py-2 text-left font-semibold text-neutral-700">
                       {locale === 'tr' ? 'Kategori' : 'Category'}
                     </th>
                     <th className="py-2 text-left font-semibold text-neutral-700">
-                      {locale === 'tr' ? 'Saglik Durumu' : 'Health Status'}
+                      {locale === 'tr' ? 'Sağlık Durumu' : 'Health Status'}
                     </th>
                   </tr>
                 </thead>
@@ -750,7 +750,7 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
                           {cat.label[locale]}
                           {isActive && (
                             <span className="ml-2 text-xs">
-                              {locale === 'tr' ? '(Siz buradasiniz)' : '(You are here)'}
+                              {locale === 'tr' ? '(Siz burada siniz)' : '(You are here)'}
                             </span>
                           )}
                         </td>
@@ -770,16 +770,16 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
             <div className="rounded-xl border border-blue-200 bg-blue-50 p-4 text-center">
               <p className="text-3xl font-bold text-blue-700">0.5</p>
               <p className="mt-1 text-sm font-medium text-blue-600">
-                {locale === 'tr' ? 'Evrensel Sinir Degeri' : 'Universal Boundary'}
+                {locale === 'tr' ? 'Evrensel Sınır Değeri' : 'Universal Boundary'}
               </p>
               <p className="mt-1 text-xs text-blue-500">
-                {locale === 'tr' ? 'Erkek ve kadin icin ayni' : 'Same for men and women'}
+                {locale === 'tr' ? 'Erkek ve kadın için aynı' : 'Same for men and women'}
               </p>
             </div>
             <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-center">
               <p className="text-3xl font-bold text-emerald-700">300K+</p>
               <p className="mt-1 text-sm font-medium text-emerald-600">
-                {locale === 'tr' ? 'Arastirma Katilimcisi' : 'Research Participants'}
+                {locale === 'tr' ? 'Araştırma Katılımcısı' : 'Research Participants'}
               </p>
               <p className="mt-1 text-xs text-emerald-500">
                 {locale === 'tr' ? 'Meta-analiz verisi' : 'Meta-analysis data'}
@@ -788,10 +788,10 @@ const WaistHeightRatioCalculator: React.FC<WaistHeightRatioCalculatorProps> = ({
             <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-center">
               <p className="text-3xl font-bold text-amber-700">8-12</p>
               <p className="mt-1 text-sm font-medium text-amber-600">
-                {locale === 'tr' ? 'Hafta (Sonuc Suresi)' : 'Weeks (Result Time)'}
+                {locale === 'tr' ? 'Hafta (Sonuç Süresi)' : 'Weeks (Result Time)'}
               </p>
               <p className="mt-1 text-xs text-amber-500">
-                {locale === 'tr' ? 'Yasam tarzi ile olculebilir azalma' : 'Measurable reduction with lifestyle'}
+                {locale === 'tr' ? 'Yaşam tarzı ile ölçülebilir azalma' : 'Measurable reduction with lifestyle'}
               </p>
             </div>
           </div>
