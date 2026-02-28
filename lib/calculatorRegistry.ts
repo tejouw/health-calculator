@@ -79,6 +79,8 @@ import { caloriesBurnedMeta } from '@/calculators/fitness/calories-burned/calori
 import { stressLevelMeta } from '@/calculators/mental-health/stress-level-calculator/stressLevelMeta';
 // Body Weight - Waist-Height Ratio
 import { waistHeightRatioMeta } from '@/calculators/body-weight/waist-height-ratio/waistHeightRatioMeta';
+// Heart - Target Heart Rate
+import { targetHeartRateMeta } from '@/calculators/heart/target-heart-rate/targetHeartRateMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -149,6 +151,8 @@ export const calculatorRegistry: CalculatorMeta[] = [
   stressLevelMeta,
   // Body Weight - Waist-Height Ratio
   waistHeightRatioMeta,
+  // Heart - Target Heart Rate
+  targetHeartRateMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {

@@ -69,6 +69,7 @@ const CALCULATOR_SLUGS = {
   'calories-burned-calculator': { en: 'calories-burned-calculator', tr: 'yakilan-kalori-hesaplayici' },
   'stress-level-calculator': { en: 'stress-level-calculator', tr: 'stres-duzeyi-hesaplayici' },
   'waist-height-ratio-calculator': { en: 'waist-height-ratio-calculator', tr: 'bel-boy-orani-hesaplama' },
+  'target-heart-rate-calculator': { en: 'target-heart-rate-calculator', tr: 'hedef-kalp-atisi-hesaplayici' },
 };
 
 // Static page slug mappings

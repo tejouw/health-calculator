@@ -126,11 +126,15 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
 
   // Heart calculators
   'heart-rate-zone-calculator': {
-    primary: ['vo2-max-calculator', 'running-pace-calculator'],
+    primary: ['target-heart-rate-calculator', 'vo2-max-calculator', 'running-pace-calculator'],
     secondary: ['blood-pressure-calculator', 'one-rep-max-calculator', 'calorie-calculator', 'tdee-calculator', 'bmi-calculator', 'biological-age-calculator', 'sleep-calculator'],
   },
+  'target-heart-rate-calculator': {
+    primary: ['heart-rate-zone-calculator', 'vo2-max-calculator'],
+    secondary: ['running-pace-calculator', 'blood-pressure-calculator', 'calories-burned-calculator', 'one-rep-max-calculator', 'calorie-calculator', 'bmi-calculator', 'biological-age-calculator'],
+  },
   'blood-pressure-calculator': {
-    primary: ['heart-rate-zone-calculator', 'life-expectancy-calculator'],
+    primary: ['heart-rate-zone-calculator', 'target-heart-rate-calculator', 'life-expectancy-calculator'],
     secondary: ['bmi-calculator', 'calorie-calculator', 'age-calculator', 'biological-age-calculator', 'waist-hip-ratio-calculator', 'gfr-calculator', 'sleep-calculator'],
   },
 

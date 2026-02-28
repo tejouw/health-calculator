@@ -89,6 +89,8 @@ import { caloriesBurnedContent } from '@/calculators/fitness/calories-burned/cal
 import { stressLevelContent } from '@/calculators/mental-health/stress-level-calculator/stressLevelContent';
 // Body Weight - Waist-Height Ratio
 import { waistHeightRatioContent } from '@/calculators/body-weight/waist-height-ratio/waistHeightRatioContent';
+// Heart - Target Heart Rate
+import { targetHeartRateContent } from '@/calculators/heart/target-heart-rate/targetHeartRateContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -224,6 +226,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'stress-level-calculator': stressLevelContent,
     // Body Weight - Waist-Height Ratio
     'waist-height-ratio-calculator': waistHeightRatioContent,
+    // Heart - Target Heart Rate
+    'target-heart-rate-calculator': targetHeartRateContent,
   };
 
   const content = contentMap[calculator.id];
