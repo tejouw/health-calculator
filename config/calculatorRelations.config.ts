@@ -196,8 +196,12 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
 
   // Children's Health calculators
   'growth-percentile-calculator': {
-    primary: ['bmi-calculator', 'age-calculator', 'calorie-calculator'],
-    secondary: ['macro-calculator', 'protein-calculator', 'water-intake-calculator'],
+    primary: ['bmi-calculator', 'age-calculator', 'height-predictor-calculator'],
+    secondary: ['calorie-calculator', 'macro-calculator', 'protein-calculator', 'water-intake-calculator'],
+  },
+  'height-predictor-calculator': {
+    primary: ['growth-percentile-calculator', 'bmi-calculator', 'age-calculator'],
+    secondary: ['ideal-weight-calculator', 'biological-age-calculator', 'calorie-calculator', 'protein-calculator'],
   },
 
   // Daily Life calculators

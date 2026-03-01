@@ -91,6 +91,8 @@ import { stressLevelContent } from '@/calculators/mental-health/stress-level-cal
 import { waistHeightRatioContent } from '@/calculators/body-weight/waist-height-ratio/waistHeightRatioContent';
 // Heart - Target Heart Rate
 import { targetHeartRateContent } from '@/calculators/heart/target-heart-rate/targetHeartRateContent';
+// Children's Health - Height Predictor
+import { heightPredictorContent } from '@/calculators/childrens-health/height-predictor/heightPredictorContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -228,6 +230,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'waist-height-ratio-calculator': waistHeightRatioContent,
     // Heart - Target Heart Rate
     'target-heart-rate-calculator': targetHeartRateContent,
+    // Children's Health - Height Predictor
+    'height-predictor-calculator': heightPredictorContent,
   };
 
   const content = contentMap[calculator.id];

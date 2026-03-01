@@ -81,6 +81,8 @@ import { stressLevelMeta } from '@/calculators/mental-health/stress-level-calcul
 import { waistHeightRatioMeta } from '@/calculators/body-weight/waist-height-ratio/waistHeightRatioMeta';
 // Heart - Target Heart Rate
 import { targetHeartRateMeta } from '@/calculators/heart/target-heart-rate/targetHeartRateMeta';
+// Children's Health - Height Predictor
+import { heightPredictorMeta } from '@/calculators/childrens-health/height-predictor/heightPredictorMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -153,6 +155,8 @@ export const calculatorRegistry: CalculatorMeta[] = [
   waistHeightRatioMeta,
   // Heart - Target Heart Rate
   targetHeartRateMeta,
+  // Children's Health - Height Predictor
+  heightPredictorMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {
