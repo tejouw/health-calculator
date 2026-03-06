@@ -246,12 +246,5 @@ export function getTotalCalculatorCount(): number {
  */
 export function getFormattedCalculatorCount(): string {
   const count = getTotalCalculatorCount();
-
-  if (count < 50) {
-    return `${count}+`;
-  }
-
-  // Round down to nearest 10 for better presentation
-  const roundedCount = Math.floor(count / 10) * 10;
-  return `${roundedCount}+`;
+  return `${count}`;
 }
