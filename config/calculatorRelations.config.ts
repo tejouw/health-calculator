@@ -47,7 +47,7 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
   // Nutrition calculators
   'calorie-calculator': {
     primary: ['tdee-calculator', 'bmr-calculator', 'calorie-deficit-calculator'],
-    secondary: ['macro-calculator', 'protein-calculator', 'bmi-calculator', 'ideal-weight-calculator', 'body-fat-calculator', 'food-calorie-calculator', 'water-intake-calculator'],
+    secondary: ['weight-loss-calculator', 'macro-calculator', 'protein-calculator', 'bmi-calculator', 'ideal-weight-calculator', 'body-fat-calculator', 'food-calorie-calculator', 'water-intake-calculator'],
   },
   'tdee-calculator': {
     primary: ['calorie-calculator', 'bmr-calculator', 'macro-calculator'],
@@ -70,7 +70,7 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
     secondary: ['bmr-calculator', 'bmi-calculator', 'body-fat-calculator', 'macro-calculator', 'running-pace-calculator'],
   },
   'calorie-deficit-calculator': {
-    primary: ['calorie-calculator', 'tdee-calculator'],
+    primary: ['calorie-calculator', 'tdee-calculator', 'weight-loss-calculator'],
     secondary: ['bmr-calculator', 'macro-calculator', 'ideal-weight-calculator', 'bmi-calculator', 'body-fat-calculator', 'protein-calculator'],
   },
   'protein-calculator': {
@@ -268,6 +268,12 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
   'waist-height-ratio-calculator': {
     primary: ['bmi-calculator', 'waist-hip-ratio-calculator', 'body-fat-calculator'],
     secondary: ['ideal-weight-calculator', 'body-type-calculator', 'lean-body-mass-calculator', 'biological-age-calculator', 'blood-pressure-calculator', 'life-expectancy-calculator', 'calorie-calculator'],
+  },
+
+  // Nutrition - Weight Loss
+  'weight-loss-calculator': {
+    primary: ['calorie-deficit-calculator', 'tdee-calculator', 'calorie-calculator'],
+    secondary: ['bmr-calculator', 'macro-calculator', 'bmi-calculator', 'ideal-weight-calculator', 'protein-calculator', 'intermittent-fasting-calculator', 'body-fat-calculator'],
   },
 };
 

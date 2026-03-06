@@ -83,6 +83,8 @@ import { waistHeightRatioMeta } from '@/calculators/body-weight/waist-height-rat
 import { targetHeartRateMeta } from '@/calculators/heart/target-heart-rate/targetHeartRateMeta';
 // Children's Health - Height Predictor
 import { heightPredictorMeta } from '@/calculators/childrens-health/height-predictor/heightPredictorMeta';
+// Nutrition - Weight Loss
+import { weightLossMeta } from '@/calculators/nutrition/weight-loss-calculator/weightLossMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -157,6 +159,8 @@ export const calculatorRegistry: CalculatorMeta[] = [
   targetHeartRateMeta,
   // Children's Health - Height Predictor
   heightPredictorMeta,
+  // Nutrition - Weight Loss
+  weightLossMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {

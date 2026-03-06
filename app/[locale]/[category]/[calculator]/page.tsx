@@ -93,6 +93,8 @@ import { waistHeightRatioContent } from '@/calculators/body-weight/waist-height-
 import { targetHeartRateContent } from '@/calculators/heart/target-heart-rate/targetHeartRateContent';
 // Children's Health - Height Predictor
 import { heightPredictorContent } from '@/calculators/childrens-health/height-predictor/heightPredictorContent';
+// Nutrition - Weight Loss
+import { weightLossContent } from '@/calculators/nutrition/weight-loss-calculator/weightLossContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -232,6 +234,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'target-heart-rate-calculator': targetHeartRateContent,
     // Children's Health - Height Predictor
     'height-predictor-calculator': heightPredictorContent,
+    // Nutrition - Weight Loss
+    'weight-loss-calculator': weightLossContent,
   };
 
   const content = contentMap[calculator.id];
