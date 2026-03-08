@@ -85,6 +85,8 @@ import { targetHeartRateMeta } from '@/calculators/heart/target-heart-rate/targe
 import { heightPredictorMeta } from '@/calculators/childrens-health/height-predictor/heightPredictorMeta';
 // Nutrition - Weight Loss
 import { weightLossMeta } from '@/calculators/nutrition/weight-loss-calculator/weightLossMeta';
+// Substance - Smoking Cessation
+import { smokingCessationMeta } from '@/calculators/substance/smoking-cessation-calculator/smokingCessationMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -161,6 +163,8 @@ export const calculatorRegistry: CalculatorMeta[] = [
   heightPredictorMeta,
   // Nutrition - Weight Loss
   weightLossMeta,
+  // Substance - Smoking Cessation
+  smokingCessationMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {

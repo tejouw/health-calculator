@@ -72,6 +72,7 @@ const CALCULATOR_SLUGS = {
   'target-heart-rate-calculator': { en: 'target-heart-rate-calculator', tr: 'hedef-kalp-atisi-hesaplayici' },
   'height-predictor-calculator': { en: 'height-predictor-calculator', tr: 'cocuk-boy-tahmini-hesaplayici' },
   'weight-loss-calculator': { en: 'weight-loss-calculator', tr: 'kilo-verme-suresi-hesaplayici' },
+  'smoking-cessation-calculator': { en: 'smoking-cessation-calculator', tr: 'sigara-birakma-hesaplayici' },
 };
 
 // Static page slug mappings

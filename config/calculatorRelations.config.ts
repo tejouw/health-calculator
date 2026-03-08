@@ -220,11 +220,11 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
 
   // Substance calculators
   'blood-alcohol-calculator': {
-    primary: ['caffeine-calculator', 'water-intake-calculator'],
+    primary: ['caffeine-calculator', 'smoking-cessation-calculator', 'water-intake-calculator'],
     secondary: ['calorie-calculator', 'body-fat-calculator', 'bmr-calculator', 'bmi-calculator', 'life-expectancy-calculator', 'sleep-calculator'],
   },
   'caffeine-calculator': {
-    primary: ['blood-alcohol-calculator', 'water-intake-calculator'],
+    primary: ['blood-alcohol-calculator', 'smoking-cessation-calculator', 'water-intake-calculator'],
     secondary: ['sleep-calculator', 'calorie-calculator', 'bmr-calculator', 'heart-rate-zone-calculator', 'blood-pressure-calculator', 'phq9-calculator'],
   },
 
@@ -268,6 +268,12 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
   'waist-height-ratio-calculator': {
     primary: ['bmi-calculator', 'waist-hip-ratio-calculator', 'body-fat-calculator'],
     secondary: ['ideal-weight-calculator', 'body-type-calculator', 'lean-body-mass-calculator', 'biological-age-calculator', 'blood-pressure-calculator', 'life-expectancy-calculator', 'calorie-calculator'],
+  },
+
+  // Substance - Smoking Cessation
+  'smoking-cessation-calculator': {
+    primary: ['caffeine-calculator', 'blood-alcohol-calculator', 'life-expectancy-calculator'],
+    secondary: ['biological-age-calculator', 'blood-pressure-calculator', 'stress-level-calculator', 'sleep-calculator', 'calorie-calculator', 'bmi-calculator'],
   },
 
   // Nutrition - Weight Loss
