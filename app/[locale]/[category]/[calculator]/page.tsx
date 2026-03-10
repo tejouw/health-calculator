@@ -97,6 +97,8 @@ import { heightPredictorContent } from '@/calculators/childrens-health/height-pr
 import { weightLossContent } from '@/calculators/nutrition/weight-loss-calculator/weightLossContent';
 // Substance - Smoking Cessation
 import { smokingCessationContent } from '@/calculators/substance/smoking-cessation-calculator/smokingCessationContent';
+// Fitness - Daily Step Goal
+import { dailyStepGoalContent } from '@/calculators/fitness/daily-step-goal/dailyStepGoalContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -240,6 +242,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'weight-loss-calculator': weightLossContent,
     // Substance - Smoking Cessation
     'smoking-cessation-calculator': smokingCessationContent,
+    // Fitness - Daily Step Goal
+    'daily-step-goal-calculator': dailyStepGoalContent,
   };
 
   const content = contentMap[calculator.id];

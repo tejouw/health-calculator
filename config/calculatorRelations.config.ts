@@ -281,6 +281,12 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
     primary: ['calorie-deficit-calculator', 'tdee-calculator', 'calorie-calculator'],
     secondary: ['bmr-calculator', 'macro-calculator', 'bmi-calculator', 'ideal-weight-calculator', 'protein-calculator', 'intermittent-fasting-calculator', 'body-fat-calculator'],
   },
+
+  // Fitness - Daily Step Goal
+  'daily-step-goal-calculator': {
+    primary: ['calories-burned-calculator', 'calorie-calculator', 'running-pace-calculator'],
+    secondary: ['tdee-calculator', 'vo2-max-calculator', 'heart-rate-zone-calculator', 'bmi-calculator', 'weight-loss-calculator', 'water-intake-calculator'],
+  },
 };
 
 /**

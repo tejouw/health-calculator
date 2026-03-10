@@ -73,6 +73,7 @@ const CALCULATOR_SLUGS = {
   'height-predictor-calculator': { en: 'height-predictor-calculator', tr: 'cocuk-boy-tahmini-hesaplayici' },
   'weight-loss-calculator': { en: 'weight-loss-calculator', tr: 'kilo-verme-suresi-hesaplayici' },
   'smoking-cessation-calculator': { en: 'smoking-cessation-calculator', tr: 'sigara-birakma-hesaplayici' },
+  'daily-step-goal-calculator': { en: 'daily-step-goal-calculator', tr: 'gunluk-adim-hedefi-hesaplayici' },
 };
 
 // Static page slug mappings
