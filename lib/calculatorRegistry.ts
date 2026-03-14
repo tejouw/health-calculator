@@ -89,6 +89,8 @@ import { weightLossMeta } from '@/calculators/nutrition/weight-loss-calculator/w
 import { smokingCessationMeta } from '@/calculators/substance/smoking-cessation-calculator/smokingCessationMeta';
 // Fitness - Daily Step Goal
 import { dailyStepGoalMeta } from '@/calculators/fitness/daily-step-goal/dailyStepGoalMeta';
+// Body Weight - Body Water
+import { bodyWaterMeta } from '@/calculators/body-weight/body-water/bodyWaterMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -169,6 +171,8 @@ export const calculatorRegistry: CalculatorMeta[] = [
   smokingCessationMeta,
   // Fitness - Daily Step Goal
   dailyStepGoalMeta,
+  // Body Weight - Body Water
+  bodyWaterMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {

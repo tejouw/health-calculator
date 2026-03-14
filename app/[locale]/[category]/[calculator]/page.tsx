@@ -99,6 +99,8 @@ import { weightLossContent } from '@/calculators/nutrition/weight-loss-calculato
 import { smokingCessationContent } from '@/calculators/substance/smoking-cessation-calculator/smokingCessationContent';
 // Fitness - Daily Step Goal
 import { dailyStepGoalContent } from '@/calculators/fitness/daily-step-goal/dailyStepGoalContent';
+// Body Weight - Body Water
+import { bodyWaterContent } from '@/calculators/body-weight/body-water/bodyWaterContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -244,6 +246,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'smoking-cessation-calculator': smokingCessationContent,
     // Fitness - Daily Step Goal
     'daily-step-goal-calculator': dailyStepGoalContent,
+    // Body Weight - Body Water
+    'body-water-calculator': bodyWaterContent,
   };
 
   const content = contentMap[calculator.id];

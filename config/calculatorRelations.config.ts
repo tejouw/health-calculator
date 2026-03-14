@@ -287,6 +287,12 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
     primary: ['calories-burned-calculator', 'calorie-calculator', 'running-pace-calculator'],
     secondary: ['tdee-calculator', 'vo2-max-calculator', 'heart-rate-zone-calculator', 'bmi-calculator', 'weight-loss-calculator', 'water-intake-calculator'],
   },
+
+  // Body Weight - Body Water
+  'body-water-calculator': {
+    primary: ['water-intake-calculator', 'body-fat-calculator', 'bmi-calculator'],
+    secondary: ['lean-body-mass-calculator', 'ideal-weight-calculator', 'biological-age-calculator', 'waist-hip-ratio-calculator', 'calorie-calculator', 'tdee-calculator'],
+  },
 };
 
 /**
