@@ -101,6 +101,8 @@ import { smokingCessationContent } from '@/calculators/substance/smoking-cessati
 import { dailyStepGoalContent } from '@/calculators/fitness/daily-step-goal/dailyStepGoalContent';
 // Body Weight - Body Water
 import { bodyWaterContent } from '@/calculators/body-weight/body-water/bodyWaterContent';
+// Daily Life - Blood Type
+import { bloodTypeContent } from '@/calculators/daily-life/blood-type-calculator/bloodTypeContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -248,6 +250,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'daily-step-goal-calculator': dailyStepGoalContent,
     // Body Weight - Body Water
     'body-water-calculator': bodyWaterContent,
+    // Daily Life - Blood Type
+    'blood-type-calculator': bloodTypeContent,
   };
 
   const content = contentMap[calculator.id];

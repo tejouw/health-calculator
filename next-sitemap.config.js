@@ -75,6 +75,7 @@ const CALCULATOR_SLUGS = {
   'smoking-cessation-calculator': { en: 'smoking-cessation-calculator', tr: 'sigara-birakma-hesaplayici' },
   'daily-step-goal-calculator': { en: 'daily-step-goal-calculator', tr: 'gunluk-adim-hedefi-hesaplayici' },
   'body-water-calculator': { en: 'body-water-calculator', tr: 'vucut-suyu-hesaplayici' },
+  'blood-type-calculator': { en: 'blood-type-calculator', tr: 'kan-grubu-hesaplayici' },
 };
 
 // Static page slug mappings

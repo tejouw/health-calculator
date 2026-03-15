@@ -91,6 +91,8 @@ import { smokingCessationMeta } from '@/calculators/substance/smoking-cessation-
 import { dailyStepGoalMeta } from '@/calculators/fitness/daily-step-goal/dailyStepGoalMeta';
 // Body Weight - Body Water
 import { bodyWaterMeta } from '@/calculators/body-weight/body-water/bodyWaterMeta';
+// Daily Life - Blood Type
+import { bloodTypeMeta } from '@/calculators/daily-life/blood-type-calculator/bloodTypeMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -173,6 +175,8 @@ export const calculatorRegistry: CalculatorMeta[] = [
   dailyStepGoalMeta,
   // Body Weight - Body Water
   bodyWaterMeta,
+  // Daily Life - Blood Type
+  bloodTypeMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {
