@@ -1,97 +1,98 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
-import { adsConfig, adPlacements, AdPlacement } from '@/config/ads.config';
-
-type AdSize = 'banner' | 'rectangle' | 'leaderboard' | 'skyscraper';
+import { adsConfig, adPlacements } from '@/config/ads.config';
 
 interface AdPlaceholderProps {
   /** The placement ID from ads.config.ts */
   placement: keyof typeof adPlacements;
   /** Additional CSS classes */
   className?: string;
-  /** Whether to show a placeholder when ads are disabled */
-  showPlaceholder?: boolean;
-  /** Custom label for the placeholder */
-  label?: string;
+  /** Ad format for responsive ads */
+  adFormat?: 'auto' | 'fluid' | 'rectangle' | 'horizontal' | 'vertical';
+  /** Whether the ad is full width responsive */
+  fullWidthResponsive?: boolean;
 }
 
 /**
- * Ad placeholder component with CLS protection
- * Reserves space for ads to prevent layout shift
+ * AdSense ad unit component with CLS protection
+ * Renders actual Google AdSense ads when enabled, placeholder when disabled
  */
 const AdPlaceholder: React.FC<AdPlaceholderProps> = ({
   placement,
   className,
-  showPlaceholder = true,
-  label,
+  adFormat = 'auto',
+  fullWidthResponsive = true,
 }) => {
+  const adRef = useRef<HTMLDivElement>(null);
+  const isAdPushed = useRef(false);
+
   const placementConfig = adPlacements[placement];
 
+  useEffect(() => {
+    if (!adsConfig.enabled || isAdPushed.current) return;
+
+    const slotId = adsConfig.placementIds.googleAdsense[placement as keyof typeof adsConfig.placementIds.googleAdsense];
+    if (!slotId) return;
+
+    try {
+      const adsbygoogle = (window as unknown as { adsbygoogle: unknown[] }).adsbygoogle || [];
+      adsbygoogle.push({});
+      isAdPushed.current = true;
+    } catch {
+      // AdSense not loaded yet or ad blocker active
+    }
+  }, [placement]);
+
   if (!placementConfig) {
-    console.warn(`Ad placement "${placement}" not found in config`);
     return null;
   }
 
-  // Get responsive sizes
-  const { sizes, format, name } = placementConfig;
+  const { sizes, name } = placementConfig;
+  const slotId = adsConfig.enabled
+    ? adsConfig.placementIds.googleAdsense[placement as keyof typeof adsConfig.placementIds.googleAdsense]
+    : '';
 
-  // CSS for CLS protection - reserves space even before ad loads
-  const getMinDimensions = () => {
-    // Use mobile size as minimum to ensure space is always reserved
-    return {
-      minHeight: sizes.mobile[1],
-      minWidth: sizes.mobile[0],
-    };
-  };
-
-  const dimensions = getMinDimensions();
-
-  // If ads are enabled and we have an ad slot ID, render the actual ad
-  // For now, we just render a placeholder
-  const renderAd = () => {
-    if (adsConfig.enabled) {
-      // TODO: Implement actual Google AdSense integration
-      // const slotId = adsConfig.placementIds.googleAdsense[placement];
-      // if (slotId) {
-      //   return <ins className="adsbygoogle" ... />;
-      // }
-    }
-
-    // Show placeholder when ads are not enabled
-    if (!showPlaceholder) {
-      return null;
-    }
-
+  // When ads are enabled and we have a slot ID, render actual AdSense unit
+  if (adsConfig.enabled && slotId) {
     return (
+      <div
+        ref={adRef}
+        className={cn('overflow-hidden', className)}
+        style={{ minHeight: `${sizes.mobile[1]}px` }}
+        data-ad-placement={placement}
+      >
+        <ins
+          className="adsbygoogle"
+          style={{ display: 'block' }}
+          data-ad-client="ca-pub-6384218533700364"
+          data-ad-slot={slotId}
+          data-ad-format={adFormat}
+          data-full-width-responsive={fullWidthResponsive.toString()}
+        />
+      </div>
+    );
+  }
+
+  // Placeholder when ads are disabled (development mode)
+  return (
+    <div
+      className={cn(
+        'relative overflow-hidden rounded-lg bg-neutral-100',
+        'border border-dashed border-neutral-300',
+        'w-full',
+        className
+      )}
+      style={{ minHeight: `${sizes.mobile[1]}px` }}
+      data-ad-placement={placement}
+    >
       <div className="flex h-full w-full flex-col items-center justify-center text-neutral-400">
-        <p className="text-xs font-medium">{label || name}</p>
+        <p className="text-xs font-medium">{name}</p>
         <p className="text-[10px]">
           {sizes.desktop[0]}x{sizes.desktop[1]}
         </p>
       </div>
-    );
-  };
-
-  return (
-    <div
-      className={cn(
-        // Base styles
-        'relative overflow-hidden rounded-lg bg-neutral-100',
-        // Border for visual feedback
-        'border border-dashed border-neutral-300',
-        // Responsive width
-        'w-full',
-        className
-      )}
-      style={{
-        minHeight: `${dimensions.minHeight}px`,
-      }}
-      data-ad-placement={placement}
-      data-ad-format={format}
-    >
-      {renderAd()}
     </div>
   );
 };
@@ -100,7 +101,7 @@ const AdPlaceholder: React.FC<AdPlaceholderProps> = ({
  * Sidebar ad component - optimized for sidebar placement
  */
 export const SidebarAd: React.FC<{ className?: string }> = ({ className }) => (
-  <AdPlaceholder placement="sidebarTop" className={className} />
+  <AdPlaceholder placement="sidebarTop" className={className} adFormat="auto" />
 );
 
 /**
@@ -113,6 +114,7 @@ export const InContentAd: React.FC<{
   <AdPlaceholder
     placement={position === 'top' ? 'inContentTop' : 'inContentBottom'}
     className={className}
+    adFormat="fluid"
   />
 );
 
@@ -120,14 +122,14 @@ export const InContentAd: React.FC<{
  * Header banner ad component
  */
 export const HeaderBannerAd: React.FC<{ className?: string }> = ({ className }) => (
-  <AdPlaceholder placement="headerBanner" className={className} />
+  <AdPlaceholder placement="headerBanner" className={className} adFormat="horizontal" />
 );
 
 /**
  * Footer banner ad component
  */
 export const FooterBannerAd: React.FC<{ className?: string }> = ({ className }) => (
-  <AdPlaceholder placement="footerBanner" className={className} />
+  <AdPlaceholder placement="footerBanner" className={className} adFormat="horizontal" />
 );
 
 export default AdPlaceholder;

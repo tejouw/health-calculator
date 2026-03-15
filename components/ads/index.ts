@@ -5,3 +5,4 @@ export {
   HeaderBannerAd,
   FooterBannerAd,
 } from './AdPlaceholder';
+export { default as GoogleAdSense } from './GoogleAdSense';

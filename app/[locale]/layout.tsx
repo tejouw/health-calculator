@@ -7,6 +7,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { siteConfig } from '@/config/site.config';
 import { GoogleAnalytics } from '@/components/analytics';
+import GoogleAdSense from '@/components/ads/GoogleAdSense';
 import type { Metadata } from 'next';
 
 const inter = Inter({
@@ -131,6 +132,9 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={inter.variable}>
+      <head>
+        <GoogleAdSense />
+      </head>
       <body className="min-h-screen bg-neutral-50 font-sans antialiased">
         <GoogleAnalytics />
         <NextIntlClientProvider messages={messages}>

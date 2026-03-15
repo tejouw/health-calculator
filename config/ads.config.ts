@@ -63,16 +63,17 @@ export const adPlacements: Record<string, AdPlacement> = {
 };
 
 export const adsConfig = {
-  enabled: false, // Enable when ready for production
+  enabled: true,
+  clientId: 'ca-pub-6384218533700364',
   placementIds: {
     googleAdsense: {
-      headerBanner: '',
-      sidebarTop: '',
-      inContentTop: '',
-      inContentBottom: '',
-      footerBanner: '',
+      headerBanner: process.env.NEXT_PUBLIC_AD_SLOT_HEADER || '',
+      sidebarTop: process.env.NEXT_PUBLIC_AD_SLOT_SIDEBAR || '',
+      inContentTop: process.env.NEXT_PUBLIC_AD_SLOT_CONTENT_TOP || '',
+      inContentBottom: process.env.NEXT_PUBLIC_AD_SLOT_CONTENT_BOTTOM || '',
+      footerBanner: process.env.NEXT_PUBLIC_AD_SLOT_FOOTER || '',
     },
   },
   lazyLoad: true,
-  refreshInterval: 30000, // 30 seconds
+  refreshInterval: 30000,
 };
