@@ -93,6 +93,8 @@ import { dailyStepGoalMeta } from '@/calculators/fitness/daily-step-goal/dailySt
 import { bodyWaterMeta } from '@/calculators/body-weight/body-water/bodyWaterMeta';
 // Daily Life - Blood Type
 import { bloodTypeMeta } from '@/calculators/daily-life/blood-type-calculator/bloodTypeMeta';
+// Daily Life - Healthy Lifestyle Score
+import { healthyLifestyleScoreMeta } from '@/calculators/daily-life/healthy-lifestyle-score/healthyLifestyleScoreMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -177,6 +179,8 @@ export const calculatorRegistry: CalculatorMeta[] = [
   bodyWaterMeta,
   // Daily Life - Blood Type
   bloodTypeMeta,
+  // Daily Life - Healthy Lifestyle Score
+  healthyLifestyleScoreMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {

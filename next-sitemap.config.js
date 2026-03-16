@@ -76,6 +76,7 @@ const CALCULATOR_SLUGS = {
   'daily-step-goal-calculator': { en: 'daily-step-goal-calculator', tr: 'gunluk-adim-hedefi-hesaplayici' },
   'body-water-calculator': { en: 'body-water-calculator', tr: 'vucut-suyu-hesaplayici' },
   'blood-type-calculator': { en: 'blood-type-calculator', tr: 'kan-grubu-hesaplayici' },
+  'healthy-lifestyle-score-calculator': { en: 'healthy-lifestyle-score', tr: 'saglikli-yasam-puani-hesaplayici' },
 };
 
 // Static page slug mappings

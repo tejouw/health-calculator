@@ -293,6 +293,12 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
     primary: ['water-intake-calculator', 'body-fat-calculator', 'bmi-calculator'],
     secondary: ['lean-body-mass-calculator', 'ideal-weight-calculator', 'biological-age-calculator', 'waist-hip-ratio-calculator', 'calorie-calculator', 'tdee-calculator'],
   },
+
+  // Daily Life - Healthy Lifestyle Score
+  'healthy-lifestyle-score-calculator': {
+    primary: ['biological-age-calculator', 'life-expectancy-calculator', 'stress-level-calculator'],
+    secondary: ['bmi-calculator', 'sleep-calculator', 'water-intake-calculator', 'calorie-calculator', 'smoking-cessation-calculator'],
+  },
 };
 
 /**

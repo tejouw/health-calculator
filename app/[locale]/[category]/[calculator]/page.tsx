@@ -103,6 +103,8 @@ import { dailyStepGoalContent } from '@/calculators/fitness/daily-step-goal/dail
 import { bodyWaterContent } from '@/calculators/body-weight/body-water/bodyWaterContent';
 // Daily Life - Blood Type
 import { bloodTypeContent } from '@/calculators/daily-life/blood-type-calculator/bloodTypeContent';
+// Daily Life - Healthy Lifestyle Score
+import { healthyLifestyleScoreContent } from '@/calculators/daily-life/healthy-lifestyle-score/healthyLifestyleScoreContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -252,6 +254,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'body-water-calculator': bodyWaterContent,
     // Daily Life - Blood Type
     'blood-type-calculator': bloodTypeContent,
+    // Daily Life - Healthy Lifestyle Score
+    'healthy-lifestyle-score-calculator': healthyLifestyleScoreContent,
   };
 
   const content = contentMap[calculator.id];
