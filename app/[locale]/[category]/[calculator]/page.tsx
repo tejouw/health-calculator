@@ -105,6 +105,8 @@ import { bodyWaterContent } from '@/calculators/body-weight/body-water/bodyWater
 import { bloodTypeContent } from '@/calculators/daily-life/blood-type-calculator/bloodTypeContent';
 // Daily Life - Healthy Lifestyle Score
 import { healthyLifestyleScoreContent } from '@/calculators/daily-life/healthy-lifestyle-score/healthyLifestyleScoreContent';
+// Body Weight - Ideal Body Measurements
+import { idealBodyMeasurementsContent } from '@/calculators/body-weight/ideal-body-measurements/idealBodyMeasurementsContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -256,6 +258,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'blood-type-calculator': bloodTypeContent,
     // Daily Life - Healthy Lifestyle Score
     'healthy-lifestyle-score-calculator': healthyLifestyleScoreContent,
+    // Body Weight - Ideal Body Measurements
+    'ideal-body-measurements-calculator': idealBodyMeasurementsContent,
   };
 
   const content = contentMap[calculator.id];

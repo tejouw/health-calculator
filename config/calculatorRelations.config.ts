@@ -44,6 +44,12 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
     secondary: ['blood-pressure-calculator', 'heart-rate-zone-calculator', 'sleep-calculator', 'waist-hip-ratio-calculator', 'phq9-calculator', 'vo2-max-calculator'],
   },
 
+  // Body Weight - Ideal Body Measurements
+  'ideal-body-measurements-calculator': {
+    primary: ['ideal-weight-calculator', 'body-fat-calculator', 'body-type-calculator'],
+    secondary: ['bmi-calculator', 'waist-hip-ratio-calculator', 'waist-height-ratio-calculator', 'lean-body-mass-calculator', 'biological-age-calculator'],
+  },
+
   // Nutrition calculators
   'calorie-calculator': {
     primary: ['tdee-calculator', 'bmr-calculator', 'calorie-deficit-calculator'],
