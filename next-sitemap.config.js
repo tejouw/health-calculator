@@ -78,6 +78,7 @@ const CALCULATOR_SLUGS = {
   'blood-type-calculator': { en: 'blood-type-calculator', tr: 'kan-grubu-hesaplayici' },
   'healthy-lifestyle-score-calculator': { en: 'healthy-lifestyle-score', tr: 'saglikli-yasam-puani-hesaplayici' },
   'ideal-body-measurements-calculator': { en: 'ideal-body-measurements-calculator', tr: 'ideal-vucut-olculeri-hesaplayici' },
+  'sleep-debt-calculator': { en: 'sleep-debt-calculator', tr: 'uyku-borcu-hesaplama' },
 };
 
 // Static page slug mappings

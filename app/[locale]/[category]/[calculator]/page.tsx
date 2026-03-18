@@ -107,6 +107,8 @@ import { bloodTypeContent } from '@/calculators/daily-life/blood-type-calculator
 import { healthyLifestyleScoreContent } from '@/calculators/daily-life/healthy-lifestyle-score/healthyLifestyleScoreContent';
 // Body Weight - Ideal Body Measurements
 import { idealBodyMeasurementsContent } from '@/calculators/body-weight/ideal-body-measurements/idealBodyMeasurementsContent';
+// Sleep - Sleep Debt
+import { sleepDebtContent } from '@/calculators/sleep/sleep-debt/sleepDebtContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -260,6 +262,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'healthy-lifestyle-score-calculator': healthyLifestyleScoreContent,
     // Body Weight - Ideal Body Measurements
     'ideal-body-measurements-calculator': idealBodyMeasurementsContent,
+    // Sleep - Sleep Debt
+    'sleep-debt-calculator': sleepDebtContent,
   };
 
   const content = contentMap[calculator.id];

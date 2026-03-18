@@ -97,6 +97,8 @@ import { bloodTypeMeta } from '@/calculators/daily-life/blood-type-calculator/bl
 import { healthyLifestyleScoreMeta } from '@/calculators/daily-life/healthy-lifestyle-score/healthyLifestyleScoreMeta';
 // Body Weight - Ideal Body Measurements
 import { idealBodyMeasurementsMeta } from '@/calculators/body-weight/ideal-body-measurements/idealBodyMeasurementsMeta';
+// Sleep - Sleep Debt
+import { sleepDebtMeta } from '@/calculators/sleep/sleep-debt/sleepDebtMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -185,6 +187,8 @@ export const calculatorRegistry: CalculatorMeta[] = [
   healthyLifestyleScoreMeta,
   // Body Weight - Ideal Body Measurements
   idealBodyMeasurementsMeta,
+  // Sleep - Sleep Debt
+  sleepDebtMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {
