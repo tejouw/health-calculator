@@ -285,7 +285,7 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
   // Nutrition - Weight Loss
   'weight-loss-calculator': {
     primary: ['calorie-deficit-calculator', 'tdee-calculator', 'calorie-calculator'],
-    secondary: ['bmr-calculator', 'macro-calculator', 'bmi-calculator', 'ideal-weight-calculator', 'protein-calculator', 'intermittent-fasting-calculator', 'body-fat-calculator'],
+    secondary: ['bmr-calculator', 'macro-calculator', 'bmi-calculator', 'ideal-weight-calculator', 'protein-calculator', 'intermittent-fasting-calculator', 'body-fat-calculator', 'weight-gain-calculator'],
   },
 
   // Fitness - Daily Step Goal
@@ -298,6 +298,12 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
   'body-water-calculator': {
     primary: ['water-intake-calculator', 'body-fat-calculator', 'bmi-calculator'],
     secondary: ['lean-body-mass-calculator', 'ideal-weight-calculator', 'biological-age-calculator', 'waist-hip-ratio-calculator', 'calorie-calculator', 'tdee-calculator'],
+  },
+
+  // Nutrition - Weight Gain
+  'weight-gain-calculator': {
+    primary: ['weight-loss-calculator', 'calorie-calculator', 'tdee-calculator'],
+    secondary: ['bmr-calculator', 'macro-calculator', 'protein-calculator', 'bmi-calculator', 'ideal-weight-calculator', 'body-fat-calculator', 'calories-burned-calculator'],
   },
 
   // Daily Life - Healthy Lifestyle Score

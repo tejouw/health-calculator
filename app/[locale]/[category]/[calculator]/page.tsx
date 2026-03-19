@@ -109,6 +109,8 @@ import { healthyLifestyleScoreContent } from '@/calculators/daily-life/healthy-l
 import { idealBodyMeasurementsContent } from '@/calculators/body-weight/ideal-body-measurements/idealBodyMeasurementsContent';
 // Sleep - Sleep Debt
 import { sleepDebtContent } from '@/calculators/sleep/sleep-debt/sleepDebtContent';
+// Nutrition - Weight Gain
+import { weightGainContent } from '@/calculators/nutrition/weight-gain-calculator/weightGainContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -264,6 +266,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'ideal-body-measurements-calculator': idealBodyMeasurementsContent,
     // Sleep - Sleep Debt
     'sleep-debt-calculator': sleepDebtContent,
+    // Nutrition - Weight Gain
+    'weight-gain-calculator': weightGainContent,
   };
 
   const content = contentMap[calculator.id];

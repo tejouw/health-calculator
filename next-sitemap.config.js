@@ -79,6 +79,7 @@ const CALCULATOR_SLUGS = {
   'healthy-lifestyle-score-calculator': { en: 'healthy-lifestyle-score', tr: 'saglikli-yasam-puani-hesaplayici' },
   'ideal-body-measurements-calculator': { en: 'ideal-body-measurements-calculator', tr: 'ideal-vucut-olculeri-hesaplayici' },
   'sleep-debt-calculator': { en: 'sleep-debt-calculator', tr: 'uyku-borcu-hesaplama' },
+  'weight-gain-calculator': { en: 'weight-gain-calculator', tr: 'kilo-alma-hesaplayici' },
 };
 
 // Static page slug mappings
