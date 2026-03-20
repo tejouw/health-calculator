@@ -80,6 +80,7 @@ const CALCULATOR_SLUGS = {
   'ideal-body-measurements-calculator': { en: 'ideal-body-measurements-calculator', tr: 'ideal-vucut-olculeri-hesaplayici' },
   'sleep-debt-calculator': { en: 'sleep-debt-calculator', tr: 'uyku-borcu-hesaplama' },
   'weight-gain-calculator': { en: 'weight-gain-calculator', tr: 'kilo-alma-hesaplayici' },
+  'conception-date-calculator': { en: 'conception-date-calculator', tr: 'gebe-kalma-tarihi-hesaplayici' },
 };
 
 // Static page slug mappings

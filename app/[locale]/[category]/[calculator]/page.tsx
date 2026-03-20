@@ -111,6 +111,8 @@ import { idealBodyMeasurementsContent } from '@/calculators/body-weight/ideal-bo
 import { sleepDebtContent } from '@/calculators/sleep/sleep-debt/sleepDebtContent';
 // Nutrition - Weight Gain
 import { weightGainContent } from '@/calculators/nutrition/weight-gain-calculator/weightGainContent';
+// Pregnancy - Conception Date
+import { conceptionDateContent } from '@/calculators/pregnancy/conception-date-calculator/conceptionDateContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -268,6 +270,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'sleep-debt-calculator': sleepDebtContent,
     // Nutrition - Weight Gain
     'weight-gain-calculator': weightGainContent,
+    // Pregnancy - Conception Date
+    'conception-date-calculator': conceptionDateContent,
   };
 
   const content = contentMap[calculator.id];
