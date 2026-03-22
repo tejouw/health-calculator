@@ -25,10 +25,14 @@ export function generateSEO({
   const domain = getDomainForLocale(locale);
   const url = `${domain}${path}`;
   const siteName = siteConfig.siteName[locale];
-  const fullTitle = `${title} | ${siteName}`;
+
+  // Don't append siteName here - layout template already adds it via `%s | SiteName`
+  const fullTitle = title;
 
   const alternateLocale = locale === 'en' ? 'tr' : 'en';
   const altPath = alternatePath !== undefined ? alternatePath : path;
+
+  // Use absolute URLs for cross-domain hreflang
   const languages: Record<string, string> = {};
   languages[locale] = url;
   languages[alternateLocale] = `${getDomainForLocale(alternateLocale)}${altPath}`;
@@ -40,16 +44,17 @@ export function generateSEO({
     authors: [{ name: siteConfig.author }],
     creator: siteConfig.author,
     publisher: siteConfig.author,
-    metadataBase: new URL(domain),
+    // Use path for canonical - metadataBase from layout resolves it to full URL
+    // This prevents double-domain issues (metadataBase + full URL = broken canonical)
     alternates: {
-      canonical: url,
+      canonical: path || '/',
       languages,
     },
     openGraph: {
       type: 'website',
       locale: locale === 'tr' ? 'tr_TR' : 'en_US',
       url,
-      title: fullTitle,
+      title: `${fullTitle} | ${siteName}`,
       description,
       siteName,
       images: [

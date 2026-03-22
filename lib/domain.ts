@@ -1,9 +1,9 @@
 import { Locale } from '@/i18n';
 
-// Domain configuration
+// Domain configuration (trim to prevent trailing space issues)
 export const DOMAINS: Record<Locale, string> = {
-  en: process.env.NEXT_PUBLIC_EN_DOMAIN || 'prohealthcalc.com',
-  tr: process.env.NEXT_PUBLIC_TR_DOMAIN || 'saglikhesapla.com',
+  en: (process.env.NEXT_PUBLIC_EN_DOMAIN || 'prohealthcalc.com').trim(),
+  tr: (process.env.NEXT_PUBLIC_TR_DOMAIN || 'saglikhesapla.com').trim(),
 };
 
 /**
