@@ -113,6 +113,8 @@ import { sleepDebtContent } from '@/calculators/sleep/sleep-debt/sleepDebtConten
 import { weightGainContent } from '@/calculators/nutrition/weight-gain-calculator/weightGainContent';
 // Pregnancy - Conception Date
 import { conceptionDateContent } from '@/calculators/pregnancy/conception-date-calculator/conceptionDateContent';
+// Daily Life - Eye Color
+import { eyeColorContent } from '@/calculators/daily-life/eye-color-calculator/eyeColorContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -272,6 +274,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'weight-gain-calculator': weightGainContent,
     // Pregnancy - Conception Date
     'conception-date-calculator': conceptionDateContent,
+    // Daily Life - Eye Color
+    'eye-color-calculator': eyeColorContent,
   };
 
   const content = contentMap[calculator.id];

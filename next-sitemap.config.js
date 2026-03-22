@@ -81,6 +81,7 @@ const CALCULATOR_SLUGS = {
   'sleep-debt-calculator': { en: 'sleep-debt-calculator', tr: 'uyku-borcu-hesaplama' },
   'weight-gain-calculator': { en: 'weight-gain-calculator', tr: 'kilo-alma-hesaplayici' },
   'conception-date-calculator': { en: 'conception-date-calculator', tr: 'gebe-kalma-tarihi-hesaplayici' },
+  'eye-color-calculator': { en: 'eye-color-calculator', tr: 'goz-rengi-hesaplayici' },
 };
 
 // Static page slug mappings

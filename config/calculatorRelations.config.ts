@@ -316,6 +316,12 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
     primary: ['biological-age-calculator', 'life-expectancy-calculator', 'stress-level-calculator'],
     secondary: ['bmi-calculator', 'sleep-calculator', 'water-intake-calculator', 'calorie-calculator', 'smoking-cessation-calculator'],
   },
+
+  // Daily Life - Eye Color
+  'eye-color-calculator': {
+    primary: ['blood-type-calculator', 'chinese-gender-predictor'],
+    secondary: ['age-calculator', 'love-calculator', 'growth-percentile-calculator', 'height-predictor-calculator', 'pet-age-calculator'],
+  },
 };
 
 /**
