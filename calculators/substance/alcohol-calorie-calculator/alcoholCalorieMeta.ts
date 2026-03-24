@@ -1,0 +1,52 @@
+import { CalculatorMeta } from '@/types/calculator';
+import AlcoholCalorieCalculator from './AlcoholCalorieCalculator';
+
+export const alcoholCalorieMeta: CalculatorMeta = {
+  id: 'alcohol-calorie-calculator',
+  category: 'substance',
+  slug: {
+    en: 'alcohol-calorie-calculator',
+    tr: 'alkol-kalori-hesaplayici',
+  },
+  title: {
+    en: 'Alcohol Calorie Calculator - Calculate Calories in Alcoholic Drinks',
+    tr: 'Alkol Kalori Hesaplayıcı - Alkollü İçeceklerdeki Kalorileri Hesaplayın',
+  },
+  description: {
+    en: 'Calculate the calories in your alcoholic drinks. See food equivalents, weekly projections, and yearly weight impact. Compare beer, wine, spirits, cocktails, and more.',
+    tr: 'Alkollü içeceklerinizdeki kalorileri hesaplayın. Yiyecek eşdeğerlerini, haftalık projeksiyonları ve yıllık kilo etkisini görün. Bira, şarap, sert içki, kokteyl ve daha fazlasını karşılaştırın.',
+  },
+  keywords: [
+    'alcohol calorie calculator',
+    'alkol kalori hesaplayıcı',
+    'beer calories',
+    'bira kalori',
+    'wine calories',
+    'şarap kalori',
+    'cocktail calories',
+    'kokteyl kalori',
+    'rakı kalori',
+    'alkol kilo',
+    'alcohol weight gain',
+    'drink calories',
+    'içecek kalori',
+    'alkollü içecek kalori',
+    'empty calories alcohol',
+    'boş kalori alkol',
+    'alcohol nutrition',
+    'alkol besin değeri',
+    'vodka calories',
+    'whiskey calories',
+    'viski kalori',
+    'alcohol diet',
+    'alkol diyet',
+    'standard drink',
+    'standart içki',
+    'alcohol sugar content',
+    'alkol şeker içeriği',
+  ],
+  icon: 'Beer',
+  popular: true,
+  featured: false,
+  component: AlcoholCalorieCalculator,
+};

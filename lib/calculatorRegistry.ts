@@ -105,6 +105,8 @@ import { weightGainMeta } from '@/calculators/nutrition/weight-gain-calculator/w
 import { conceptionDateMeta } from '@/calculators/pregnancy/conception-date-calculator/conceptionDateMeta';
 // Daily Life - Eye Color
 import { eyeColorMeta } from '@/calculators/daily-life/eye-color-calculator/eyeColorMeta';
+// Substance - Alcohol Calorie
+import { alcoholCalorieMeta } from '@/calculators/substance/alcohol-calorie-calculator/alcoholCalorieMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -201,6 +203,8 @@ export const calculatorRegistry: CalculatorMeta[] = [
   conceptionDateMeta,
   // Daily Life - Eye Color
   eyeColorMeta,
+  // Substance - Alcohol Calorie
+  alcoholCalorieMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {

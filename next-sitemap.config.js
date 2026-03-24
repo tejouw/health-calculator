@@ -82,6 +82,7 @@ const CALCULATOR_SLUGS = {
   'weight-gain-calculator': { en: 'weight-gain-calculator', tr: 'kilo-alma-hesaplayici' },
   'conception-date-calculator': { en: 'conception-date-calculator', tr: 'gebe-kalma-tarihi-hesaplayici' },
   'eye-color-calculator': { en: 'eye-color-calculator', tr: 'goz-rengi-hesaplayici' },
+  'alcohol-calorie-calculator': { en: 'alcohol-calorie-calculator', tr: 'alkol-kalori-hesaplayici' },
 };
 
 // Static page slug mappings

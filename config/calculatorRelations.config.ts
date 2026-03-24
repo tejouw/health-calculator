@@ -231,8 +231,8 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
 
   // Substance calculators
   'blood-alcohol-calculator': {
-    primary: ['caffeine-calculator', 'smoking-cessation-calculator', 'water-intake-calculator'],
-    secondary: ['calorie-calculator', 'body-fat-calculator', 'bmr-calculator', 'bmi-calculator', 'life-expectancy-calculator', 'sleep-calculator'],
+    primary: ['alcohol-calorie-calculator', 'caffeine-calculator', 'smoking-cessation-calculator'],
+    secondary: ['water-intake-calculator', 'calorie-calculator', 'body-fat-calculator', 'bmr-calculator', 'bmi-calculator', 'life-expectancy-calculator', 'sleep-calculator'],
   },
   'caffeine-calculator': {
     primary: ['blood-alcohol-calculator', 'smoking-cessation-calculator', 'water-intake-calculator'],
@@ -321,6 +321,12 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
   'eye-color-calculator': {
     primary: ['blood-type-calculator', 'chinese-gender-predictor'],
     secondary: ['age-calculator', 'love-calculator', 'growth-percentile-calculator', 'height-predictor-calculator', 'pet-age-calculator'],
+  },
+
+  // Substance - Alcohol Calorie
+  'alcohol-calorie-calculator': {
+    primary: ['blood-alcohol-calculator', 'caffeine-calculator', 'calorie-calculator'],
+    secondary: ['smoking-cessation-calculator', 'water-intake-calculator', 'bmi-calculator', 'weight-loss-calculator', 'tdee-calculator', 'life-expectancy-calculator'],
   },
 };
 

@@ -115,6 +115,8 @@ import { weightGainContent } from '@/calculators/nutrition/weight-gain-calculato
 import { conceptionDateContent } from '@/calculators/pregnancy/conception-date-calculator/conceptionDateContent';
 // Daily Life - Eye Color
 import { eyeColorContent } from '@/calculators/daily-life/eye-color-calculator/eyeColorContent';
+// Substance - Alcohol Calorie
+import { alcoholCalorieContent } from '@/calculators/substance/alcohol-calorie-calculator/alcoholCalorieContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -276,6 +278,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'conception-date-calculator': conceptionDateContent,
     // Daily Life - Eye Color
     'eye-color-calculator': eyeColorContent,
+    // Substance - Alcohol Calorie
+    'alcohol-calorie-calculator': alcoholCalorieContent,
   };
 
   const content = contentMap[calculator.id];
