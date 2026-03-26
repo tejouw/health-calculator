@@ -328,6 +328,12 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
     primary: ['blood-alcohol-calculator', 'caffeine-calculator', 'calorie-calculator'],
     secondary: ['smoking-cessation-calculator', 'water-intake-calculator', 'bmi-calculator', 'weight-loss-calculator', 'tdee-calculator', 'life-expectancy-calculator'],
   },
+
+  // Nutrition - Sugar Intake
+  'sugar-intake-calculator': {
+    primary: ['calorie-calculator', 'macro-calculator', 'calorie-deficit-calculator'],
+    secondary: ['weight-loss-calculator', 'a1c-calculator', 'bmi-calculator', 'water-intake-calculator', 'keto-calculator', 'intermittent-fasting-calculator'],
+  },
 };
 
 /**

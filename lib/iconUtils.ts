@@ -30,7 +30,8 @@ import {
   Target,
   Dumbbell,
   Timer,
-  Gauge
+  Gauge,
+  CakeSlice,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
@@ -62,6 +63,7 @@ const iconMap: Record<string, LucideIcon> = {
   Dumbbell,
   Timer,
   Gauge,
+  CakeSlice,
 };
 
 /**

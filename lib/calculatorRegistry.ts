@@ -107,6 +107,8 @@ import { conceptionDateMeta } from '@/calculators/pregnancy/conception-date-calc
 import { eyeColorMeta } from '@/calculators/daily-life/eye-color-calculator/eyeColorMeta';
 // Substance - Alcohol Calorie
 import { alcoholCalorieMeta } from '@/calculators/substance/alcohol-calorie-calculator/alcoholCalorieMeta';
+// Nutrition - Sugar Intake
+import { sugarIntakeMeta } from '@/calculators/nutrition/sugar-intake-calculator/sugarIntakeMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -205,6 +207,8 @@ export const calculatorRegistry: CalculatorMeta[] = [
   eyeColorMeta,
   // Substance - Alcohol Calorie
   alcoholCalorieMeta,
+  // Nutrition - Sugar Intake
+  sugarIntakeMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {
