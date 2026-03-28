@@ -334,6 +334,12 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
     primary: ['calorie-calculator', 'macro-calculator', 'calorie-deficit-calculator'],
     secondary: ['weight-loss-calculator', 'a1c-calculator', 'bmi-calculator', 'water-intake-calculator', 'keto-calculator', 'intermittent-fasting-calculator'],
   },
+
+  // Daily Life - SPF Sunscreen
+  'spf-sunscreen-calculator': {
+    primary: ['biological-age-calculator', 'water-intake-calculator', 'healthy-lifestyle-score-calculator'],
+    secondary: ['age-calculator', 'calories-burned-calculator', 'stress-level-calculator', 'life-expectancy-calculator'],
+  },
 };
 
 /**

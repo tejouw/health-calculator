@@ -119,6 +119,8 @@ import { eyeColorContent } from '@/calculators/daily-life/eye-color-calculator/e
 import { alcoholCalorieContent } from '@/calculators/substance/alcohol-calorie-calculator/alcoholCalorieContent';
 // Nutrition - Sugar Intake
 import { sugarIntakeContent } from '@/calculators/nutrition/sugar-intake-calculator/sugarIntakeContent';
+// Daily Life - SPF Sunscreen
+import { spfSunscreenContent } from '@/calculators/daily-life/spf-sunscreen-calculator/spfSunscreenContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -284,6 +286,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'alcohol-calorie-calculator': alcoholCalorieContent,
     // Nutrition - Sugar Intake
     'sugar-intake-calculator': sugarIntakeContent,
+    // Daily Life - SPF Sunscreen
+    'spf-sunscreen-calculator': spfSunscreenContent,
   };
 
   const content = contentMap[calculator.id];

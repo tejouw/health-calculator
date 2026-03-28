@@ -109,6 +109,8 @@ import { eyeColorMeta } from '@/calculators/daily-life/eye-color-calculator/eyeC
 import { alcoholCalorieMeta } from '@/calculators/substance/alcohol-calorie-calculator/alcoholCalorieMeta';
 // Nutrition - Sugar Intake
 import { sugarIntakeMeta } from '@/calculators/nutrition/sugar-intake-calculator/sugarIntakeMeta';
+// Daily Life - SPF Sunscreen
+import { spfSunscreenMeta } from '@/calculators/daily-life/spf-sunscreen-calculator/spfSunscreenMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -209,6 +211,8 @@ export const calculatorRegistry: CalculatorMeta[] = [
   alcoholCalorieMeta,
   // Nutrition - Sugar Intake
   sugarIntakeMeta,
+  // Daily Life - SPF Sunscreen
+  spfSunscreenMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {
