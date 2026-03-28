@@ -2,7 +2,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Card } from '@/components/ui';
 import { Breadcrumbs } from '@/components/layout';
 import type { Metadata } from 'next';
-import { Shield, Database, Cookie, ExternalLink, RefreshCw, Mail, Megaphone, Target } from 'lucide-react';
+import { Shield, Database, Cookie, ExternalLink, RefreshCw, Mail, Megaphone, Target, Clock, Globe, Scale, Baby } from 'lucide-react';
 import { generateSEO } from '@/lib/seo';
 import { getPageSlug } from '@/config/pages.config';
 
@@ -74,6 +74,34 @@ export default async function PrivacyPolicyPage({ params }: PrivacyPageProps) {
       bg: 'bg-rose-100',
     },
     {
+      icon: Clock,
+      title: t('dataRetention'),
+      content: t('dataRetentionText'),
+      color: 'text-indigo-600',
+      bg: 'bg-indigo-100',
+    },
+    {
+      icon: Globe,
+      title: t('gdpr'),
+      content: t('gdprText'),
+      color: 'text-sky-600',
+      bg: 'bg-sky-100',
+    },
+    {
+      icon: Scale,
+      title: t('ccpa'),
+      content: t('ccpaText'),
+      color: 'text-emerald-600',
+      bg: 'bg-emerald-100',
+    },
+    {
+      icon: Baby,
+      title: t('childrenPrivacy'),
+      content: t('childrenPrivacyText'),
+      color: 'text-pink-600',
+      bg: 'bg-pink-100',
+    },
+    {
       icon: RefreshCw,
       title: t('changes'),
       content: t('changesText'),
@@ -104,7 +132,7 @@ export default async function PrivacyPolicyPage({ params }: PrivacyPageProps) {
           />
           <h1 className="heading-1 mb-2">{t('title')}</h1>
           <p className="text-body text-neutral-600">
-            {t('lastUpdated')}: February 2, 2025
+            {t('lastUpdated')}: March 28, 2026
           </p>
         </div>
       </section>

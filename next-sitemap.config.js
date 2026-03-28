@@ -94,6 +94,7 @@ const STATIC_PAGE_SLUGS = {
   'privacy-policy': { en: 'privacy-policy', tr: 'gizlilik-politikasi' },
   'terms-of-service': { en: 'terms-of-service', tr: 'kullanim-kosullari' },
   'disclaimer': { en: 'disclaimer', tr: 'sorumluluk-reddi' },
+  'blog': { en: 'blog', tr: 'blog' },
 };
 
 // Reverse mappings for quick lookup

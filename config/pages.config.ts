@@ -47,6 +47,13 @@ export const pageRoutes: PageRoute[] = [
       tr: 'sorumluluk-reddi',
     },
   },
+  {
+    id: 'blog',
+    slug: {
+      en: 'blog',
+      tr: 'blog',
+    },
+  },
 ];
 
 /**

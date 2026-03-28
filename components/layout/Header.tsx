@@ -19,6 +19,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
   const navigation = [
     { name: t('home'), href: '/' },
     { name: t('categories'), href: '#categories' },
+    { name: t('blog'), href: `/${getPageSlug('blog', locale as 'en' | 'tr')}` },
     { name: t('about'), href: `/${getPageSlug('about', locale as 'en' | 'tr')}` },
   ];
 

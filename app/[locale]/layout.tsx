@@ -8,6 +8,7 @@ import Footer from '@/components/layout/Footer';
 import { siteConfig } from '@/config/site.config';
 import { GoogleAnalytics } from '@/components/analytics';
 import GoogleAdSense from '@/components/ads/GoogleAdSense';
+import CookieConsent from '@/components/layout/CookieConsent';
 import type { Metadata } from 'next';
 
 const inter = Inter({
@@ -143,6 +144,7 @@ export default async function LocaleLayout({
             <main className="flex-1">{children}</main>
             <Footer locale={locale} />
           </div>
+          <CookieConsent />
         </NextIntlClientProvider>
       </body>
     </html>

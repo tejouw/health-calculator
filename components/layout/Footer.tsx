@@ -70,6 +70,14 @@ const Footer: React.FC<FooterProps> = ({ locale }) => {
                 </li>
                 <li>
                   <Link
+                    href={`/${getPageSlug('blog', locale as 'en' | 'tr')}`}
+                    className="text-sm text-neutral-600 transition-colors hover:text-primary-600"
+                  >
+                    {tNav('blog')}
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     href={`/${getPageSlug('about', locale as 'en' | 'tr')}`}
                     className="text-sm text-neutral-600 transition-colors hover:text-primary-600"
                   >
