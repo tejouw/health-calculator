@@ -85,6 +85,8 @@ const CALCULATOR_SLUGS = {
   'alcohol-calorie-calculator': { en: 'alcohol-calorie-calculator', tr: 'alkol-kalori-hesaplayici' },
   'sugar-intake-calculator': { en: 'sugar-intake-calculator', tr: 'seker-tuketimi-hesaplayici' },
   'spf-sunscreen-calculator': { en: 'spf-sunscreen-calculator', tr: 'gunes-koruma-hesaplayici' },
+  'biorhythm-calculator': { en: 'biorhythm-calculator', tr: 'biyoritm-hesaplayici' },
+  'face-shape-calculator': { en: 'face-shape-calculator', tr: 'yuz-sekli-hesaplayici' },
 };
 
 // Static page slug mappings

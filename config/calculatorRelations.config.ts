@@ -340,6 +340,12 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
     primary: ['biological-age-calculator', 'water-intake-calculator', 'healthy-lifestyle-score-calculator'],
     secondary: ['age-calculator', 'calories-burned-calculator', 'stress-level-calculator', 'life-expectancy-calculator'],
   },
+
+  // Daily Life - Biorhythm
+  'biorhythm-calculator': {
+    primary: ['age-calculator', 'biological-age-calculator', 'healthy-lifestyle-score-calculator'],
+    secondary: ['love-calculator', 'sleep-calculator', 'stress-level-calculator', 'life-expectancy-calculator', 'pet-age-calculator'],
+  },
 };
 
 /**
