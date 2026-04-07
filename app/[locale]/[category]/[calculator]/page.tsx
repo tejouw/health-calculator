@@ -125,6 +125,8 @@ import { spfSunscreenContent } from '@/calculators/daily-life/spf-sunscreen-calc
 import { biorhythmContent } from '@/calculators/daily-life/biorhythm-calculator/biorhythmContent';
 // Daily Life - Face Shape
 import { faceShapeContent } from '@/calculators/daily-life/face-shape-calculator/faceShapeContent';
+// Heart - Cholesterol
+import { cholesterolContent } from '@/calculators/heart/cholesterol-calculator/cholesterolContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -296,6 +298,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'biorhythm-calculator': biorhythmContent,
     // Daily Life - Face Shape
     'face-shape-calculator': faceShapeContent,
+    // Heart - Cholesterol
+    'cholesterol-calculator': cholesterolContent,
   };
 
   const content = contentMap[calculator.id];

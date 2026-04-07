@@ -115,6 +115,8 @@ import { spfSunscreenMeta } from '@/calculators/daily-life/spf-sunscreen-calcula
 import { biorhythmMeta } from '@/calculators/daily-life/biorhythm-calculator/biorhythmMeta';
 // Daily Life - Face Shape
 import { faceShapeMeta } from '@/calculators/daily-life/face-shape-calculator/faceShapeMeta';
+// Heart - Cholesterol
+import { cholesterolMeta } from '@/calculators/heart/cholesterol-calculator/cholesterolMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -221,6 +223,8 @@ export const calculatorRegistry: CalculatorMeta[] = [
   biorhythmMeta,
   // Daily Life - Face Shape
   faceShapeMeta,
+  // Heart - Cholesterol
+  cholesterolMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {
