@@ -3,7 +3,8 @@ import { Card } from '@/components/ui';
 import { Breadcrumbs } from '@/components/layout';
 import type { Metadata } from 'next';
 import { Calendar, Clock, ArrowLeft, Tag } from 'lucide-react';
-import { generateSEO } from '@/lib/seo';
+import { generateSEO, generateArticleSchema, generateBreadcrumbSchema } from '@/lib/seo';
+import { getDomainForLocale } from '@/lib/domain';
 import { getPageSlug } from '@/config/pages.config';
 import { getBlogPost, blogPosts } from '@/content/blog';
 import { Link } from '@/lib/navigation';
@@ -22,11 +23,16 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     return { title: 'Not Found' };
   }
 
+  const altLoc = loc === 'en' ? 'tr' : 'en';
+  const altSlug = loc === 'en' ? post.slugTr : post.slug;
+
   return generateSEO({
     locale: loc,
     title: post.title[loc],
     description: post.description[loc],
+    keywords: post.tags[loc],
     path: `/${getPageSlug('blog', loc)}/${slug}`,
+    alternatePath: `/${getPageSlug('blog', altLoc)}/${altSlug}`,
   });
 }
 
@@ -63,7 +69,52 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     .filter((p) => p.slug !== post.slug && p.category === post.category)
     .slice(0, 3);
 
+  const domain = getDomainForLocale(loc);
+  const blogSlug = getPageSlug('blog', loc);
+  const pageUrl = `${domain}/${blogSlug}/${slug}`;
+
   return (
+    <>
+    {/* Article Schema */}
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(
+          generateArticleSchema({
+            headline: post.title[loc],
+            description: post.description[loc],
+            url: pageUrl,
+            datePublished: post.publishedAt,
+            dateModified: post.publishedAt,
+            locale: loc,
+          })
+        ),
+      }}
+    />
+
+    {/* Breadcrumb Schema */}
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(
+          generateBreadcrumbSchema([
+            {
+              name: loc === 'en' ? 'Home' : 'Ana Sayfa',
+              url: domain,
+            },
+            {
+              name: loc === 'en' ? 'Blog' : 'Blog',
+              url: `${domain}/${blogSlug}`,
+            },
+            {
+              name: post.title[loc],
+              url: pageUrl,
+            },
+          ])
+        ),
+      }}
+    />
+
     <div className="min-h-screen bg-neutral-50">
       {/* Header */}
       <section className="bg-gradient-to-br from-primary-600 to-secondary-600 py-12">
@@ -157,5 +208,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
       </section>
     </div>
+    </>
   );
 }

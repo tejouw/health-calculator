@@ -24,13 +24,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Homepage
   entries.push({
     url: domain,
-    lastModified: new Date(),
-    changeFrequency: 'daily',
+    lastModified: new Date('2025-06-01'),
+    changeFrequency: 'weekly',
     priority: 1.0,
     alternates: {
       languages: {
         en: EN_DOMAIN,
         tr: TR_DOMAIN,
+        'x-default': EN_DOMAIN,
       },
     },
   });
@@ -41,13 +42,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     entries.push({
       url: `${domain}/${slug}`,
-      lastModified: new Date(),
+      lastModified: new Date('2025-06-01'),
       changeFrequency: 'weekly',
-      priority: 0.8,
+      priority: 0.9,
       alternates: {
         languages: {
           en: `${EN_DOMAIN}/${cat.slug.en}`,
           tr: `${TR_DOMAIN}/${cat.slug.tr}`,
+          'x-default': `${EN_DOMAIN}/${cat.slug.en}`,
         },
       },
     });
@@ -58,16 +60,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   for (const calc of calculators) {
     const catSlug = getCategorySlugByLocale(calc.category, locale);
     const calcSlug = calc.slug[locale];
+    const enCatSlug = getCategorySlugByLocale(calc.category, 'en');
 
     entries.push({
       url: `${domain}/${catSlug}/${calcSlug}`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
+      lastModified: new Date('2025-06-01'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
       alternates: {
         languages: {
-          en: `${EN_DOMAIN}/${getCategorySlugByLocale(calc.category, 'en')}/${calc.slug.en}`,
+          en: `${EN_DOMAIN}/${enCatSlug}/${calc.slug.en}`,
           tr: `${TR_DOMAIN}/${getCategorySlugByLocale(calc.category, 'tr')}/${calc.slug.tr}`,
+          'x-default': `${EN_DOMAIN}/${enCatSlug}/${calc.slug.en}`,
         },
       },
     });
@@ -82,13 +86,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     entries.push({
       url: `${domain}/${slug}`,
-      lastModified: new Date(),
+      lastModified: new Date('2025-03-01'),
       changeFrequency: isLegal ? 'yearly' : 'monthly',
       priority: isLegal ? 0.3 : 0.5,
       alternates: {
         languages: {
           en: `${EN_DOMAIN}/${page.slug.en}`,
           tr: `${TR_DOMAIN}/${page.slug.tr}`,
+          'x-default': `${EN_DOMAIN}/${page.slug.en}`,
         },
       },
     });
@@ -97,13 +102,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Blog index
   entries.push({
     url: `${domain}/blog`,
-    lastModified: new Date(),
+    lastModified: new Date('2025-06-01'),
     changeFrequency: 'weekly',
-    priority: 0.6,
+    priority: 0.7,
     alternates: {
       languages: {
         en: `${EN_DOMAIN}/blog`,
         tr: `${TR_DOMAIN}/blog`,
+        'x-default': `${EN_DOMAIN}/blog`,
       },
     },
   });
@@ -115,13 +121,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     entries.push({
       url: `${domain}/blog/${localSlug}`,
-      lastModified: new Date(),
+      lastModified: new Date('2025-06-01'),
       changeFrequency: 'monthly',
       priority: 0.6,
       alternates: {
         languages: {
           en: `${EN_DOMAIN}/blog/${slug}`,
           tr: `${TR_DOMAIN}/blog/${slugTr}`,
+          'x-default': `${EN_DOMAIN}/blog/${slug}`,
         },
       },
     });

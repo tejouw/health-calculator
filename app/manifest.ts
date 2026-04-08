@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'ProHealthCalc - Professional Health Calculators',
     short_name: 'ProHealthCalc',
-    description: '350+ free health calculators for BMI, calorie tracking, pregnancy, fitness goals and more. Get instant, accurate results.',
+    description: 'Free online health calculators for BMI, calorie tracking, pregnancy, fitness goals and more. 65+ tools with instant, accurate results.',
     start_url: '/',
     display: 'standalone',
     background_color: '#ffffff',

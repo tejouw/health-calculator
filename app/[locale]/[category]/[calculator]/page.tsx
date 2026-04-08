@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import { getCalculatorBySlug, getAllCalculators } from '@/lib/calculatorRegistry';
 import { getCategorySlugByLocale } from '@/lib/categoryMapping';
+import { getCategoryById } from '@/config/categories.config';
 import { getDomainForLocale } from '@/lib/domain';
 import type { CalculatorContent } from '@/types/calculator';
 import {
@@ -643,10 +644,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
                 url: getDomainForLocale(locale as 'en' | 'tr'),
               },
               {
-                name: category
-                  .split('-')
-                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                  .join(' '),
+                name: getCategoryById(calculator.category)?.name[locale as 'en' | 'tr'] || category,
                 url: `${getDomainForLocale(locale as 'en' | 'tr')}/${category}`,
               },
               {

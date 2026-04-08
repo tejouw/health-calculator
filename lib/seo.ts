@@ -19,7 +19,7 @@ export function generateSEO({
   locale,
   path = '',
   alternatePath,
-  image = '/og-image.jpg',
+  image = '/opengraph-image',
 }: SEOProps): Metadata {
   // Get domain-specific URL
   const domain = getDomainForLocale(locale);
@@ -36,6 +36,7 @@ export function generateSEO({
   const languages: Record<string, string> = {};
   languages[locale] = url;
   languages[alternateLocale] = `${getDomainForLocale(alternateLocale)}${altPath}`;
+  languages['x-default'] = `${getDomainForLocale('en')}${path}`;
 
   return {
     title: fullTitle,
@@ -53,6 +54,7 @@ export function generateSEO({
     openGraph: {
       type: 'website',
       locale: locale === 'tr' ? 'tr_TR' : 'en_US',
+      alternateLocale: locale === 'tr' ? 'en_US' : 'tr_TR',
       url,
       title: `${fullTitle} | ${siteName}`,
       description,
@@ -108,8 +110,8 @@ export function generateCalculatorSchema(calculator: {
     operatingSystem: 'Any',
     browserRequirements: 'Requires JavaScript',
     softwareVersion: '1.0',
-    datePublished: calculator.datePublished || '2025-01-01',
-    dateModified: calculator.dateModified || new Date().toISOString().split('T')[0],
+    datePublished: calculator.datePublished || '2025-01-15',
+    dateModified: calculator.dateModified || '2025-06-01',
     inLanguage: ['en', 'tr'],
     isAccessibleForFree: true,
     offers: {
@@ -180,9 +182,9 @@ export function generateMedicalWebPageSchema(data: {
     name: data.name,
     description: data.description,
     url: data.url,
-    datePublished: data.datePublished || '2025-01-01',
-    dateModified: data.dateModified || new Date().toISOString().split('T')[0],
-    lastReviewed: data.lastReviewed || '2026-01-15',
+    datePublished: data.datePublished || '2025-01-15',
+    dateModified: data.dateModified || '2025-06-01',
+    lastReviewed: data.lastReviewed || '2025-06-01',
     reviewedBy: {
       '@type': 'Person',
       name: 'Dr. Mehmet Yilmaz, MD',
@@ -263,8 +265,8 @@ export function generateArticleSchema(data: {
     headline: data.headline,
     description: data.description,
     url: data.url,
-    datePublished: data.datePublished || new Date().toISOString(),
-    dateModified: data.dateModified || new Date().toISOString(),
+    datePublished: data.datePublished || '2025-01-15T00:00:00Z',
+    dateModified: data.dateModified || '2025-06-01T00:00:00Z',
     author: {
       '@type': 'Organization',
       name: data.author || siteConfig.name,
@@ -279,7 +281,7 @@ export function generateArticleSchema(data: {
         url: `${siteUrl}/logo.svg`,
       },
     },
-    image: data.image || `${siteUrl}/og-image.jpg`,
+    image: data.image || `${siteUrl}/opengraph-image`,
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': data.url,
@@ -290,18 +292,45 @@ export function generateArticleSchema(data: {
 export function generateWebSiteSchema(locale: 'en' | 'tr') {
   const siteUrl = siteConfig.getUrl(locale);
   const siteName = siteConfig.siteName[locale];
+  const altLocale = locale === 'en' ? 'tr' : 'en';
+  const altUrl = siteConfig.getUrl(altLocale);
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: siteName,
+    alternateName: siteConfig.siteName[altLocale],
     url: siteUrl,
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${siteUrl}/search?q={search_term_string}`,
-      },
-      'query-input': 'required name=search_term_string',
+    inLanguage: locale === 'en' ? 'en-US' : 'tr-TR',
+    description: siteConfig.description[locale],
+  };
+}
+
+export function generateCollectionPageSchema(data: {
+  name: string;
+  description: string;
+  url: string;
+  locale: 'en' | 'tr';
+  numberOfItems: number;
+}) {
+  const siteUrl = siteConfig.getUrl(data.locale);
+  const siteName = siteConfig.siteName[data.locale];
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: data.name,
+    description: data.description,
+    url: data.url,
+    inLanguage: data.locale === 'en' ? 'en-US' : 'tr-TR',
+    numberOfItems: data.numberOfItems,
+    isPartOf: {
+      '@type': 'WebSite',
+      name: siteName,
+      url: siteUrl,
+    },
+    provider: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+      url: siteUrl,
     },
   };
 }

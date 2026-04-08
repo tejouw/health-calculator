@@ -7,7 +7,8 @@ import { Breadcrumbs } from '@/components/layout';
 import { Link } from '@/lib/navigation';
 import { getIcon } from '@/lib/iconUtils';
 import { Activity, Calculator } from 'lucide-react';
-import { generateSEO } from '@/lib/seo';
+import { generateSEO, generateBreadcrumbSchema, generateCollectionPageSchema } from '@/lib/seo';
+import { getDomainForLocale } from '@/lib/domain';
 import type { Metadata } from 'next';
 
 interface CategoryPageProps {
@@ -27,10 +28,15 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 
   const alternateLocale = locale === 'en' ? 'tr' : 'en';
 
+  const loc = locale as 'en' | 'tr';
+  const calculators = getCalculatorsByCategory(category.id);
+  const calcNames = calculators.map((c) => c.title[loc].toLowerCase());
+
   return generateSEO({
-    title: category.name[locale as 'en' | 'tr'],
-    description: category.description[locale as 'en' | 'tr'],
-    locale: locale as 'en' | 'tr',
+    title: category.name[loc],
+    description: category.description[loc],
+    keywords: calcNames,
+    locale: loc,
     path: `/${categorySlug}`,
     alternatePath: `/${category.slug[alternateLocale as 'en' | 'tr']}`,
   });
@@ -71,7 +77,47 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const calculators = getCalculatorsByCategory(category.id);
   const CategoryIcon = getIcon(category.icon, Activity);
 
+  const loc = locale as 'en' | 'tr';
+  const domain = getDomainForLocale(loc);
+  const pageUrl = `${domain}/${categorySlug}`;
+
   return (
+    <>
+    {/* BreadcrumbList Schema */}
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(
+          generateBreadcrumbSchema([
+            {
+              name: loc === 'en' ? 'Home' : 'Ana Sayfa',
+              url: domain,
+            },
+            {
+              name: category.name[loc],
+              url: pageUrl,
+            },
+          ])
+        ),
+      }}
+    />
+
+    {/* CollectionPage Schema */}
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(
+          generateCollectionPageSchema({
+            name: category.name[loc],
+            description: category.description[loc],
+            url: pageUrl,
+            locale: loc,
+            numberOfItems: calculators.length,
+          })
+        ),
+      }}
+    />
+
     <div className="min-h-screen bg-neutral-50">
       {/* Header */}
       <section className="border-b border-neutral-200 bg-white">
@@ -146,5 +192,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         </div>
       </section>
     </div>
+    </>
   );
 }

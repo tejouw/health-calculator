@@ -3,7 +3,8 @@ import { Card } from '@/components/ui';
 import { Breadcrumbs } from '@/components/layout';
 import type { Metadata } from 'next';
 import { Calendar, Clock, ArrowRight, BookOpen } from 'lucide-react';
-import { generateSEO } from '@/lib/seo';
+import { generateSEO, generateBreadcrumbSchema, generateCollectionPageSchema } from '@/lib/seo';
+import { getDomainForLocale } from '@/lib/domain';
 import { getPageSlug } from '@/config/pages.config';
 import { blogPosts } from '@/content/blog';
 import { Link } from '@/lib/navigation';
@@ -38,7 +39,49 @@ export default async function BlogPage({ params }: BlogPageProps) {
 
   const breadcrumbs = [{ label: t('title') }];
 
+  const domain = getDomainForLocale(loc);
+  const blogSlug = getPageSlug('blog', loc);
+  const pageUrl = `${domain}/${blogSlug}`;
+
   return (
+    <>
+    {/* BreadcrumbList Schema */}
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(
+          generateBreadcrumbSchema([
+            {
+              name: loc === 'en' ? 'Home' : 'Ana Sayfa',
+              url: domain,
+            },
+            {
+              name: t('title'),
+              url: pageUrl,
+            },
+          ])
+        ),
+      }}
+    />
+
+    {/* CollectionPage Schema */}
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(
+          generateCollectionPageSchema({
+            name: loc === 'en' ? 'Health & Wellness Blog' : 'Sağlık ve Yaşam Blogu',
+            description: loc === 'en'
+              ? 'Expert articles on health, nutrition, fitness, and wellness backed by scientific research.'
+              : 'Bilimsel araştırmalarla desteklenen sağlık, beslenme, fitness ve yaşam kalitesi hakkında uzman makaleleri.',
+            url: pageUrl,
+            locale: loc,
+            numberOfItems: sortedPosts.length,
+          })
+        ),
+      }}
+    />
+
     <div className="min-h-screen bg-neutral-50">
       {/* Header */}
       <section className="bg-gradient-to-br from-primary-600 to-secondary-600 py-12">
@@ -113,5 +156,6 @@ export default async function BlogPage({ params }: BlogPageProps) {
         </div>
       </section>
     </div>
+    </>
   );
 }

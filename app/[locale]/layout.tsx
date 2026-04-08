@@ -70,6 +70,7 @@ export async function generateMetadata({
       languages: {
         en: 'https://prohealthcalc.com',
         tr: 'https://saglikhesapla.com',
+        'x-default': 'https://prohealthcalc.com',
       },
     },
     openGraph: {
