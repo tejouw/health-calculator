@@ -19,12 +19,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const locale: 'en' | 'tr' = isEN ? 'en' : 'tr';
   const domain = isEN ? EN_DOMAIN : TR_DOMAIN;
 
+  // Use current date so Google sees fresh content on every crawl
+  const now = new Date();
+
   const entries: MetadataRoute.Sitemap = [];
 
   // Homepage
   entries.push({
     url: domain,
-    lastModified: new Date('2025-06-01'),
+    lastModified: now,
     changeFrequency: 'weekly',
     priority: 1.0,
     alternates: {
@@ -42,7 +45,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     entries.push({
       url: `${domain}/${slug}`,
-      lastModified: new Date('2025-06-01'),
+      lastModified: now,
       changeFrequency: 'weekly',
       priority: 0.9,
       alternates: {
@@ -64,7 +67,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     entries.push({
       url: `${domain}/${catSlug}/${calcSlug}`,
-      lastModified: new Date('2025-06-01'),
+      lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.8,
       alternates: {
@@ -86,7 +89,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     entries.push({
       url: `${domain}/${slug}`,
-      lastModified: new Date('2025-03-01'),
+      lastModified: now,
       changeFrequency: isLegal ? 'yearly' : 'monthly',
       priority: isLegal ? 0.3 : 0.5,
       alternates: {
@@ -102,7 +105,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Blog index
   entries.push({
     url: `${domain}/blog`,
-    lastModified: new Date('2025-06-01'),
+    lastModified: now,
     changeFrequency: 'weekly',
     priority: 0.7,
     alternates: {
@@ -121,7 +124,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     entries.push({
       url: `${domain}/blog/${localSlug}`,
-      lastModified: new Date('2025-06-01'),
+      lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.6,
       alternates: {

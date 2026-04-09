@@ -127,9 +127,9 @@
     "copyright": "© 2025 ProHealthCalc. All rights reserved."
   },
   "seo": {
-    "defaultTitle": "ProHealthCalc - Free Health Calculators | BMI, Calorie & Pregnancy",
-    "homePageTitle": "ProHealthCalc - {count} Free Health Calculators | BMI, Calorie & Pregnancy",
-    "defaultDescription": "Professional health calculators for BMI, calorie tracking, pregnancy, fitness goals and more. Get instant, accurate results. Trusted by 100,000+ users worldwide."
+    "defaultTitle": "Free Online Health Calculators - BMI, Calorie, Pregnancy & More | ProHealthCalc",
+    "homePageTitle": "{count}+ Free Health Calculators Online - BMI, Calorie, TDEE & Pregnancy | ProHealthCalc",
+    "defaultDescription": "Use {count}+ free health calculators: BMI, daily calorie needs, pregnancy due date, body fat, macro tracker and more. Instant science-backed results — no signup required."
   },
   "calculator": {
     "relatedCalculators": "Related Calculators",

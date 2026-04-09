@@ -99,6 +99,7 @@ export function generateCalculatorSchema(calculator: {
   locale?: 'en' | 'tr';
 }) {
   const siteUrl = calculator.locale ? siteConfig.getUrl(calculator.locale) : siteConfig.url;
+  const today = new Date().toISOString().split('T')[0];
   return {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -111,7 +112,7 @@ export function generateCalculatorSchema(calculator: {
     browserRequirements: 'Requires JavaScript',
     softwareVersion: '1.0',
     datePublished: calculator.datePublished || '2025-01-15',
-    dateModified: calculator.dateModified || '2025-06-01',
+    dateModified: calculator.dateModified || today,
     inLanguage: ['en', 'tr'],
     isAccessibleForFree: true,
     offers: {
@@ -176,6 +177,7 @@ export function generateMedicalWebPageSchema(data: {
 }) {
   const siteUrl = data.locale ? siteConfig.getUrl(data.locale) : siteConfig.url;
   const siteName = data.locale ? siteConfig.siteName[data.locale] : siteConfig.name;
+  const today = new Date().toISOString().split('T')[0];
   return {
     '@context': 'https://schema.org',
     '@type': 'MedicalWebPage',
@@ -183,17 +185,12 @@ export function generateMedicalWebPageSchema(data: {
     description: data.description,
     url: data.url,
     datePublished: data.datePublished || '2025-01-15',
-    dateModified: data.dateModified || '2025-06-01',
-    lastReviewed: data.lastReviewed || '2025-06-01',
+    dateModified: data.dateModified || today,
+    lastReviewed: data.lastReviewed || today,
     reviewedBy: {
-      '@type': 'Person',
-      name: 'Dr. Mehmet Yilmaz, MD',
-      jobTitle: data.locale === 'tr' ? 'Tibbi Danisma Direktoru' : 'Medical Advisory Director',
-      affiliation: {
-        '@type': 'Organization',
-        name: siteName,
-        url: siteUrl,
-      },
+      '@type': 'Organization',
+      name: siteName,
+      url: siteUrl,
     },
     mainContentOfPage: {
       '@type': 'WebPageElement',
@@ -266,7 +263,7 @@ export function generateArticleSchema(data: {
     description: data.description,
     url: data.url,
     datePublished: data.datePublished || '2025-01-15T00:00:00Z',
-    dateModified: data.dateModified || '2025-06-01T00:00:00Z',
+    dateModified: data.dateModified || new Date().toISOString(),
     author: {
       '@type': 'Organization',
       name: data.author || siteConfig.name,
@@ -293,7 +290,6 @@ export function generateWebSiteSchema(locale: 'en' | 'tr') {
   const siteUrl = siteConfig.getUrl(locale);
   const siteName = siteConfig.siteName[locale];
   const altLocale = locale === 'en' ? 'tr' : 'en';
-  const altUrl = siteConfig.getUrl(altLocale);
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
@@ -302,6 +298,14 @@ export function generateWebSiteSchema(locale: 'en' | 'tr') {
     url: siteUrl,
     inLanguage: locale === 'en' ? 'en-US' : 'tr-TR',
     description: siteConfig.description[locale],
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${siteUrl}/?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
   };
 }
 

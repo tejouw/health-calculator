@@ -17,6 +17,7 @@ import {
   Star
 } from 'lucide-react';
 import { generateWebSiteSchema, generateOrganizationSchema } from '@/lib/seo';
+import { getDomainForLocale } from '@/lib/domain';
 
 interface HomePageProps {
   params: Promise<{ locale: string }>;
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
   // Metadata is already set in layout, this is just for page-specific overrides
   return {
     title: t('homePageTitle', { count: calculatorCount }),
-    description: t('defaultDescription'),
+    description: t('defaultDescription', { count: calculatorCount }),
   };
 }
 
@@ -91,18 +92,45 @@ export default async function HomePage({ params }: HomePageProps) {
     }
   ];
 
+  const loc = locale as 'en' | 'tr';
+  const domain = getDomainForLocale(loc);
+
+  // ItemList schema for categories (helps Google understand site structure)
+  const itemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: loc === 'en' ? 'Health Calculator Categories' : 'Sağlık Hesaplayıcı Kategorileri',
+    description: loc === 'en'
+      ? 'Browse health calculators organized by category'
+      : 'Kategorilere göre düzenlenmiş sağlık hesaplayıcılarını keşfedin',
+    numberOfItems: categoriesWithCounts.length,
+    itemListElement: categoriesWithCounts.map((cat, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: cat.name[loc],
+      description: cat.description[loc],
+      url: `${domain}/${cat.slug[loc]}`,
+    })),
+  };
+
   return (
     <>
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateWebSiteSchema(locale as 'en' | 'tr')),
+        __html: JSON.stringify(generateWebSiteSchema(loc)),
       }}
     />
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generateOrganizationSchema(locale as 'en' | 'tr')),
+        __html: JSON.stringify(generateOrganizationSchema(loc)),
+      }}
+    />
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(itemListSchema),
       }}
     />
     <div className="min-h-screen">

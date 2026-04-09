@@ -361,262 +361,44 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
         }}
       />
 
-      {/* HowTo Schema */}
-      {calculator.id === 'bmi-calculator' && (
+      {/* Dynamic HowTo Schema - generated for ALL calculators that have content */}
+      {content && content[locale as 'en' | 'tr'].howToCalculate && (
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(
               generateHowToSchema({
-                name:
-                  locale === 'en'
-                    ? 'How to Calculate BMI'
-                    : 'VKİ Nasıl Hesaplanır',
-                description:
-                  locale === 'en'
-                    ? 'Step-by-step guide to calculate your Body Mass Index (BMI)'
-                    : 'Vücut Kitle İndeksinizi (VKİ) hesaplamak için adım adım kılavuz',
+                name: locale === 'en'
+                  ? `How to Use the ${calculator.title.en.split(' - ')[0]}`
+                  : `${calculator.title.tr.split(' - ')[0]} Nasıl Kullanılır`,
+                description: calculator.description[locale as 'en' | 'tr'],
                 steps: [
                   {
-                    name: locale === 'en' ? 'Measure your height' : 'Boyunuzu ölçün',
-                    text:
-                      locale === 'en'
-                        ? 'Measure your height in centimeters or inches accurately.'
-                        : 'Boyunuzu santimetre veya inç cinsinden doğru şekilde ölçün.',
+                    name: locale === 'en' ? 'Enter your information' : 'Bilgilerinizi girin',
+                    text: locale === 'en'
+                      ? `Open the ${calculator.title.en.split(' - ')[0]} and enter the required values in the input fields.`
+                      : `${calculator.title.tr.split(' - ')[0]} aracını açın ve gerekli değerleri giriş alanlarına girin.`,
                   },
                   {
-                    name: locale === 'en' ? 'Measure your weight' : 'Kilonuzu ölçün',
-                    text:
-                      locale === 'en'
-                        ? 'Measure your weight in kilograms or pounds using a reliable scale.'
-                        : 'Güvenilir bir terazi kullanarak kilonuzu kilogram veya pound cinsinden ölçün.',
+                    name: locale === 'en' ? 'Select your preferences' : 'Tercihlerinizi seçin',
+                    text: locale === 'en'
+                      ? 'Choose your preferred unit system and any additional options available in the calculator.'
+                      : 'Tercih ettiğiniz birim sistemini ve hesaplayıcıda mevcut olan ek seçenekleri belirleyin.',
                   },
                   {
-                    name:
-                      locale === 'en'
-                        ? 'Enter values into calculator'
-                        : 'Değerleri hesaplayıcıya girin',
-                    text:
-                      locale === 'en'
-                        ? 'Input your height and weight into the BMI calculator and select your preferred unit system.'
-                        : 'Boy ve kilonuzu VKİ hesaplayıcısına girin ve tercih ettiğiniz birim sistemini seçin.',
+                    name: locale === 'en' ? 'Calculate results' : 'Sonuçları hesaplayın',
+                    text: locale === 'en'
+                      ? 'Click the Calculate button to get your personalized results instantly.'
+                      : 'Kişiselleştirilmiş sonuçlarınızı anında almak için Hesapla düğmesine tıklayın.',
                   },
                   {
-                    name:
-                      locale === 'en'
-                        ? 'Calculate and interpret results'
-                        : 'Hesaplayın ve sonuçları yorumlayın',
-                    text:
-                      locale === 'en'
-                        ? 'Click calculate to get your BMI value and see which category you fall into (underweight, normal, overweight, or obese).'
-                        : 'VKİ değerinizi almak ve hangi kategoriye düştüğünüzü görmek için hesapla\'ya tıklayın (zayıf, normal, fazla kilolu veya obez).',
+                    name: locale === 'en' ? 'Interpret and apply' : 'Yorumlayın ve uygulayın',
+                    text: locale === 'en'
+                      ? 'Review your results along with the detailed interpretation, health recommendations, and actionable insights provided below the calculator.'
+                      : 'Sonuçlarınızı, hesaplayıcının altında sunulan detaylı yorumlar, sağlık önerileri ve uygulanabilir bilgilerle birlikte inceleyin.',
                   },
                 ],
                 totalTime: 'PT2M',
-              })
-            ),
-          }}
-        />
-      )}
-
-      {calculator.id === 'tdee-calculator' && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(
-              generateHowToSchema({
-                name:
-                  locale === 'en'
-                    ? 'How to Calculate TDEE'
-                    : 'TDEE Nasıl Hesaplanır',
-                description:
-                  locale === 'en'
-                    ? 'Step-by-step guide to calculate your Total Daily Energy Expenditure (TDEE)'
-                    : 'Toplam Günlük Enerji Harcamanızı (TDEE) hesaplamak için adım adım kılavuz',
-                steps: [
-                  {
-                    name: locale === 'en' ? 'Enter personal information' : 'Kişisel bilgilerinizi girin',
-                    text:
-                      locale === 'en'
-                        ? 'Input your age, gender, height, and weight. Select your preferred unit system (metric or imperial).'
-                        : 'Yaş, cinsiyet, boy ve kilonuzu girin. Tercih ettiğiniz birim sistemini (metrik veya İngiliz) seçin.',
-                  },
-                  {
-                    name: locale === 'en' ? 'Select activity level' : 'Aktivite seviyenizi seçin',
-                    text:
-                      locale === 'en'
-                        ? 'Choose your activity level from sedentary to extremely active based on your weekly exercise routine and daily movement.'
-                        : 'Haftalık egzersiz rutininize ve günlük hareketinize göre hareketsizden aşırı aktif\'e kadar aktivite seviyenizi seçin.',
-                  },
-                  {
-                    name: locale === 'en' ? 'Calculate BMR and TDEE' : 'BMR ve TDEE hesaplayın',
-                    text:
-                      locale === 'en'
-                        ? 'Click calculate to get your Basal Metabolic Rate (BMR) and Total Daily Energy Expenditure (TDEE) using the Mifflin-St Jeor equation.'
-                        : 'Mifflin-St Jeor denklemini kullanarak Bazal Metabolizma Hızınızı (BMR) ve Toplam Günlük Enerji Harcamanızı (TDEE) almak için hesapla\'ya tıklayın.',
-                  },
-                  {
-                    name: locale === 'en' ? 'Choose your goal' : 'Hedefinizi seçin',
-                    text:
-                      locale === 'en'
-                        ? 'Select your goal (weight loss, maintenance, or muscle gain) to get personalized daily calorie recommendations and macronutrient targets.'
-                        : 'Kişiselleştirilmiş günlük kalori önerileri ve makrobesin hedefleri almak için hedefinizi (kilo verme, koruma veya kas kazanımı) seçin.',
-                  },
-                ],
-                totalTime: 'PT3M',
-              })
-            ),
-          }}
-        />
-      )}
-
-      {calculator.id === 'due-date-calculator' && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(
-              generateHowToSchema({
-                name:
-                  locale === 'en'
-                    ? 'How to Calculate Your Due Date'
-                    : 'Doğum Tarihinizi Nasıl Hesaplarsınız',
-                description:
-                  locale === 'en'
-                    ? 'Step-by-step guide to calculate your pregnancy due date'
-                    : 'Hamilelik doğum tarihinizi hesaplamak için adım adım kılavuz',
-                steps: [
-                  {
-                    name: locale === 'en' ? 'Choose calculation method' : 'Hesaplama yöntemini seçin',
-                    text:
-                      locale === 'en'
-                        ? 'Select the method you want to use: Last Menstrual Period (LMP), Conception Date, Ultrasound Results, or IVF Transfer Date.'
-                        : 'Kullanmak istediğiniz yöntemi seçin: Son Adet Tarihi (SAT), Döllendirme Tarihi, Ultrason Sonuçları veya Tüp Bebek Transfer Tarihi.',
-                  },
-                  {
-                    name: locale === 'en' ? 'Enter relevant dates' : 'İlgili tarihleri girin',
-                    text:
-                      locale === 'en'
-                        ? 'Input the required date(s) based on your selected method. For LMP, also enter your cycle length if different from 28 days.'
-                        : 'Seçtiğiniz yönteme göre gerekli tarihleri girin. SAT için, döngü uzunluğunuz 28 günden farklıysa onu da girin.',
-                  },
-                  {
-                    name: locale === 'en' ? 'Calculate due date' : 'Doğum tarihini hesaplayın',
-                    text:
-                      locale === 'en'
-                        ? 'Click calculate to get your estimated due date, current pregnancy week, conception date, and trimester information.'
-                        : 'Tahmini doğum tarihinizi, mevcut hamilelik haftanızı, döllendirme tarihinizi ve trimester bilgilerinizi almak için hesapla\'ya tıklayın.',
-                  },
-                  {
-                    name: locale === 'en' ? 'Review milestones' : 'Kilometre taşlarını inceleyin',
-                    text:
-                      locale === 'en'
-                        ? 'Check your pregnancy milestones and trimester progress. Track which developmental stages you\'ve reached and what to expect next.'
-                        : 'Hamilelik kilometre taşlarınızı ve trimester ilerlemenizi kontrol edin. Hangi gelişim aşamalarına ulaştığınızı ve bundan sonra neleri beklemeniz gerektiğini takip edin.',
-                  },
-                ],
-                totalTime: 'PT2M',
-              })
-            ),
-          }}
-        />
-      )}
-
-      {calculator.id === 'age-calculator' && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(
-              generateHowToSchema({
-                name:
-                  locale === 'en'
-                    ? 'How to Calculate Your Exact Age'
-                    : 'Tam Yaşınızı Nasıl Hesaplarsınız',
-                description:
-                  locale === 'en'
-                    ? 'Step-by-step guide to calculate your exact age in years, months, and days'
-                    : 'Tam yaşınızı yıl, ay ve gün olarak hesaplamak için adım adım kılavuz',
-                steps: [
-                  {
-                    name: locale === 'en' ? 'Enter your birth day' : 'Doğum gününüzü girin',
-                    text:
-                      locale === 'en'
-                        ? 'Enter the day of the month you were born (1-31).'
-                        : 'Doğduğunuz ayın gününü girin (1-31).',
-                  },
-                  {
-                    name: locale === 'en' ? 'Enter your birth month' : 'Doğum ayınızı girin',
-                    text:
-                      locale === 'en'
-                        ? 'Enter the month you were born (1-12).'
-                        : 'Doğduğunuz ayı girin (1-12).',
-                  },
-                  {
-                    name: locale === 'en' ? 'Enter your birth year' : 'Doğum yılınızı girin',
-                    text:
-                      locale === 'en'
-                        ? 'Enter the year you were born (e.g., 1990).'
-                        : 'Doğduğunuz yılı girin (örn. 1990).',
-                  },
-                  {
-                    name: locale === 'en' ? 'Calculate and view results' : 'Hesaplayın ve sonuçları görüntüleyin',
-                    text:
-                      locale === 'en'
-                        ? 'Click calculate to see your exact age in years, months, and days, plus fun facts like your zodiac sign, Chinese zodiac, birthstone, and days until your next birthday.'
-                        : 'Tam yaşınızı yıl, ay ve gün olarak görmek için hesapla\'ya tıklayın, ayrıca burcunuz, Çin burcunuz, doğum taşınız ve bir sonraki doğum gününüze kalan günler gibi eğlenceli bilgileri görün.',
-                  },
-                ],
-                totalTime: 'PT1M',
-              })
-            ),
-          }}
-        />
-      )}
-
-      {calculator.id === 'love-calculator' && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(
-              generateHowToSchema({
-                name:
-                  locale === 'en'
-                    ? 'How to Use the Love Calculator'
-                    : 'Aşk Hesaplayıcısı Nasıl Kullanılır',
-                description:
-                  locale === 'en'
-                    ? 'Step-by-step guide to calculate love compatibility between two names'
-                    : 'İki isim arasındaki aşk uyumunu hesaplamak için adım adım kılavuz',
-                steps: [
-                  {
-                    name: locale === 'en' ? 'Enter the first name' : 'İlk ismi girin',
-                    text:
-                      locale === 'en'
-                        ? 'Type the first person\'s name in the first input field. This can be your name or anyone you\'re curious about.'
-                        : 'İlk kişinin adını ilk giriş alanına yazın. Bu sizin adınız veya merak ettiğiniz herhangi birinin adı olabilir.',
-                  },
-                  {
-                    name: locale === 'en' ? 'Enter the second name' : 'İkinci ismi girin',
-                    text:
-                      locale === 'en'
-                        ? 'Type the second person\'s name. This could be your crush, partner, friend, or even a celebrity!'
-                        : 'İkinci kişinin adını yazın. Bu hoşlandığınız biri, partneriniz, arkadaşınız veya hatta bir ünlü olabilir!',
-                  },
-                  {
-                    name: locale === 'en' ? 'Calculate compatibility' : 'Uyumu hesaplayın',
-                    text:
-                      locale === 'en'
-                        ? 'Click the Calculate button and watch the magic happen! The calculator will process both names and generate your love compatibility percentage.'
-                        : 'Hesapla düğmesine tıklayın ve sihrin gerçekleşmesini izleyin! Hesaplayıcı her iki ismi işleyecek ve aşk uyumu yüzdenizi üretecektir.',
-                  },
-                  {
-                    name: locale === 'en' ? 'View and share results' : 'Sonuçları görüntüleyin ve paylaşın',
-                    text:
-                      locale === 'en'
-                        ? 'See your compatibility percentage with a personalized message. Share your results with friends on social media using the share button!'
-                        : 'Kişiselleştirilmiş bir mesajla uyum yüzdenizi görün. Paylaş düğmesini kullanarak sonuçlarınızı sosyal medyada arkadaşlarınızla paylaşın!',
-                  },
-                ],
-                totalTime: 'PT1M',
               })
             ),
           }}
