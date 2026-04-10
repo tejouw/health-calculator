@@ -117,6 +117,8 @@ import { biorhythmMeta } from '@/calculators/daily-life/biorhythm-calculator/bio
 import { faceShapeMeta } from '@/calculators/daily-life/face-shape-calculator/faceShapeMeta';
 // Heart - Cholesterol
 import { cholesterolMeta } from '@/calculators/heart/cholesterol-calculator/cholesterolMeta';
+// Diabetes - FINDRISC Diabetes Risk
+import { diabetesRiskMeta } from '@/calculators/diabetes/diabetes-risk-calculator/diabetesRiskMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -225,6 +227,8 @@ export const calculatorRegistry: CalculatorMeta[] = [
   faceShapeMeta,
   // Heart - Cholesterol
   cholesterolMeta,
+  // Diabetes - FINDRISC Diabetes Risk
+  diabetesRiskMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {

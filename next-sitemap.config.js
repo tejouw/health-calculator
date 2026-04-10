@@ -87,6 +87,7 @@ const CALCULATOR_SLUGS = {
   'spf-sunscreen-calculator': { en: 'spf-sunscreen-calculator', tr: 'gunes-koruma-hesaplayici' },
   'biorhythm-calculator': { en: 'biorhythm-calculator', tr: 'biyoritm-hesaplayici' },
   'face-shape-calculator': { en: 'face-shape-calculator', tr: 'yuz-sekli-hesaplayici' },
+  'diabetes-risk-calculator': { en: 'diabetes-risk-calculator', tr: 'diyabet-riski-hesaplayici' },
 };
 
 // Static page slug mappings

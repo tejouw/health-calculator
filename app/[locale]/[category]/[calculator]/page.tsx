@@ -128,6 +128,8 @@ import { biorhythmContent } from '@/calculators/daily-life/biorhythm-calculator/
 import { faceShapeContent } from '@/calculators/daily-life/face-shape-calculator/faceShapeContent';
 // Heart - Cholesterol
 import { cholesterolContent } from '@/calculators/heart/cholesterol-calculator/cholesterolContent';
+// Diabetes - FINDRISC Diabetes Risk
+import { diabetesRiskContent } from '@/calculators/diabetes/diabetes-risk-calculator/diabetesRiskContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -301,6 +303,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'face-shape-calculator': faceShapeContent,
     // Heart - Cholesterol
     'cholesterol-calculator': cholesterolContent,
+    // Diabetes - FINDRISC Diabetes Risk
+    'diabetes-risk-calculator': diabetesRiskContent,
   };
 
   const content = contentMap[calculator.id];

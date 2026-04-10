@@ -161,12 +161,16 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
 
   // Diabetes calculators
   'a1c-calculator': {
-    primary: ['blood-sugar-converter'],
+    primary: ['blood-sugar-converter', 'diabetes-risk-calculator'],
     secondary: ['bmi-calculator', 'calorie-calculator', 'body-fat-calculator', 'tdee-calculator', 'life-expectancy-calculator'],
   },
   'blood-sugar-converter': {
-    primary: ['a1c-calculator'],
+    primary: ['a1c-calculator', 'diabetes-risk-calculator'],
     secondary: ['bmi-calculator', 'calorie-calculator', 'body-fat-calculator', 'life-expectancy-calculator'],
+  },
+  'diabetes-risk-calculator': {
+    primary: ['a1c-calculator', 'blood-sugar-converter', 'bmi-calculator'],
+    secondary: ['waist-hip-ratio-calculator', 'waist-height-ratio-calculator', 'body-fat-calculator', 'blood-pressure-calculator', 'cholesterol-calculator', 'calorie-calculator', 'life-expectancy-calculator', 'biological-age-calculator'],
   },
 
   // Medical calculators
