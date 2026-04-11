@@ -11,6 +11,12 @@ export const dynamic = 'force-dynamic';
 const EN_DOMAIN = 'https://prohealthcalc.com';
 const TR_DOMAIN = 'https://saglikhesapla.com';
 
+// Use fixed dates instead of new Date() on every request.
+// Constantly changing lastModified without actual content changes
+// signals spammy behavior to Google and reduces crawl trust.
+const SITE_LAUNCH_DATE = new Date('2025-12-01');
+const LAST_CONTENT_UPDATE = new Date('2026-04-10');
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const headersList = await headers();
   const host = headersList.get('host') || '';
@@ -19,15 +25,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const locale: 'en' | 'tr' = isEN ? 'en' : 'tr';
   const domain = isEN ? EN_DOMAIN : TR_DOMAIN;
 
-  // Use current date so Google sees fresh content on every crawl
-  const now = new Date();
-
   const entries: MetadataRoute.Sitemap = [];
 
   // Homepage
   entries.push({
     url: domain,
-    lastModified: now,
+    lastModified: LAST_CONTENT_UPDATE,
     changeFrequency: 'weekly',
     priority: 1.0,
     alternates: {
@@ -45,7 +48,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     entries.push({
       url: `${domain}/${slug}`,
-      lastModified: now,
+      lastModified: LAST_CONTENT_UPDATE,
       changeFrequency: 'weekly',
       priority: 0.9,
       alternates: {
@@ -67,7 +70,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     entries.push({
       url: `${domain}/${catSlug}/${calcSlug}`,
-      lastModified: now,
+      lastModified: LAST_CONTENT_UPDATE,
       changeFrequency: 'monthly',
       priority: 0.8,
       alternates: {
@@ -89,7 +92,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     entries.push({
       url: `${domain}/${slug}`,
-      lastModified: now,
+      lastModified: isLegal ? SITE_LAUNCH_DATE : LAST_CONTENT_UPDATE,
       changeFrequency: isLegal ? 'yearly' : 'monthly',
       priority: isLegal ? 0.3 : 0.5,
       alternates: {
@@ -105,7 +108,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Blog index
   entries.push({
     url: `${domain}/blog`,
-    lastModified: now,
+    lastModified: LAST_CONTENT_UPDATE,
     changeFrequency: 'weekly',
     priority: 0.7,
     alternates: {
@@ -124,7 +127,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     entries.push({
       url: `${domain}/blog/${localSlug}`,
-      lastModified: now,
+      lastModified: LAST_CONTENT_UPDATE,
       changeFrequency: 'monthly',
       priority: 0.6,
       alternates: {

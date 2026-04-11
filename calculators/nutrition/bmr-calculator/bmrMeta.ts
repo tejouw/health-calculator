@@ -9,12 +9,12 @@ export const bmrMeta: CalculatorMeta = {
     tr: 'bmr-hesaplama',
   },
   title: {
-    en: 'BMR Calculator - Calculate Your Basal Metabolic Rate',
-    tr: 'BMR Hesaplama - Bazal Metabolizma Hızını Hesaplayın',
+    en: 'Free BMR Calculator - Basal Metabolic Rate Calculator (2026)',
+    tr: 'BMR Hesaplama (Ücretsiz) - Bazal Metabolizma Hızı Hesaplayıcı 2026',
   },
   description: {
-    en: 'Calculate your Basal Metabolic Rate (BMR) - the calories your body burns at rest. Get your resting metabolism and daily calorie needs at different activity levels using Mifflin-St Jeor equation.',
-    tr: 'Bazal Metabolizma Hızınızı (BMR) hesaplayın - vücudunuzun dinlenme sırasında yaktığı kalori. Mifflin-St Jeor denklemini kullanarak dinlenme metabolizmanızı ve farklı aktivite seviyelerinde günlük kalori ihtiyaçlarınızı alın.',
+    en: 'Calculate your BMR (Basal Metabolic Rate) free — how many calories your body burns at rest. Get resting metabolism and daily calorie needs at every activity level using the Mifflin-St Jeor equation.',
+    tr: 'Bazal Metabolizma Hızınızı (BMR) ücretsiz hesaplayın. Vücudunuzun dinlenirken yaktığı kaloriyi ve farklı aktivite seviyelerindeki günlük kalori ihtiyacınızı Mifflin-St Jeor denklemiyle anında öğrenin.',
   },
   keywords: [
     'BMR calculator',

@@ -298,14 +298,9 @@ export function generateWebSiteSchema(locale: 'en' | 'tr') {
     url: siteUrl,
     inLanguage: locale === 'en' ? 'en-US' : 'tr-TR',
     description: siteConfig.description[locale],
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${siteUrl}/?q={search_term_string}`,
-      },
-      'query-input': 'required name=search_term_string',
-    },
+    // SearchAction omitted: site uses client-side search only,
+    // no server-rendered search results page at /?q= exists.
+    // Adding a broken SearchAction causes Google Search Console errors.
   };
 }
 

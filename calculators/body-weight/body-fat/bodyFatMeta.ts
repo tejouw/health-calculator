@@ -9,12 +9,12 @@ export const bodyFatMeta: CalculatorMeta = {
     tr: 'vucut-yag-orani-hesaplama',
   },
   title: {
-    en: 'Body Fat Calculator - Calculate Your Body Fat Percentage',
-    tr: 'Vücut Yağ Oranı Hesaplama - Vücut Yağ Yüzdesi Hesaplayıcı',
+    en: 'Free Body Fat Calculator - Body Fat Percentage by US Navy Method',
+    tr: 'Vücut Yağ Oranı Hesaplama (Ücretsiz) - Yağ Yüzdesi Hesaplayıcı 2026',
   },
   description: {
-    en: 'Calculate your body fat percentage using the US Navy Method. Get accurate body composition analysis based on your measurements.',
-    tr: 'US Navy Method kullanarak vücut yağ yüzdenizi hesaplayın. Ölçümlerinize dayalı doğru vücut kompozisyonu analizi alın.',
+    en: 'Calculate your body fat percentage free using the US Navy Method. Enter your measurements to get accurate body composition analysis, lean mass calculation and fitness category instantly!',
+    tr: 'US Navy yöntemiyle vücut yağ yüzdenizi ücretsiz hesaplayın. Ölçümlerinizi girin, vücut kompozisyonu analizi, yağsız kütle ve fitness kategorinizi anında öğrenin!',
   },
   keywords: [
     'body fat calculator',

@@ -20,15 +20,9 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
         allow: '/',
         disallow: [
           '/api/',
-          '/*?s=',
-          '/_next/static/',
-          '/_next/image/',
+          '/_next/',
           '/admin/',
           '/staging/',
-          '/*?utm_*',
-          '/*?ref=*',
-          '/*?fbclid=*',
-          '/*?gclid=*',
         ],
       },
       {

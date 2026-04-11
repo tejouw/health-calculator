@@ -9,12 +9,12 @@ export const idealWeightMeta: CalculatorMeta = {
     tr: 'ideal-kilo-hesaplayici',
   },
   title: {
-    en: 'Ideal Weight Calculator - Calculate Your Ideal Body Weight',
-    tr: 'İdeal Kilo Hesaplayıcı - İdeal Vücut Kilonuzu Hesaplayın',
+    en: 'Free Ideal Weight Calculator - Find Your Perfect Weight by Height',
+    tr: 'İdeal Kilo Hesaplama (Ücretsiz) - Boyunuza Göre İdeal Kilonuz 2026',
   },
   description: {
-    en: 'Free ideal weight calculator using multiple scientific formulas (Hamwi, Devine, Robinson, Miller). Calculate your ideal body weight based on height, gender, and body frame. Get personalized healthy weight range recommendations and BMI-based targets for optimal health.',
-    tr: 'Birden fazla bilimsel formül (Hamwi, Devine, Robinson, Miller) kullanan ücretsiz ideal kilo hesaplayıcı. Boy, cinsiyet ve vücut yapınıza göre ideal vücut kilonuzu hesaplayın. Optimal sağlık için kişiselleştirilmiş sağlıklı kilo aralığı önerileri ve BMI bazlı hedefler alın.',
+    en: 'Find your ideal body weight free using 4 scientific formulas (Hamwi, Devine, Robinson, Miller). Enter height and gender to get your healthy weight range instantly. Personalized BMI-based targets included!',
+    tr: 'Boyunuza ve cinsiyetinize göre ideal kilonuzu 4 bilimsel formülle ücretsiz hesaplayın. Sağlıklı kilo aralığınızı ve BMI bazlı hedeflerinizi anında öğrenin!',
   },
   keywords: [
     'ideal weight calculator',

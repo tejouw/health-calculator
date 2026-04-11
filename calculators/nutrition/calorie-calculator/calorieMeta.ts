@@ -9,12 +9,12 @@ export const calorieMeta: CalculatorMeta = {
     tr: 'kalori-hesaplayici',
   },
   title: {
-    en: 'Calorie Calculator - Calculate Your Daily Calorie Needs',
-    tr: 'Kalori Hesaplayıcı - Günlük Kalori İhtiyacınızı Hesaplayın',
+    en: 'Free Calorie Calculator - Daily Calorie Needs for Weight Loss & Gain',
+    tr: 'Kalori Hesaplama (Ücretsiz) - Günlük Kalori İhtiyacı Hesaplayıcı 2026',
   },
   description: {
-    en: 'Free calorie calculator to determine your daily caloric needs based on age, gender, height, weight, and activity level. Calculate BMR, TDEE, and personalized calorie goals for weight loss, maintenance, or muscle gain.',
-    tr: 'Yaş, cinsiyet, boy, kilo ve aktivite seviyenize göre günlük kalori ihtiyacınızı belirleyin. BMR, TDEE hesaplayın ve kilo verme, koruma veya kas kazanımı için kişiselleştirilmiş kalori hedefleri oluşturun.',
+    en: 'Calculate your daily calorie needs free. Enter age, weight, height and activity level to get personalized BMR and TDEE results. Custom goals for weight loss, maintenance or muscle gain — instant results!',
+    tr: 'Günlük kalori ihtiyacınızı ücretsiz hesaplayın. Yaş, kilo, boy ve aktivite seviyenizi girin; kilo verme, koruma veya kas kazanımı için kişisel BMR ve TDEE sonuçlarınızı anında alın!',
   },
   keywords: [
     'calorie calculator',

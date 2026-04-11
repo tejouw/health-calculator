@@ -9,12 +9,12 @@ export const dueDateMeta: CalculatorMeta = {
     tr: 'dogum-tarihi-hesaplayici',
   },
   title: {
-    en: 'Pregnancy Due Date Calculator - Calculate Your Baby\'s Due Date',
-    tr: 'Hamilelik Doğum Tarihi Hesaplayıcı - Bebeğinizin Doğum Tarihini Hesaplayın',
+    en: 'Free Pregnancy Due Date Calculator - When Is Your Baby Due?',
+    tr: 'Doğum Tarihi Hesaplama (Ücretsiz) - Bebeğiniz Ne Zaman Doğacak? 2026',
   },
   description: {
-    en: 'Free pregnancy due date calculator to determine your estimated delivery date. Calculate based on LMP, conception date, ultrasound results, or IVF transfer. Track pregnancy milestones and trimester progress with accurate Naegele\'s Rule calculations.',
-    tr: 'Tahmini doğum tarihinizi belirlemek için ücretsiz hamilelik doğum tarihi hesaplayıcısı. SAT, döllendirme tarihi, ultrason sonuçları veya tüp bebek transferine göre hesaplayın. Doğru Naegele Kuralı hesaplamalarıyla hamilelik kilometre taşlarını ve trimester ilerlemesini takip edin.',
+    en: 'Calculate your baby\'s due date free! Enter your last period date, conception date or ultrasound results. Track pregnancy week by week with trimester milestones — instant results using Naegele\'s Rule.',
+    tr: 'Bebeğinizin doğum tarihini ücretsiz hesaplayın! Son adet tarihi, gebe kalma tarihi veya ultrason sonuçlarınızı girin. Hamilelik haftalarını ve trimester ilerlemesini anında takip edin.',
   },
   keywords: [
     'due date calculator',

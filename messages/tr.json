@@ -124,12 +124,12 @@
     "disclaimerText": "Bu sitedeki tüm hesaplayıcılar ve bilgiler yalnızca bilgilendirme amaçlıdır ve profesyonel tıbbi tavsiye yerine geçmez.",
     "privacy": "Gizlilik Politikası",
     "terms": "Kullanım Koşulları",
-    "copyright": "© 2025 Sağlık Hesapla. Tüm hakları saklıdır."
+    "copyright": "© 2025-2026 Sağlık Hesapla. Tüm hakları saklıdır."
   },
   "seo": {
-    "defaultTitle": "Ücretsiz Online Sağlık Hesaplayıcıları - VKİ, Kalori, Hamilelik ve Daha Fazlası | Sağlık Hesapla",
-    "homePageTitle": "{count}+ Ücretsiz Sağlık Hesaplayıcısı - VKİ, Kalori, İdeal Kilo ve Hamilelik | Sağlık Hesapla",
-    "defaultDescription": "{count}+ ücretsiz sağlık hesaplayıcısı kullanın: VKİ, günlük kalori ihtiyacı, doğum tarihi hesaplama, vücut yağ oranı ve daha fazlası. Anında bilimsel sonuçlar — kayıt gerekmez."
+    "defaultTitle": "Ücretsiz Online Sağlık Hesaplayıcıları - VKİ, Kalori, Hamilelik ve Daha Fazlası",
+    "homePageTitle": "{count}+ Ücretsiz Sağlık Hesaplayıcısı - VKİ, Kalori, İdeal Kilo Hesaplama (2026)",
+    "defaultDescription": "Online {count}+ ücretsiz sağlık hesaplayıcısı: VKİ hesaplama, günlük kalori ihtiyacı, doğum tarihi, vücut yağ oranı, ideal kilo ve daha fazlası. Anında bilimsel sonuçlar alın — kayıt gerekmez, tamamen ücretsiz!"
   },
   "calculator": {
     "relatedCalculators": "İlgili Hesaplayıcılar",

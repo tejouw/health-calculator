@@ -9,12 +9,12 @@ export const tdeeMeta: CalculatorMeta = {
     tr: 'tdee-hesaplayici',
   },
   title: {
-    en: 'TDEE Calculator - Total Daily Energy Expenditure Calculator',
-    tr: 'TDEE Hesaplayıcı - Toplam Günlük Enerji Harcaması Hesaplayıcı',
+    en: 'Free TDEE Calculator - Total Daily Energy Expenditure (2026)',
+    tr: 'TDEE Hesaplama (Ücretsiz) - Günlük Enerji Harcaması Hesaplayıcı 2026',
   },
   description: {
-    en: 'Free TDEE calculator to determine your total daily energy expenditure based on BMR, age, gender, weight, height, and activity level. Calculate personalized calorie goals for weight loss, muscle gain, or maintenance with accurate Mifflin-St Jeor equation.',
-    tr: 'BMR, yaş, cinsiyet, kilo, boy ve aktivite seviyenize göre toplam günlük enerji harcamanızı belirleyin. Doğru Mifflin-St Jeor denklemi ile kilo verme, kas kazanımı veya kilo koruma için kişiselleştirilmiş kalori hedefleri hesaplayın.',
+    en: 'Calculate your TDEE (Total Daily Energy Expenditure) free. Enter your stats to get BMR + activity-based calorie needs. Personalized goals for weight loss, muscle gain or maintenance using Mifflin-St Jeor equation.',
+    tr: 'TDEE (Toplam Günlük Enerji Harcaması) hesaplamanızı ücretsiz yapın. Mifflin-St Jeor denklemiyle BMR ve aktivite bazlı kalori ihtiyacınızı anında öğrenin. Kilo verme ve kas kazanımı hedefleri!',
   },
   keywords: [
     'TDEE calculator',

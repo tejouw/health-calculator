@@ -124,12 +124,12 @@
     "disclaimerText": "All calculators and information on this site are for informational purposes only and do not substitute professional medical advice.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
-    "copyright": "© 2025 ProHealthCalc. All rights reserved."
+    "copyright": "© 2025-2026 ProHealthCalc. All rights reserved."
   },
   "seo": {
-    "defaultTitle": "Free Online Health Calculators - BMI, Calorie, Pregnancy & More | ProHealthCalc",
-    "homePageTitle": "{count}+ Free Health Calculators Online - BMI, Calorie, TDEE & Pregnancy | ProHealthCalc",
-    "defaultDescription": "Use {count}+ free health calculators: BMI, daily calorie needs, pregnancy due date, body fat, macro tracker and more. Instant science-backed results — no signup required."
+    "defaultTitle": "Free Online Health Calculators - BMI, Calorie, Pregnancy & More",
+    "homePageTitle": "{count}+ Free Health Calculators - BMI, Calorie, Ideal Weight & TDEE (2026)",
+    "defaultDescription": "Use {count}+ free online health calculators: BMI, daily calorie needs, pregnancy due date, body fat percentage, macro tracker and more. Get instant science-backed results — no signup, 100% free!"
   },
   "calculator": {
     "relatedCalculators": "Related Calculators",

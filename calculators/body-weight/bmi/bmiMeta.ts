@@ -9,12 +9,12 @@ export const bmiMeta: CalculatorMeta = {
     tr: 'vucut-kitle-indeksi-hesaplama',
   },
   title: {
-    en: 'BMI Calculator - Calculate Your Body Mass Index',
-    tr: 'VKİ Hesaplama - Vücut Kitle İndeksi Hesaplayıcı',
+    en: 'Free BMI Calculator - Check Your Body Mass Index Instantly',
+    tr: 'VKİ Hesaplama (Ücretsiz) - Vücut Kitle İndeksi Hesaplayıcı 2026',
   },
   description: {
-    en: 'Calculate your Body Mass Index (BMI) instantly. Find out if your weight is in a healthy range based on your height and weight.',
-    tr: 'Vücut Kitle İndeksinizi (VKİ) anında hesaplayın. Boyunuz ve kilonuza göre ağırlığınızın sağlıklı aralıkta olup olmadığını öğrenin.',
+    en: 'Calculate your BMI (Body Mass Index) free online. Enter your height and weight to instantly find out if you are underweight, normal, overweight or obese. Science-backed results with health tips.',
+    tr: 'Ücretsiz VKİ hesaplama aracıyla vücut kitle indeksinizi anında öğrenin. Boy ve kilonuzu girin, zayıf, normal, fazla kilolu veya obez kategorinizi hemen görün. Bilimsel sonuçlar ve sağlık önerileri.',
   },
   keywords: [
     'bmi calculator',
