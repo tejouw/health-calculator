@@ -130,6 +130,8 @@ import { faceShapeContent } from '@/calculators/daily-life/face-shape-calculator
 import { cholesterolContent } from '@/calculators/heart/cholesterol-calculator/cholesterolContent';
 // Diabetes - FINDRISC Diabetes Risk
 import { diabetesRiskContent } from '@/calculators/diabetes/diabetes-risk-calculator/diabetesRiskContent';
+// Women's Health - Menopause
+import { menopauseContent } from '@/calculators/womens-health/menopause-calculator/menopauseContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -305,6 +307,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'cholesterol-calculator': cholesterolContent,
     // Diabetes - FINDRISC Diabetes Risk
     'diabetes-risk-calculator': diabetesRiskContent,
+    // Women's Health - Menopause
+    'menopause-calculator': menopauseContent,
   };
 
   const content = contentMap[calculator.id];

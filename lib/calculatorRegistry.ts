@@ -119,6 +119,8 @@ import { faceShapeMeta } from '@/calculators/daily-life/face-shape-calculator/fa
 import { cholesterolMeta } from '@/calculators/heart/cholesterol-calculator/cholesterolMeta';
 // Diabetes - FINDRISC Diabetes Risk
 import { diabetesRiskMeta } from '@/calculators/diabetes/diabetes-risk-calculator/diabetesRiskMeta';
+// Women's Health - Menopause
+import { menopauseMeta } from '@/calculators/womens-health/menopause-calculator/menopauseMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -229,6 +231,8 @@ export const calculatorRegistry: CalculatorMeta[] = [
   cholesterolMeta,
   // Diabetes - FINDRISC Diabetes Risk
   diabetesRiskMeta,
+  // Women's Health - Menopause
+  menopauseMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {
