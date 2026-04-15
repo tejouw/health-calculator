@@ -6,7 +6,7 @@ import { Card, Badge } from '@/components/ui';
 import { Breadcrumbs } from '@/components/layout';
 import { Link } from '@/lib/navigation';
 import { getIcon } from '@/lib/iconUtils';
-import { Activity, Calculator } from 'lucide-react';
+import { Activity, Calculator, ArrowRight } from 'lucide-react';
 import { generateSEO, generateBreadcrumbSchema, generateCollectionPageSchema } from '@/lib/seo';
 import { getDomainForLocale } from '@/lib/domain';
 import type { Metadata } from 'next';
@@ -139,6 +139,11 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             <div>
               <h1 className="heading-2 mb-2">{category.name[locale as 'en' | 'tr']}</h1>
               <p className="text-body">{category.description[locale as 'en' | 'tr']}</p>
+              <p className="mt-2 text-sm font-medium text-primary-600">
+                {loc === 'en'
+                  ? `${calculators.length} free calculators available`
+                  : `${calculators.length} ücretsiz hesaplayıcı mevcut`}
+              </p>
             </div>
           </div>
         </div>
@@ -157,10 +162,10 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                     key={calc.id}
                     href={`/${category.slug[locale as 'en' | 'tr']}/${calc.slug[locale as 'en' | 'tr']}`}
                   >
-                    <Card hoverable className="group h-full transition-all hover:shadow-hard">
+                    <Card hoverable className="group flex h-full flex-col transition-all hover:shadow-hard hover:border-primary-200">
                       <div className="mb-4 flex items-start justify-between">
                         <div
-                          className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${category.gradient}`}
+                          className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${category.gradient} transition-transform group-hover:scale-110`}
                         >
                           <CalcIcon className="h-6 w-6 text-white" />
                         </div>
@@ -172,9 +177,13 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                       <h3 className="mb-2 text-lg font-semibold text-neutral-900 group-hover:text-primary-600">
                         {calc.title[locale as 'en' | 'tr']}
                       </h3>
-                      <p className="text-sm text-neutral-600">
+                      <p className="mb-4 flex-1 text-sm text-neutral-600">
                         {calc.description[locale as 'en' | 'tr']}
                       </p>
+                      <div className="flex items-center gap-1 text-sm font-medium text-primary-600 opacity-0 transition-opacity group-hover:opacity-100">
+                        <span>{loc === 'en' ? 'Calculate Now' : 'Hemen Hesapla'}</span>
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </div>
                     </Card>
                   </Link>
                 );

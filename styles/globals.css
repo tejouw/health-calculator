@@ -138,4 +138,15 @@
   .transition-base {
     @apply transition-all duration-200 ease-in-out;
   }
+
+  /* FAQ Accordion smooth animation */
+  details > summary {
+    list-style: none;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+  details[open] > summary {
+    @apply bg-neutral-50;
+  }
 }

@@ -280,6 +280,34 @@ export default async function HomePage({ params }: HomePageProps) {
           </div>
         </div>
       </section>
+
+      {/* SEO Content Section - Keyword-rich bottom content */}
+      <section className="section-spacing bg-white">
+        <div className="container-custom px-4">
+          <div className="prose prose-neutral mx-auto max-w-4xl">
+            <h2 className="heading-3 mb-4 text-center">
+              {loc === 'en'
+                ? `Free Online Health Calculators - ${calculatorCount}+ Tools`
+                : `Ücretsiz Online Sağlık Hesaplayıcıları - ${calculatorCount}+ Araç`}
+            </h2>
+            <p className="text-body mb-4">
+              {loc === 'en'
+                ? `ProHealthCalc offers ${calculatorCount}+ free, science-backed health calculators including BMI calculator, calorie calculator, TDEE calculator, body fat calculator, ideal weight calculator, macro calculator, and many more. All tools provide instant results without registration and are designed by health professionals using clinically validated formulas.`
+                : `Sağlık Hesapla, VKİ hesaplama, kalori hesaplama, TDEE hesaplama, vücut yağ oranı hesaplama, ideal kilo hesaplama, makro hesaplama ve daha birçok aracı içeren ${calculatorCount}+ ücretsiz, bilimsel tabanlı sağlık hesaplayıcısı sunar. Tüm araçlar kayıt gerektirmeden anında sonuç verir ve klinik olarak doğrulanmış formüller kullanan sağlık uzmanları tarafından tasarlanmıştır.`}
+            </p>
+            <p className="text-body mb-4">
+              {loc === 'en'
+                ? 'Whether you want to calculate your BMI, track your daily calorie needs, plan your pregnancy due date, monitor your heart rate zones, or assess your sleep quality, our comprehensive suite of health tools has you covered. Each calculator includes detailed explanations, health tips, and personalized recommendations based on your results.'
+                : 'VKİ hesaplamak, günlük kalori ihtiyacınızı takip etmek, hamilelik doğum tarihinizi planlamak, kalp atış hızı bölgelerinizi izlemek veya uyku kalitenizi değerlendirmek istiyorsanız, kapsamlı sağlık araçlarımız tam size göre. Her hesaplayıcı, sonuçlarınıza dayalı detaylı açıklamalar, sağlık ipuçları ve kişiselleştirilmiş öneriler içerir.'}
+            </p>
+            <p className="text-body text-sm text-neutral-500">
+              {loc === 'en'
+                ? 'All calculators are free to use, require no sign-up, and your data stays private on your device. Results are for informational purposes only and do not replace professional medical advice.'
+                : 'Tüm hesaplayıcılar ücretsizdir, kayıt gerektirmez ve verileriniz cihazınızda gizli kalır. Sonuçlar yalnızca bilgilendirme amaçlıdır ve profesyonel tıbbi tavsiyenin yerini tutmaz.'}
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
     </>
   );

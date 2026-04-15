@@ -68,11 +68,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const calcSlug = calc.slug[locale];
     const enCatSlug = getCategorySlugByLocale(calc.category, 'en');
 
+    const isPopular = calc.popular || calc.featured;
     entries.push({
       url: `${domain}/${catSlug}/${calcSlug}`,
       lastModified: LAST_CONTENT_UPDATE,
-      changeFrequency: 'monthly',
-      priority: 0.8,
+      changeFrequency: 'weekly',
+      priority: isPopular ? 0.9 : 0.8,
       alternates: {
         languages: {
           en: `${EN_DOMAIN}/${enCatSlug}/${calc.slug.en}`,

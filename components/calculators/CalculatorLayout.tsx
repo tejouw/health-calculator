@@ -7,7 +7,7 @@ import { Breadcrumbs } from '@/components/layout';
 import { Card } from '@/components/ui';
 import { getCategoryById } from '@/config/categories.config';
 import { usePageViewTracking } from '@/hooks/usePageViewTracking';
-import { ShieldCheck } from 'lucide-react';
+import { ShieldCheck, Zap, Lock } from 'lucide-react';
 
 // Import BMI-specific components (will be conditionally rendered)
 import BMICategoriesTable from '@/calculators/body-weight/bmi/components/BMICategoriesTable';
@@ -81,10 +81,18 @@ const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
             <div>
               <h1 className="heading-2 mb-3">{calculator.title[locale]}</h1>
               <p className="text-body max-w-3xl">{calculator.description[locale]}</p>
-              <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-green-50 px-3 py-1.5 text-xs text-green-700">
-                <ShieldCheck className="h-3.5 w-3.5" />
-                <span>
-                  {t('medicallyReviewedBy')}: {t('medicalReviewTeam')} | {t('lastMedicalReview')}: {t('medicalReviewDate')}
+              <div className="mt-3 flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-green-50 px-3 py-1.5 text-xs font-medium text-green-700">
+                  <ShieldCheck className="h-3.5 w-3.5" />
+                  {t('medicallyReviewedBy')}: {t('medicalReviewTeam')}
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700">
+                  <Zap className="h-3.5 w-3.5" />
+                  {locale === 'tr' ? 'Anında Sonuç' : 'Instant Results'}
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-purple-50 px-3 py-1.5 text-xs font-medium text-purple-700">
+                  <Lock className="h-3.5 w-3.5" />
+                  {locale === 'tr' ? 'Verileriniz Gizli' : 'Privacy Protected'}
                 </span>
               </div>
             </div>
@@ -105,13 +113,19 @@ const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
         <div className="container-custom">
           <div className="grid gap-8 lg:grid-cols-3">
             {/* Calculator */}
-            <div className="lg:col-span-2">{children}</div>
+            <div className="lg:col-span-2">
+              <div className="rounded-2xl border-2 border-primary-100 bg-gradient-to-b from-primary-50/30 to-transparent p-1">
+                {children}
+              </div>
+            </div>
 
             {/* Sidebar */}
             <div className="space-y-6">
               {/* Content Navigation - Sticky TOC */}
               {contentSections.length > 0 && (
-                <ContentNavigation sections={contentSections} locale={locale} />
+                <div className="lg:sticky lg:top-20">
+                  <ContentNavigation sections={contentSections} locale={locale} />
+                </div>
               )}
 
               {/* Ad Space - CLS Protected */}
@@ -142,11 +156,11 @@ const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
       {content && (
         <section className="border-t border-neutral-200 bg-white">
           <div className="container-custom section-spacing">
-            <div className="prose prose-neutral max-w-none">
+            <article className="prose prose-neutral max-w-none">
               {/* What Is */}
               <div id="what-is" className="mb-12 scroll-mt-20">
                 <h2 className="heading-3 mb-4">{t('whatIsIt')}</h2>
-                <p className="text-body">{content[locale].whatIs}</p>
+                <div className="text-body whitespace-pre-line">{content[locale].whatIs}</div>
               </div>
 
               {/* Formula Details */}
@@ -155,14 +169,16 @@ const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
                   <h2 className="heading-3 mb-4">
                     {locale === 'en' ? 'Formula Details' : 'Formül Detayları'}
                   </h2>
-                  <p className="text-body">{content[locale].formulaDetails}</p>
+                  <div className="text-body whitespace-pre-line rounded-lg bg-neutral-50 p-5 border border-neutral-200">
+                    {content[locale].formulaDetails}
+                  </div>
                 </div>
               )}
 
               {/* How to Calculate */}
               <div id="how-to-calculate" className="mb-12 scroll-mt-20">
                 <h2 className="heading-3 mb-4">{t('howToCalculate')}</h2>
-                <p className="text-body">{content[locale].howToCalculate}</p>
+                <div className="text-body whitespace-pre-line">{content[locale].howToCalculate}</div>
               </div>
 
               {/* BMI Categories Table */}
@@ -179,7 +195,7 @@ const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
               {content[locale].interpretation && (
                 <div id="interpretation" className="mb-12 scroll-mt-20">
                   <h2 className="heading-3 mb-4">{t('interpretation')}</h2>
-                  <p className="text-body">{content[locale].interpretation}</p>
+                  <div className="text-body whitespace-pre-line">{content[locale].interpretation}</div>
                 </div>
               )}
 
@@ -189,7 +205,9 @@ const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
                   <h2 className="heading-3 mb-4">
                     {locale === 'en' ? 'Limitations' : 'Sınırlamalar'}
                   </h2>
-                  <p className="text-body">{content[locale].limitations}</p>
+                  <div className="rounded-lg border border-amber-200 bg-amber-50 p-5">
+                    <div className="text-body whitespace-pre-line">{content[locale].limitations}</div>
+                  </div>
                 </div>
               )}
 
@@ -199,7 +217,9 @@ const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
                   <h2 className="heading-3 mb-4">
                     {locale === 'en' ? 'Health Benefits' : 'Sağlık Faydaları'}
                   </h2>
-                  <p className="text-body">{content[locale].healthBenefits}</p>
+                  <div className="rounded-lg border border-green-200 bg-green-50 p-5">
+                    <div className="text-body whitespace-pre-line">{content[locale].healthBenefits}</div>
+                  </div>
                 </div>
               )}
 
@@ -207,9 +227,9 @@ const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
               {content[locale].improvementTips && (
                 <div id="improvement-tips" className="mb-12 scroll-mt-20">
                   <h2 className="heading-3 mb-4">
-                    {locale === 'en' ? 'How to Improve' : 'Nasıl Geliştir ilir'}
+                    {locale === 'en' ? 'How to Improve' : 'Nasıl Geliştirilir'}
                   </h2>
-                  <p className="text-body">{content[locale].improvementTips}</p>
+                  <div className="text-body whitespace-pre-line">{content[locale].improvementTips}</div>
                 </div>
               )}
 
@@ -219,7 +239,9 @@ const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
                   <h2 className="heading-3 mb-4">
                     {locale === 'en' ? 'Health Risks' : 'Sağlık Riskleri'}
                   </h2>
-                  <p className="text-body">{content[locale].healthRisks}</p>
+                  <div className="rounded-lg border border-red-200 bg-red-50 p-5">
+                    <div className="text-body whitespace-pre-line">{content[locale].healthRisks}</div>
+                  </div>
                 </div>
               )}
 
@@ -231,7 +253,7 @@ const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
                       ? 'Alternative Body Composition Measures'
                       : 'Alternatif Vücut Kompozisyonu Ölçümleri'}
                   </h2>
-                  <p className="text-body">{content[locale].alternativeMeasures}</p>
+                  <div className="text-body whitespace-pre-line">{content[locale].alternativeMeasures}</div>
                 </div>
               )}
 
@@ -243,7 +265,7 @@ const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
                       ? 'Demographic Differences'
                       : 'Demografik Farklılıklar'}
                   </h2>
-                  <p className="text-body">{content[locale].demographicDifferences}</p>
+                  <div className="text-body whitespace-pre-line">{content[locale].demographicDifferences}</div>
                 </div>
               )}
 
@@ -251,28 +273,36 @@ const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
               {content[locale].tips && content[locale].tips!.length > 0 && (
                 <div id="tips" className="mb-12 scroll-mt-20">
                   <h2 className="heading-3 mb-4">{t('tips')}</h2>
-                  <ul className="list-disc space-y-3 pl-6">
+                  <div className="grid gap-3 sm:grid-cols-2">
                     {content[locale].tips!.map((tip, index) => (
-                      <li key={index} className="text-body">
-                        {tip}
-                      </li>
+                      <div key={index} className="flex items-start gap-3 rounded-lg border border-neutral-200 bg-white p-4">
+                        <span className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700">
+                          {index + 1}
+                        </span>
+                        <span className="text-sm text-neutral-700 leading-relaxed">{tip}</span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               )}
 
-              {/* FAQs */}
+              {/* FAQs - Accordion style for better UX and SEO */}
               {content[locale].faqs && content[locale].faqs!.length > 0 && (
                 <div id="faq" className="mb-12 scroll-mt-20">
                   <h2 className="heading-3 mb-6">{t('faq')}</h2>
-                  <div className="space-y-6">
+                  <div className="divide-y divide-neutral-200 rounded-xl border border-neutral-200 bg-white">
                     {content[locale].faqs!.map((faq, index) => (
-                      <Card key={index} variant="bordered">
-                        <h3 className="mb-2 text-lg font-semibold text-neutral-900">
-                          {faq.question}
-                        </h3>
-                        <p className="text-body">{faq.answer}</p>
-                      </Card>
+                      <details key={index} className="group" {...(index === 0 ? { open: true } : {})}>
+                        <summary className="flex cursor-pointer items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-neutral-900 transition-colors hover:bg-neutral-50 [&::-webkit-details-marker]:hidden">
+                          <h3 className="text-base font-semibold">{faq.question}</h3>
+                          <span className="flex-shrink-0 text-neutral-400 transition-transform group-open:rotate-180">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                          </span>
+                        </summary>
+                        <div className="px-5 pb-4 text-body">
+                          {faq.answer}
+                        </div>
+                      </details>
                     ))}
                   </div>
                 </div>
@@ -284,7 +314,7 @@ const CalculatorLayout: React.FC<CalculatorLayoutProps> = ({
                   <ReferencesSection references={content[locale].references!} locale={locale} />
                 </div>
               )}
-            </div>
+            </article>
           </div>
         </section>
       )}

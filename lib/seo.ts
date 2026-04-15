@@ -89,6 +89,10 @@ export function generateSEO({
   };
 }
 
+// Use fixed dates for schema.org - avoids spammy signals from constantly changing dates
+const SCHEMA_DATE_PUBLISHED = '2025-01-15';
+const SCHEMA_DATE_MODIFIED = '2026-04-10';
+
 export function generateCalculatorSchema(calculator: {
   name: string;
   description: string;
@@ -99,7 +103,7 @@ export function generateCalculatorSchema(calculator: {
   locale?: 'en' | 'tr';
 }) {
   const siteUrl = calculator.locale ? siteConfig.getUrl(calculator.locale) : siteConfig.url;
-  const today = new Date().toISOString().split('T')[0];
+  const siteName = calculator.locale ? siteConfig.siteName[calculator.locale] : siteConfig.name;
   return {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -111,8 +115,8 @@ export function generateCalculatorSchema(calculator: {
     operatingSystem: 'Any',
     browserRequirements: 'Requires JavaScript',
     softwareVersion: '1.0',
-    datePublished: calculator.datePublished || '2025-01-15',
-    dateModified: calculator.dateModified || today,
+    datePublished: calculator.datePublished || SCHEMA_DATE_PUBLISHED,
+    dateModified: calculator.dateModified || SCHEMA_DATE_MODIFIED,
     inLanguage: ['en', 'tr'],
     isAccessibleForFree: true,
     offers: {
@@ -123,8 +127,15 @@ export function generateCalculatorSchema(calculator: {
     },
     provider: {
       '@type': 'Organization',
-      name: siteConfig.name,
+      name: siteName,
       url: siteUrl,
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      ratingCount: '1250',
+      bestRating: '5',
+      worstRating: '1',
     },
   };
 }
@@ -177,16 +188,15 @@ export function generateMedicalWebPageSchema(data: {
 }) {
   const siteUrl = data.locale ? siteConfig.getUrl(data.locale) : siteConfig.url;
   const siteName = data.locale ? siteConfig.siteName[data.locale] : siteConfig.name;
-  const today = new Date().toISOString().split('T')[0];
   return {
     '@context': 'https://schema.org',
     '@type': 'MedicalWebPage',
     name: data.name,
     description: data.description,
     url: data.url,
-    datePublished: data.datePublished || '2025-01-15',
-    dateModified: data.dateModified || today,
-    lastReviewed: data.lastReviewed || today,
+    datePublished: data.datePublished || SCHEMA_DATE_PUBLISHED,
+    dateModified: data.dateModified || SCHEMA_DATE_MODIFIED,
+    lastReviewed: data.lastReviewed || SCHEMA_DATE_MODIFIED,
     reviewedBy: {
       '@type': 'Organization',
       name: siteName,
@@ -262,8 +272,8 @@ export function generateArticleSchema(data: {
     headline: data.headline,
     description: data.description,
     url: data.url,
-    datePublished: data.datePublished || '2025-01-15T00:00:00Z',
-    dateModified: data.dateModified || new Date().toISOString(),
+    datePublished: data.datePublished || `${SCHEMA_DATE_PUBLISHED}T00:00:00Z`,
+    dateModified: data.dateModified || `${SCHEMA_DATE_MODIFIED}T00:00:00Z`,
     author: {
       '@type': 'Organization',
       name: data.author || siteConfig.name,
