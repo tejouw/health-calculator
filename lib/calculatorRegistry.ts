@@ -121,6 +121,8 @@ import { cholesterolMeta } from '@/calculators/heart/cholesterol-calculator/chol
 import { diabetesRiskMeta } from '@/calculators/diabetes/diabetes-risk-calculator/diabetesRiskMeta';
 // Women's Health - Menopause
 import { menopauseMeta } from '@/calculators/womens-health/menopause-calculator/menopauseMeta';
+// Heart - Mean Arterial Pressure (MAP)
+import { mapMeta } from '@/calculators/heart/mean-arterial-pressure-calculator/mapMeta';
 
 // This will be populated as we add calculators
 export const calculatorRegistry: CalculatorMeta[] = [
@@ -233,6 +235,8 @@ export const calculatorRegistry: CalculatorMeta[] = [
   diabetesRiskMeta,
   // Women's Health - Menopause
   menopauseMeta,
+  // Heart - Mean Arterial Pressure (MAP)
+  mapMeta,
 ];
 
 export function getCalculatorBySlug(slug: string, locale: 'en' | 'tr'): CalculatorMeta | undefined {

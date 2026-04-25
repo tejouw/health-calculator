@@ -145,8 +145,12 @@ export const calculatorRelations: Record<string, CalculatorRelation> = {
     secondary: ['running-pace-calculator', 'blood-pressure-calculator', 'calories-burned-calculator', 'one-rep-max-calculator', 'calorie-calculator', 'bmi-calculator', 'biological-age-calculator'],
   },
   'blood-pressure-calculator': {
-    primary: ['heart-rate-zone-calculator', 'target-heart-rate-calculator', 'life-expectancy-calculator'],
-    secondary: ['bmi-calculator', 'calorie-calculator', 'age-calculator', 'biological-age-calculator', 'waist-hip-ratio-calculator', 'gfr-calculator', 'sleep-calculator'],
+    primary: ['mean-arterial-pressure-calculator', 'heart-rate-zone-calculator', 'target-heart-rate-calculator'],
+    secondary: ['life-expectancy-calculator', 'bmi-calculator', 'calorie-calculator', 'age-calculator', 'biological-age-calculator', 'waist-hip-ratio-calculator', 'gfr-calculator', 'sleep-calculator'],
+  },
+  'mean-arterial-pressure-calculator': {
+    primary: ['blood-pressure-calculator', 'heart-rate-zone-calculator', 'target-heart-rate-calculator'],
+    secondary: ['cholesterol-calculator', 'bmi-calculator', 'biological-age-calculator', 'life-expectancy-calculator', 'waist-hip-ratio-calculator', 'gfr-calculator', 'diabetes-risk-calculator'],
   },
 
   // Sleep calculators

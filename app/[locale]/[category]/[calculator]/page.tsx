@@ -132,6 +132,8 @@ import { cholesterolContent } from '@/calculators/heart/cholesterol-calculator/c
 import { diabetesRiskContent } from '@/calculators/diabetes/diabetes-risk-calculator/diabetesRiskContent';
 // Women's Health - Menopause
 import { menopauseContent } from '@/calculators/womens-health/menopause-calculator/menopauseContent';
+// Heart - Mean Arterial Pressure (MAP)
+import { mapContent } from '@/calculators/heart/mean-arterial-pressure-calculator/mapContent';
 
 interface CalculatorPageProps {
   params: Promise<{
@@ -309,6 +311,8 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
     'diabetes-risk-calculator': diabetesRiskContent,
     // Women's Health - Menopause
     'menopause-calculator': menopauseContent,
+    // Heart - Mean Arterial Pressure (MAP)
+    'mean-arterial-pressure-calculator': mapContent,
   };
 
   const content = contentMap[calculator.id];
