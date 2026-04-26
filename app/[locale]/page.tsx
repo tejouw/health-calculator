@@ -9,12 +9,13 @@ import type { Metadata } from 'next';
 import {
   TrendingUp,
   Calculator,
-  Users,
+  LayoutGrid,
   Shield,
   Zap,
   CheckCircle2,
   ArrowRight,
-  Star
+  Star,
+  HeartHandshake,
 } from 'lucide-react';
 import { generateWebSiteSchema, generateOrganizationSchema } from '@/lib/seo';
 import { getDomainForLocale } from '@/lib/domain';
@@ -64,8 +65,8 @@ export default async function HomePage({ params }: HomePageProps) {
 
   const stats = [
     { icon: Calculator, value: calculatorCount, label: tStats('healthCalculators') },
-    { icon: Users, value: '100K+', label: tStats('activeUsers') },
-    { icon: Star, value: '4.9/5', label: tStats('userRating') },
+    { icon: LayoutGrid, value: String(categories.length), label: tStats('categoriesLabel') },
+    { icon: HeartHandshake, value: '100%', label: tStats('freeForever') },
     { icon: Shield, value: '100%', label: tStats('privacyProtected') },
   ];
 
@@ -287,23 +288,23 @@ export default async function HomePage({ params }: HomePageProps) {
           <div className="prose prose-neutral mx-auto max-w-4xl">
             <h2 className="heading-3 mb-4 text-center">
               {loc === 'en'
-                ? `Free Online Health Calculators - ${calculatorCount}+ Tools`
-                : `Ücretsiz Online Sağlık Hesaplayıcıları - ${calculatorCount}+ Araç`}
+                ? `What you get on ProHealthCalc`
+                : `ProHealthCalc'ta neler var`}
             </h2>
             <p className="text-body mb-4">
               {loc === 'en'
-                ? `ProHealthCalc offers ${calculatorCount}+ free, science-backed health calculators including BMI calculator, calorie calculator, TDEE calculator, body fat calculator, ideal weight calculator, macro calculator, and many more. All tools provide instant results without registration and are designed by health professionals using clinically validated formulas.`
-                : `Sağlık Hesapla, VKİ hesaplama, kalori hesaplama, TDEE hesaplama, vücut yağ oranı hesaplama, ideal kilo hesaplama, makro hesaplama ve daha birçok aracı içeren ${calculatorCount}+ ücretsiz, bilimsel tabanlı sağlık hesaplayıcısı sunar. Tüm araçlar kayıt gerektirmeden anında sonuç verir ve klinik olarak doğrulanmış formüller kullanan sağlık uzmanları tarafından tasarlanmıştır.`}
+                ? `${calculatorCount}+ calculators across ${categories.length} health categories — BMI, daily calorie needs (TDEE), body fat, due date, ovulation, A1C, GFR, PHQ-9, and more. Each one runs in your browser, returns a result in under a second, and shows the formula and the source it came from (WHO, CDC, NIH, AHA, peer-reviewed studies).`
+                : `${categories.length} sağlık kategorisinde ${calculatorCount}+ hesaplayıcı — VKİ, günlük kalori ihtiyacı (TDEE), vücut yağı, doğum tarihi, ovülasyon, A1C, GFR, PHQ-9 ve daha fazlası. Her biri tarayıcınızda çalışır, bir saniyenin altında sonuç verir ve formülü ile alındığı kaynağı (DSÖ, CDC, NIH, AHA, hakemli çalışmalar) gösterir.`}
             </p>
             <p className="text-body mb-4">
               {loc === 'en'
-                ? 'Whether you want to calculate your BMI, track your daily calorie needs, plan your pregnancy due date, monitor your heart rate zones, or assess your sleep quality, our comprehensive suite of health tools has you covered. Each calculator includes detailed explanations, health tips, and personalized recommendations based on your results.'
-                : 'VKİ hesaplamak, günlük kalori ihtiyacınızı takip etmek, hamilelik doğum tarihinizi planlamak, kalp atış hızı bölgelerinizi izlemek veya uyku kalitenizi değerlendirmek istiyorsanız, kapsamlı sağlık araçlarımız tam size göre. Her hesaplayıcı, sonuçlarınıza dayalı detaylı açıklamalar, sağlık ipuçları ve kişiselleştirilmiş öneriler içerir.'}
+                ? `Each calculator page includes the formula in plain language, an example calculation, what the result means, when it does not apply (athletes, pregnancy, elderly, ethnic-specific cut-offs), and links to the original guidelines. We do not collect what you type — calculations happen on your device, no account, no tracking of inputs.`
+                : `Her hesaplayıcı sayfası formülü sade bir dille, örnek bir hesaplama, sonucun ne anlama geldiği, hangi durumlarda geçerli olmadığı (sporcular, hamilelik, yaşlılar, etnik kökene göre eşik değerler) ve orijinal kılavuzlara bağlantıları içerir. Yazdıklarınızı toplamıyoruz — hesaplamalar cihazınızda yapılır, hesap yok, girdilerin takibi yok.`}
             </p>
             <p className="text-body text-sm text-neutral-500">
               {loc === 'en'
-                ? 'All calculators are free to use, require no sign-up, and your data stays private on your device. Results are for informational purposes only and do not replace professional medical advice.'
-                : 'Tüm hesaplayıcılar ücretsizdir, kayıt gerektirmez ve verileriniz cihazınızda gizli kalır. Sonuçlar yalnızca bilgilendirme amaçlıdır ve profesyonel tıbbi tavsiyenin yerini tutmaz.'}
+                ? 'These tools are for self-education. They are not a substitute for a doctor, a diagnosis, or a treatment plan. If a result concerns you, talk to a clinician who can see your full history.'
+                : 'Bu araçlar kendi kendinize bilgi edinmeniz içindir. Doktorun, teşhisin veya tedavi planının yerini tutmaz. Bir sonuç sizi endişelendiriyorsa, geçmişinizin tamamını gören bir hekime danışın.'}
             </p>
           </div>
         </div>

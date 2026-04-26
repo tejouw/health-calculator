@@ -36,7 +36,11 @@ export function generateSEO({
   const languages: Record<string, string> = {};
   languages[locale] = url;
   languages[alternateLocale] = `${getDomainForLocale(alternateLocale)}${altPath}`;
-  languages['x-default'] = `${getDomainForLocale('en')}${path}`;
+  // x-default must always point to the EN domain with the EN-localized path.
+  // On the TR site, `path` is the TR slug — pasting it onto the EN domain
+  // produces a 404 and breaks the hreflang cluster.
+  const enPath = locale === 'en' ? path : altPath;
+  languages['x-default'] = `${getDomainForLocale('en')}${enPath}`;
 
   return {
     title: fullTitle,
@@ -129,13 +133,6 @@ export function generateCalculatorSchema(calculator: {
       '@type': 'Organization',
       name: siteName,
       url: siteUrl,
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      ratingCount: '1250',
-      bestRating: '5',
-      worstRating: '1',
     },
   };
 }

@@ -213,13 +213,13 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               </h2>
               <p className="text-body mb-4">
                 {loc === 'en'
-                  ? `Explore our collection of ${calculators.length} free ${category.name.en.toLowerCase()} calculators. Each tool is designed to provide instant, science-backed results to help you track and improve your health. All calculators are free to use, require no registration, and your data stays private on your device.`
-                  : `${calculators.length} adet ücretsiz ${category.name.tr.toLowerCase()} hesaplayıcımızı keşfedin. Her araç, sağlığınızı takip etmenize ve geliştirmenize yardımcı olmak için anında bilimsel sonuçlar sunmak üzere tasarlanmıştır. Tüm hesaplayıcılar ücretsizdir, kayıt gerektirmez ve verileriniz cihazınızda gizli kalır.`}
+                  ? `${calculators.length} ${category.name.en.toLowerCase()} calculators in this category. Each one names the formula it uses and the guideline or study the formula came from — so you can verify the math instead of trusting a black box. Calculations run in your browser; nothing you enter is sent anywhere.`
+                  : `Bu kategoride ${calculators.length} adet ${category.name.tr.toLowerCase()} hesaplayıcısı var. Her biri kullandığı formülü ve formülün alındığı kılavuzu ya da çalışmayı belirtir — yani kara kutuya güvenmek yerine matematiği doğrulayabilirsiniz. Hesaplamalar tarayıcınızda yapılır; girdiğiniz hiçbir şey hiçbir yere gönderilmez.`}
               </p>
               <p className="text-body mb-6">
                 {loc === 'en'
-                  ? `Our ${category.name.en.toLowerCase()} tools use clinically validated formulas and are regularly updated to reflect the latest medical guidelines. Whether you're monitoring your health at home or preparing for a doctor's visit, these calculators provide reliable baseline measurements you can trust.`
-                  : `${category.name.tr.toLowerCase()} araçlarımız klinik olarak doğrulanmış formüller kullanır ve en güncel tıbbi kılavuzları yansıtacak şekilde düzenli olarak güncellenir. İster evde sağlığınızı takip edin, ister doktor ziyaretine hazırlanın, bu hesaplayıcılar güvenebileceğiniz temel ölçümler sunar.`}
+                  ? `${category.name.en.toLowerCase().charAt(0).toUpperCase() + category.name.en.toLowerCase().slice(1)} numbers are screening tools, not diagnoses. They are useful for spotting outliers and tracking changes over time, less useful for telling you what to do about a borderline result. For that, take the number to a clinician who can read it in the context of your full history.`
+                  : `${category.name.tr} sayıları teşhis değil tarama araçlarıdır. Aykırı değerleri yakalamak ve zaman içindeki değişiklikleri takip etmek için yararlıdır; sınırda bir sonuç hakkında ne yapmanız gerektiğini söylemek konusunda daha az yararlıdır. Bunun için sayıyı, geçmişinizin tamamı ışığında okuyabilecek bir hekime götürün.`}
               </p>
 
               <h3 className="text-lg font-semibold text-neutral-900 mb-3">
@@ -240,37 +240,11 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                 ))}
               </ul>
 
-              <h3 className="text-lg font-semibold text-neutral-900 mb-3 mt-8">
-                {loc === 'en' ? 'How to Use These Calculators' : 'Bu Hesaplayıcılar Nasıl Kullanılır?'}
-              </h3>
-              <ol className="list-decimal space-y-2 pl-6 text-body">
-                <li>
-                  {loc === 'en'
-                    ? 'Choose the calculator that best fits your needs from the list above.'
-                    : 'Yukarıdaki listeden ihtiyacınıza en uygun hesaplayıcıyı seçin.'}
-                </li>
-                <li>
-                  {loc === 'en'
-                    ? 'Enter the required values such as age, weight, height or other measurements.'
-                    : 'Yaş, kilo, boy veya diğer ölçümler gibi gerekli değerleri girin.'}
-                </li>
-                <li>
-                  {loc === 'en'
-                    ? 'Click "Calculate" to get your personalized results instantly.'
-                    : '"Hesapla" butonuna tıklayarak kişiselleştirilmiş sonuçlarınızı anında alın.'}
-                </li>
-                <li>
-                  {loc === 'en'
-                    ? 'Review the detailed interpretation, health tips and recommendations provided below your results.'
-                    : 'Sonuçlarınızın altında sunulan detaylı yorumları, sağlık ipuçlarını ve önerileri inceleyin.'}
-                </li>
-              </ol>
-
               <div className="mt-8 rounded-lg bg-primary-50 p-4 text-sm text-neutral-700">
                 <strong>{loc === 'en' ? 'Disclaimer:' : 'Sorumluluk Reddi:'}</strong>{' '}
                 {loc === 'en'
-                  ? 'These calculators are for informational and educational purposes only. They are not a substitute for professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare provider for medical decisions.'
-                  : 'Bu hesaplayıcılar yalnızca bilgilendirme ve eğitim amaçlıdır. Profesyonel tıbbi tavsiye, teşhis veya tedavinin yerini tutmaz. Tıbbi kararlar için her zaman nitelikli bir sağlık uzmanına danışın.'}
+                  ? 'These calculators are for self-education. They are not a diagnosis and they do not replace a clinician who knows your medical history. If a result concerns you, see a doctor.'
+                  : 'Bu hesaplayıcılar kendi kendinize bilgi edinmeniz içindir. Bir teşhis değildir ve tıbbi geçmişinizi bilen bir hekimin yerini tutmaz. Bir sonuç sizi endişelendiriyorsa bir doktora görünün.'}
               </div>
             </div>
           </div>

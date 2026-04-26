@@ -48,7 +48,11 @@ const nextConfig: NextConfig = {
         destination: 'https://prohealthcalc.com/:path*',
         permanent: true,
       },
-      // Redirect English category paths to Turkish equivalents (only on Turkish domain)
+      // Cross-domain slug recovery:
+      // EN-slug categories on TR domain → 301 to EN domain (same path).
+      // Earlier behaviour rewrote slug locally, but the calculator slug stayed
+      // in the wrong locale → still 404. Sending the user to the matching
+      // domain preserves the calc slug and lands on a real page.
       ...[
         { en: 'body-weight', tr: 'vucut-kilo' },
         { en: 'fitness', tr: 'fitness' },
@@ -67,10 +71,10 @@ const nextConfig: NextConfig = {
       ].filter(({ en, tr }) => en !== tr).map(({ en, tr }) => ({
         source: `/${en}/:slug*`,
         has: [{ type: 'host' as const, value: 'saglikhesapla.com' }],
-        destination: `/${tr}/:slug*`,
+        destination: `https://prohealthcalc.com/${en}/:slug*`,
         permanent: true,
       })),
-      // Redirect Turkish category paths to English equivalents (only on English domain)
+      // TR-slug categories on EN domain → 301 to TR domain (same path)
       ...[
         { en: 'body-weight', tr: 'vucut-kilo' },
         { en: 'nutrition', tr: 'beslenme' },
@@ -88,7 +92,7 @@ const nextConfig: NextConfig = {
       ].filter(({ en, tr }) => en !== tr).map(({ en, tr }) => ({
         source: `/${tr}/:slug*`,
         has: [{ type: 'host' as const, value: 'prohealthcalc.com' }],
-        destination: `/${en}/:slug*`,
+        destination: `https://saglikhesapla.com/${tr}/:slug*`,
         permanent: true,
       })),
       // Fix broken URL with ampersand
