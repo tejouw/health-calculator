@@ -8,25 +8,41 @@ pageRoutes.forEach((page) => {
   pageSlugToId[page.slug.tr] = page.id;
 });
 
+// Pre-computed regex set for malformed/legacy URL detection.
+// A previous deploy had a trailing space in NEXT_PUBLIC_EN_DOMAIN, producing
+// HTML like https://prohealthcalc.com /path. Google indexed those broken URLs
+// and still requests them. We must answer 410 Gone (not 404) so Google drops
+// them from the index instead of retrying forever.
+const MALFORMED_URL_PATTERNS: RegExp[] = [
+  /^\/https?:/i,                  // /https:/ or /http:/ leftover
+  /\s/,                            // any whitespace in path
+  /%20/i,                          // url-encoded space
+  /(prohealthcalc|saglikhesapla)\.com/i, // host bleed-through into the path
+];
+
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const hostname = request.headers.get('host') || '';
 
   // ============================================================
-  // SEO FIX 1: Return 410 Gone for double-domain URLs
-  // Legacy bug created URLs like /https:/prohealthcalc.com%20/about
-  // Google keeps re-crawling these, wasting crawl budget (~20%)
-  // 410 tells Google "permanently gone, stop crawling"
+  // SEO FIX 1: 410 Gone for malformed legacy URLs
+  // Decode once so %20 / spaces are caught even if upstream encoded them.
   // ============================================================
-  if (/^\/https?:/.test(pathname)) {
+  let decodedPath = pathname;
+  try {
+    decodedPath = decodeURIComponent(pathname);
+  } catch {
+    // Malformed encoding itself is a strong signal of a junk URL — return 410.
+    return new NextResponse(null, { status: 410, statusText: 'Gone' });
+  }
+
+  if (MALFORMED_URL_PATTERNS.some((re) => re.test(decodedPath))) {
     return new NextResponse(null, { status: 410, statusText: 'Gone' });
   }
 
   // ============================================================
   // SEO FIX 2: Strip /en/ or /tr/ locale prefix and redirect
-  // URLs like /en/terms-of-service or /tr/childrens-health
-  // should redirect to /terms-of-service or /childrens-health
-  // (domain determines locale, not prefix)
+  // Domain determines locale; prefix-form URLs are duplicates.
   // ============================================================
   const localePrefixMatch = pathname.match(/^\/(en|tr)(\/.*)?$/);
   if (localePrefixMatch) {
@@ -53,8 +69,6 @@ export default function middleware(request: NextRequest) {
     const pageId = pageSlugToId[firstSegment];
 
     if (pageId) {
-      // This is a static page with locale-aware slug
-      // Map TR slug -> EN page ID for internal routing
       const page = pageRoutes.find((p) => p.id === pageId);
       if (page) {
         pathSegments[0] = page.id;
@@ -71,12 +85,10 @@ export default function middleware(request: NextRequest) {
 }
 
 export const config = {
-  // Match all pathnames except static files and API routes
+  // Match every request EXCEPT Next.js internals and known static asset
+  // extensions. We deliberately allow paths containing dots (so we can serve
+  // 410 for legacy /https:/prohealthcalc.com/... URLs that contain `.com`).
   matcher: [
-    '/',
-    '/((?!api|_next|_vercel|.*\\..*).*)' ,
-    // Also catch double-domain URLs (contain dots but need 410 response)
-    '/https\\::path*',
-    '/http\\::path*',
+    '/((?!_next/|_vercel/|api/|favicon\\.ico|robots\\.txt|sitemap\\.xml|ads\\.txt|manifest\\.webmanifest|.*\\.(?:js|mjs|css|map|png|jpg|jpeg|gif|svg|ico|webp|avif|woff|woff2|ttf|otf|eot|pdf|json|xml|txt|mp4|webm|mp3)$).*)',
   ],
 };
